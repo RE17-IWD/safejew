@@ -5,36 +5,49 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {
-    @apply bg-cream-50 text-gray-900 font-sans antialiased;
+    @apply bg-cream-50 text-gray-900 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-navy-500;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-navy-600 text-white font-sans font-medium text-sm tracking-wide rounded hover:bg-navy-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-navy-800 text-white font-sans font-semibold text-sm rounded hover:bg-navy-900 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-navy-600 text-navy-600 font-sans font-medium text-sm tracking-wide rounded hover:bg-navy-50 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3 border border-navy-300 text-navy-700 font-sans font-semibold text-sm rounded hover:bg-navy-50 transition-colors duration-150;
   }
 
-  .btn-outline-white {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-white/60 text-white font-sans font-medium text-sm tracking-wide rounded hover:bg-white/10 transition-colors duration-150;
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gold-500 text-white font-sans font-semibold text-sm rounded hover:bg-gold-600 transition-colors duration-150;
   }
 
   .section-container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .demo-badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xs font-medium text-amber-800;
+  .label-xs {
+    @apply font-sans text-xs font-bold uppercase tracking-widest;
+  }
+
+  .card {
+    @apply bg-white border border-cream-200 rounded-xl p-6 transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .stat-card {
+    @apply bg-white border border-cream-200 rounded-xl px-5 py-4;
   }
 }
 
@@ -44,6 +57,10 @@
 }
 
 .leaflet-popup-content-wrapper {
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.leaflet-control-zoom a {
+  border-radius: 6px !important;
 }

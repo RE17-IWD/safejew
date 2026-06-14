@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, DM_Serif_Display } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -10,10 +10,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
+const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
-  weight: ['400', '600', '700'],
+  weight: ['400'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen flex flex-col bg-cream-50 font-sans">
         <Nav />
         <main className="flex-1 pt-16">{children}</main>
