@@ -23,8 +23,8 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center" style={{ minHeight: '92vh' }}>
           <div className="pt-24 pb-16">
             {/* Logo mark */}
-            <div className="mb-8">
-              <Image src="/logo-icon.svg" alt="SafeJew" width={56} height={52} priority />
+            <div className="mb-8 inline-block bg-white rounded-2xl px-5 py-4 shadow-xl">
+              <Image src="/logo.png" alt="SafeJew" width={180} height={180} priority className="object-contain" />
             </div>
 
             <h1 className="font-serif text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
