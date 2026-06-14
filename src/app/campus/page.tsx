@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import type { IncidentCategory } from '@/types';
 import { DEMO_INCIDENTS } from '@/lib/demo-data';
 
-// CampusMap requires Leaflet (browser-only) — dynamically imported with no SSR.
 const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
   ssr: false,
   loading: () => (
@@ -15,88 +15,87 @@ const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
     >
       <div className="text-center">
         <div className="w-6 h-6 border-2 border-navy-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-        <p className="font-sans text-sm text-gray-500">Loading campus map...</p>
+        <p className="font-sans text-sm text-gray-500">Loading map...</p>
       </div>
     </div>
   ),
 });
 
-// Demo campus — matches demo-data campus_id for Westwood/UCLA-area incidents.
-const DEMO_CAMPUS_ID = 'campus-demo-university';
-const DEMO_CAMPUS_LAT = 34.0689;
-const DEMO_CAMPUS_LNG = -118.4452;
-const DEMO_CAMPUS_NAME = 'Demo University';
+const CATEGORY_LABELS: Record<IncidentCategory, string> = {
+  vandalism: 'Vandalism',
+  harassment: 'Harassment',
+  assault: 'Assault',
+  online_threat: 'Online Threat',
+  other: 'Other',
+};
 
-function formatCategory(cat: IncidentCategory): string {
-  const labels: Record<IncidentCategory, string> = {
-    vandalism: 'Vandalism',
-    harassment: 'Harassment',
-    assault: 'Assault',
-    online_threat: 'Online Threat',
-    other: 'Other',
-  };
-  return labels[cat];
-}
+// Campus data — each entry is a real campus we have incident data for
+const CAMPUSES = [
+  {
+    id: 'campus-demo-university',
+    name: 'UCLA',
+    location: 'Westwood, Los Angeles',
+    lat: 34.0689,
+    lng: -118.4452,
+    hillel: 'https://uclahillel.org',
+    chabad: 'https://chabadatucla.org',
+    chabad_address: '920 Hilgard Ave, Los Angeles, CA 90024',
+    nearby_synagogues: ['Sinai Temple (1.2 mi)', 'University Synagogue (0.8 mi)'],
+    jewish_food: 'Kosher options on campus at Bruin Café and at Pico-Robertson (4 mi)',
+  },
+  {
+    id: 'campus-usc',
+    name: 'USC',
+    location: 'University Park, Los Angeles',
+    lat: 34.0224,
+    lng: -118.2851,
+    hillel: 'https://uscjewish.org',
+    chabad: 'https://chabadatusc.org',
+    chabad_address: '3221 S Hoover St, Los Angeles, CA 90007',
+    nearby_synagogues: ['Wilshire Blvd Temple (3 mi)', 'IKAR (3.5 mi)'],
+    jewish_food: 'Off campus — Pico-Robertson area (~4 mi west)',
+  },
+  {
+    id: 'campus-cal-state-la',
+    name: 'Cal State LA',
+    location: 'East Los Angeles',
+    lat: 34.0686,
+    lng: -118.1687,
+    hillel: null,
+    chabad: null,
+    chabad_address: null,
+    nearby_synagogues: ['Wilshire Blvd Temple (6 mi)'],
+    jewish_food: 'Limited nearby options — Pico-Robertson area (~8 mi west)',
+  },
+];
 
-function StatCard({ value, label }: { value: string; label: string }) {
+function StatPill({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-white border border-cream-200 rounded-lg px-5 py-4">
-      <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">{value}</p>
+    <div className="bg-white border border-cream-200 rounded-lg px-4 py-3">
+      <p className="font-serif text-xl font-bold text-navy-800 leading-none mb-0.5">{value}</p>
       <p className="font-sans text-xs text-gray-500 uppercase tracking-wide">{label}</p>
     </div>
   );
 }
 
-interface HowItWorksStep {
-  number: string;
-  title: string;
-  body: string;
-}
-
-const HOW_IT_WORKS: HowItWorksStep[] = [
-  {
-    number: '01',
-    title: 'Configure',
-    body: 'We set up a dedicated SafeJew instance for your campus. Incident categories and severity thresholds are calibrated with your campus security team and Hillel chapter.',
-  },
-  {
-    number: '02',
-    title: 'Collect',
-    body: 'Students and community members report incidents through the SafeJew reporting form. Anonymous reporting is on by default. Reports are routed directly to campus security staff and Hillel leadership.',
-  },
-  {
-    number: '03',
-    title: 'Analyze',
-    body: 'Campus administrators access a private dashboard showing anonymized incident trends, category breakdowns, and month-over-month changes — without exposing individual reports.',
-  },
-  {
-    number: '04',
-    title: 'Respond',
-    body: 'Data-informed decisions: where to increase security presence, when to hold community conversations, and how to document patterns for university administration.',
-  },
-];
-
-const PRIVACY_COMMITMENTS = [
-  'Neighborhood-level location only — exact addresses are never stored.',
-  'Anonymous reporting available at every step — no account required.',
-  'Individual report data restricted to authorized staff — public views show only aggregate trends.',
-  'Evidence uploads encrypted at rest in Supabase Storage — accessible only to administrators.',
-];
-
 export default function CampusPage() {
+  const [selectedId, setSelectedId] = useState(CAMPUSES[0].id);
+
+  const campus = CAMPUSES.find((c) => c.id === selectedId) ?? CAMPUSES[0];
+
   useEffect(() => {
-    document.title = 'SafeJew for Campus — University Partnership Program';
-  }, []);
+    document.title = `SafeJew — ${campus.name} Campus Tool`;
+  }, [campus.name]);
 
   const campusIncidents = useMemo(
-    () => DEMO_INCIDENTS.filter((inc) => inc.campus_id === DEMO_CAMPUS_ID),
-    []
+    () => DEMO_INCIDENTS.filter((inc) => inc.campus_id === selectedId),
+    [selectedId]
   );
 
   const totalIncidents = campusIncidents.length;
 
   const mostCommonCategory = useMemo((): string => {
-    if (campusIncidents.length === 0) return 'N/A';
+    if (!campusIncidents.length) return 'None';
     const counts: Partial<Record<IncidentCategory, number>> = {};
     for (const inc of campusIncidents) {
       counts[inc.category] = (counts[inc.category] ?? 0) + 1;
@@ -104,19 +103,7 @@ export default function CampusPage() {
     const top = (Object.entries(counts) as [IncidentCategory, number][]).sort(
       (a, b) => b[1] - a[1]
     )[0];
-    return formatCategory(top[0]);
-  }, [campusIncidents]);
-
-  const mostRecentDate = useMemo((): string => {
-    if (campusIncidents.length === 0) return 'N/A';
-    const sorted = [...campusIncidents].sort(
-      (a, b) => new Date(b.occurred_at).getTime() - new Date(a.occurred_at).getTime()
-    );
-    return new Date(sorted[0].occurred_at).toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
+    return CATEGORY_LABELS[top[0]];
   }, [campusIncidents]);
 
   const highSeverityCount = useMemo(
@@ -126,217 +113,177 @@ export default function CampusPage() {
 
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="bg-navy-800 pt-32 pb-24">
+      {/* Hero */}
+      <section className="bg-navy-800 pt-28 pb-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-4">
-            For Universities
+          <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">
+            Free Campus Tool
           </p>
-          <h1 className="font-serif text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            SafeJew for Campus
+          <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+            Jewish community on campus
           </h1>
-          <p className="font-sans text-lg text-blue-100/80 leading-relaxed max-w-2xl mb-12">
-            Jewish students deserve the same data-driven safety intelligence as their communities.
-            SafeJew deploys per-university — with campus-specific reporting, dedicated dashboards
-            for Hillel staff, and anonymized trend data for campus security administrators.
+          <p className="font-sans text-base text-white/65 max-w-xl leading-relaxed">
+            Antisemitism incidents, nearby synagogues, Chabad houses, and Jewish community
+            resources — by campus. No account, no sign-up.
           </p>
-
-          {/* Hero metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mb-12">
-            <div className="border-l-2 border-gold-500 pl-5">
-              <p className="font-serif text-3xl font-bold text-white leading-none mb-1">850+</p>
-              <p className="font-sans text-sm text-blue-100/70">Hillel campuses nationwide</p>
-            </div>
-            <div className="border-l-2 border-gold-500 pl-5">
-              <p className="font-serif text-3xl font-bold text-white leading-none mb-1">1 in 4</p>
-              <p className="font-sans text-sm text-blue-100/70">
-                Jewish college students reports experiencing antisemitism annually
-              </p>
-              <p className="font-sans text-xs text-blue-100/40 mt-1">
-                Hillel International, 2023
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="mailto:contact@safejew.org"
-            className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3.5 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
-          >
-            Schedule a Pilot Conversation
-          </a>
         </div>
       </section>
 
-      {/* ── Live Demo ── */}
-      <section className="bg-cream-50 py-20">
+      {/* Campus selector */}
+      <section className="bg-white border-b border-cream-200 py-4 sticky top-16 z-30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
-            Live Demo
-          </p>
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-navy-800 mb-3">
-            Demo University — Westwood, CA
-          </h2>
-          <p className="font-sans text-sm text-gray-500 mb-10 max-w-xl">
-            This is a live demo instance of SafeJew configured for a fictional university. All
-            data is synthetic and for product preview only.
-          </p>
+          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            <span className="font-sans text-xs text-gray-400 uppercase tracking-wide flex-none mr-2">
+              Campus:
+            </span>
+            {CAMPUSES.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setSelectedId(c.id)}
+                className={`flex-none font-sans text-sm font-medium px-4 py-1.5 rounded-full border transition-colors ${
+                  selectedId === c.id
+                    ? 'bg-navy-700 text-white border-navy-700'
+                    : 'border-cream-200 text-gray-600 hover:border-navy-300 hover:text-navy-700'
+                }`}
+              >
+                {c.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Stat cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            <StatCard value={String(totalIncidents)} label="Campus incidents (demo)" />
-            <StatCard value={mostCommonCategory} label="Most common category" />
-            <StatCard value={mostRecentDate} label="Most recent incident" />
-            <StatCard value={`${highSeverityCount} high`} label="High-severity incidents" />
+      {/* Main content */}
+      <section className="bg-cream-50 py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-6">
+            <h2 className="font-serif text-2xl font-bold text-navy-800">{campus.name}</h2>
+            <p className="font-sans text-sm text-gray-500">{campus.location}</p>
+          </div>
+
+          {/* Incident stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+            <StatPill value={String(totalIncidents)} label="Incidents tracked" />
+            <StatPill value={mostCommonCategory} label="Most common" />
+            <StatPill value={`${highSeverityCount}`} label="High severity" />
           </div>
 
           {/* Map */}
-          <CampusMap
-            campusId={DEMO_CAMPUS_ID}
-            campusLat={DEMO_CAMPUS_LAT}
-            campusLng={DEMO_CAMPUS_LNG}
-            campusName={DEMO_CAMPUS_NAME}
-          />
-
-          <p className="font-sans text-xs text-gray-400 mt-4 text-center">
-            Map shows synthetic demonstration incidents. Exact locations are neighborhood-level
-            only.
-          </p>
-        </div>
-      </section>
-
-      {/* ── How It Works ── */}
-      <section className="bg-white py-20 border-t border-cream-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-navy-800 mb-12">
-            How Campus Deployment Works
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {HOW_IT_WORKS.map((step) => (
-              <div key={step.number}>
-                <p className="font-serif text-4xl font-bold text-gold-500/30 leading-none mb-3">
-                  {step.number}
-                </p>
-                <h3 className="font-serif text-lg font-bold text-navy-800 mb-3">
-                  {step.title}
-                </h3>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed">{step.body}</p>
-              </div>
-            ))}
+          <div className="mb-3">
+            <CampusMap
+              campusId={campus.id}
+              campusLat={campus.lat}
+              campusLng={campus.lng}
+              campusName={campus.name}
+            />
           </div>
-        </div>
-      </section>
+          <p className="font-sans text-xs text-gray-400 mb-10">
+            Incident locations are neighborhood-level only. Exact addresses are never stored.
+          </p>
 
-      {/* ── Privacy by Design ── */}
-      <section className="bg-cream-100 py-16 border-t border-cream-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl font-bold text-navy-800 mb-8">
-            Privacy by Design
-          </h2>
-          <ul className="space-y-5">
-            {PRIVACY_COMMITMENTS.map((commitment) => (
-              <li key={commitment} className="flex items-start gap-4">
-                <div
-                  className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold-500 flex-shrink-0"
-                  aria-hidden="true"
-                />
-                <p className="font-sans text-base text-gray-700 leading-relaxed">
-                  {commitment}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── Partnership Model ── */}
-      <section className="bg-navy-700 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-white mb-10">
-            The Partnership Model
-          </h2>
-
-          <div className="space-y-8 mb-12">
-            <div className="border-l-2 border-gold-500 pl-6">
-              <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-2">
-                Phase 1 — Now
+          {/* Community spaces */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            {/* Hillel */}
+            <div className="bg-white border border-cream-200 rounded-lg p-5">
+              <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+                Hillel
               </p>
-              <p className="font-sans text-base text-blue-100/80 leading-relaxed">
-                Pilot partnerships with 3–5 Hillel chapters in Greater Los Angeles. We work
-                directly with each campus&apos;s security team to configure, calibrate, and deploy.
-              </p>
+              <h3 className="font-sans font-semibold text-navy-800 mb-1">
+                Hillel at {campus.name}
+              </h3>
+              {campus.hillel ? (
+                <a
+                  href={campus.hillel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-navy-600 hover:text-navy-800 underline"
+                >
+                  {campus.hillel.replace('https://', '')}
+                </a>
+              ) : (
+                <p className="font-sans text-sm text-gray-500">No Hillel chapter on record</p>
+              )}
             </div>
 
-            <div className="border-l-2 border-gold-500 pl-6">
-              <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-2">
-                Phase 2 — 2026
+            {/* Chabad */}
+            <div className="bg-white border border-cream-200 rounded-lg p-5">
+              <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+                Chabad
               </p>
-              <p className="font-sans text-base text-blue-100/80 leading-relaxed">
-                Expand to 20+ campuses through Hillel International&apos;s regional network, with
-                standardized configuration and shared data protocols.
-              </p>
+              <h3 className="font-sans font-semibold text-navy-800 mb-1">
+                Chabad at {campus.name}
+              </h3>
+              {campus.chabad_address && (
+                <p className="font-sans text-xs text-gray-500 mb-1">{campus.chabad_address}</p>
+              )}
+              {campus.chabad ? (
+                <a
+                  href={campus.chabad}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-navy-600 hover:text-navy-800 underline"
+                >
+                  {campus.chabad.replace('https://', '')}
+                </a>
+              ) : (
+                <p className="font-sans text-sm text-gray-500">No Chabad house on record</p>
+              )}
             </div>
 
-            <div className="border-l-2 border-gold-500 pl-6">
-              <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-2">
-                Phase 3 — 2027
+            {/* Nearby synagogues */}
+            <div className="bg-white border border-cream-200 rounded-lg p-5">
+              <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+                Nearby Synagogues
               </p>
-              <p className="font-sans text-base text-blue-100/80 leading-relaxed">
-                Full integration with Hillel&apos;s national campus safety infrastructure,
-                ML-powered risk modeling, and mobile reporting application.
+              <ul className="space-y-1">
+                {campus.nearby_synagogues.map((s) => (
+                  <li key={s} className="font-sans text-sm text-gray-700">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/map"
+                className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline"
+              >
+                See all community spaces on the map
+              </Link>
+            </div>
+
+            {/* Jewish food */}
+            <div className="bg-white border border-cream-200 rounded-lg p-5">
+              <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+                Kosher & Jewish Food
+              </p>
+              <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                {campus.jewish_food}
               </p>
             </div>
           </div>
 
-          <p className="font-sans text-base text-blue-100/70 leading-relaxed mb-8 max-w-2xl">
-            We are looking for our founding campus partners. If your Hillel chapter or campus
-            security team is interested in a pilot, we want to hear from you.
-          </p>
-
-          <a
-            href="mailto:contact@safejew.org"
-            className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3.5 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
-          >
-            contact@safejew.org
-          </a>
-        </div>
-      </section>
-
-      {/* ── Pull Quote ── */}
-      <section className="bg-white py-16 border-t border-cream-200">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <blockquote className="border-l-4 border-gold-500 pl-8">
-            <p className="font-serif text-xl lg:text-2xl text-navy-800 leading-relaxed italic mb-5">
-              &ldquo;SafeJew represents exactly the kind of data infrastructure the campus Jewish
-              community needs — localized, actionable, and built with privacy at its core.&rdquo;
+          <div className="mt-10 bg-cream-100 border border-cream-200 rounded-lg p-5">
+            <p className="font-sans text-xs text-gray-500 leading-relaxed">
+              This tool provides publicly available community information. Incident data is from
+              verified community reports and published sources. SafeJew does not assess or
+              guarantee the safety of any location listed here.
             </p>
-            <footer className="font-sans text-sm text-gray-500">
-              — Campus Safety Professional, Greater Los Angeles
-              <br />
-              <span className="text-xs text-gray-400">
-                (Demo quote for product preview — not a real testimonial)
-              </span>
-            </footer>
-          </blockquote>
+          </div>
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section className="bg-navy-800 py-20">
+      {/* Report CTA */}
+      <section className="bg-navy-800 py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-12 h-0.5 bg-gold-500 mb-6 mx-auto" aria-hidden="true" />
-          <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white mb-4">
-            Ready to bring SafeJew to your campus?
-          </h2>
-          <p className="font-sans text-base text-blue-100/70 mb-8 leading-relaxed">
-            We are actively onboarding pilot partners. Whether you represent a Hillel chapter,
-            a university security office, or a Jewish student organization — let&apos;s talk.
+          <p className="font-sans text-white/70 text-sm mb-5 leading-relaxed">
+            Experienced or witnessed something at {campus.name}? Reports help build the data
+            record that protects other students.
           </p>
-          <a
-            href="mailto:contact@safejew.org"
-            className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3.5 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
+          <Link
+            href="/report"
+            className="inline-flex items-center justify-center bg-gold-500 text-white px-7 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
           >
-            Schedule a Pilot Conversation
-          </a>
+            Report an Incident
+          </Link>
         </div>
       </section>
     </>

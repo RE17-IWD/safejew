@@ -1,0 +1,12 @@
+<svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+  <!-- Star of David — triangle pointing up -->
+  <polygon points="60,8 101,78 19,78" fill="#1a56db"/>
+  <!-- Star of David — triangle pointing down -->
+  <polygon points="60,102 19,32 101,32" fill="#1a56db"/>
+  <!-- Eye — outer ring -->
+  <circle cx="60" cy="55" r="14" fill="#5b9bd5"/>
+  <!-- Eye — iris -->
+  <circle cx="60" cy="55" r="8" fill="#1a56db"/>
+  <!-- Eye — pupil -->
+  <circle cx="60" cy="55" r="3.5" fill="#0a1f44"/>
+</svg>

@@ -22,7 +22,7 @@ const IncidentMap = dynamic(() => import('@/components/map/IncidentMap'), {
 export default function MapPage() {
   const demo = isDemoMode();
   return (
-    <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)', marginTop: '4rem' }}>
+    <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)' }}>
       {demo && (
         <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center flex-none">
           <span className="text-xs font-sans font-medium text-amber-800">

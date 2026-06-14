@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg">
+  <!-- Star of David — triangle pointing up -->
+  <polygon points="100,8 141,78 59,78" fill="#1a56db"/>
+  <!-- Star of David — triangle pointing down -->
+  <polygon points="100,102 59,32 141,32" fill="#1a56db"/>
+  <!-- Eye — outer ring -->
+  <circle cx="100" cy="55" r="15" fill="#5b9bd5"/>
+  <!-- Eye — iris -->
+  <circle cx="100" cy="55" r="9" fill="#1a56db"/>
+  <!-- Eye — pupil -->
+  <circle cx="100" cy="55" r="4" fill="#0a1f44"/>
+  <!-- Wordmark -->
+  <text x="100" y="148" text-anchor="middle" fill="#1a56db"
+        font-family="system-ui, -apple-system, Arial, sans-serif"
+        font-weight="800" font-size="28" letter-spacing="0.5">SafeJew</text>
+</svg>
