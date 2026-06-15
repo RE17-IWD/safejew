@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Jewish Safety Resources',
   description:
-    'Practical safety resources for the Jewish community — self-defense, security organizations, legal help, and emergency contacts in Los Angeles.',
+    'Practical safety resources for the Jewish community in Los Angeles: self-defense, security organizations, legal help, and emergency contacts.',
 };
 
 const KRAV_STUDIOS = [
@@ -200,7 +200,7 @@ export default function SafetyPage() {
             Safety Resources
           </h1>
           <p className="font-sans text-lg text-blue-100/75 max-w-2xl leading-relaxed">
-            Practical resources for the Jewish community in Los Angeles — self-defense, security
+            Practical resources for the Jewish community in Los Angeles. Self-defense, security
             organizations, legal help, and who to call.
           </p>
         </div>

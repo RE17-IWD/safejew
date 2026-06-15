@@ -61,8 +61,10 @@ export async function POST(request: NextRequest) {
 
     const { createServiceClient } = await import('@/lib/supabase/server');
     const supabase = createServiceClient();
+
+    // Insert into incidents table with status=pending so it queues for review
     const { data, error } = await supabase
-      .from('reports')
+      .from('incidents')
       .insert({
         category,
         description: description.slice(0, 2000),

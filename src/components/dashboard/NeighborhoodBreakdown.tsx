@@ -1,12 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import {
   ResponsiveContainer,
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Cell,
   LabelList,
@@ -20,9 +20,27 @@ interface NeighborhoodBreakdownProps {
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (!active || !payload || payload.length === 0) return null;
   return (
-    <div className="bg-white border border-cream-200 rounded shadow-sm px-3 py-2 font-sans text-xs">
-      <p className="font-semibold text-navy-800 mb-0.5">{label}</p>
-      <p className="text-gray-600">
+    <div
+      style={{
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
+        borderRadius: 8,
+        padding: '8px 14px',
+        boxShadow: '0 2px 8px rgba(14,24,85,0.10)',
+      }}
+    >
+      <p
+        style={{
+          fontFamily: 'var(--font-inter)',
+          fontSize: 11,
+          fontWeight: 600,
+          color: '#0e1855',
+          marginBottom: 2,
+        }}
+      >
+        {label}
+      </p>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>
         {payload[0].value}{' '}
         {(payload[0].value as number) === 1 ? 'incident' : 'incidents'}
       </p>
@@ -31,14 +49,16 @@ function CustomTooltip({ active, payload, label }: TooltipProps<number, string>)
 }
 
 export default function NeighborhoodBreakdown({ data }: NeighborhoodBreakdownProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const top10 = data.slice(0, 10);
+
   return (
-    <ResponsiveContainer width="100%" height={Math.max(180, data.length * 44)}>
+    <ResponsiveContainer width="100%" height={Math.max(180, top10.length * 44)}>
       <BarChart
-        data={data}
+        data={top10}
         layout="vertical"
         margin={{ top: 4, right: 48, left: 8, bottom: 4 }}
       >
-        <CartesianGrid strokeDasharray="4 4" stroke="#ede9e2" horizontal={false} />
         <XAxis
           type="number"
           tick={{ fontFamily: 'var(--font-inter)', fontSize: 11, fill: '#9ca3af' }}
@@ -54,10 +74,20 @@ export default function NeighborhoodBreakdown({ data }: NeighborhoodBreakdownPro
           axisLine={false}
           tickLine={false}
         />
-        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f0f4f8' }} />
-        <Bar dataKey="count" radius={[0, 3, 3, 0]} maxBarSize={28}>
-          {data.map((_, index) => (
-            <Cell key={index} fill="#1e3a5f" />
+        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f5f4f0' }} />
+        <Bar
+          dataKey="count"
+          radius={[0, 4, 4, 0]}
+          maxBarSize={26}
+          onMouseEnter={(_: unknown, index: number) => setActiveIndex(index)}
+          onMouseLeave={() => setActiveIndex(null)}
+        >
+          {top10.map((_, index) => (
+            <Cell
+              key={index}
+              fill={activeIndex === index ? '#d97706' : '#0e1855'}
+              fillOpacity={activeIndex === index ? 1 : 0.85}
+            />
           ))}
           <LabelList
             dataKey="count"

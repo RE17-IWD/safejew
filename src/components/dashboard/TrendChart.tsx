@@ -2,8 +2,8 @@
 
 import {
   ResponsiveContainer,
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -18,9 +18,27 @@ interface TrendChartProps {
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (!active || !payload || payload.length === 0) return null;
   return (
-    <div className="bg-white border border-cream-200 rounded shadow-sm px-3 py-2 font-sans text-xs">
-      <p className="font-semibold text-navy-800 mb-0.5">{label}</p>
-      <p className="text-gray-600">
+    <div
+      style={{
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
+        borderRadius: 8,
+        padding: '8px 14px',
+        boxShadow: '0 2px 8px rgba(14,24,85,0.10)',
+      }}
+    >
+      <p
+        style={{
+          fontFamily: 'var(--font-inter)',
+          fontSize: 11,
+          fontWeight: 600,
+          color: '#0e1855',
+          marginBottom: 2,
+        }}
+      >
+        {label}
+      </p>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>
         {payload[0].value}{' '}
         {(payload[0].value as number) === 1 ? 'incident' : 'incidents'}
       </p>
@@ -31,8 +49,14 @@ function CustomTooltip({ active, payload, label }: TooltipProps<number, string>)
 export default function TrendChart({ data }: TrendChartProps) {
   return (
     <ResponsiveContainer width="100%" height={280}>
-      <LineChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 4 }}>
-        <CartesianGrid strokeDasharray="4 4" stroke="#ede9e2" vertical={false} />
+      <AreaChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 4 }}>
+        <defs>
+          <linearGradient id="navyGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#1d2f8f" stopOpacity={0.4} />
+            <stop offset="100%" stopColor="#1d2f8f" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
         <XAxis
           dataKey="month"
           tick={{ fontFamily: 'var(--font-inter)', fontSize: 11, fill: '#9ca3af' }}
@@ -48,15 +72,16 @@ export default function TrendChart({ data }: TrendChartProps) {
           width={32}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Line
+        <Area
           type="monotone"
           dataKey="count"
-          stroke="#1e3a5f"
+          stroke="#0e1855"
           strokeWidth={2}
-          dot={{ r: 3, fill: '#1e3a5f', strokeWidth: 0 }}
-          activeDot={{ r: 5, fill: '#1e3a5f', strokeWidth: 0 }}
+          fill="url(#navyGradient)"
+          dot={{ r: 3, fill: '#0e1855', strokeWidth: 0 }}
+          activeDot={{ r: 5, fill: '#d97706', strokeWidth: 0 }}
         />
-      </LineChart>
+      </AreaChart>
     </ResponsiveContainer>
   );
 }

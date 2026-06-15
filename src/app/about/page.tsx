@@ -225,7 +225,7 @@ export default function AboutPage() {
               {
                 label: 'Verified data partnerships',
                 detail:
-                  'Direct data feeds from ADL and JFEDLA for live, verified incident data — not relying solely on public datasets.',
+                  'Direct data feeds from ADL and JFEDLA for live, verified incident data. Not relying solely on public datasets.',
               },
               {
                 label: 'Mobile reporting application',
@@ -246,7 +246,7 @@ export default function AboutPage() {
               {
                 label: 'University partnership program',
                 detail:
-                  'A structured campus deployment with Hillel International and campus security teams — per-institution data segmentation, anonymized student reporting, and administrator dashboards.',
+                  'A structured campus deployment with Hillel International and campus security teams. Per-institution data segmentation, anonymized student reporting, and administrator dashboards.',
               },
             ].map(({ label, detail, note }) => (
               <li key={label} className="flex gap-4">

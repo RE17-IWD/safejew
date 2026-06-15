@@ -23,8 +23,17 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo + wordmark */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <Image src="/logo.png" alt="SafeJew" width={120} height={40} priority className="object-contain" />
+          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+            <div className="relative w-8 h-8 overflow-hidden flex-shrink-0">
+              <Image
+                src="/logo.png"
+                fill
+                alt=""
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+            <span className="font-sans font-bold text-lg text-navy-800 tracking-tight">SafeJew</span>
           </Link>
 
           {/* Desktop nav */}

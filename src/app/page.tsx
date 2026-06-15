@@ -35,7 +35,7 @@ export default function HomePage() {
               <span className="text-gold-400">is happening.</span>
             </h1>
             <p className="font-sans text-lg text-white/70 max-w-xl leading-relaxed mb-10">
-              SafeJew maps antisemitic incidents across Greater Los Angeles — pulling from
+              SafeJew maps antisemitic incidents across Greater Los Angeles. We pull from
               community reports, LAPD, ADL, and FBI data so you can see the real picture.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -167,8 +167,8 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { abbr: 'ADL', full: 'Anti-Defamation League — Annual Audit' },
-              { abbr: 'LAPD', full: 'LA Police Department — Hate Crime Reports' },
+              { abbr: 'ADL', full: 'Anti-Defamation League, Annual Audit' },
+              { abbr: 'LAPD', full: 'LA Police Department, Hate Crime Reports' },
               { abbr: 'FBI', full: 'FBI Uniform Crime Reporting' },
               { abbr: 'CSI', full: 'JFEDLA Community Security Initiative' },
             ].map((s) => (

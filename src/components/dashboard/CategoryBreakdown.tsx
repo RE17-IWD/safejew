@@ -6,7 +6,6 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Cell,
   LabelList,
@@ -17,12 +16,42 @@ interface CategoryBreakdownProps {
   data: Array<{ category: string; count: number }>;
 }
 
+const CATEGORY_COLORS: Record<string, string> = {
+  harassment: '#1d2f8f',
+  vandalism: '#d97706',
+  online_threat: '#4a5cf5',
+  assault: '#dc2626',
+  other: '#6b7280',
+};
+
+function categoryColor(cat: string): string {
+  return CATEGORY_COLORS[cat] ?? '#0e1855';
+}
+
 function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (!active || !payload || payload.length === 0) return null;
   return (
-    <div className="bg-white border border-cream-200 rounded shadow-sm px-3 py-2 font-sans text-xs">
-      <p className="font-semibold text-navy-800 mb-0.5">{label}</p>
-      <p className="text-gray-600">
+    <div
+      style={{
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
+        borderRadius: 8,
+        padding: '8px 14px',
+        boxShadow: '0 2px 8px rgba(14,24,85,0.10)',
+      }}
+    >
+      <p
+        style={{
+          fontFamily: 'var(--font-inter)',
+          fontSize: 11,
+          fontWeight: 600,
+          color: '#0e1855',
+          marginBottom: 2,
+        }}
+      >
+        {label}
+      </p>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>
         {payload[0].value}{' '}
         {(payload[0].value as number) === 1 ? 'incident' : 'incidents'}
       </p>
@@ -32,7 +61,7 @@ function CustomTooltip({ active, payload, label }: TooltipProps<number, string>)
 
 function formatCategory(cat: string): string {
   return cat
-    .replace('_', ' ')
+    .replace(/_/g, ' ')
     .replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
@@ -46,7 +75,6 @@ export default function CategoryBreakdown({ data }: CategoryBreakdownProps) {
         layout="vertical"
         margin={{ top: 4, right: 48, left: 8, bottom: 4 }}
       >
-        <CartesianGrid strokeDasharray="4 4" stroke="#ede9e2" horizontal={false} />
         <XAxis
           type="number"
           tick={{ fontFamily: 'var(--font-inter)', fontSize: 11, fill: '#9ca3af' }}
@@ -57,15 +85,15 @@ export default function CategoryBreakdown({ data }: CategoryBreakdownProps) {
         <YAxis
           type="category"
           dataKey="label"
-          width={108}
+          width={112}
           tick={{ fontFamily: 'var(--font-inter)', fontSize: 12, fill: '#374151' }}
           axisLine={false}
           tickLine={false}
         />
-        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f0f4f8' }} />
-        <Bar dataKey="count" radius={[0, 3, 3, 0]} maxBarSize={28}>
-          {formatted.map((_, index) => (
-            <Cell key={index} fill="#1e3a5f" />
+        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f5f4f0' }} />
+        <Bar dataKey="count" radius={[0, 4, 4, 0]} maxBarSize={26}>
+          {formatted.map((entry, index) => (
+            <Cell key={index} fill={categoryColor(entry.category)} />
           ))}
           <LabelList
             dataKey="count"

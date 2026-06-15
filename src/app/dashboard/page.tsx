@@ -29,7 +29,7 @@ export default function DashboardPage() {
           setIncidents(Array.isArray(data) ? data : (data.incidents ?? []));
         }
       } catch {
-        // Demo mode — leave incidents empty
+        // API handles demo fallback — leave incidents empty on network failure
       } finally {
         setIsLoading(false);
       }
@@ -46,6 +46,7 @@ export default function DashboardPage() {
     monthlyData,
     categoryData,
     neighborhoodData,
+    severityCounts,
   } = useMemo(() => {
     const now = new Date();
     const currentYear = now.getFullYear();
@@ -111,6 +112,13 @@ export default function DashboardPage() {
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
+    // Severity breakdown
+    const sevMap: Record<string, number> = { low: 0, medium: 0, high: 0 };
+    incidents.forEach((inc) => {
+      const sev = inc.severity as string;
+      if (sev in sevMap) sevMap[sev] = (sevMap[sev] ?? 0) + 1;
+    });
+
     return {
       totalIncidents: incidents.length,
       thisMonth: thisMonthCount,
@@ -120,6 +128,7 @@ export default function DashboardPage() {
       monthlyData: monthly,
       categoryData: categories,
       neighborhoodData: neighborhoods,
+      severityCounts: sevMap,
     };
   }, [incidents]);
 
@@ -141,15 +150,6 @@ export default function DashboardPage() {
 
       <section className="bg-cream-50 py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          {/* Demo banner */}
-          <div className="border border-amber-300 bg-amber-50 rounded-lg px-6 py-4">
-            <p className="font-sans text-sm text-amber-900 leading-relaxed">
-              <strong>Demo mode:</strong> The dashboard below shows live-aggregated data
-              from the database when connected. In demo mode without Supabase credentials,
-              charts will be empty or show placeholder values.
-            </p>
-          </div>
-
           {/* Loading state */}
           {isLoading && (
             <div className="flex items-center justify-center py-16">
@@ -220,6 +220,80 @@ export default function DashboardPage() {
                       <p className="font-sans text-sm text-gray-400">No data available</p>
                     </div>
                   )}
+                </div>
+              </div>
+
+              {/* Severity Breakdown */}
+              <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+                <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
+                  Severity Breakdown
+                </h2>
+                <p className="font-sans text-xs text-gray-400 mb-6">
+                  Distribution of verified incidents by reported severity level
+                </p>
+                <div className="grid grid-cols-3 gap-4">
+                  {/* High */}
+                  <div className="flex flex-col items-center text-center border border-red-100 rounded-lg px-4 py-5 bg-red-50">
+                    <span
+                      className="inline-block w-3 h-3 rounded-full mb-3"
+                      style={{ background: '#dc2626' }}
+                      aria-hidden="true"
+                    />
+                    <p
+                      className="font-serif text-3xl font-bold leading-none mb-1"
+                      style={{ color: '#dc2626' }}
+                    >
+                      {severityCounts.high ?? 0}
+                    </p>
+                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
+                      High
+                    </p>
+                    <p className="font-sans text-xs text-gray-400 mt-0.5">
+                      Serious or credible threat
+                    </p>
+                  </div>
+
+                  {/* Medium */}
+                  <div className="flex flex-col items-center text-center border border-amber-100 rounded-lg px-4 py-5 bg-amber-50">
+                    <span
+                      className="inline-block w-3 h-3 rounded-full mb-3"
+                      style={{ background: '#d97706' }}
+                      aria-hidden="true"
+                    />
+                    <p
+                      className="font-serif text-3xl font-bold leading-none mb-1"
+                      style={{ color: '#d97706' }}
+                    >
+                      {severityCounts.medium ?? 0}
+                    </p>
+                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
+                      Medium
+                    </p>
+                    <p className="font-sans text-xs text-gray-400 mt-0.5">
+                      Significant concern
+                    </p>
+                  </div>
+
+                  {/* Low */}
+                  <div className="flex flex-col items-center text-center border border-green-100 rounded-lg px-4 py-5 bg-green-50">
+                    <span
+                      className="inline-block w-3 h-3 rounded-full mb-3"
+                      style={{ background: '#059669' }}
+                      aria-hidden="true"
+                    />
+                    <p
+                      className="font-serif text-3xl font-bold leading-none mb-1"
+                      style={{ color: '#059669' }}
+                    >
+                      {severityCounts.low ?? 0}
+                    </p>
+                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
+                      Low
+                    </p>
+                    <p className="font-sans text-xs text-gray-400 mt-0.5">
+                      Minor, no immediate threat
+                    </p>
+                  </div>
                 </div>
               </div>
 
