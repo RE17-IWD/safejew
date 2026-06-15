@@ -123,7 +123,7 @@ export default function AboutPage() {
               <p>
                 V1 had real limitations. The mobile experience was poor — most people
                 reporting incidents were on their phones, and the interface was not built for
-                them. The analytics were shallow; the map showed incidents but did not help
+                them. The analytics were shallow. The map showed incidents but did not help
                 users understand trajectory or concentration. There was no campus layer,
                 which turned out to be a major gap as antisemitism on college campuses
                 intensified in late 2023 and 2024. And practically: the domain lapsed during

@@ -634,7 +634,8 @@ export default function CampusPage() {
     [campusIncidents]
   );
 
-  const showMap = campus?.hasDemoData === true;
+  const hasDemoData = campusIncidents.length > 0;
+  const showMap = hasDemoData && campus !== null;
 
   return (
     <>
@@ -678,7 +679,7 @@ export default function CampusPage() {
                   </p>
                 )}
               </div>
-              {campus.hasDemoData && (
+              {hasDemoData && (
                 <span className="inline-flex items-center gap-1 self-start sm:self-auto bg-gold-100 text-gold-700 font-sans text-xs font-semibold px-3 py-1 rounded-full border border-gold-200">
                   <svg viewBox="0 0 10 10" className="w-2 h-2 fill-current"><circle cx="5" cy="5" r="4" /></svg>
                   Incident data available
@@ -687,7 +688,7 @@ export default function CampusPage() {
             </div>
 
             {/* Incident tracking section */}
-            {campus.hasDemoData ? (
+            {hasDemoData ? (
               <>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                   <StatPill value={String(totalIncidents)} label="Incidents tracked" />
