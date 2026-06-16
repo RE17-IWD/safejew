@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
+import { MapContainer, TileLayer, CircleMarker, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Incident, IncidentCategory } from '@/types';
 import { DEMO_INCIDENTS, isDemoMode } from '@/lib/demo-data';
@@ -36,42 +35,19 @@ function formatCategory(cat: IncidentCategory): string {
     online_threat: 'Online Threat',
     other: 'Other',
   };
-  return labels[cat];
+  return labels[cat] ?? cat;
 }
 
 function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-}
-
-// Renders the campus boundary circle after the map is mounted.
-function CampusBoundary({
-  lat,
-  lng,
-}: {
-  lat: number;
-  lng: number;
-}) {
-  const map = useMap();
-
-  useEffect(() => {
-    const circle = L.circle([lat, lng], {
-      radius: 800,
-      color: '#1e3a5f',
-      weight: 2,
-      opacity: 0.6,
-      fill: false,
-    }).addTo(map);
-
-    return () => {
-      circle.remove();
-    };
-  }, [map, lat, lng]);
-
-  return null;
+  try {
+    return new Date(iso).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  } catch {
+    return iso;
+  }
 }
 
 export default function CampusMap({
@@ -84,6 +60,9 @@ export default function CampusMap({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+    setIncidents([]);
+
     const load = async () => {
       try {
         if (isDemoMode()) {
@@ -122,9 +101,10 @@ export default function CampusMap({
   return (
     <div className="rounded-lg overflow-hidden border border-cream-200" style={{ height: 400 }}>
       <MapContainer
+        key={campusId}
         center={[campusLat, campusLng]}
         zoom={14}
-        style={{ height: '100%', width: '100%' }}
+        style={{ height: '400px', width: '100%' }}
         scrollWheelZoom={false}
       >
         <TileLayer
@@ -132,31 +112,50 @@ export default function CampusMap({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <CampusBoundary lat={campusLat} lng={campusLng} />
+        {/* Campus boundary circle — declarative, no imperative L.circle */}
+        <Circle
+          center={[campusLat, campusLng]}
+          radius={800}
+          pathOptions={{
+            color: '#1e3a5f',
+            weight: 2,
+            opacity: 0.6,
+            fill: false,
+          }}
+        />
 
-        {incidents.map((inc) => (
-          <CircleMarker
-            key={inc.id}
-            center={[inc.lat, inc.lng]}
-            radius={8}
-            pathOptions={{
-              color: CATEGORY_COLORS[inc.category],
-              fillColor: CATEGORY_COLORS[inc.category],
-              fillOpacity: SEVERITY_OPACITY[inc.severity] ?? 0.7,
-              weight: 1.5,
-            }}
-          >
-            <Popup>
-              <div className="font-sans text-xs leading-relaxed min-w-[160px]">
-                <p className="font-semibold text-navy-800 mb-1">
-                  {formatCategory(inc.category)}
-                </p>
-                <p className="text-gray-500 mb-1">{inc.neighborhood}</p>
-                <p className="text-gray-400">{formatDate(inc.occurred_at)}</p>
-              </div>
-            </Popup>
-          </CircleMarker>
-        ))}
+        {incidents.map((inc) => {
+          const lat = Number(inc.lat);
+          const lng = Number(inc.lng);
+          if (!isFinite(lat) || !isFinite(lng)) return null;
+          const category = (inc.category ?? 'other') as IncidentCategory;
+          const severity = inc.severity ?? 'medium';
+          const color = CATEGORY_COLORS[category] ?? '#4a5568';
+          const opacity = SEVERITY_OPACITY[severity] ?? 0.7;
+          return (
+            <CircleMarker
+              key={inc.id}
+              center={[lat, lng]}
+              radius={8}
+              pathOptions={{
+                color,
+                fillColor: color,
+                fillOpacity: opacity,
+                weight: 1.5,
+              }}
+            >
+              <Popup>
+                <div className="font-sans text-xs leading-relaxed min-w-[160px]">
+                  <p className="font-semibold text-navy-800 mb-1">
+                    {formatCategory(category)}
+                  </p>
+                  <p className="text-gray-500 mb-1">{inc.neighborhood ?? ''}</p>
+                  <p className="text-gray-400">{inc.occurred_at ? formatDate(inc.occurred_at) : ''}</p>
+                </div>
+              </Popup>
+            </CircleMarker>
+          );
+        })}
       </MapContainer>
 
       {/* Legend */}
