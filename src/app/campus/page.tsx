@@ -599,6 +599,158 @@ function CampusSearch({
   );
 }
 
+function CampusSuggestForm() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: '', city: '', state: '', website: '', notes: '', email: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError('');
+    try {
+      const res = await fetch('/api/campus-requests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          city: form.city,
+          state: form.state,
+          website: form.website || null,
+          notes: form.notes || null,
+          requester_email: form.email || null,
+        }),
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d.error || 'Submission failed');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  if (!open) {
+    return (
+      <div className="mt-10">
+        <button
+          onClick={() => setOpen(true)}
+          className="font-sans text-sm text-navy-600 hover:text-navy-800 underline underline-offset-2"
+        >
+          Don&apos;t see your campus? Request it →
+        </button>
+      </div>
+    );
+  }
+
+  if (submitted) {
+    return (
+      <div className="mt-10 max-w-md mx-auto bg-white border border-cream-200 rounded-lg p-6 text-left">
+        <p className="font-sans text-sm font-semibold text-navy-800 mb-1">Request received</p>
+        <p className="font-sans text-sm text-gray-600">
+          We&apos;ll review your suggestion and add the campus if we can verify the information.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-10 max-w-md mx-auto bg-white border border-cream-200 rounded-lg p-6 text-left">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-sans text-sm font-semibold text-navy-800">Suggest a Campus</h3>
+        <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-gray-600 text-lg leading-none">&times;</button>
+      </div>
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div>
+          <label className="block font-sans text-xs font-medium text-gray-600 mb-1">
+            School name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            required
+            value={form.name}
+            onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+            placeholder="e.g. University of Chicago"
+            className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <label className="block font-sans text-xs font-medium text-gray-600 mb-1">
+              City <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              required
+              value={form.city}
+              onChange={(e) => setForm((p) => ({ ...p, city: e.target.value }))}
+              placeholder="Chicago"
+              className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+            />
+          </div>
+          <div>
+            <label className="block font-sans text-xs font-medium text-gray-600 mb-1">
+              State <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              required
+              maxLength={2}
+              value={form.state}
+              onChange={(e) => setForm((p) => ({ ...p, state: e.target.value.toUpperCase() }))}
+              placeholder="IL"
+              className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+            />
+          </div>
+        </div>
+        <div>
+          <label className="block font-sans text-xs font-medium text-gray-600 mb-1">School website (optional)</label>
+          <input
+            type="url"
+            value={form.website}
+            onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))}
+            placeholder="https://..."
+            className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+          />
+        </div>
+        <div>
+          <label className="block font-sans text-xs font-medium text-gray-600 mb-1">Why add this campus? (optional)</label>
+          <textarea
+            rows={2}
+            value={form.notes}
+            onChange={(e) => setForm((p) => ({ ...p, notes: e.target.value }))}
+            placeholder="Any context on antisemitism incidents or Jewish student population…"
+            className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+          />
+        </div>
+        <div>
+          <label className="block font-sans text-xs font-medium text-gray-600 mb-1">Your email (optional)</label>
+          <input
+            type="email"
+            value={form.email}
+            onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+            placeholder="you@example.com"
+            className="border border-gray-300 rounded px-3 py-2 w-full font-sans text-sm focus:outline-none focus:ring-1 focus:ring-navy-500"
+          />
+        </div>
+        {error && <p className="font-sans text-sm text-red-600">{error}</p>}
+        <button
+          type="submit"
+          disabled={submitting || !form.name || !form.city || !form.state}
+          className="w-full bg-navy-800 text-white rounded px-4 py-2 font-sans text-sm font-semibold hover:bg-navy-700 transition-colors disabled:opacity-40"
+        >
+          {submitting ? 'Submitting…' : 'Submit Request'}
+        </button>
+      </form>
+    </div>
+  );
+}
+
 export default function CampusPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -845,7 +997,7 @@ export default function CampusPage() {
           </div>
         </section>
       ) : (
-        /* No campus selected — show browse prompt */
+        /* No campus selected — show browse prompt + suggest form */
         <section className="bg-cream-50 py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="font-sans text-gray-500 text-sm mb-2">
@@ -855,7 +1007,7 @@ export default function CampusPage() {
               Covering {CAMPUSES.length} campuses — more being added regularly.
             </p>
 
-            {/* Quick-pick chips for a few well-known campuses */}
+            {/* Quick-pick chips */}
             <div className="mt-8 flex flex-wrap justify-center gap-2">
               {CAMPUSES.filter((c) => c.hasDemoData || ['campus-columbia', 'campus-harvard', 'campus-nyu', 'campus-michigan', 'campus-brandeis'].includes(c.id)).map((c) => (
                 <button
@@ -867,6 +1019,9 @@ export default function CampusPage() {
                 </button>
               ))}
             </div>
+
+            {/* Suggest a campus */}
+            <CampusSuggestForm />
           </div>
         </section>
       )}

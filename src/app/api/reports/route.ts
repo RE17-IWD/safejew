@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isDemoMode } from '@/lib/demo-data';
 
 const NEIGHBORHOOD_CENTROIDS: Record<string, [number, number]> = {
   'Beverly Hills': [34.0736, -118.4004],
@@ -29,17 +30,8 @@ function jitter(val: number): number {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const {
-      category,
-      description,
-      occurred_at,
-      neighborhood,
-      severity,
-      is_anonymous,
-      reporter_contact,
-    } = body;
+    const { category, description, occurred_at, neighborhood, severity, is_anonymous, reporter_contact } = body;
 
-    // Basic validation
     if (!category || !description || !occurred_at || !neighborhood || !severity) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
@@ -51,20 +43,16 @@ export async function POST(request: NextRequest) {
     const lat = jitter(centroid[0]);
     const lng = jitter(centroid[1]);
 
-    // Demo mode: return success without database
-    if (
-      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.SUPABASE_SERVICE_ROLE_KEY
-    ) {
+    if (isDemoMode()) {
       return NextResponse.json({ success: true, id: 'demo-' + Date.now() });
     }
 
     const { createServiceClient } = await import('@/lib/supabase/server');
     const supabase = createServiceClient();
 
-    // Insert into incidents table with status=pending so it queues for review
+    // Insert into `reports` table (not incidents) — reports has is_anonymous + reporter_contact
     const { data, error } = await supabase
-      .from('incidents')
+      .from('reports')
       .insert({
         category,
         description: description.slice(0, 2000),
@@ -76,9 +64,7 @@ export async function POST(request: NextRequest) {
         source: 'community',
         status: 'pending',
         is_anonymous: Boolean(is_anonymous),
-        reporter_contact: is_anonymous
-          ? null
-          : (reporter_contact?.slice(0, 200) || null),
+        reporter_contact: is_anonymous ? null : (reporter_contact?.slice(0, 200) || null),
       })
       .select('id')
       .single();
