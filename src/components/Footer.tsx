@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 space-y-2">
           <p className="text-sm text-blue-100/50">
-            &copy; 2025 SafeJew. Built by Adrian Erlikhman and Michael Tarekegn.
+            &copy; 2026 SafeJew. Founded by Adrian Erlikhman, Ryan Erlikhman, and Yonatan Zarur.
           </p>
           <p className="text-xs text-blue-100/30 max-w-2xl leading-relaxed">
             All data on this site is for informational purposes only. Always contact law
