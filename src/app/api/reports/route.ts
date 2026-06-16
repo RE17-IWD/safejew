@@ -69,13 +69,10 @@ export async function POST(request: NextRequest) {
       .select('id')
       .single();
 
-    if (error) {
-      return NextResponse.json({ error: error.message, code: error.code, details: error.details }, { status: 500 });
-    }
+    if (error) throw error;
     return NextResponse.json({ success: true, id: data.id });
   } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    console.error('Report submission error:', msg);
-    return NextResponse.json({ error: msg }, { status: 500 });
+    console.error('Report submission error:', error);
+    return NextResponse.json({ error: 'Failed to submit report' }, { status: 500 });
   }
 }
