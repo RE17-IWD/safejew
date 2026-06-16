@@ -92,7 +92,8 @@ export default function CampusMap({
         } else {
           const res = await fetch(`/api/incidents?campus_id=${encodeURIComponent(campusId)}`);
           if (!res.ok) throw new Error('Failed to fetch incidents');
-          const data: Incident[] = await res.json();
+          const json = await res.json();
+          const data: Incident[] = Array.isArray(json) ? json : (json.incidents ?? []);
           setIncidents(data);
         }
       } catch {
