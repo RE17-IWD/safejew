@@ -2,13 +2,13 @@ import type { Incident, Campus } from '@/types';
 
 export const DEMO_CAMPUSES: Campus[] = [
   {
-    id: 'campus-demo-university',
-    name: 'Demo University',
+    id: 'campus-ucla',
+    name: 'UCLA',
     city: 'Los Angeles',
     state: 'CA',
     lat: 34.0689,
     lng: -118.4452,
-    hillel_contact: 'hillel@demo-university.edu',
+    hillel_contact: null,
   },
   {
     id: 'campus-cal-state-la',
@@ -31,7 +31,7 @@ export const DEMO_CAMPUSES: Campus[] = [
 ];
 
 export const DEMO_INCIDENTS: Incident[] = [
-  // --- Westwood (campus-demo-university assigned to 8 incidents) ---
+  // --- Westwood (campus-ucla assigned to 8 incidents) ---
   {
     id: 'demo-incident-001',
     category: 'harassment',
@@ -44,7 +44,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-01-15T09:00:00Z',
   },
   {
@@ -59,7 +59,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'ADL',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-02-10T08:30:00Z',
   },
   {
@@ -74,7 +74,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-03-22T16:00:00Z',
   },
   {
@@ -89,7 +89,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'LAPD',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-04-18T14:00:00Z',
   },
   {
@@ -104,7 +104,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'LAPD',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-06-03T10:00:00Z',
   },
   {
@@ -119,7 +119,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-07-27T18:30:00Z',
   },
   {
@@ -134,7 +134,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-09-12T09:00:00Z',
   },
   {
@@ -149,7 +149,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-10-30T08:00:00Z',
   },
   // --- Beverly Hills ---
@@ -916,7 +916,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'ADL',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2025-01-28T09:00:00Z',
   },
   {
@@ -2435,7 +2435,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'ADL',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-10-17T08:00:00Z',
   },
   {
@@ -3155,7 +3155,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'LAPD',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-03-15T09:00:00Z',
   },
   {
@@ -3277,7 +3277,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'ADL',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-05-01T09:00:00Z',
   },
   {
@@ -3292,7 +3292,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'high',
     source: 'LAPD',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2024-05-03T08:00:00Z',
   },
   {
@@ -3307,7 +3307,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2023-10-17T09:00:00Z',
   },
   {
@@ -3322,7 +3322,7 @@ export const DEMO_INCIDENTS: Incident[] = [
     severity: 'medium',
     source: 'community',
     status: 'verified',
-    campus_id: 'campus-demo-university',
+    campus_id: 'campus-ucla',
     created_at: '2023-11-08T08:00:00Z',
   },
 

@@ -3,9 +3,11 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Map', href: '/map' },
-  { label: 'Report', href: '/report' },
+  { label: 'Oct 7 Report', href: '/october-7' },
+  { label: 'Report an Incident', href: '/report' },
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Campus', href: '/campus' },
+  { label: 'Safety Resources', href: '/safety' },
   { label: 'About', href: '/about' },
 ];
 

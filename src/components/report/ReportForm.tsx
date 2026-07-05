@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import type { IncidentCategory, IncidentSeverity } from '@/types';
+import { CAMPUSES } from '@/lib/campuses';
 
 const NEIGHBORHOODS = [
   'Beverly Hills',
@@ -9,6 +11,7 @@ const NEIGHBORHOODS = [
   'Pico-Robertson',
   'Fairfax District',
   'West Hollywood',
+  'Hollywood',
   'Mid-Wilshire',
   'Silver Lake',
   'Los Feliz',
@@ -90,6 +93,7 @@ interface FormData {
   date: string;
   time: string;
   neighborhood: string;
+  campus: string;
   isAnonymous: boolean;
   contactName: string;
   contactEmail: string;
@@ -103,6 +107,7 @@ const INITIAL_FORM: FormData = {
   date: '',
   time: '',
   neighborhood: '',
+  campus: '',
   isAnonymous: true,
   contactName: '',
   contactEmail: '',
@@ -176,8 +181,13 @@ const inputClass =
 const labelClass = 'block font-sans text-sm font-medium text-gray-700 mb-1';
 
 export default function ReportForm() {
+  const searchParams = useSearchParams();
+  const campusParam = searchParams.get('campus') ?? '';
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState<FormData>(INITIAL_FORM);
+  const [form, setForm] = useState<FormData>({
+    ...INITIAL_FORM,
+    campus: CAMPUSES.some((c) => c.id === campusParam) ? campusParam : '',
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -196,7 +206,7 @@ export default function ReportForm() {
 
   function isStep2Valid(): boolean {
     const today = new Date().toISOString().split('T')[0];
-    return form.date !== '' && form.date <= today && form.neighborhood !== '';
+    return form.date !== '' && form.date <= today && (form.neighborhood !== '' || form.campus !== '');
   }
 
   function isStep4Valid(): boolean {
@@ -217,6 +227,7 @@ export default function ReportForm() {
         description: form.description.trim(),
         occurred_at,
         neighborhood: form.neighborhood,
+        campus_id: form.campus || null,
         is_anonymous: form.isAnonymous,
         reporter_contact:
           !form.isAnonymous && (form.contactName || form.contactEmail)
@@ -501,8 +512,36 @@ export default function ReportForm() {
           </div>
 
           <div className="mb-4">
+            <label htmlFor="campus" className={labelClass}>
+              Did this happen on or near a campus?{' '}
+              <span className="font-sans text-xs text-gray-400 font-normal">(optional)</span>
+            </label>
+            <select
+              id="campus"
+              value={form.campus}
+              onChange={(e) => update('campus', e.target.value)}
+              className={inputClass}
+            >
+              <option value="">No — not campus-related</option>
+              {CAMPUSES.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name} — {c.city}, {c.state}
+                </option>
+              ))}
+            </select>
+            <p className="font-sans text-xs text-gray-400 mt-1">
+              Campus reports appear in that campus&apos;s incident tracker after review.
+            </p>
+          </div>
+
+          <div className="mb-4">
             <label htmlFor="neighborhood" className={labelClass}>
-              Neighborhood <span className="text-red-500">*</span>
+              LA Neighborhood{' '}
+              {form.campus ? (
+                <span className="font-sans text-xs text-gray-400 font-normal">(optional for campus reports)</span>
+              ) : (
+                <span className="text-red-500">*</span>
+              )}
             </label>
             <select
               id="neighborhood"
@@ -510,7 +549,9 @@ export default function ReportForm() {
               onChange={(e) => update('neighborhood', e.target.value)}
               className={inputClass}
             >
-              <option value="">Select a neighborhood...</option>
+              <option value="">
+                {form.campus ? 'Not in Greater LA / use campus location' : 'Select a neighborhood...'}
+              </option>
               {NEIGHBORHOODS.map((n) => (
                 <option key={n} value={n}>
                   {n}
@@ -654,9 +695,16 @@ export default function ReportForm() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-500 font-medium bg-cream-50">
-                    Neighborhood
+                    Location
                   </td>
-                  <td className="px-4 py-3 text-gray-800">{form.neighborhood}</td>
+                  <td className="px-4 py-3 text-gray-800">
+                    {[
+                      form.campus ? CAMPUSES.find((c) => c.id === form.campus)?.name : null,
+                      form.neighborhood || null,
+                    ]
+                      .filter(Boolean)
+                      .join(' — ')}
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-500 font-medium bg-cream-50">

@@ -1,6 +1,11 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { CAMPUSES } from '@/lib/campuses';
+
+const CAMPUS_NAME_BY_UUID: Record<string, string> = Object.fromEntries(
+  CAMPUSES.map((c) => [c.uuid, c.name])
+);
 
 interface PendingReport {
   id: string;
@@ -9,6 +14,8 @@ interface PendingReport {
   occurred_at: string;
   neighborhood: string;
   severity: string;
+  status: string;
+  campus_id: string | null;
   is_anonymous: boolean;
   reporter_contact: string | null;
   created_at: string;
@@ -22,8 +29,16 @@ interface CampusRequest {
   website: string | null;
   notes: string | null;
   requester_email: string | null;
+  status: string;
   created_at: string;
 }
+
+const STATUS_BADGE: Record<string, string> = {
+  pending: 'bg-amber-100 text-amber-700',
+  verified: 'bg-green-100 text-green-700',
+  approved: 'bg-green-100 text-green-700',
+  rejected: 'bg-gray-100 text-gray-500',
+};
 
 const SEVERITY_COLORS: Record<string, string> = {
   high: 'bg-red-100 text-red-700',
@@ -54,16 +69,17 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [scope, setScope] = useState<'pending' | 'all'>('pending');
 
   const showToast = (msg: string) => {
     setToast(msg);
     setTimeout(() => setToast(null), 3000);
   };
 
-  const fetchPending = useCallback(async (key: string) => {
+  const fetchPending = useCallback(async (key: string, view: 'pending' | 'all' = 'pending') => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin', {
+      const res = await fetch(`/api/admin${view === 'all' ? '?scope=all' : ''}`, {
         headers: { 'x-admin-key': key },
       });
       if (res.status === 401) {
@@ -85,7 +101,12 @@ export default function AdminPage() {
     e.preventDefault();
     setAuthError('');
     setAdminKey(password);
-    fetchPending(password);
+    fetchPending(password, scope);
+  }
+
+  function switchScope(view: 'pending' | 'all') {
+    setScope(view);
+    fetchPending(adminKey, view);
   }
 
   async function handleAction(id: string, action: 'approve' | 'reject', type: 'report' | 'campus_request') {
@@ -98,10 +119,20 @@ export default function AdminPage() {
       });
       if (!res.ok) throw new Error('Action failed');
       if (type === 'report') {
-        setReports((prev) => prev.filter((r) => r.id !== id));
+        const newStatus = action === 'approve' ? 'verified' : 'rejected';
+        setReports((prev) =>
+          scope === 'all'
+            ? prev.map((r) => (r.id === id ? { ...r, status: newStatus } : r))
+            : prev.filter((r) => r.id !== id)
+        );
         showToast(action === 'approve' ? 'Report approved — now live on map.' : 'Report rejected.');
       } else {
-        setCampusRequests((prev) => prev.filter((r) => r.id !== id));
+        const newStatus = action === 'approve' ? 'approved' : 'rejected';
+        setCampusRequests((prev) =>
+          scope === 'all'
+            ? prev.map((r) => (r.id === id ? { ...r, status: newStatus } : r))
+            : prev.filter((r) => r.id !== id)
+        );
         showToast(action === 'approve' ? 'Campus request approved.' : 'Campus request dismissed.');
       }
     } catch {
@@ -114,9 +145,9 @@ export default function AdminPage() {
   // Auto-refresh every 60 seconds while logged in
   useEffect(() => {
     if (!adminKey) return;
-    const interval = setInterval(() => fetchPending(adminKey), 60_000);
+    const interval = setInterval(() => fetchPending(adminKey, scope), 60_000);
     return () => clearInterval(interval);
-  }, [adminKey, fetchPending]);
+  }, [adminKey, scope, fetchPending]);
 
   if (!adminKey) {
     return (
@@ -164,21 +195,39 @@ export default function AdminPage() {
       )}
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="font-serif text-2xl font-bold text-navy-800">Review Queue</h1>
             <p className="font-sans text-sm text-gray-500">
-              {reports.length} pending report{reports.length !== 1 ? 's' : ''}
+              {reports.length} report{reports.length !== 1 ? 's' : ''}
               {campusRequests.length > 0 && `, ${campusRequests.length} campus request${campusRequests.length !== 1 ? 's' : ''}`}
+              {scope === 'pending' ? ' pending review' : ' (all statuses)'}
             </p>
           </div>
           <button
-            onClick={() => fetchPending(adminKey)}
+            onClick={() => fetchPending(adminKey, scope)}
             disabled={loading}
             className="font-sans text-sm text-navy-600 hover:text-navy-800 border border-cream-200 bg-white px-3 py-1.5 rounded transition-colors"
           >
             {loading ? 'Refreshing…' : 'Refresh'}
           </button>
+        </div>
+
+        {/* Scope tabs */}
+        <div className="flex gap-1 mb-8 bg-cream-100 border border-cream-200 rounded-lg p-1 w-fit">
+          {(['pending', 'all'] as const).map((view) => (
+            <button
+              key={view}
+              onClick={() => switchScope(view)}
+              className={`font-sans text-sm font-medium px-4 py-1.5 rounded-md transition-colors ${
+                scope === view
+                  ? 'bg-white text-navy-800 shadow-sm'
+                  : 'text-gray-500 hover:text-navy-700'
+              }`}
+            >
+              {view === 'pending' ? 'Pending' : 'All submissions'}
+            </button>
+          ))}
         </div>
 
         {/* Incident Reports */}
@@ -206,6 +255,11 @@ export default function AdminPage() {
                     <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${SEVERITY_COLORS[report.severity] ?? 'bg-gray-100 text-gray-600'}`}>
                       {report.severity}
                     </span>
+                    {report.status !== 'pending' && (
+                      <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${STATUS_BADGE[report.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                        {report.status}
+                      </span>
+                    )}
                     <span className="font-sans text-xs text-gray-400 ml-auto">
                       Submitted {formatDate(report.created_at)}
                     </span>
@@ -217,6 +271,9 @@ export default function AdminPage() {
 
                   <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-sans text-gray-500 mb-4">
                     <span><strong>Where:</strong> {report.neighborhood}</span>
+                    {report.campus_id && CAMPUS_NAME_BY_UUID[report.campus_id] && (
+                      <span><strong>Campus:</strong> {CAMPUS_NAME_BY_UUID[report.campus_id]}</span>
+                    )}
                     <span><strong>When:</strong> {formatDate(report.occurred_at)}</span>
                     <span>
                       <strong>Reporter:</strong>{' '}
@@ -226,22 +283,24 @@ export default function AdminPage() {
                     </span>
                   </div>
 
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleAction(report.id, 'approve', 'report')}
-                      disabled={actionLoading !== null}
-                      className="bg-green-600 text-white px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-green-700 transition-colors disabled:opacity-50"
-                    >
-                      {actionLoading === report.id + 'approve' ? 'Approving…' : 'Approve'}
-                    </button>
-                    <button
-                      onClick={() => handleAction(report.id, 'reject', 'report')}
-                      disabled={actionLoading !== null}
-                      className="bg-white border border-red-300 text-red-600 px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50"
-                    >
-                      {actionLoading === report.id + 'reject' ? 'Rejecting…' : 'Reject'}
-                    </button>
-                  </div>
+                  {report.status === 'pending' && (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleAction(report.id, 'approve', 'report')}
+                        disabled={actionLoading !== null}
+                        className="bg-green-600 text-white px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-green-700 transition-colors disabled:opacity-50"
+                      >
+                        {actionLoading === report.id + 'approve' ? 'Approving…' : 'Approve'}
+                      </button>
+                      <button
+                        onClick={() => handleAction(report.id, 'reject', 'report')}
+                        disabled={actionLoading !== null}
+                        className="bg-white border border-red-300 text-red-600 px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50"
+                      >
+                        {actionLoading === report.id + 'reject' ? 'Rejecting…' : 'Reject'}
+                      </button>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -264,7 +323,14 @@ export default function AdminPage() {
                 <div key={req.id} className="bg-white border border-cream-200 rounded-lg p-5">
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <div>
-                      <p className="font-sans text-sm font-semibold text-navy-800">{req.name}</p>
+                      <p className="font-sans text-sm font-semibold text-navy-800">
+                        {req.name}
+                        {req.status !== 'pending' && (
+                          <span className={`ml-2 font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${STATUS_BADGE[req.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                            {req.status}
+                          </span>
+                        )}
+                      </p>
                       <p className="font-sans text-xs text-gray-500">{req.city}, {req.state}</p>
                     </div>
                     <span className="font-sans text-xs text-gray-400 flex-shrink-0">
@@ -280,22 +346,24 @@ export default function AdminPage() {
                   {req.requester_email && (
                     <p className="font-sans text-xs text-gray-400 mb-3">Contact: {req.requester_email}</p>
                   )}
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleAction(req.id, 'approve', 'campus_request')}
-                      disabled={actionLoading !== null}
-                      className="bg-green-600 text-white px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-green-700 transition-colors disabled:opacity-50"
-                    >
-                      Approve
-                    </button>
-                    <button
-                      onClick={() => handleAction(req.id, 'reject', 'campus_request')}
-                      disabled={actionLoading !== null}
-                      className="bg-white border border-red-300 text-red-600 px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50"
-                    >
-                      Dismiss
-                    </button>
-                  </div>
+                  {req.status === 'pending' && (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleAction(req.id, 'approve', 'campus_request')}
+                        disabled={actionLoading !== null}
+                        className="bg-green-600 text-white px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-green-700 transition-colors disabled:opacity-50"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        onClick={() => handleAction(req.id, 'reject', 'campus_request')}
+                        disabled={actionLoading !== null}
+                        className="bg-white border border-red-300 text-red-600 px-4 py-1.5 rounded font-sans text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50"
+                      >
+                        Dismiss
+                      </button>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

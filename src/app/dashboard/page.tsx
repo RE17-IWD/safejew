@@ -158,6 +158,9 @@ export default function DashboardPage() {
                   Last updated {lastUpdated.toLocaleTimeString()}
                 </p>
               )}
+              <p className="mt-3 inline-block bg-amber-500/15 border border-amber-400/30 rounded px-2.5 py-1 text-xs text-amber-200/90 font-sans">
+                Platform preview — analytics reflect a demonstration dataset
+              </p>
             </div>
             <button
               onClick={() => fetchIncidents(true)}

@@ -406,8 +406,10 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function IncidentMap() {
-  // Incident state
-  const [incidents, setIncidents] = useState<Incident[]>(DEMO_INCIDENTS);
+  // Incident state — start empty in live mode so demo pins never flash before real data
+  const [incidents, setIncidents] = useState<Incident[]>(() =>
+    isDemoMode() ? DEMO_INCIDENTS : []
+  );
   const [filters, setFilters] = useState<IncidentFilters>(DEFAULT_FILTERS);
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
   const [showHeatmap, setShowHeatmap] = useState(false);

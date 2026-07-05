@@ -59,7 +59,7 @@ const SECURITY_ORGS = [
     name: 'ADL Los Angeles',
     description:
       'Anti-Defamation League Pacific Southwest Regional office. Reports antisemitic incidents, provides legal referrals, and monitors extremist activity.',
-    url: 'https://www.adl.org/about/regional-offices/los-angeles',
+    url: 'https://www.adl.org/about/regional-offices',
     phone: '(310) 446-8000',
     tag: 'Los Angeles',
   },
@@ -78,7 +78,7 @@ const LEGAL_RESOURCES = [
     name: 'ADL Legal Affairs',
     description:
       'Free legal consultation for victims of bias-motivated crimes. Can connect you with civil rights attorneys and assist with law enforcement liaison.',
-    url: 'https://www.adl.org/resources/tools-and-strategies/report-incident',
+    url: 'https://www.adl.org/report-incident',
     contact: 'Via website',
   },
   {
@@ -92,7 +92,7 @@ const LEGAL_RESOURCES = [
     name: 'California Department of Justice — Civil Rights Division',
     description:
       'State-level hate crime reporting and investigation. File independently of LAPD if needed.',
-    url: 'https://oag.ca.gov/civil-rights',
+    url: 'https://oag.ca.gov/civilrights',
     contact: 'Via website',
   },
   {

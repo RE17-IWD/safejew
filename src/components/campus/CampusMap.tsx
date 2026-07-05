@@ -1,16 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Incident, IncidentCategory } from '@/types';
-import { DEMO_INCIDENTS, isDemoMode } from '@/lib/demo-data';
 
 interface CampusMapProps {
-  campusId: string;
   campusLat: number;
   campusLng: number;
   campusName: string;
+  incidents: Incident[];
 }
 
 const CATEGORY_COLORS: Record<IncidentCategory, string> = {
@@ -51,57 +49,15 @@ function formatDate(iso: string): string {
 }
 
 export default function CampusMap({
-  campusId,
   campusLat,
   campusLng,
   campusName,
+  incidents,
 }: CampusMapProps) {
-  const [incidents, setIncidents] = useState<Incident[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    setIncidents([]);
-
-    const load = async () => {
-      try {
-        if (isDemoMode()) {
-          const filtered = DEMO_INCIDENTS.filter((inc) => inc.campus_id === campusId);
-          setIncidents(filtered);
-        } else {
-          const res = await fetch(`/api/incidents?campus_id=${encodeURIComponent(campusId)}`);
-          if (!res.ok) throw new Error('Failed to fetch incidents');
-          const json = await res.json();
-          const data: Incident[] = Array.isArray(json) ? json : (json.incidents ?? []);
-          setIncidents(data);
-        }
-      } catch {
-        // Fall back to demo data on error
-        const filtered = DEMO_INCIDENTS.filter((inc) => inc.campus_id === campusId);
-        setIncidents(filtered);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    load();
-  }, [campusId]);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center bg-cream-100 rounded-lg" style={{ height: 400 }}>
-        <div className="text-center">
-          <div className="w-6 h-6 border-2 border-navy-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="font-sans text-sm text-gray-500">Loading campus map...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="rounded-lg overflow-hidden border border-cream-200" style={{ height: 400 }}>
       <MapContainer
-        key={campusId}
+        key={`${campusLat},${campusLng}`}
         center={[campusLat, campusLng]}
         zoom={14}
         style={{ height: '400px', width: '100%' }}

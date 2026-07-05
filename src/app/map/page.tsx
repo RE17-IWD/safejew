@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { isDemoMode } from '@/lib/demo-data';
 
 export const metadata: Metadata = {
   title: 'Incident Map',
@@ -20,16 +19,15 @@ const IncidentMap = dynamic(() => import('@/components/map/IncidentMap'), {
 });
 
 export default function MapPage() {
-  const demo = isDemoMode();
   return (
     <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)' }}>
-      {demo && (
-        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center flex-none">
-          <span className="text-xs font-sans font-medium text-amber-800">
-            Demonstration data for product preview — not real incidents
-          </span>
-        </div>
-      )}
+      {/* Incident data is a demonstration dataset until verified data partnerships go live.
+          The Oct 7 page promises this labeling — keep the banner until real data replaces the seed. */}
+      <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center flex-none">
+        <span className="text-xs font-sans font-medium text-amber-800">
+          Platform preview — incident data shown is a demonstration dataset, not verified real-world incidents
+        </span>
+      </div>
       <div className="flex-1 min-h-0">
         <IncidentMap />
       </div>

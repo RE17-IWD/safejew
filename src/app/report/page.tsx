@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import ReportForm from '@/components/report/ReportForm';
 
 export default function ReportPage() {
@@ -36,7 +37,9 @@ export default function ReportPage() {
           </div>
 
           {/* Form */}
-          <ReportForm />
+          <Suspense fallback={null}>
+            <ReportForm />
+          </Suspense>
         </div>
       </section>
     </>

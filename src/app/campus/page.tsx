@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import type { IncidentCategory } from '@/types';
-import { DEMO_INCIDENTS } from '@/lib/demo-data';
+import type { Incident, IncidentCategory } from '@/types';
+import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
 
 const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
   ssr: false,
@@ -29,433 +29,15 @@ const CATEGORY_LABELS: Record<IncidentCategory, string> = {
   other: 'Other',
 };
 
-const DEMO_CAMPUS_ID = 'campus-demo-university';
-
-interface CampusHillel {
-  name: string;
-  url: string | null;
-}
-
-interface CampusChabad {
-  name: string;
-  url: string | null;
-  address: string;
-}
-
-interface Campus {
-  id: string;
-  name: string;
-  city: string;
-  state: string;
-  lat: number;
-  lng: number;
-  hillel: CampusHillel | null;
-  chabad: CampusChabad | null;
-  nearbySpaces: string[];
-  jewishStudentEstimate: number | null;
-  jewishLifeNotes: string;
-  hasDemoData: boolean;
-}
-
-const CAMPUSES: Campus[] = [
-  {
-    id: 'campus-demo-university',
-    name: 'UCLA',
-    city: 'Los Angeles',
-    state: 'CA',
-    lat: 34.0689,
-    lng: -118.4452,
-    hillel: { name: 'Hillel at UCLA', url: 'https://www.uclahillel.org' },
-    chabad: { name: 'Chabad at UCLA', url: 'https://www.chabadatucla.com', address: '900 Hilgard Ave, Los Angeles CA 90024' },
-    nearbySpaces: [
-      'Sinai Temple (Beverly Hills)',
-      'University Synagogue (Brentwood)',
-      'Beth Jacob Congregation (Beverly Hills)',
-      'Westwood Village Kosher',
-      'Milk & Honey Grill',
-    ],
-    jewishStudentEstimate: 4500,
-    jewishLifeNotes: 'UCLA has one of the largest Jewish student populations in the country. Hillel at UCLA offers daily programming, Shabbat dinners, and Israel advocacy resources. Chabad at UCLA runs weekly events steps from campus on Hilgard Ave and is open 24 hours during finals. The Westwood neighborhood surrounding campus has multiple kosher restaurants.',
-    hasDemoData: true,
-  },
-  {
-    id: 'campus-usc',
-    name: 'USC',
-    city: 'Los Angeles',
-    state: 'CA',
-    lat: 34.0224,
-    lng: -118.2851,
-    hillel: { name: 'USC Hillel', url: 'https://www.uschillel.org' },
-    chabad: { name: 'Chabad at USC', url: 'https://www.chabadatusc.com', address: '3306 Hoover St, Los Angeles CA 90007' },
-    nearbySpaces: [
-      'Mogen David Congregation (West Adams)',
-      'Sinai Temple (nearby)',
-      'Chabad at USC (Hoover St)',
-    ],
-    jewishStudentEstimate: 3200,
-    jewishLifeNotes: 'USC Hillel is one of the most active on the West Coast, with an annual gala, Birthright trips, and weekly Shabbat programming. Chabad at USC operates just off campus on Hoover Street. The university has seen elevated antisemitic incidents since October 2023 and has dedicated security resources to Jewish student spaces.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-columbia',
-    name: 'Columbia University',
-    city: 'New York',
-    state: 'NY',
-    lat: 40.8075,
-    lng: -73.9626,
-    hillel: { name: 'Columbia/Barnard Hillel', url: 'https://www.columbiahillel.org' },
-    chabad: { name: 'Chabad at Columbia', url: 'https://www.chabadcolumbia.com', address: '610 W 115th St, New York NY 10025' },
-    nearbySpaces: [
-      'Jewish Theological Seminary',
-      'Congregation B\'nai Jeshurun (Upper West Side)',
-      'Absolute Bagels (Morningside Heights)',
-    ],
-    jewishStudentEstimate: 3800,
-    jewishLifeNotes: 'Columbia/Barnard Hillel is one of the oldest Hillels in the country, founded in 1913. The campus became a major flashpoint for antisemitic incidents in 2023 and 2024. Jewish students have reported being blocked from campus spaces and receiving targeted harassment. Chabad at Columbia serves as a refuge and community hub just blocks from campus.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-nyu',
-    name: 'NYU',
-    city: 'New York',
-    state: 'NY',
-    lat: 40.7295,
-    lng: -73.9965,
-    hillel: { name: 'NYU Hillel', url: 'https://www.nyuhillel.org' },
-    chabad: { name: 'Chabad at NYU', url: 'https://www.chabadnyu.com', address: '76 Washington Square S, New York NY 10012' },
-    nearbySpaces: [
-      'Greenwich Village Synagogue',
-      'Congregation Beth Simchat Torah (West Village)',
-      'B&H Dairy (East Village)',
-    ],
-    jewishStudentEstimate: 5000,
-    jewishLifeNotes: 'NYU has one of the largest Jewish student populations of any university in the US. NYU Hillel operates a full-service Jewish center in Greenwich Village. The campus spans multiple buildings throughout Lower Manhattan, and Chabad at NYU runs programming across several locations.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-harvard',
-    name: 'Harvard University',
-    city: 'Cambridge',
-    state: 'MA',
-    lat: 42.3770,
-    lng: -71.1167,
-    hillel: { name: 'Harvard Hillel', url: 'https://www.hillel.harvard.edu' },
-    chabad: { name: 'Chabad at Harvard', url: 'https://www.chabadaigarvard.com', address: '6 Prescott St, Cambridge MA 02138' },
-    nearbySpaces: [
-      'Temple Beth Shalom (Cambridge)',
-      'Cambridge Synagogue',
-      'Cardullo\'s Gourmet Shoppe (Harvard Square)',
-    ],
-    jewishStudentEstimate: 2500,
-    jewishLifeNotes: 'Harvard Hillel occupies a dedicated building on campus and runs one of the most comprehensive programs of any Ivy League Hillel. After October 7, 2023, Harvard became a center of national attention for campus antisemitism. Chabad at Harvard on Prescott Street is a popular Shabbat destination for students and faculty.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-upenn',
-    name: 'University of Pennsylvania',
-    city: 'Philadelphia',
-    state: 'PA',
-    lat: 39.9522,
-    lng: -75.1932,
-    hillel: { name: 'Penn Hillel', url: 'https://www.pennhillel.org' },
-    chabad: { name: 'Chabad at Penn', url: 'https://www.chabadatpenn.com', address: '3901 Spruce St, Philadelphia PA 19104' },
-    nearbySpaces: [
-      'Congregation Mikveh Israel (Center City)',
-      'Beth Zion-Beth Israel (Rittenhouse)',
-      'University City Kosher',
-    ],
-    jewishStudentEstimate: 3500,
-    jewishLifeNotes: 'Penn Hillel is one of the most active on the East Coast, serving thousands of students from UPenn, Drexel, and nearby schools. Chabad at Penn is located directly on Spruce Street steps from campus. Philadelphia\'s Jewish community is concentrated in the Northeast and Center City neighborhoods within easy reach.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-cornell',
-    name: 'Cornell University',
-    city: 'Ithaca',
-    state: 'NY',
-    lat: 42.4534,
-    lng: -76.4735,
-    hillel: { name: 'Hillel at Cornell', url: 'https://www.hillelcornell.org' },
-    chabad: { name: 'Chabad at Cornell', url: 'https://www.chabadatcornell.com', address: '210 W Buffalo St, Ithaca NY 14850' },
-    nearbySpaces: [
-      'Congregation Tikkun v\'Or (Ithaca)',
-      'Chabad at Cornell',
-      'Cornell Kosher Dining',
-    ],
-    jewishStudentEstimate: 3000,
-    jewishLifeNotes: 'Hillel at Cornell operates a dedicated building and is a central hub for Jewish students in Ithaca. Cornell made national headlines in October 2023 when a student posted threats targeting Jewish students. Campus security was significantly enhanced after the incident.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-stanford',
-    name: 'Stanford University',
-    city: 'Palo Alto',
-    state: 'CA',
-    lat: 37.4275,
-    lng: -122.1697,
-    hillel: { name: 'Stanford Hillel', url: 'https://www.stanfordhillel.org' },
-    chabad: { name: 'Chabad at Stanford', url: 'https://www.chabadatstanford.com', address: '566 Salvatierra Walk, Stanford CA 94305' },
-    nearbySpaces: [
-      'Beth Am (Los Altos Hills)',
-      'Congregation Beth Jacob (Redwood City)',
-      'Palo Alto Kosher Deli',
-    ],
-    jewishStudentEstimate: 2000,
-    jewishLifeNotes: 'Stanford Hillel offers year-round programming including High Holiday services for thousands of students and community members. Chabad at Stanford is located directly on campus and serves students from Stanford, UCSF, and the broader Silicon Valley tech community.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-berkeley',
-    name: 'UC Berkeley',
-    city: 'Berkeley',
-    state: 'CA',
-    lat: 37.8719,
-    lng: -122.2585,
-    hillel: { name: 'Hillel at Berkeley', url: 'https://www.jfed.org/hillel' },
-    chabad: { name: 'Chabad at Berkeley', url: 'https://www.chabadatberkeley.com', address: '2424 Bancroft Way, Berkeley CA 94704' },
-    nearbySpaces: [
-      'Congregation Beth El (Berkeley)',
-      'Netivot Shalom (Berkeley)',
-      'Caffe Strada (near campus)',
-    ],
-    jewishStudentEstimate: 4000,
-    jewishLifeNotes: 'UC Berkeley has historically had one of the most politically charged campus climates for Jewish students. The Berkeley City Council passed a divestment resolution in 2023. Hillel at Berkeley operates on Bancroft Way. Chabad at Berkeley on Telegraph Avenue runs daily programming and is one of the most active Chabad houses in California.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-michigan',
-    name: 'University of Michigan',
-    city: 'Ann Arbor',
-    state: 'MI',
-    lat: 42.2780,
-    lng: -83.7382,
-    hillel: { name: 'University of Michigan Hillel', url: 'https://www.umichwelcome.org' },
-    chabad: { name: 'Chabad at Michigan', url: 'https://www.chabadatmichigan.com', address: '715 Hill St, Ann Arbor MI 48104' },
-    nearbySpaces: [
-      'Beth Israel Congregation (Ann Arbor)',
-      'Congregation Shaarey Zedek (Ann Arbor)',
-      'Jerusalem Garden (Ann Arbor)',
-    ],
-    jewishStudentEstimate: 5000,
-    jewishLifeNotes: 'Michigan Hillel, known as the Michigan Wellcome Street Hillel, is one of the largest Hillels in the world serving over 5,000 Jewish students. Ann Arbor has a robust Jewish community with multiple synagogues within walking distance of campus.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-ohio-state',
-    name: 'Ohio State University',
-    city: 'Columbus',
-    state: 'OH',
-    lat: 40.0076,
-    lng: -83.0300,
-    hillel: { name: 'Hillel at Ohio State', url: 'https://www.hillel.osu.edu' },
-    chabad: { name: 'Chabad at OSU', url: 'https://www.chabadosu.com', address: '46 E 16th Ave, Columbus OH 43201' },
-    nearbySpaces: [
-      'Agudath Achim (Columbus)',
-      'Congregation Tifereth Israel (Columbus)',
-      'Sammy\'s NY Bagels (Columbus)',
-    ],
-    jewishStudentEstimate: 4500,
-    jewishLifeNotes: 'Ohio State\'s Hillel Foundation has been a cornerstone of Jewish life in Columbus since 1921. The university\'s large student population includes one of the biggest Jewish student communities in the Midwest. Chabad at OSU on 16th Avenue is a frequent gathering spot.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-northwestern',
-    name: 'Northwestern University',
-    city: 'Evanston',
-    state: 'IL',
-    lat: 42.0565,
-    lng: -87.6753,
-    hillel: { name: 'Northwestern Hillel', url: 'https://www.northwesternhillel.org' },
-    chabad: { name: 'Chabad at Northwestern', url: 'https://www.chabadnorthwestern.com', address: '1931 Sheridan Rd, Evanston IL 60201' },
-    nearbySpaces: [
-      'KINS (Evanston)',
-      'Congregation Beth Emet (Evanston)',
-      'Buffalo Joe\'s (Evanston)',
-    ],
-    jewishStudentEstimate: 2000,
-    jewishLifeNotes: 'Northwestern Hillel serves students on the Evanston campus and is a central gathering point for Jewish life in the North Shore suburbs of Chicago. Chabad at Northwestern on Sheridan Road is a short walk from the lakefront campus.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-bu',
-    name: 'Boston University',
-    city: 'Boston',
-    state: 'MA',
-    lat: 42.3505,
-    lng: -71.1054,
-    hillel: { name: 'BU Hillel', url: 'https://www.buhillel.org' },
-    chabad: { name: 'Chabad at BU', url: 'https://www.chabadbu.com', address: '213 Bay State Rd, Boston MA 02215' },
-    nearbySpaces: [
-      'Congregation Kehillath Israel (Brookline)',
-      'Young Israel of Brookline',
-      'Rami\'s Restaurant (Brookline)',
-    ],
-    jewishStudentEstimate: 3500,
-    jewishLifeNotes: 'BU Hillel is one of the most active on the East Coast, with the Hillel building located on Bay State Road along the Charles River. Boston\'s Brookline neighborhood adjacent to campus has one of the highest concentrations of Jewish residents in New England. Kosher dining options are plentiful on both campus and in nearby Coolidge Corner.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-brandeis',
-    name: 'Brandeis University',
-    city: 'Waltham',
-    state: 'MA',
-    lat: 42.3657,
-    lng: -71.2586,
-    hillel: { name: 'Brandeis Hillel', url: 'https://www.brandeis.edu/hillel' },
-    chabad: { name: 'Chabad at Brandeis', url: 'https://www.chabadatbrandeis.com', address: '415 South St, Waltham MA 02453' },
-    nearbySpaces: [
-      'Temple Shalom (Newton Centre)',
-      'Congregation Beth El (Newton Centre)',
-      'Zaftig\'s Delicatessen (Needham)',
-    ],
-    jewishStudentEstimate: 2500,
-    jewishLifeNotes: 'Brandeis University was founded as a Jewish-sponsored nonsectarian university in 1948. Jewish life is deeply embedded in the campus culture. The university has multiple kosher dining options and Jewish studies programs that attract students from around the world.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-gwu',
-    name: 'George Washington University',
-    city: 'Washington',
-    state: 'DC',
-    lat: 38.8997,
-    lng: -77.0480,
-    hillel: { name: 'GW Hillel', url: 'https://www.gwhillel.org' },
-    chabad: { name: 'Chabad at GWU', url: 'https://www.chabadgwu.com', address: '2121 Eye St NW, Washington DC 20052' },
-    nearbySpaces: [
-      'Sixth & I Historic Synagogue (DC)',
-      'Kesher Israel (Georgetown)',
-      'Eli\'s Restaurant (DC)',
-    ],
-    jewishStudentEstimate: 2000,
-    jewishLifeNotes: 'GW Hillel is located in the heart of Foggy Bottom in Washington DC. Jewish students at GWU are deeply engaged in policy work given the university\'s proximity to the federal government. Several GWU Jewish organizations host events with members of Congress and policy organizations.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-maryland',
-    name: 'University of Maryland',
-    city: 'College Park',
-    state: 'MD',
-    lat: 38.9869,
-    lng: -76.9426,
-    hillel: { name: 'University of Maryland Hillel', url: 'https://www.umdhl.org' },
-    chabad: { name: 'Chabad at UMD', url: 'https://www.chabadatumd.com', address: '7403 Hopkins Ave, College Park MD 20740' },
-    nearbySpaces: [
-      'Ohr Kodesh Congregation (Chevy Chase)',
-      'Congregation Mishkan Torah (Greenbelt)',
-      'College Park Kosher',
-    ],
-    jewishStudentEstimate: 4000,
-    jewishLifeNotes: 'UMD Hillel is one of the largest in the country, serving a Jewish student population drawn heavily from the Maryland and DC Metro suburbs. The university\'s proximity to Washington DC means many students intern with Jewish organizations and advocacy groups. Chabad at UMD on Hopkins Avenue hosts popular Shabbat dinners.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-florida',
-    name: 'University of Florida',
-    city: 'Gainesville',
-    state: 'FL',
-    lat: 29.6436,
-    lng: -82.3549,
-    hillel: { name: 'UF Hillel', url: 'https://www.ufhillel.org' },
-    chabad: { name: 'Chabad at UF', url: 'https://www.chabaduf.com', address: '16 SW 2nd Ave, Gainesville FL 32601' },
-    nearbySpaces: [
-      "Congregation B'nai Israel (Gainesville)",
-      'Lubavitch Chabad of North Central Florida',
-      'Hillel Foundation Kosher Kitchen',
-    ],
-    jewishStudentEstimate: 6000,
-    jewishLifeNotes: 'UF Hillel is one of the largest in the southeastern United States, serving over 6,000 Jewish students. Gainesville has a surprisingly robust Jewish community given the university\'s size. Chabad at UF is extremely active and runs programming every night of the week.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-tulane',
-    name: 'Tulane University',
-    city: 'New Orleans',
-    state: 'LA',
-    lat: 29.9384,
-    lng: -90.1199,
-    hillel: { name: 'Tulane Hillel', url: 'https://www.tulanehillel.org' },
-    chabad: { name: 'Chabad at Tulane', url: 'https://www.chabadtulane.com', address: '7037 Freret St, New Orleans LA 70118' },
-    nearbySpaces: [
-      'Touro Synagogue (New Orleans)',
-      'Congregation Gates of Prayer (Metairie)',
-      'Casablanca Restaurant (New Orleans)',
-    ],
-    jewishStudentEstimate: 2500,
-    jewishLifeNotes: 'Tulane has one of the highest concentrations of Jewish students of any southern university. New Orleans has a historic Jewish community stretching back to the early 1800s. Hillel at Tulane operates a full building on Freret Street and runs extensive programming including Mardi Gras celebrations and spring break trips.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-cal-state-la',
-    name: 'Cal State LA',
-    city: 'Los Angeles',
-    state: 'CA',
-    lat: 34.0686,
-    lng: -118.1687,
-    hillel: { name: 'Hillel at Cal State LA', url: 'https://www.calstatela.edu/hillel' },
-    chabad: { name: 'Chabad of East LA', url: 'https://www.chabadeastla.com', address: '4040 City Terrace Dr, Los Angeles CA 90063' },
-    nearbySpaces: [
-      'Breed Street Shul (Boyle Heights)',
-      'East LA Jewish Community Center',
-      'Skoby\'s (Boyle Heights)',
-    ],
-    jewishStudentEstimate: 800,
-    jewishLifeNotes: 'Cal State LA has a smaller but growing Jewish student community. The campus sits in East Los Angeles near Boyle Heights, which was historically one of the largest Jewish neighborhoods in Los Angeles in the early 20th century. The historic Breed Street Shul nearby is a landmark of that heritage.',
-    hasDemoData: true,
-  },
-  {
-    id: 'campus-george-mason',
-    name: 'George Mason University',
-    city: 'Fairfax',
-    state: 'VA',
-    lat: 38.8316,
-    lng: -77.3119,
-    hillel: { name: 'Mason Hillel', url: 'https://www.masonhillel.org' },
-    chabad: { name: 'Chabad at GMU', url: 'https://www.chabadgmu.com', address: '4400 University Dr, Fairfax VA 22030' },
-    nearbySpaces: [
-      'Congregation Olam Tikvah (Fairfax)',
-      'Northern Virginia Hebrew Congregation',
-      'Sunflower Vegetarian (Vienna)',
-    ],
-    jewishStudentEstimate: 1500,
-    jewishLifeNotes: 'George Mason Hillel serves a commuter-heavy Jewish student population in Northern Virginia. The Fairfax area has a large and established Jewish community. Mason Hillel runs regular programming in partnership with nearby congregations.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-american',
-    name: 'American University',
-    city: 'Washington',
-    state: 'DC',
-    lat: 38.9376,
-    lng: -77.0871,
-    hillel: { name: 'American University Hillel', url: 'https://www.auhillel.org' },
-    chabad: { name: 'Chabad at AU', url: 'https://www.chabadau.com', address: '4400 Massachusetts Ave NW, Washington DC 20016' },
-    nearbySpaces: [
-      'Adas Israel Congregation (DC)',
-      'Temple Sinai (DC)',
-      'Wagshal\'s Deli (Spring Valley)',
-    ],
-    jewishStudentEstimate: 2200,
-    jewishLifeNotes: 'AU Hillel is located in the Tenleytown neighborhood of Washington DC. American University has a particularly active Jewish campus life given its close relationship with Washington\'s Jewish community and proximity to national Jewish advocacy organizations.',
-    hasDemoData: false,
-  },
-  {
-    id: 'campus-umd-baltimore',
-    name: 'University of Maryland, Baltimore County',
-    city: 'Baltimore',
-    state: 'MD',
-    lat: 39.2557,
-    lng: -76.7101,
-    hillel: { name: 'UMBC Hillel', url: 'https://www.umbchillel.org' },
-    chabad: { name: 'Chabad at UMBC', url: 'https://www.chabadatumbc.com', address: '1000 Hilltop Cir, Baltimore MD 21250' },
-    nearbySpaces: [
-      'Beth Tfiloh Congregation (Baltimore)',
-      'Shomrei Emunah (Baltimore)',
-      'Attman\'s Delicatessen (Baltimore)',
-    ],
-    jewishStudentEstimate: 1200,
-    jewishLifeNotes: 'UMBC Hillel serves a commuter-heavy student population in the Baltimore suburbs. The university draws heavily from Baltimore\'s Jewish community in neighborhoods like Pikesville and Owings Mills. Baltimore has a historic and active Jewish community, with many students attending synagogue services in the city.',
-    hasDemoData: false,
-  },
+const FEATURED_CAMPUS_IDS = [
+  'campus-ucla',
+  'campus-usc',
+  'campus-columbia',
+  'campus-harvard',
+  'campus-nyu',
+  'campus-michigan',
+  'campus-berkeley',
+  'campus-brandeis',
 ];
 
 function StatPill({ value, label }: { value: string; label: string }) {
@@ -473,13 +55,12 @@ function CampusSearch({
   onClear,
 }: {
   onSelect: (id: string) => void;
-  selected: Campus | null;
+  selected: CampusInfo | null;
   onClear: () => void;
 }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
@@ -562,7 +143,6 @@ function CampusSearch({
 
           {open && (
             <ul
-              ref={listRef}
               className="absolute z-50 left-0 right-0 mt-1 bg-white border border-cream-200 rounded-lg shadow-lg overflow-y-auto"
               style={{ maxHeight: '17rem' }}
               role="listbox"
@@ -582,11 +162,6 @@ function CampusSearch({
                       <span className="ml-2 font-sans text-xs text-gray-400">
                         {c.city}, {c.state}
                       </span>
-                      {c.hasDemoData && (
-                        <span className="ml-2 inline-block text-xs font-sans font-medium bg-gold-100 text-gold-700 px-1.5 py-0.5 rounded">
-                          data available
-                        </span>
-                      )}
                     </button>
                   </li>
                 ))
@@ -753,6 +328,8 @@ function CampusSuggestForm() {
 
 export default function CampusPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [incidents, setIncidents] = useState<Incident[]>([]);
+  const [incidentsLoading, setIncidentsLoading] = useState(false);
 
   const campus = selectedId ? (CAMPUSES.find((c) => c.id === selectedId) ?? null) : null;
 
@@ -762,32 +339,53 @@ export default function CampusPage() {
       : 'SafeJew — Campus Jewish Community Tool';
   }, [campus]);
 
-  const campusIncidents = useMemo(
-    () => (campus ? DEMO_INCIDENTS.filter((inc) => inc.campus_id === campus.id) : []),
-    [campus]
-  );
+  // Fetch live incidents whenever a campus is selected
+  useEffect(() => {
+    if (!campus) {
+      setIncidents([]);
+      return;
+    }
+    let cancelled = false;
+    setIncidentsLoading(true);
+    setIncidents([]);
+    fetch(`/api/incidents?campus_id=${encodeURIComponent(campus.id)}`)
+      .then((r) => r.json())
+      .then((json) => {
+        if (cancelled) return;
+        const data: Incident[] = Array.isArray(json) ? json : (json.incidents ?? []);
+        setIncidents(data);
+      })
+      .catch(() => {
+        if (!cancelled) setIncidents([]);
+      })
+      .finally(() => {
+        if (!cancelled) setIncidentsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [campus]);
 
-  const totalIncidents = campusIncidents.length;
+  const totalIncidents = incidents.length;
 
   const mostCommonCategory = useMemo((): string => {
-    if (!campusIncidents.length) return 'None';
+    if (!incidents.length) return 'None';
     const counts: Partial<Record<IncidentCategory, number>> = {};
-    for (const inc of campusIncidents) {
+    for (const inc of incidents) {
       counts[inc.category] = (counts[inc.category] ?? 0) + 1;
     }
     const top = (Object.entries(counts) as [IncidentCategory, number][]).sort(
       (a, b) => b[1] - a[1]
     )[0];
     return CATEGORY_LABELS[top[0]];
-  }, [campusIncidents]);
+  }, [incidents]);
 
   const highSeverityCount = useMemo(
-    () => campusIncidents.filter((inc) => inc.severity === 'high').length,
-    [campusIncidents]
+    () => incidents.filter((inc) => inc.severity === 'high').length,
+    [incidents]
   );
 
-  const hasDemoData = campusIncidents.length > 0;
-  const showMap = hasDemoData && campus !== null;
+  const hasData = totalIncidents > 0;
 
   return (
     <>
@@ -831,7 +429,7 @@ export default function CampusPage() {
                   </p>
                 )}
               </div>
-              {hasDemoData && (
+              {hasData && (
                 <span className="inline-flex items-center gap-1 self-start sm:self-auto bg-gold-100 text-gold-700 font-sans text-xs font-semibold px-3 py-1 rounded-full border border-gold-200">
                   <svg viewBox="0 0 10 10" className="w-2 h-2 fill-current"><circle cx="5" cy="5" r="4" /></svg>
                   Incident data available
@@ -840,7 +438,12 @@ export default function CampusPage() {
             </div>
 
             {/* Incident tracking section */}
-            {hasDemoData ? (
+            {incidentsLoading ? (
+              <div className="mb-8 bg-white border border-cream-200 rounded-lg p-8 flex items-center justify-center">
+                <div className="w-5 h-5 border-2 border-navy-600 border-t-transparent rounded-full animate-spin mr-3" />
+                <p className="font-sans text-sm text-gray-500">Loading incident data…</p>
+              </div>
+            ) : hasData ? (
               <>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                   <StatPill value={String(totalIncidents)} label="Incidents tracked" />
@@ -848,24 +451,21 @@ export default function CampusPage() {
                   <StatPill value={`${highSeverityCount}`} label="High severity" />
                 </div>
 
-                {showMap && (
-                  <>
-                    <div className="mb-3">
-                      <CampusMap
-                        campusId={campus.id}
-                        campusLat={campus.lat}
-                        campusLng={campus.lng}
-                        campusName={campus.name}
-                      />
-                    </div>
-                    <p className="font-sans text-xs text-gray-400 mb-10">
-                      Incident locations are neighborhood-level only. Exact addresses are never stored.
-                    </p>
-                  </>
-                )}
+                <div className="mb-3">
+                  <CampusMap
+                    campusLat={campus.lat}
+                    campusLng={campus.lng}
+                    campusName={campus.name}
+                    incidents={incidents}
+                  />
+                </div>
+                <p className="font-sans text-xs text-gray-400 mb-10">
+                  Incident locations are neighborhood-level only. Exact addresses are never stored.
+                  Incident data shown is a demonstration dataset for platform preview.
+                </p>
               </>
             ) : (
-              /* Coming soon notice */
+              /* No data yet */
               <div className="mb-8 bg-white border border-cream-200 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex-1">
                   <p className="font-sans text-sm font-semibold text-navy-800 mb-1">
@@ -914,19 +514,14 @@ export default function CampusPage() {
                         rel="noopener noreferrer"
                         className="font-sans text-sm text-navy-600 hover:text-navy-800 underline"
                       >
-                        {campus.hillel.url.replace('https://', '')}
+                        {campus.hillel.url.replace(/^https?:\/\/(www\.)?/, '')}
                       </a>
                     ) : (
                       <p className="font-sans text-sm text-gray-500">Website not on record</p>
                     )}
                   </>
                 ) : (
-                  <>
-                    <h3 className="font-sans font-semibold text-navy-800 mb-1">
-                      Hillel at {campus.name}
-                    </h3>
-                    <p className="font-sans text-sm text-gray-500">No Hillel chapter on record</p>
-                  </>
+                  <p className="font-sans text-sm text-gray-500">No Hillel chapter on record</p>
                 )}
               </div>
 
@@ -940,9 +535,6 @@ export default function CampusPage() {
                     <h3 className="font-sans font-semibold text-navy-800 mb-1">
                       {campus.chabad.name}
                     </h3>
-                    {campus.chabad.address && (
-                      <p className="font-sans text-xs text-gray-500 mb-1">{campus.chabad.address}</p>
-                    )}
                     {campus.chabad.url ? (
                       <a
                         href={campus.chabad.url}
@@ -950,34 +542,26 @@ export default function CampusPage() {
                         rel="noopener noreferrer"
                         className="font-sans text-sm text-navy-600 hover:text-navy-800 underline"
                       >
-                        {campus.chabad.url.replace('https://', '')}
+                        {campus.chabad.url.replace(/^https?:\/\/(www\.)?/, '')}
                       </a>
                     ) : (
                       <p className="font-sans text-sm text-gray-500">Website not on record</p>
                     )}
                   </>
                 ) : (
-                  <>
-                    <h3 className="font-sans font-semibold text-navy-800 mb-1">
-                      Chabad at {campus.name}
-                    </h3>
-                    <p className="font-sans text-sm text-gray-500">No Chabad house on record</p>
-                  </>
+                  <p className="font-sans text-sm text-gray-500">No Chabad house on record</p>
                 )}
               </div>
 
-              {/* Nearby spaces */}
+              {/* Community spaces on map */}
               <div className="bg-white border border-cream-200 rounded-lg p-5 md:col-span-2">
                 <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
                   Nearby Synagogues &amp; Jewish Institutions
                 </p>
-                <ul className="space-y-1">
-                  {campus.nearbySpaces.map((s) => (
-                    <li key={s} className="font-sans text-sm text-gray-700">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
+                <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                  Use the community spaces layer on the main map to find publicly listed
+                  synagogues, JCCs, and Jewish student centers near any location.
+                </p>
                 <Link
                   href="/map"
                   className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline"
@@ -989,9 +573,8 @@ export default function CampusPage() {
 
             <div className="mt-10 bg-cream-100 border border-cream-200 rounded-lg p-5">
               <p className="font-sans text-xs text-gray-500 leading-relaxed">
-                This tool provides publicly available community information. Incident data is from
-                verified community reports and published sources. SafeJew does not assess or
-                guarantee the safety of any location listed here.
+                This tool provides publicly available community information. SafeJew does not
+                assess or guarantee the safety of any location listed here.
               </p>
             </div>
           </div>
@@ -1009,7 +592,7 @@ export default function CampusPage() {
 
             {/* Quick-pick chips */}
             <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {CAMPUSES.filter((c) => c.hasDemoData || ['campus-columbia', 'campus-harvard', 'campus-nyu', 'campus-michigan', 'campus-brandeis'].includes(c.id)).map((c) => (
+              {CAMPUSES.filter((c) => FEATURED_CAMPUS_IDS.includes(c.id)).map((c) => (
                 <button
                   key={c.id}
                   onClick={() => setSelectedId(c.id)}
@@ -1035,7 +618,7 @@ export default function CampusPage() {
               : 'Experienced antisemitism on campus? Reports help build the data record that protects other students.'}
           </p>
           <Link
-            href="/report"
+            href={campus ? `/report?campus=${campus.id}` : '/report'}
             className="inline-flex items-center justify-center bg-gold-500 text-white px-7 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
           >
             Report an Incident

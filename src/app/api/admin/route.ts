@@ -6,28 +6,36 @@ function checkAuth(request: NextRequest): boolean {
   return expected.length > 0 && key === expected;
 }
 
-// GET /api/admin — returns pending reports and campus requests
+// GET /api/admin — returns reports and campus requests.
+// Default: pending only. ?scope=all returns the latest 100 of each, any status.
 export async function GET(request: NextRequest) {
   if (!checkAuth(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const scope = new URL(request.url).searchParams.get('scope');
+  const all = scope === 'all';
+
   try {
     const { createServiceClient } = await import('@/lib/supabase/server');
     const supabase = createServiceClient();
 
-    const [reportsRes, campusReqRes] = await Promise.all([
-      supabase
-        .from('reports')
-        .select('*')
-        .eq('status', 'pending')
-        .order('created_at', { ascending: false }),
-      supabase
-        .from('campus_requests')
-        .select('*')
-        .eq('status', 'pending')
-        .order('created_at', { ascending: false }),
-    ]);
+    let reportsQuery = supabase
+      .from('reports')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(100);
+    let campusReqQuery = supabase
+      .from('campus_requests')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(100);
+    if (!all) {
+      reportsQuery = reportsQuery.eq('status', 'pending');
+      campusReqQuery = campusReqQuery.eq('status', 'pending');
+    }
+
+    const [reportsRes, campusReqRes] = await Promise.all([reportsQuery, campusReqQuery]);
 
     return NextResponse.json({
       reports: reportsRes.data ?? [],

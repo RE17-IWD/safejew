@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isDemoMode } from '@/lib/demo-data';
+import { findCampus } from '@/lib/campuses';
 
 const NEIGHBORHOOD_CENTROIDS: Record<string, [number, number]> = {
   'Beverly Hills': [34.0736, -118.4004],
@@ -7,6 +8,7 @@ const NEIGHBORHOOD_CENTROIDS: Record<string, [number, number]> = {
   'Pico-Robertson': [34.0512, -118.3857],
   'Fairfax District': [34.0794, -118.3606],
   'West Hollywood': [34.0900, -118.3617],
+  'Hollywood': [34.0928, -118.3287],
   'Mid-Wilshire': [34.0621, -118.3369],
   'Silver Lake': [34.0870, -118.2707],
   'Los Feliz': [34.1086, -118.2932],
@@ -30,18 +32,32 @@ function jitter(val: number): number {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { category, description, occurred_at, neighborhood, severity, is_anonymous, reporter_contact } = body;
+    const { category, description, occurred_at, neighborhood, severity, is_anonymous, reporter_contact, campus_id } = body;
 
-    if (!category || !description || !occurred_at || !neighborhood || !severity) {
+    // A report is located either by LA neighborhood or by campus
+    const campus = campus_id ? findCampus(String(campus_id)) : undefined;
+
+    if (!category || !description || !occurred_at || !severity || (!neighborhood && !campus)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
     if (description.length < 10) {
       return NextResponse.json({ error: 'Description too short' }, { status: 400 });
     }
 
-    const centroid = NEIGHBORHOOD_CENTROIDS[neighborhood] ?? NEIGHBORHOOD_CENTROIDS['Other'];
-    const lat = jitter(centroid[0]);
-    const lng = jitter(centroid[1]);
+    // Campus reports anchor to the campus coordinates; LA reports to their neighborhood centroid
+    let lat: number;
+    let lng: number;
+    let place: string;
+    if (campus) {
+      lat = jitter(campus.lat);
+      lng = jitter(campus.lng);
+      place = neighborhood || `${campus.name} area`;
+    } else {
+      const centroid = NEIGHBORHOOD_CENTROIDS[neighborhood] ?? NEIGHBORHOOD_CENTROIDS['Other'];
+      lat = jitter(centroid[0]);
+      lng = jitter(centroid[1]);
+      place = neighborhood;
+    }
 
     if (isDemoMode()) {
       return NextResponse.json({ success: true, id: 'demo-' + Date.now() });
@@ -57,12 +73,13 @@ export async function POST(request: NextRequest) {
         category,
         description: description.slice(0, 2000),
         occurred_at,
-        neighborhood,
+        neighborhood: place,
         lat,
         lng,
         severity,
         source: 'community',
         status: 'pending',
+        campus_id: campus?.uuid ?? null,
         is_anonymous: Boolean(is_anonymous),
         reporter_contact: is_anonymous ? null : (reporter_contact?.slice(0, 200) || null),
       })
