@@ -1,360 +1,226 @@
-'use client';
-
-import { useState, useEffect, useMemo } from 'react';
-import type { Incident } from '@/types';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import StatsCard from '@/components/dashboard/StatsCard';
-import TrendChart from '@/components/dashboard/TrendChart';
-import CategoryBreakdown from '@/components/dashboard/CategoryBreakdown';
-import NeighborhoodBreakdown from '@/components/dashboard/NeighborhoodBreakdown';
+import AnnualBarChart from '@/components/dashboard/AnnualBarChart';
+import {
+  NATIONAL_ADL,
+  LA_COUNTY_ANTI_JEWISH,
+  CALIFORNIA_ANTI_JEWISH,
+  LA_COUNTY_CONTEXT,
+  SOURCES,
+  DATA_COMPILED,
+  pctChange,
+} from '@/data/hate-crime-stats';
 
-const MONTH_NAMES = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-];
+export const metadata: Metadata = {
+  title: 'Antisemitism Data Dashboard',
+  description:
+    'Verified antisemitism and hate-crime data for Los Angeles, California, and the United States, compiled from ADL, LA County, California DOJ, and FBI sources.',
+};
 
-function monthKey(date: Date): string {
-  return `${MONTH_NAMES[date.getMonth()]} ${date.getFullYear()}`;
-}
+const nationalLatest = NATIONAL_ADL[NATIONAL_ADL.length - 1];
+const laLatest = LA_COUNTY_ANTI_JEWISH[LA_COUNTY_ANTI_JEWISH.length - 1];
+const caLatest = CALIFORNIA_ANTI_JEWISH[CALIFORNIA_ANTI_JEWISH.length - 1];
+const caPrev = CALIFORNIA_ANTI_JEWISH[CALIFORNIA_ANTI_JEWISH.length - 2];
+const laFirst = LA_COUNTY_ANTI_JEWISH[0];
 
 export default function DashboardPage() {
-  const [incidents, setIncidents] = useState<Incident[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-
-  async function fetchIncidents(isRefresh = false) {
-    if (isRefresh) setIsRefreshing(true);
-    try {
-      const res = await fetch('/api/incidents?status=verified');
-      if (res.ok) {
-        const data = await res.json();
-        setIncidents(Array.isArray(data) ? data : (data.incidents ?? []));
-        setLastUpdated(new Date());
-      }
-    } catch {
-      // API handles demo fallback — leave incidents empty on network failure
-    } finally {
-      setIsLoading(false);
-      setIsRefreshing(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchIncidents();
-  }, []);
-
-  const {
-    totalIncidents,
-    thisMonth,
-    lastMonth,
-    momChange,
-    momPositive,
-    monthlyData,
-    categoryData,
-    neighborhoodData,
-    severityCounts,
-  } = useMemo(() => {
-    const now = new Date();
-    const currentYear = now.getFullYear();
-    const currentMonth = now.getMonth();
-
-    const thisMonthCount = incidents.filter((inc) => {
-      const d = new Date(inc.occurred_at);
-      return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
-    }).length;
-
-    const lastMonthDate = new Date(currentYear, currentMonth - 1, 1);
-    const lastMonthCount = incidents.filter((inc) => {
-      const d = new Date(inc.occurred_at);
-      return (
-        d.getFullYear() === lastMonthDate.getFullYear() &&
-        d.getMonth() === lastMonthDate.getMonth()
-      );
-    }).length;
-
-    let momChangeStr = 'N/A';
-    let momPos: boolean | undefined;
-    if (lastMonthCount > 0) {
-      const pct = ((thisMonthCount - lastMonthCount) / lastMonthCount) * 100;
-      const sign = pct >= 0 ? '+' : '';
-      momChangeStr = `${sign}${pct.toFixed(0)}% vs last month`;
-      momPos = pct <= 0; // fewer incidents = positive
-    }
-
-    // Build monthly series: Jan 2024 through current month
-    const start = new Date(2024, 0, 1);
-    const seriesMap: Record<string, number> = {};
-    const cursor = new Date(start);
-    while (
-      cursor.getFullYear() < currentYear ||
-      (cursor.getFullYear() === currentYear && cursor.getMonth() <= currentMonth)
-    ) {
-      seriesMap[monthKey(cursor)] = 0;
-      cursor.setMonth(cursor.getMonth() + 1);
-    }
-    incidents.forEach((inc) => {
-      const d = new Date(inc.occurred_at);
-      const k = monthKey(d);
-      if (k in seriesMap) seriesMap[k] = (seriesMap[k] ?? 0) + 1;
-    });
-    const monthly = Object.entries(seriesMap).map(([month, count]) => ({ month, count }));
-
-    // Category breakdown
-    const catMap: Record<string, number> = {};
-    incidents.forEach((inc) => {
-      catMap[inc.category] = (catMap[inc.category] ?? 0) + 1;
-    });
-    const categories = Object.entries(catMap)
-      .map(([category, count]) => ({ category, count }))
-      .sort((a, b) => b.count - a.count);
-
-    // Neighborhood breakdown (top 10)
-    const nbrMap: Record<string, number> = {};
-    incidents.forEach((inc) => {
-      nbrMap[inc.neighborhood] = (nbrMap[inc.neighborhood] ?? 0) + 1;
-    });
-    const neighborhoods = Object.entries(nbrMap)
-      .map(([neighborhood, count]) => ({ neighborhood, count }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 10);
-
-    // Severity breakdown
-    const sevMap: Record<string, number> = { low: 0, medium: 0, high: 0 };
-    incidents.forEach((inc) => {
-      const sev = inc.severity as string;
-      if (sev in sevMap) sevMap[sev] = (sevMap[sev] ?? 0) + 1;
-    });
-
-    return {
-      totalIncidents: incidents.length,
-      thisMonth: thisMonthCount,
-      lastMonth: lastMonthCount,
-      momChange: momChangeStr,
-      momPositive: momPos,
-      monthlyData: monthly,
-      categoryData: categories,
-      neighborhoodData: neighborhoods,
-      severityCounts: sevMap,
-    };
-  }, [incidents]);
-
   return (
     <>
       {/* Page header */}
       <section className="bg-navy-800 py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-10 h-0.5 bg-gold-500 mb-5" aria-hidden="true" />
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Analytics Dashboard
-              </h1>
-              <p className="mt-3 text-base text-blue-100/70 font-sans max-w-xl leading-relaxed">
-                Verified incident data across Greater Los Angeles, updated as reports are
-                reviewed and confirmed by our team.
-              </p>
-              {lastUpdated && (
-                <p className="mt-2 text-xs text-blue-100/40 font-sans">
-                  Last updated {lastUpdated.toLocaleTimeString()}
-                </p>
-              )}
-              <p className="mt-3 inline-block bg-amber-500/15 border border-amber-400/30 rounded px-2.5 py-1 text-xs text-amber-200/90 font-sans">
-                Platform preview — analytics reflect a demonstration dataset
-              </p>
-            </div>
-            <button
-              onClick={() => fetchIncidents(true)}
-              disabled={isRefreshing}
-              className="mt-2 flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-md font-sans text-sm font-medium bg-white/10 hover:bg-white/20 disabled:opacity-50 text-white transition-colors"
-            >
-              <svg
-                className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`}
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              {isRefreshing ? 'Refreshing…' : 'Refresh'}
-            </button>
-          </div>
+          <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Antisemitism Data Dashboard
+          </h1>
+          <p className="mt-3 text-base text-blue-100/70 font-sans max-w-2xl leading-relaxed">
+            Verified antisemitism and hate-crime data for Los Angeles, California, and the
+            United States — compiled from official reporting by the ADL, the LA County
+            Commission on Human Relations, the California Department of Justice, and the FBI.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-400/30 rounded px-2.5 py-1 text-xs text-emerald-100/90 font-sans">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+            Verified official data · compiled {DATA_COMPILED}
+          </p>
         </div>
       </section>
 
       <section className="bg-cream-50 py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          {/* Loading state */}
-          {isLoading && (
-            <div className="flex items-center justify-center py-16">
-              <p className="font-sans text-sm text-gray-400">Loading incident data...</p>
+          {/* Stat cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatsCard
+              label="U.S. incidents (2024)"
+              value={nationalLatest.value.toLocaleString()}
+              change="ADL — highest in 46 years"
+              positive={false}
+            />
+            <StatsCard
+              label="Anti-Jewish · LA County (2024)"
+              value={laLatest.value}
+              change="2nd-highest in 44 years"
+              positive={false}
+            />
+            <StatsCard
+              label="Anti-Jewish · California (2024)"
+              value={caLatest.value}
+              change={`${pctChange(caPrev.value, caLatest.value) >= 0 ? '+' : ''}${pctChange(caPrev.value, caLatest.value)}% vs 2023 · CA DOJ`}
+              positive={false}
+            />
+            <StatsCard
+              label="Share of LA religious hate crime"
+              value={`${LA_COUNTY_CONTEXT.antiJewishShareOfReligious2024}%`}
+              change="targets Jewish community"
+            />
+          </div>
+
+          {/* National trend */}
+          <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+            <div className="flex items-baseline justify-between gap-4 flex-wrap">
+              <h2 className="font-serif text-lg font-semibold text-navy-800">
+                U.S. antisemitic incidents, by year
+              </h2>
+              <span className="font-sans text-xs text-gray-400">ADL Audit of Antisemitic Incidents</span>
             </div>
-          )}
+            <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+              Reported antisemitic assault, harassment, and vandalism nationwide. Incidents rose
+              {' '}{pctChange(NATIONAL_ADL[0].value, nationalLatest.value)}% from 2022 to 2024, the
+              highest total in the Audit&apos;s 46-year history.
+            </p>
+            <AnnualBarChart data={NATIONAL_ADL} unitLabel="incidents" />
+          </div>
 
-          {!isLoading && (
-            <>
-              {/* Stats row */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <StatsCard label="Total Incidents" value={totalIncidents} />
-                <StatsCard label="This Month" value={thisMonth} />
-                <StatsCard label="Last Month" value={lastMonth} />
-                <StatsCard
-                  label="Month-over-Month"
-                  value={momChange}
-                  positive={momPositive}
-                />
-              </div>
-
-              {/* Incident Trend */}
-              <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
-                <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-                  Incident Trend
+          {/* LA County + California */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+              <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                <h2 className="font-serif text-lg font-semibold text-navy-800">
+                  Anti-Jewish hate crimes · LA County
                 </h2>
-                <p className="font-sans text-xs text-gray-400 mb-5">
-                  Verified incidents per month, January 2024 to present
-                </p>
-                {monthlyData.length > 0 ? (
-                  <TrendChart data={monthlyData} />
-                ) : (
-                  <div className="h-[280px] flex items-center justify-center">
-                    <p className="font-sans text-sm text-gray-400">No data available</p>
-                  </div>
-                )}
+                <span className="font-sans text-xs text-gray-400">LA County Commission on Human Relations</span>
               </div>
+              <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+                Anti-Jewish hate crimes reported across Los Angeles County. 2023 was the highest
+                ever recorded; 2024 the second-highest in 44 years.
+              </p>
+              <AnnualBarChart data={LA_COUNTY_ANTI_JEWISH} unitLabel="hate crimes" />
+            </div>
 
-              {/* Category + Neighborhood breakdown */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
-                  <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-                    Incidents by Category
-                  </h2>
-                  <p className="font-sans text-xs text-gray-400 mb-5">
-                    Breakdown of verified incidents by type
-                  </p>
-                  {categoryData.length > 0 ? (
-                    <CategoryBreakdown data={categoryData} />
-                  ) : (
-                    <div className="h-[180px] flex items-center justify-center">
-                      <p className="font-sans text-sm text-gray-400">No data available</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
-                  <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-                    Top Neighborhoods
-                  </h2>
-                  <p className="font-sans text-xs text-gray-400 mb-5">
-                    Top 10 neighborhoods by verified incident count
-                  </p>
-                  {neighborhoodData.length > 0 ? (
-                    <NeighborhoodBreakdown data={neighborhoodData} />
-                  ) : (
-                    <div className="h-[180px] flex items-center justify-center">
-                      <p className="font-sans text-sm text-gray-400">No data available</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Severity Breakdown */}
-              <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
-                <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-                  Severity Breakdown
+            <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+              <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                <h2 className="font-serif text-lg font-semibold text-navy-800">
+                  Anti-Jewish hate crimes · California
                 </h2>
-                <p className="font-sans text-xs text-gray-400 mb-6">
-                  Distribution of verified incidents by reported severity level
+                <span className="font-sans text-xs text-gray-400">California DOJ</span>
+              </div>
+              <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+                Statewide anti-Jewish bias hate-crime events reported to the California Department
+                of Justice.
+              </p>
+              <AnnualBarChart data={CALIFORNIA_ANTI_JEWISH} unitLabel="hate crimes" />
+            </div>
+          </div>
+
+          {/* LA County context strip */}
+          <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+            <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
+              Los Angeles County — 2024 in context
+            </h2>
+            <p className="font-sans text-xs text-gray-400 mb-6">
+              From the LA County Commission on Human Relations 2024 Hate Crime Report
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="border border-cream-200 rounded-lg px-5 py-4">
+                <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">
+                  {LA_COUNTY_CONTEXT.antiIsraeli2024}
                 </p>
-                <div className="grid grid-cols-3 gap-4">
-                  {/* High */}
-                  <div className="flex flex-col items-center text-center border border-red-100 rounded-lg px-4 py-5 bg-red-50">
-                    <span
-                      className="inline-block w-3 h-3 rounded-full mb-3"
-                      style={{ background: '#dc2626' }}
-                      aria-hidden="true"
-                    />
-                    <p
-                      className="font-serif text-3xl font-bold leading-none mb-1"
-                      style={{ color: '#dc2626' }}
-                    >
-                      {severityCounts.high ?? 0}
-                    </p>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
-                      High
-                    </p>
-                    <p className="font-sans text-xs text-gray-400 mt-0.5">
-                      Serious or credible threat
-                    </p>
-                  </div>
-
-                  {/* Medium */}
-                  <div className="flex flex-col items-center text-center border border-amber-100 rounded-lg px-4 py-5 bg-amber-50">
-                    <span
-                      className="inline-block w-3 h-3 rounded-full mb-3"
-                      style={{ background: '#d97706' }}
-                      aria-hidden="true"
-                    />
-                    <p
-                      className="font-serif text-3xl font-bold leading-none mb-1"
-                      style={{ color: '#d97706' }}
-                    >
-                      {severityCounts.medium ?? 0}
-                    </p>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
-                      Medium
-                    </p>
-                    <p className="font-sans text-xs text-gray-400 mt-0.5">
-                      Significant concern
-                    </p>
-                  </div>
-
-                  {/* Low */}
-                  <div className="flex flex-col items-center text-center border border-green-100 rounded-lg px-4 py-5 bg-green-50">
-                    <span
-                      className="inline-block w-3 h-3 rounded-full mb-3"
-                      style={{ background: '#059669' }}
-                      aria-hidden="true"
-                    />
-                    <p
-                      className="font-serif text-3xl font-bold leading-none mb-1"
-                      style={{ color: '#059669' }}
-                    >
-                      {severityCounts.low ?? 0}
-                    </p>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mt-1">
-                      Low
-                    </p>
-                    <p className="font-sans text-xs text-gray-400 mt-0.5">
-                      Minor, no immediate threat
-                    </p>
-                  </div>
-                </div>
+                <p className="font-sans text-sm font-semibold text-navy-700">Anti-Israeli hate crimes</p>
+                <p className="font-sans text-xs text-gray-500 mt-1">
+                  Up from {LA_COUNTY_CONTEXT.antiIsraeli2023} in 2023 — the highest the Commission
+                  has ever recorded.
+                </p>
               </div>
-
-              {/* Roadmap card */}
-              <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <h2 className="font-serif text-lg font-semibold text-navy-800">
-                        Predictive Risk Modeling
-                      </h2>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full font-sans text-xs font-semibold bg-cream-100 text-gray-500 border border-cream-200 uppercase tracking-wide">
-                        Planned
-                      </span>
-                    </div>
-                    <p className="font-sans text-sm text-gray-600 leading-relaxed max-w-2xl">
-                      A machine-learning model for incident risk forecasting is planned for
-                      a future release. It will analyze historical patterns to identify
-                      elevated-risk windows and geographic clusters before incidents occur,
-                      enabling community organizations and campus security teams to
-                      allocate resources proactively.
-                    </p>
-                    <p className="font-sans text-xs text-gray-400 mt-3 font-medium uppercase tracking-wide">
-                      Roadmap — not yet available
-                    </p>
-                  </div>
-                </div>
+              <div className="border border-cream-200 rounded-lg px-5 py-4">
+                <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">
+                  {LA_COUNTY_CONTEXT.schoolBased2024}
+                </p>
+                <p className="font-sans text-sm font-semibold text-navy-700">School-based hate crimes</p>
+                <p className="font-sans text-xs text-gray-500 mt-1">
+                  Up from {LA_COUNTY_CONTEXT.schoolBased2023} in 2023 — the highest count ever
+                  documented in the county.
+                </p>
               </div>
-            </>
-          )}
+              <div className="border border-cream-200 rounded-lg px-5 py-4">
+                <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">
+                  {LA_COUNTY_CONTEXT.antiJewishShareOfReligious2024}%
+                </p>
+                <p className="font-sans text-sm font-semibold text-navy-700">Of religious hate crime</p>
+                <p className="font-sans text-xs text-gray-500 mt-1">
+                  Of all religion-motivated hate crimes in LA County targeted the Jewish community.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Community reports note */}
+          <div className="bg-navy-50/60 border border-navy-100 rounded-lg p-5">
+            <p className="font-sans text-sm text-navy-800 leading-relaxed">
+              <span className="font-semibold">A note on this data.</span> The figures above are
+              official aggregate counts of <em>reported</em> hate crimes and incidents. Under-reporting
+              is significant, so real-world totals are higher. Community-submitted reports are tracked
+              separately and shown, clearly labeled, on the{' '}
+              <Link href="/map" className="text-navy-600 underline hover:text-navy-800">
+                incident map
+              </Link>
+              .
+            </p>
+          </div>
+
+          {/* Predictive modeling roadmap */}
+          <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+            <div className="flex items-center gap-3 mb-2">
+              <h2 className="font-serif text-lg font-semibold text-navy-800">
+                Predictive Risk Modeling
+              </h2>
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full font-sans text-xs font-semibold bg-cream-100 text-gray-500 border border-cream-200 uppercase tracking-wide">
+                Planned
+              </span>
+            </div>
+            <p className="font-sans text-sm text-gray-600 leading-relaxed max-w-2xl">
+              A machine-learning model for incident risk forecasting is planned for a future
+              release. It will analyze historical patterns to identify elevated-risk windows and
+              geographic clusters, enabling community organizations and campus security teams to
+              allocate resources proactively.
+            </p>
+            <p className="font-sans text-xs text-gray-400 mt-3 font-medium uppercase tracking-wide">
+              Roadmap — not yet available
+            </p>
+          </div>
+
+          {/* Sources */}
+          <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
+            <h2 className="font-serif text-lg font-semibold text-navy-800 mb-4">Sources</h2>
+            <ul className="space-y-3">
+              {SOURCES.map((s) => (
+                <li key={s.key} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm font-medium text-navy-700 hover:text-navy-900 underline underline-offset-2 flex-none"
+                  >
+                    {s.name}
+                  </a>
+                  <span className="font-sans text-xs text-gray-500">{s.note}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="font-sans text-xs text-gray-400 mt-4">
+              Figures compiled {DATA_COMPILED} from the most recent published reports. References
+              to these organizations do not imply partnership or endorsement.
+            </p>
+          </div>
         </div>
       </section>
     </>

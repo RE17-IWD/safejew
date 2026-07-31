@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import type { Incident, IncidentCategory } from '@/types';
 import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
+import TitleVIPanel from '@/components/campus/TitleVIPanel';
 
 const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
   ssr: false,
@@ -461,7 +462,9 @@ export default function CampusPage() {
                 </div>
                 <p className="font-sans text-xs text-gray-400 mb-10">
                   Incident locations are neighborhood-level only. Exact addresses are never stored.
-                  Incident data shown is a demonstration dataset for platform preview.
+                  Points shown are illustrative sample data, not verified events — see the{' '}
+                  <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
+                  for verified antisemitism statistics.
                 </p>
               </>
             ) : (
@@ -571,7 +574,36 @@ export default function CampusPage() {
               </div>
             </div>
 
-            <div className="mt-10 bg-cream-100 border border-cream-200 rounded-lg p-5">
+            {/* Title VI civil-rights info */}
+            <div className="mt-6">
+              <TitleVIPanel campusName={campus.name} />
+            </div>
+
+            {/* Anonymous reporting callout */}
+            <div className="mt-6 bg-navy-800 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <svg viewBox="0 0 20 20" className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <path d="M10 2a3 3 0 013 3v3H7V5a3 3 0 013-3z" />
+                    <rect x="4.5" y="8" width="11" height="9" rx="1.5" />
+                  </svg>
+                  <p className="font-sans text-sm font-semibold text-white">Report anonymously</p>
+                </div>
+                <p className="font-sans text-sm text-white/65 leading-relaxed">
+                  Students often fear retaliation. You can file a report with no name and no email —
+                  anonymity is built in. Reports are reviewed before they appear in the
+                  {' '}{campus.name} tracker.
+                </p>
+              </div>
+              <Link
+                href={`/report?campus=${campus.id}`}
+                className="flex-none inline-flex items-center justify-center bg-gold-500 text-white px-5 py-2.5 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
+              >
+                Report anonymously
+              </Link>
+            </div>
+
+            <div className="mt-6 bg-cream-100 border border-cream-200 rounded-lg p-5">
               <p className="font-sans text-xs text-gray-500 leading-relaxed">
                 This tool provides publicly available community information. SafeJew does not
                 assess or guarantee the safety of any location listed here.
@@ -584,10 +616,12 @@ export default function CampusPage() {
         <section className="bg-cream-50 py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="font-sans text-gray-500 text-sm mb-2">
-              Search for your campus above to see incident data and community resources.
+              Search any of {CAMPUSES.length} campuses for Hillel, Chabad, Jewish community
+              resources, and your Title VI civil-rights options.
             </p>
             <p className="font-sans text-xs text-gray-400">
-              Covering {CAMPUSES.length} campuses — more being added regularly.
+              Los Angeles campuses (UCLA, USC) have the deepest local data. Incident tracking is
+              being expanded campus by campus as verified data and community reports grow.
             </p>
 
             {/* Quick-pick chips */}
