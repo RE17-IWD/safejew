@@ -111,8 +111,7 @@ export default function HomePage() {
                 patterns were forming. So they built one.
               </p>
               <p className="font-sans text-base text-gray-700 leading-relaxed mb-5">
-                SafeJew received a $1,000 Teen Innovation Grant from JFEDLA and was distributed
-                across their Greater LA network through the Community Security Initiative. This
+                SafeJew received a $1,000 Teen Innovation Grant from JFEDLA. This
                 version is a full rebuild — faster, more rigorous, and free to use.
               </p>
               <Link
@@ -165,12 +164,11 @@ export default function HomePage() {
           <h2 className="font-serif text-2xl font-bold text-navy-800 mb-8 text-center">
             Where the data comes from
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { abbr: 'ADL', full: 'Anti-Defamation League, Annual Audit' },
               { abbr: 'LAPD', full: 'LA Police Department, Hate Crime Reports' },
               { abbr: 'FBI', full: 'FBI Uniform Crime Reporting' },
-              { abbr: 'CSI', full: 'JFEDLA Community Security Initiative' },
             ].map((s) => (
               <div key={s.abbr} className="bg-white border border-cream-200 rounded-lg p-4 text-center">
                 <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">
@@ -228,6 +226,25 @@ export default function HomePage() {
               View Resources
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── Contact CTA ── */}
+      <section className="bg-navy-800 py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-2xl font-bold text-white mb-3">
+            Working on community or campus safety?
+          </h2>
+          <p className="font-sans text-base text-white/65 mb-7 leading-relaxed max-w-xl mx-auto">
+            Whether you represent a university, a synagogue, a community organization, or a
+            security team — if you are dealing with these problems, we want to hear from you.
+          </p>
+          <a
+            href="mailto:contact@safejew.org"
+            className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
+          >
+            Get in Touch
+          </a>
         </div>
       </section>
     </>

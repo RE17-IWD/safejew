@@ -328,15 +328,6 @@ export default function ReportForm() {
                 Non-emergency: (877) 275-5273
               </p>
             </li>
-            <li>
-              <p className="font-sans text-sm font-medium text-navy-800">
-                JFEDLA Community Security Initiative (CSI)
-              </p>
-              <p className="font-sans text-xs text-gray-500">
-                Contact CSI through the Jewish Federation of Greater Los Angeles
-                for community-level security concerns.
-              </p>
-            </li>
           </ul>
         </div>
 

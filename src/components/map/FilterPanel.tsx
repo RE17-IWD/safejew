@@ -27,7 +27,6 @@ const ALL_SOURCES: { value: IncidentSource; label: string }[] = [
   { value: 'community', label: 'Community Reports' },
   { value: 'ADL', label: 'ADL' },
   { value: 'LAPD', label: 'LAPD' },
-  { value: 'CSI', label: 'CSI' },
   { value: 'FBI', label: 'FBI' },
 ];
 

@@ -48,14 +48,6 @@ const SECURITY_ORGS = [
     tag: 'National',
   },
   {
-    name: 'JFEDLA Community Security Initiative (CSI)',
-    description:
-      'LA-specific Jewish community security arm of the Jewish Federation of Greater Los Angeles. Coordinates with LAPD and local law enforcement on Jewish community safety.',
-    url: 'https://www.jewishla.org/communityservices/security/',
-    phone: null,
-    tag: 'Los Angeles',
-  },
-  {
     name: 'ADL Los Angeles',
     description:
       'Anti-Defamation League Pacific Southwest Regional office. Reports antisemitic incidents, provides legal referrals, and monitors extremist activity.',

@@ -21,10 +21,6 @@ const resourceLinks = [
     href: 'https://tips.fbi.gov',
   },
   {
-    label: 'JFEDLA Community Security Initiative',
-    href: 'https://www.jewishla.org/community-security-initiative',
-  },
-  {
     label: 'LAPD Hate Crime Unit',
     href: 'https://www.lapdonline.org/hate-crime',
   },
@@ -43,9 +39,15 @@ export default function Footer() {
             <p className="text-sm text-blue-100/70 leading-relaxed mb-3">
               Empowering Jewish communities with data-driven safety intelligence.
             </p>
-            <p className="text-sm text-blue-100/50 leading-relaxed">
+            <p className="text-sm text-blue-100/50 leading-relaxed mb-3">
               A project of community safety advocates in Greater Los Angeles.
             </p>
+            <a
+              href="mailto:contact@safejew.org"
+              className="text-sm text-gold-400 hover:text-gold-300 transition-colors"
+            >
+              contact@safejew.org
+            </a>
           </div>
 
           {/* Navigation */}

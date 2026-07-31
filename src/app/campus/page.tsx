@@ -623,6 +623,15 @@ export default function CampusPage() {
           >
             Report an Incident
           </Link>
+          <p className="font-sans text-sm text-white/60 mt-5">
+            Hillel, campus security, or student org?{' '}
+            <a
+              href="mailto:contact@safejew.org"
+              className="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors"
+            >
+              contact@safejew.org
+            </a>
+          </p>
         </div>
       </section>
     </>

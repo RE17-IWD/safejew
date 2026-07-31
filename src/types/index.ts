@@ -1,6 +1,6 @@
 export type IncidentCategory = 'vandalism' | 'harassment' | 'assault' | 'online_threat' | 'other';
 export type IncidentSeverity = 'low' | 'medium' | 'high';
-export type IncidentSource = 'community' | 'ADL' | 'FBI' | 'LAPD' | 'CSI';
+export type IncidentSource = 'community' | 'ADL' | 'FBI' | 'LAPD';
 export type IncidentStatus = 'pending' | 'verified' | 'rejected';
 
 export interface Incident {

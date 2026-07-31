@@ -97,16 +97,12 @@ export default function AboutPage() {
               <p>
                 SafeJew earned a $1,000 Teen Innovation Grant from JFEDLA — the Jewish
                 Federation of Greater Los Angeles — one of the largest and most established
-                Jewish communal organizations in the country. The platform was subsequently
-                distributed across JFEDLA&apos;s Greater LA network in partnership with the
-                Community Security Initiative (CSI), JFEDLA&apos;s dedicated community safety arm.
+                Jewish communal organizations in the country.
               </p>
               <p>
-                Getting that distribution meant SafeJew was reaching the people who needed
-                it most: synagogue security coordinators, community center directors,
-                neighborhood safety liaisons. The feedback confirmed what the team had
-                suspected — there was real demand for this, and nothing else was filling
-                the gap.
+                The grant was early validation that the problem was real and worth solving:
+                that a community was looking for exactly this kind of tool, and that nothing
+                else was filling the gap.
               </p>
             </div>
           </div>
@@ -283,7 +279,7 @@ export default function AboutPage() {
             are building for you.
           </p>
           <a
-            href="mailto:babafiraislife@gmail.com"
+            href="mailto:contact@safejew.org"
             className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
           >
             Get in Touch

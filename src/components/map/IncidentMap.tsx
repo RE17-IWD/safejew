@@ -51,7 +51,7 @@ const COMMUNITY_SPACE_STROKE = '#1a5c52';
 const DEFAULT_FILTERS: IncidentFilters = {
   categories: ['vandalism', 'harassment', 'assault', 'online_threat', 'other'],
   severities: ['high', 'medium', 'low'],
-  sources: ['community', 'ADL', 'FBI', 'LAPD', 'CSI'],
+  sources: ['community', 'ADL', 'FBI', 'LAPD'],
   dateFrom: null,
   dateTo: null,
   campusId: null,
@@ -70,7 +70,7 @@ function formatDate(iso: string): string {
 }
 
 const SOURCE_LABELS: Record<string, string> = {
-  community: 'Community Report', ADL: 'ADL', FBI: 'FBI', LAPD: 'LAPD', CSI: 'CSI',
+  community: 'Community Report', ADL: 'ADL', FBI: 'FBI', LAPD: 'LAPD',
 };
 
 // ─── MapController (inside MapContainer) ─────────────────────────────────────
