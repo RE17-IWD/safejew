@@ -43,10 +43,10 @@ export default function Footer() {
               A project of community safety advocates in Greater Los Angeles.
             </p>
             <a
-              href="mailto:contact@safejew.org"
+              href="mailto:contact.safejew@gmail.com"
               className="text-sm text-gold-400 hover:text-gold-300 transition-colors"
             >
-              contact@safejew.org
+              contact.safejew@gmail.com
             </a>
           </div>
 

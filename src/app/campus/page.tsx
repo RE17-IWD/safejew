@@ -670,10 +670,10 @@ export default function CampusPage() {
           <p className="font-sans text-sm text-white/60 mt-5">
             Hillel, campus security, or student org?{' '}
             <a
-              href="mailto:contact@safejew.org"
+              href="mailto:contact.safejew@gmail.com"
               className="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors"
             >
-              contact@safejew.org
+              contact.safejew@gmail.com
             </a>
           </p>
         </div>

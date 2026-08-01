@@ -250,7 +250,7 @@ export default function HomePage() {
             security team — if you are dealing with these problems, we want to hear from you.
           </p>
           <a
-            href="mailto:contact@safejew.org"
+            href="mailto:contact.safejew@gmail.com"
             className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
           >
             Get in Touch

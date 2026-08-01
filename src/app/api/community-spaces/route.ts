@@ -53,7 +53,7 @@ async function geocode(q: string): Promise<{ lat: number; lng: number } | null> 
   try {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q + ', Los Angeles, CA')}&format=json&limit=1&countrycodes=us`;
     const res = await fetch(url, {
-      headers: { 'User-Agent': 'SafeJew/2.0 (contact@safejew.org)' },
+      headers: { 'User-Agent': 'SafeJew/2.0 (contact.safejew@gmail.com)' },
       signal: AbortSignal.timeout(6000),
     });
     const data = await res.json();
