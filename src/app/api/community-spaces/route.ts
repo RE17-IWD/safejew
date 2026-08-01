@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import type { CommunitySpace } from '@/types';
+import { rateLimit, clientIp, tooMany } from '@/lib/rate-limit';
+
+// LA-area bounding box — reject coordinates far outside Greater LA so this
+// endpoint can't be used as a generic Overpass/Nominatim proxy.
+function inLaRegion(lat: number, lng: number): boolean {
+  return Number.isFinite(lat) && Number.isFinite(lng)
+    && lat > 32.5 && lat < 35.5 && lng > -119.5 && lng < -116.5;
+}
 
 // Curated seed list — publicly listed Jewish community institutions in Greater LA
 const CURATED_SPACES: CommunitySpace[] = [
@@ -112,12 +120,21 @@ out center 30;`;
 }
 
 export async function GET(request: NextRequest) {
+  // Light rate limit: this endpoint proxies outbound calls to Nominatim/Overpass.
+  const rl = rateLimit(`spaces:${clientIp(request)}`, 30, 60 * 1000);
+  if (!rl.ok) {
+    return NextResponse.json(tooMany(rl.retryAfter), {
+      status: 429,
+      headers: { 'Retry-After': String(rl.retryAfter) },
+    });
+  }
+
   const { searchParams } = new URL(request.url);
-  const q = searchParams.get('q');
+  const q = searchParams.get('q')?.slice(0, 120) || null;
   const latParam = searchParams.get('lat');
   const lngParam = searchParams.get('lng');
   const radiusParam = searchParams.get('radius');
-  const radiusM = Math.min(parseInt(radiusParam ?? '6000'), 20000);
+  const radiusM = Math.min(Math.max(parseInt(radiusParam ?? '6000') || 6000, 500), 20000);
 
   // Default center: mid-Wilshire LA
   let lat = 34.0522;
@@ -140,8 +157,13 @@ export async function GET(request: NextRequest) {
       );
     }
   } else if (latParam && lngParam) {
-    lat = parseFloat(latParam);
-    lng = parseFloat(lngParam);
+    const pLat = parseFloat(latParam);
+    const pLng = parseFloat(lngParam);
+    // Only accept coordinates inside Greater LA; otherwise keep the default center.
+    if (inLaRegion(pLat, pLng)) {
+      lat = pLat;
+      lng = pLng;
+    }
   }
 
   // Filter curated to within ~25km of search location

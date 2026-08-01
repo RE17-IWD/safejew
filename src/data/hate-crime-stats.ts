@@ -27,28 +27,50 @@ export const DATA_COMPILED = 'July 2026';
 
 // ── National: ADL Audit of Antisemitic Incidents ───────────────────────────
 // Reported antisemitic incidents nationwide (assault, harassment, vandalism).
-// 2024 is the highest total in the Audit's 46-year history; 58% of 2024
-// incidents included elements related to Israel or Zionism.
+// 2024 was the highest total in the Audit's 46-year history. 2025 fell 33% to
+// 6,274 — the third-highest year on record — but physical assaults hit an
+// all-time high (203, with a record 32 involving a deadly weapon).
+// Source dates: ADL 2024 Audit; ADL 2025 Audit (released May 6, 2026).
 export const NATIONAL_ADL: AnnualPoint[] = [
   { year: 2022, value: 3697 },
   { year: 2023, value: 8873 },
   { year: 2024, value: 9354 },
+  { year: 2025, value: 6274 },
 ];
+
+// ADL 2025 assault detail (record high despite lower overall total).
+export const NATIONAL_ADL_2025 = {
+  assaults: 203,
+  assaultsPrev2024: 196,
+  deadlyWeaponAssaults: 32,
+  deadlyWeaponAssaultsPrev2024: 23,
+};
 
 // ── Los Angeles County: Commission on Human Relations Hate Crime Report ─────
 // Anti-Jewish hate crimes reported in LA County. 2023 was the largest number
 // ever recorded; 2024 is the second-highest in the report's 44-year history.
+// NOTE: LA County's report runs a year behind — the 2025-data report is not yet
+// published as of compilation, so this series ends at 2024. See LA_COUNTY_NOTE.
 export const LA_COUNTY_ANTI_JEWISH: AnnualPoint[] = [
   { year: 2022, value: 127 },
   { year: 2023, value: 244 },
   { year: 2024, value: 202 },
 ];
 
+export const LA_COUNTY_NOTE =
+  "LA County's Hate Crime Report is released roughly a year in arrears; the 2025 report was not yet published when this data was compiled.";
+
 // ── California: DOJ "Hate Crime in California" (anti-Jewish bias events) ─────
+// 2025 report released July 1, 2026. In 2025, Jews were targeted in 289 of the
+// state's 392 religion-based hate crimes (about 74%).
 export const CALIFORNIA_ANTI_JEWISH: AnnualPoint[] = [
   { year: 2023, value: 289 },
   { year: 2024, value: 310 },
+  { year: 2025, value: 289 },
 ];
+
+// Share of California religion-based hate crimes targeting Jews, 2025 (CA DOJ).
+export const CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025 = 74;
 
 // ── FBI Crime Data Explorer: California anti-Jewish incidents (historical) ──
 // Kept for longer-range context. FBI UCR counts differ methodologically from
@@ -72,24 +94,37 @@ export const LA_COUNTY_CONTEXT = {
   totalHateCrimes2024: 1355,
 };
 
+// ── National campus antisemitism (ADL) ─────────────────────────────────────
+// ADL recorded 1,694 antisemitic incidents on U.S. college campuses in 2024,
+// 84% more than 2023 (922) and 18% of all incidents that year — the highest
+// campus share in any Audit. In an ADL survey, 73% of Jewish college students
+// reported experiencing or witnessing antisemitism since the 2023-24 year began.
+export const ADL_CAMPUS = {
+  incidents2024: 1694,
+  incidents2023: 922,
+  pctIncrease2023to2024: 84,
+  shareOfAllIncidents2024: 18,
+  studentsExperiencedPct: 73,
+};
+
 export const SOURCES: DataSource[] = [
   {
     key: 'adl',
-    name: 'ADL — Audit of Antisemitic Incidents 2024',
-    url: 'https://www.adl.org/resources/report/audit-antisemitic-incidents-2024',
-    note: 'National antisemitic incidents (record 46-year high).',
+    name: 'ADL — Audit of Antisemitic Incidents (2024 & 2025)',
+    url: 'https://www.adl.org/resources/report/audit-antisemitic-incidents-2025',
+    note: 'National antisemitic incidents; 2025 released May 2026.',
   },
   {
     key: 'lacounty',
     name: 'LA County Commission on Human Relations — Hate Crime Report',
     url: 'https://hrc.lacounty.gov/',
-    note: 'Anti-Jewish hate crimes reported in Los Angeles County.',
+    note: 'Anti-Jewish hate crimes reported in Los Angeles County (through 2024).',
   },
   {
     key: 'cadoj',
     name: 'California DOJ — Hate Crime in California (OpenJustice)',
     url: 'https://openjustice.doj.ca.gov/',
-    note: 'Statewide anti-Jewish bias hate-crime events.',
+    note: 'Statewide anti-Jewish bias hate-crime events; 2025 released July 2026.',
   },
   {
     key: 'fbi',

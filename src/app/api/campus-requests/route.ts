@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isDemoMode } from '@/lib/demo-data';
+import { rateLimit, clientIp, tooMany } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 5 requests per hour per IP.
+  const rl = rateLimit(`campusreq:${clientIp(request)}`, 5, 60 * 60 * 1000);
+  if (!rl.ok) {
+    return NextResponse.json(tooMany(rl.retryAfter), {
+      status: 429,
+      headers: { 'Retry-After': String(rl.retryAfter) },
+    });
+  }
+
   try {
     const body = await request.json();
     const { name, city, state, website, notes, requester_email } = body;

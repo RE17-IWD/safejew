@@ -6,6 +6,8 @@ import Link from 'next/link';
 import type { Incident, IncidentCategory } from '@/types';
 import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
 import TitleVIPanel from '@/components/campus/TitleVIPanel';
+import ReportingChannels from '@/components/campus/ReportingChannels';
+import CampusContextPanel from '@/components/campus/CampusContextPanel';
 
 const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
   ssr: false,
@@ -579,6 +581,11 @@ export default function CampusPage() {
               <TitleVIPanel campusName={campus.name} />
             </div>
 
+            {/* Reporting channels */}
+            <div className="mt-6">
+              <ReportingChannels campusId={campus.id} campusName={campus.name} />
+            </div>
+
             {/* Anonymous reporting callout */}
             <div className="mt-6 bg-navy-800 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex-1">
@@ -639,6 +646,9 @@ export default function CampusPage() {
 
             {/* Suggest a campus */}
             <CampusSuggestForm />
+
+            {/* National campus context */}
+            <CampusContextPanel />
           </div>
         </section>
       )}

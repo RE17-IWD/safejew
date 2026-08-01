@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { isDemoMode } from '@/lib/demo-data';
+import {
+  NATIONAL_ADL,
+  LA_COUNTY_ANTI_JEWISH,
+  CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025,
+} from '@/data/hate-crime-stats';
+
+const HERO_NATIONAL = NATIONAL_ADL[NATIONAL_ADL.length - 1];
+const HERO_LA = LA_COUNTY_ANTI_JEWISH[LA_COUNTY_ANTI_JEWISH.length - 1];
 
 export default function HomePage() {
   return (
@@ -61,30 +69,32 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-0 divide-y md:divide-y-0 md:divide-x divide-cream-200">
             <div className="flex flex-col items-center text-center px-12 py-6 md:py-0">
-              <span className="font-serif text-4xl font-bold text-navy-800">8,873</span>
-              <span className="mt-1.5 text-xs font-sans font-semibold text-gray-400 uppercase tracking-wider">
-                US incidents in 2023
+              <span className="font-serif text-4xl font-bold text-navy-800">
+                {HERO_NATIONAL.value.toLocaleString()}
               </span>
-              <span className="text-[11px] font-sans text-gray-400 mt-0.5">ADL Audit</span>
+              <span className="mt-1.5 text-xs font-sans font-semibold text-gray-400 uppercase tracking-wider">
+                US incidents in {HERO_NATIONAL.year}
+              </span>
+              <span className="text-[11px] font-sans text-gray-400 mt-0.5">ADL Audit · 3rd-highest ever</span>
             </div>
             <div className="flex flex-col items-center text-center px-12 py-6 md:py-0">
-              <span className="font-serif text-4xl font-bold text-navy-800">+226%</span>
+              <span className="font-serif text-4xl font-bold text-navy-800">{HERO_LA.value}</span>
               <span className="mt-1.5 text-xs font-sans font-semibold text-gray-400 uppercase tracking-wider">
-                Rise after Oct 7
+                Anti-Jewish hate crimes, LA
               </span>
-              <span className="text-[11px] font-sans text-gray-400 mt-0.5">vs 2022 baseline</span>
+              <span className="text-[11px] font-sans text-gray-400 mt-0.5">LA County, {HERO_LA.year}</span>
             </div>
             <div className="flex flex-col items-center text-center px-12 py-6 md:py-0">
-              <span className="font-serif text-4xl font-bold text-navy-800">165</span>
+              <span className="font-serif text-4xl font-bold text-navy-800">{CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025}%</span>
               <span className="mt-1.5 text-xs font-sans font-semibold text-gray-400 uppercase tracking-wider">
-                LA incidents tracked
+                Of CA religious hate crime
               </span>
-              <span className="text-[11px] font-sans text-gray-400 mt-0.5">ADL Pacific Southwest, 2023</span>
+              <span className="text-[11px] font-sans text-gray-400 mt-0.5">Targets Jews · CA DOJ, 2025</span>
             </div>
           </div>
           {isDemoMode() && (
             <p className="mt-6 text-center text-xs font-sans text-gray-400">
-              Headline figures are from published ADL reports. Map data is demonstration only.
+              Headline figures are from published ADL, LA County, and California DOJ reports.
             </p>
           )}
         </div>

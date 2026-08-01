@@ -4,8 +4,11 @@ import StatsCard from '@/components/dashboard/StatsCard';
 import AnnualBarChart from '@/components/dashboard/AnnualBarChart';
 import {
   NATIONAL_ADL,
+  NATIONAL_ADL_2025,
   LA_COUNTY_ANTI_JEWISH,
+  LA_COUNTY_NOTE,
   CALIFORNIA_ANTI_JEWISH,
+  CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025,
   LA_COUNTY_CONTEXT,
   SOURCES,
   DATA_COMPILED,
@@ -51,22 +54,21 @@ export default function DashboardPage() {
           {/* Stat cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatsCard
-              label="U.S. incidents (2024)"
+              label={`U.S. incidents (${nationalLatest.year})`}
               value={nationalLatest.value.toLocaleString()}
-              change="ADL — highest in 46 years"
-              positive={false}
+              change="3rd-highest year on record · ADL"
             />
             <StatsCard
-              label="Anti-Jewish · LA County (2024)"
+              label={`Anti-Jewish · LA County (${laLatest.year})`}
               value={laLatest.value}
               change="2nd-highest in 44 years"
               positive={false}
             />
             <StatsCard
-              label="Anti-Jewish · California (2024)"
+              label={`Anti-Jewish · California (${caLatest.year})`}
               value={caLatest.value}
-              change={`${pctChange(caPrev.value, caLatest.value) >= 0 ? '+' : ''}${pctChange(caPrev.value, caLatest.value)}% vs 2023 · CA DOJ`}
-              positive={false}
+              change={`${pctChange(caPrev.value, caLatest.value) >= 0 ? '+' : ''}${pctChange(caPrev.value, caLatest.value)}% vs ${caPrev.year} · CA DOJ`}
+              positive={pctChange(caPrev.value, caLatest.value) < 0}
             />
             <StatsCard
               label="Share of LA religious hate crime"
@@ -84,9 +86,10 @@ export default function DashboardPage() {
               <span className="font-sans text-xs text-gray-400">ADL Audit of Antisemitic Incidents</span>
             </div>
             <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
-              Reported antisemitic assault, harassment, and vandalism nationwide. Incidents rose
-              {' '}{pctChange(NATIONAL_ADL[0].value, nationalLatest.value)}% from 2022 to 2024, the
-              highest total in the Audit&apos;s 46-year history.
+              Reported antisemitic assault, harassment, and vandalism nationwide. After the
+              post–Oct 7 peak of 9,354 in 2024, incidents fell to {nationalLatest.value.toLocaleString()} in
+              {' '}{nationalLatest.year} — still the third-highest total on record, and physical
+              assaults ({NATIONAL_ADL_2025.assaults}) hit an all-time high.
             </p>
             <AnnualBarChart data={NATIONAL_ADL} unitLabel="incidents" />
           </div>
@@ -105,6 +108,7 @@ export default function DashboardPage() {
                 ever recorded; 2024 the second-highest in 44 years.
               </p>
               <AnnualBarChart data={LA_COUNTY_ANTI_JEWISH} unitLabel="hate crimes" />
+              <p className="font-sans text-[11px] text-gray-400 mt-3 italic">{LA_COUNTY_NOTE}</p>
             </div>
 
             <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
@@ -116,7 +120,8 @@ export default function DashboardPage() {
               </div>
               <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
                 Statewide anti-Jewish bias hate-crime events reported to the California Department
-                of Justice.
+                of Justice. In {caLatest.year}, Jews were targeted in {CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025}%
+                {' '}of the state&apos;s religion-based hate crimes.
               </p>
               <AnnualBarChart data={CALIFORNIA_ANTI_JEWISH} unitLabel="hate crimes" />
             </div>

@@ -404,6 +404,19 @@ export default function October7Page() {
               Monthly distributions within each year are illustrative approximations of those verified totals,
               not individually ADL-certified figures.
             </DataNote>
+
+            <div className="mt-6 border-l-4 border-gold-400 bg-cream-50 rounded-r-lg px-5 py-4">
+              <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-600 mb-1">
+                Where it stands now
+              </p>
+              <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                The surge did not reverse. The ADL recorded a record 9,354 antisemitic incidents in
+                2024, then 6,274 in 2025 — down a third from the peak, but still the third-highest
+                year since tracking began in 1979, and physical assaults reached an all-time high.
+                See the <Link href="/dashboard" className="text-navy-600 underline hover:text-navy-800">Dashboard</Link> for
+                the full 2022–2025 picture.
+              </p>
+            </div>
           </div>
         </div>
       </section>

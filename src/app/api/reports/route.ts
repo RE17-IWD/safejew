@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isDemoMode } from '@/lib/demo-data';
 import { findCampus } from '@/lib/campuses';
+import { rateLimit, clientIp, tooMany } from '@/lib/rate-limit';
+import { isValidCategory, isValidSeverity, isValidOccurredAt } from '@/lib/validation';
 
 const NEIGHBORHOOD_CENTROIDS: Record<string, [number, number]> = {
   'Beverly Hills': [34.0736, -118.4004],
@@ -30,6 +32,15 @@ function jitter(val: number): number {
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 5 submissions per 10 minutes per IP.
+  const rl = rateLimit(`report:${clientIp(request)}`, 5, 10 * 60 * 1000);
+  if (!rl.ok) {
+    return NextResponse.json(tooMany(rl.retryAfter), {
+      status: 429,
+      headers: { 'Retry-After': String(rl.retryAfter) },
+    });
+  }
+
   try {
     const body = await request.json();
     const { category, description, occurred_at, neighborhood, severity, is_anonymous, reporter_contact, campus_id } = body;
@@ -40,7 +51,17 @@ export async function POST(request: NextRequest) {
     if (!category || !description || !occurred_at || !severity || (!neighborhood && !campus)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    if (description.length < 10) {
+    // Validate enums and date server-side — never trust the client.
+    if (!isValidCategory(category)) {
+      return NextResponse.json({ error: 'Invalid category' }, { status: 400 });
+    }
+    if (!isValidSeverity(severity)) {
+      return NextResponse.json({ error: 'Invalid severity' }, { status: 400 });
+    }
+    if (!isValidOccurredAt(occurred_at)) {
+      return NextResponse.json({ error: 'Invalid or future date' }, { status: 400 });
+    }
+    if (typeof description !== 'string' || description.trim().length < 10) {
       return NextResponse.json({ error: 'Description too short' }, { status: 400 });
     }
 
@@ -73,7 +94,7 @@ export async function POST(request: NextRequest) {
         category,
         description: description.slice(0, 2000),
         occurred_at,
-        neighborhood: place,
+        neighborhood: String(place).slice(0, 120),
         lat,
         lng,
         severity,

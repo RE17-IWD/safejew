@@ -1,14 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { timingSafeEqual } from 'crypto';
+import { rateLimit, clientIp, tooMany } from '@/lib/rate-limit';
 
 function checkAuth(request: NextRequest): boolean {
   const key = request.headers.get('x-admin-key') ?? '';
   const expected = process.env.ADMIN_PASSWORD ?? '';
-  return expected.length > 0 && key === expected;
+  if (expected.length === 0) return false;
+  // Constant-time comparison to avoid leaking the password via timing.
+  const a = Buffer.from(key);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
+}
+
+// Throttle admin auth attempts to blunt brute force: 10 per 15 min per IP.
+function authThrottled(request: NextRequest): NextResponse | null {
+  const rl = rateLimit(`admin:${clientIp(request)}`, 10, 15 * 60 * 1000);
+  if (!rl.ok) {
+    return NextResponse.json(tooMany(rl.retryAfter), {
+      status: 429,
+      headers: { 'Retry-After': String(rl.retryAfter) },
+    });
+  }
+  return null;
 }
 
 // GET /api/admin — returns reports and campus requests.
 // Default: pending only. ?scope=all returns the latest 100 of each, any status.
 export async function GET(request: NextRequest) {
+  const throttled = authThrottled(request);
+  if (throttled) return throttled;
   if (!checkAuth(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
@@ -49,6 +70,8 @@ export async function GET(request: NextRequest) {
 
 // PATCH /api/admin — approve or reject a pending report
 export async function PATCH(request: NextRequest) {
+  const throttled = authThrottled(request);
+  if (throttled) return throttled;
   if (!checkAuth(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
