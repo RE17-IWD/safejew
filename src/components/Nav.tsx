@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
@@ -16,98 +15,104 @@ const navLinks = [
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [clock, setClock] = useState('--:--:-- PT');
   const pathname = usePathname();
 
+  useEffect(() => {
+    const tick = () => {
+      try {
+        setClock(
+          new Date().toLocaleTimeString('en-US', {
+            hour12: false,
+            timeZone: 'America/Los_Angeles',
+          }) + ' PT'
+        );
+      } catch {
+        setClock('--:--:-- PT');
+      }
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo + wordmark */}
-          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-            <div className="relative w-8 h-8 overflow-hidden flex-shrink-0">
-              <Image
-                src="/logo.png"
-                fill
-                alt=""
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-            <span className="font-sans font-bold text-lg text-navy-800 tracking-tight">SafeJew</span>
+    <>
+      {/* status bar */}
+      <div className="sj-statusbar">
+        <div className="sj-wrap sj-statusbar-in">
+          <div className="g">
+            <span className="s">
+              <span className="dot" /> <b>SYSTEM</b> <span className="ok">OPERATIONAL</span>
+            </span>
+            <span className="s hideS">
+              FEEDS <b>ADL·LAPD·CADOJ·FBI</b> <span className="ok">[OK]</span>
+            </span>
+          </div>
+          <div className="g">
+            <span className="s hideS">
+              SECTOR <b>GREATER_LA</b>
+            </span>
+            <span className="s">
+              LAST SYNC <b>{clock}</b>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <header className="sj-nav">
+        <div className="sj-wrap sj-nav-in">
+          <Link href="/" className="sj-brand">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-mark.png" alt="SafeJew logo" />
+            <span className="wm">
+              Safe<b>Jew</b>
+            </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="sj-nav-links">
             {navLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`font-sans text-sm font-medium px-3 py-1.5 rounded transition-colors ${
-                  pathname === href
-                    ? 'text-navy-800 bg-cream-100'
-                    : 'text-gray-500 hover:text-navy-700 hover:bg-cream-50'
-                }`}
-              >
+              <Link key={href} href={href} className={pathname === href ? 'active' : ''}>
                 {label}
               </Link>
             ))}
-            <Link
-              href="/report"
-              className="ml-3 bg-navy-700 text-white px-4 py-1.5 rounded text-sm font-medium hover:bg-navy-800 transition-colors"
-            >
+            <Link href="/report" className="sj-nav-report">
               Report
             </Link>
           </nav>
 
-          {/* Mobile hamburger */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded text-gray-500 hover:text-navy-800 hover:bg-cream-100 transition-colors"
+            className="sj-nav-burger md:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((prev) => !prev)}
+            onClick={() => setMobileOpen((v) => !v)}
+            style={{ display: 'none' }}
           >
-            {mobileOpen ? (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+            Menu
           </button>
         </div>
-      </div>
 
-      {/* Mobile dropdown */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
-          <nav className="flex flex-col px-4 py-3 gap-1">
-            {navLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMobileOpen(false)}
-                className={`font-sans text-sm font-medium px-3 py-2 rounded transition-colors ${
-                  pathname === href
-                    ? 'bg-cream-100 text-navy-800'
-                    : 'text-gray-600 hover:bg-cream-50 hover:text-navy-700'
-                }`}
-              >
-                {label}
+        {mobileOpen && (
+          <div className="md:hidden" style={{ borderTop: '1px solid var(--line)', background: '#fff' }}>
+            <nav style={{ display: 'flex', flexDirection: 'column', padding: '10px 26px', gap: 6 }}>
+              {navLinks.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ padding: '8px 0', color: 'var(--navy)', fontWeight: 600 }}
+                >
+                  {label}
+                </Link>
+              ))}
+              <Link href="/report" onClick={() => setMobileOpen(false)} className="sj-nav-report" style={{ textAlign: 'center', marginTop: 6 }}>
+                Report an Incident
               </Link>
-            ))}
-            <Link
-              href="/report"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 bg-navy-700 text-white px-4 py-2 rounded text-sm font-medium text-center hover:bg-navy-800 transition-colors"
-            >
-              Report an Incident
-            </Link>
-          </nav>
-        </div>
-      )}
-    </header>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   );
 }
