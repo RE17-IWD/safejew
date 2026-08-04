@@ -8,6 +8,12 @@ const navLinks = [
   { label: 'About', href: '/about' },
 ];
 
+const transparencyLinks = [
+  { label: 'Methodology', href: '/methodology' },
+  { label: 'Changelog', href: '/changelog' },
+  { label: 'In the news', href: '/press' },
+];
+
 const resourceLinks = [
   { label: 'Report an incident', href: '/report' },
   { label: 'ADL Incident Reporting', href: 'https://www.adl.org/report-incident' },
@@ -38,6 +44,14 @@ export default function Footer() {
             <h4>Navigation</h4>
             <ul>
               {navLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+            <h4 style={{ marginTop: 24 }}>Transparency</h4>
+            <ul>
+              {transparencyLinks.map(({ label, href }) => (
                 <li key={href}>
                   <Link href={href}>{label}</Link>
                 </li>
