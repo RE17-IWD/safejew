@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { DATA_COMPILED } from '@/data/hate-crime-stats';
+import auto from '@/data/auto-updated.json';
 
 const navLinks = [
   { label: 'Map', href: '/map' },
@@ -13,28 +15,31 @@ const navLinks = [
   { label: 'About', href: '/about' },
 ];
 
+// Actual "last synced" timestamp: prefer the daily auto-update snapshot; if the
+// job hasn't run yet (lastChecked === null), fall back to the compile date.
+function lastSyncLabel(): string {
+  const t = (auto as { lastChecked?: string | null }).lastChecked;
+  if (t) {
+    try {
+      const d = new Date(t);
+      const date = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const time = d.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'America/Los_Angeles',
+      });
+      return `${date} ${time} PT`;
+    } catch {
+      /* fall through */
+    }
+  }
+  return DATA_COMPILED;
+}
+
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [clock, setClock] = useState('--:--:-- PT');
   const pathname = usePathname();
-
-  useEffect(() => {
-    const tick = () => {
-      try {
-        setClock(
-          new Date().toLocaleTimeString('en-US', {
-            hour12: false,
-            timeZone: 'America/Los_Angeles',
-          }) + ' PT'
-        );
-      } catch {
-        setClock('--:--:-- PT');
-      }
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
+  const lastSync = lastSyncLabel();
 
   return (
     <>
@@ -54,7 +59,7 @@ export default function Nav() {
               SECTOR <b>GREATER_LA</b>
             </span>
             <span className="s">
-              LAST SYNC <b>{clock}</b>
+              LAST SYNC <b>{lastSync}</b>
             </span>
           </div>
         </div>

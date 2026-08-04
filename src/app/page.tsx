@@ -182,7 +182,7 @@ export default function HomePage() {
         <div className="bggrid" />
         <div className="scan" />
         <div className="sj-corners w"><i /><i /><i /><i /></div>
-        <div className="sj-rec sj-mono"><span className="d" />REC · LIVE</div>
+        <div className="sj-hero-fade" />
         <div className="sj-wrap sj-hero-in">
           <div className="sj-hero-copy sj-rv">
             <span className="sj-tagpill">
