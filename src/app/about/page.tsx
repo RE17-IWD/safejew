@@ -107,6 +107,28 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Mentorship */}
+          <div>
+            <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
+              Mentorship
+            </p>
+            <h2 className="font-serif text-2xl font-bold text-navy-800 mb-5">
+              Guided by Jane Miller
+            </h2>
+            <div className="space-y-4 font-sans text-base text-gray-700 leading-relaxed">
+              <p>
+                SafeJew was mentored by <strong>Jane Miller</strong> through JFEDLA&apos;s Teen
+                Innovation Grant program. From helping us frame the problem to pushing us on what
+                the tool actually needed to become, her guidance shaped this project at every turn —
+                she truly helped make SafeJew what it is.
+              </p>
+              <p>
+                We&apos;re deeply grateful for her mentorship, and for the Jewish Federation of
+                Greater Los Angeles believing in three students with an idea.
+              </p>
+            </div>
+          </div>
+
           {/* What We Learned */}
           <div>
             <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
