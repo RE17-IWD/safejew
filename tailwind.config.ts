@@ -1,5 +1,22 @@
 import type { Config } from 'tailwindcss';
 
+// SafeJew brand palette (2026). Token NAMES are kept (navy / cream / gold) so the
+// existing pages recolor automatically, but the VALUES now match the homepage's
+// white + brand-blue system. "gold" is remapped to the blue accent so any old
+// gold accents render on-brand.
+const brandBlue = {
+  50: '#f4f8fd',
+  100: '#e6eefb',
+  200: '#c9d9f7',
+  300: '#90b0f0',
+  400: '#4d7ae6',
+  500: '#1a56db', // brand blue
+  600: '#1a44a8',
+  700: '#14357f',
+  800: '#0f2a63',
+  900: '#0a1f44', // navy / ink
+};
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,41 +26,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          50:  '#f0f3ff',
-          100: '#e1e8ff',
-          200: '#c3d0fe',
-          300: '#9db0fc',
-          400: '#7b8ff8',
-          500: '#4a5cf5',
-          600: '#1d2f8f',
-          700: '#162270',
-          800: '#0e1855',
-          900: '#080f38',
-        },
+        navy: brandBlue,
+        gold: brandBlue,
         cream: {
-          50:  '#fafaf8',
-          100: '#f5f4f0',
-          200: '#ebe8e0',
-          300: '#dcd8ce',
-          400: '#c8c3b6',
-        },
-        gold: {
-          50:  '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          50: '#ffffff',
+          100: '#f6f9fd',
+          200: '#e4eaf3',
+          300: '#d2ddef',
+          400: '#b9c4d6',
         },
       },
       fontFamily: {
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-jakarta)', 'system-ui', '-apple-system', 'Segoe UI', 'Arial', 'sans-serif'],
+        serif: ['var(--font-jakarta)', 'Georgia', 'serif'],
+        mono: ['var(--font-plex)', 'ui-monospace', 'Menlo', 'monospace'],
       },
     },
   },
