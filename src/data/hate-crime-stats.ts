@@ -23,7 +23,7 @@ export interface DataSource {
 }
 
 // Date this dataset was last compiled from primary sources.
-export const DATA_COMPILED = 'July 2026';
+export const DATA_COMPILED = 'August 2026';
 
 // ── National: ADL Audit of Antisemitic Incidents ───────────────────────────
 // Reported antisemitic incidents nationwide (assault, harassment, vandalism).
@@ -100,12 +100,108 @@ export const LA_COUNTY_CONTEXT = {
 // campus share in any Audit. In an ADL survey, 73% of Jewish college students
 // reported experiencing or witnessing antisemitism since the 2023-24 year began.
 export const ADL_CAMPUS = {
+  incidents2025: 583, // ADL 2025 Audit: campus incidents fell 66% from 2024
   incidents2024: 1694,
   incidents2023: 922,
   pctIncrease2023to2024: 84,
+  pctDecrease2024to2025: 66,
   shareOfAllIncidents2024: 18,
   studentsExperiencedPct: 73,
+  // ADL Campus Antisemitism Report Card: share of assessed schools graded A or B.
+  reportCardAB2024: 23.5,
+  reportCardAB2025: 40.7,
+  reportCardAB2026: 61,
 };
+
+// ── City of LA: LAPD anti-Jewish hate crimes (freshest series) ──────────────
+// LAPD tracks hate crimes for the City of LA (distinct from the LA County HRC
+// report above, which covers the whole county and runs a year in arrears).
+// As of May 31, 2026 the LAPD had logged 46 anti-Jewish hate crimes in the
+// city (9.2/mo) — on pace for 110+, ~12% above 2025's 98 (8.2/mo).
+// Source: JNS/LAPD, reported June 2026.
+export const LAPD_CITY_ANTI_JEWISH: AnnualPoint[] = [
+  { year: 2025, value: 98 },
+];
+
+export const LAPD_CITY_2026_YTD = {
+  incidents: 46,
+  throughMonth: 'May', // Jan 1 – May 31, 2026
+  monthsElapsed: 5,
+  monthlyAvg2026: 9.2,
+  monthlyAvg2025: 8.2,
+  projectedFullYear: 110,
+  pctChangeVsPrevYear: 12,
+  totalCityHateCrimesYtd: 281, // all bias categories, incl. 50 aggravated assaults
+  note: 'City of Los Angeles (LAPD), January 1 – May 31, 2026.',
+};
+
+// ── FBI Hate Crime Statistics — national anti-Jewish (2024, rel. Aug 2025) ──
+// Highest number of anti-Jewish incidents the FBI has recorded since it began
+// collecting hate-crime data in 1991. Jews are ~2% of the U.S. population.
+export const FBI_NATIONAL_2024 = {
+  antiJewishIncidents: 1938,
+  pctChangeVs2023: 5.8,
+  shareOfReligiousBias: 69, // % of all religion-based hate crimes
+  shareOfAllHateCrimes: 16, // % of all reported hate crimes
+  assaults: 178,
+  assaultsPrev2023: 174,
+  totalHateIncidents: 11679,
+  shareSinceOct2023: 71, // % of religion-based since Oct 2023
+};
+
+// ── ADL state ranking: California antisemitic incidents, 2025 ────────────────
+// ADL recorded 817 antisemitic incidents in California in 2025 — the second-
+// highest state total in the country, behind New York.
+export const ADL_CALIFORNIA_2025 = {
+  incidents: 817,
+  nationalRank: 2,
+  higherThanState: 'New York',
+};
+
+// ── California statewide hate-crime totals (CA DOJ) ─────────────────────────
+export const CALIFORNIA_TOTAL_HATE_CRIMES: AnnualPoint[] = [
+  { year: 2024, value: 2023 },
+  { year: 2025, value: 1955 },
+];
+
+// ── J7 Report on Antisemitism — global diaspora context (rel. July 2026) ────
+// The J7 Task Force found 2025 the deadliest year for diaspora antisemitism
+// since the 1994 AMIA bombing: 20 people murdered (Sydney, Manchester,
+// Washington D.C., Boulder). U.S. incidents fell 33% year-over-year.
+export const J7_2025 = {
+  murdered: 20,
+  deadliestSinceYear: 1994,
+  totalIncidentsJ7: 23000,
+  pctIncidentsVs2022: 136,
+  pctViolentVs2022: 97,
+  usPctChange2025: -33,
+};
+
+// ── Notable recent incidents (Greater LA & California, 2026) ────────────────
+// Curated, source-linked events for the "in the news" strip. These are public
+// news reports, kept separate from the aggregate statistics above.
+export interface NotableIncident {
+  date: string;
+  place: string;
+  summary: string;
+  url: string;
+}
+export const NOTABLE_2026: NotableIncident[] = [
+  {
+    date: '2026-07-28',
+    place: 'Pasadena, CA',
+    summary:
+      'Swastikas and an anti-Zionist message were spray-painted across a community mural at the fire-damaged Pasadena Jewish Temple & Center as it rebuilds.',
+    url: 'https://www.algemeiner.com/2026/07/28/california-synagogue-vandalized-as-major-coastal-city-continue-to-see-antisemitic-incidents/',
+  },
+  {
+    date: '2026-06',
+    place: 'Los Angeles, CA',
+    summary:
+      'LAPD reported 46 anti-Jewish hate crimes in the first five months of 2026 — on pace for a ~12% rise over 2025.',
+    url: 'https://www.jns.org/news/u-s-news/los-angeles-records-46-anti-jewish-hate-crimes-so-far-in-2026-lapd-says',
+  },
+];
 
 export const SOURCES: DataSource[] = [
   {
