@@ -1,5 +1,11 @@
 {
-  "lastChecked": null,
-  "lastChanged": null,
-  "results": []
+  "lastChecked": "2026-08-04T15:23:43.746Z",
+  "lastChanged": "2026-08-04T15:23:43.746Z",
+  "results": [
+    {
+      "name": "fbi_national",
+      "ok": false,
+      "error": "HTTP 400"
+    }
+  ]
 }
