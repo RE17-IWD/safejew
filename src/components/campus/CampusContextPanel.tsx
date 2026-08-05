@@ -5,9 +5,9 @@ import { ADL_CAMPUS } from '@/data/hate-crime-stats';
 export default function CampusContextPanel() {
   const stats = [
     {
-      value: ADL_CAMPUS.incidents2024.toLocaleString(),
-      label: 'Campus incidents in 2024',
-      sub: `Up ${ADL_CAMPUS.pctIncrease2023to2024}% from ${ADL_CAMPUS.incidents2023.toLocaleString()} in 2023 (ADL)`,
+      value: ADL_CAMPUS.incidents2025.toLocaleString(),
+      label: 'Campus incidents in 2025',
+      sub: `Down ${ADL_CAMPUS.pctDecrease2024to2025}% from ${ADL_CAMPUS.incidents2024.toLocaleString()} in 2024 as encampments faded (ADL)`,
     },
     {
       value: `${ADL_CAMPUS.studentsExperiencedPct}%`,
@@ -15,9 +15,9 @@ export default function CampusContextPanel() {
       sub: 'Experienced or witnessed antisemitism since the 2023-24 year began (ADL survey)',
     },
     {
-      value: `${ADL_CAMPUS.shareOfAllIncidents2024}%`,
-      label: 'Of all U.S. incidents',
-      sub: 'Occurred on college campuses in 2024 — the highest share on record',
+      value: `${ADL_CAMPUS.reportCardAB2026}%`,
+      label: 'Schools graded A or B',
+      sub: `In ADL's 2026 Campus Report Card — up from ${Math.round(ADL_CAMPUS.reportCardAB2025)}% in 2025 as universities acted`,
     },
   ];
 
@@ -39,8 +39,9 @@ export default function CampusContextPanel() {
         ))}
       </div>
       <p className="font-sans text-[11px] text-gray-400 mt-4 text-center">
-        Source: ADL Audit of Antisemitic Incidents 2024 and ADL campus climate survey. References
-        to ADL do not imply partnership or endorsement.
+        Source: ADL Audit of Antisemitic Incidents (2024 &amp; 2025), ADL campus climate survey, and
+        the 2026 ADL Campus Antisemitism Report Card. References to ADL do not imply partnership or
+        endorsement.
       </p>
     </div>
   );

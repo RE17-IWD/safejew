@@ -82,6 +82,9 @@ export default function Nav() {
               </Link>
             ))}
             <Link href="/report" className="sj-nav-report">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+                <path d="M5 22V4M5 4h12.5l-2 4 2 4H5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               Report
             </Link>
           </nav>

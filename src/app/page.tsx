@@ -342,12 +342,30 @@ export default function HomePage() {
             <Link className="sj-lnk" href="/dashboard">Explore the dashboard <span className="sj-arrow">→</span></Link>
           </div>
           <div className="sj-src-grid sj-rv">
-            <div className="sj-src"><div className="k">ADL</div><div className="n">Audit of Antisemitic Incidents — national, 2025.</div></div>
-            <div className="sj-src"><div className="k">LAPD</div><div className="n">City of LA hate-crime tracking — 2026 YTD.</div></div>
-            <div className="sj-src"><div className="k">CA DOJ</div><div className="n">Hate Crime in California — 2025.</div></div>
-            <div className="sj-src"><div className="k">FBI</div><div className="n">Crime Data Explorer — national, 2024.</div></div>
-            <div className="sj-src"><div className="k">LA COUNTY HRC</div><div className="n">Commission on Human Relations report.</div></div>
-            <div className="sj-src"><div className="k">COMMUNITY</div><div className="n">Verified reader submissions (reviewed).</div></div>
+            {[
+              { k: 'ADL', n: 'Audit of Antisemitic Incidents — national, 2025.', href: 'https://www.adl.org/resources/report/2025-audit-antisemitic-incidents' },
+              { k: 'LAPD', n: 'City of LA hate-crime tracking — 2026 YTD.', href: 'https://www.lapdonline.org/hate-crime' },
+              { k: 'CA DOJ', n: 'Hate Crime in California — 2025.', href: 'https://openjustice.doj.ca.gov/' },
+              { k: 'FBI', n: 'Crime Data Explorer — national, 2024.', href: 'https://cde.ucr.cjis.gov/' },
+              { k: 'LA COUNTY HRC', n: 'Commission on Human Relations report.', href: 'https://hrc.lacounty.gov/' },
+              { k: 'COMMUNITY', n: 'Verified reader submissions (reviewed).', href: '/report' },
+            ].map((s) => {
+              const external = s.href.startsWith('http');
+              return (
+                <a
+                  key={s.k}
+                  className="sj-src"
+                  href={s.href}
+                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  <div className="k">
+                    {s.k}
+                    <span className="ext" aria-hidden="true">{external ? '↗' : '→'}</span>
+                  </div>
+                  <div className="n">{s.n}</div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

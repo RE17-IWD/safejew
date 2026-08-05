@@ -498,6 +498,14 @@ export default function CampusPage() {
               <p className="font-sans text-sm text-gray-700 leading-relaxed">
                 {campus.jewishLifeNotes}
               </p>
+              <a
+                href="https://www.adl.org/campus-antisemitism-report-card"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline underline-offset-2"
+              >
+                Look up {campus.name} in ADL&apos;s Campus Antisemitism Report Card →
+              </a>
             </div>
 
             {/* Community spaces grid */}
@@ -652,6 +660,63 @@ export default function CampusPage() {
           </div>
         </section>
       )}
+
+      {/* For Hillels & universities */}
+      <section className="bg-white py-16 border-t border-cream-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+            For institutions
+          </p>
+          <h2 className="font-serif text-2xl lg:text-3xl font-bold text-navy-800 mb-3">
+            SafeJew for Hillels &amp; universities
+          </h2>
+          <p className="font-sans text-base text-gray-600 leading-relaxed max-w-2xl mb-8">
+            We&apos;re building a campus program so Hillels, Jewish student organizations, and
+            university safety teams can see what&apos;s happening around their students — and give
+            those students a safe, anonymous way to report it.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {
+                title: 'Per-campus dashboard',
+                detail:
+                  'A private view of verified incidents, trends, and nearby community spaces for your specific campus and surrounding area.',
+              },
+              {
+                title: 'Anonymous student reporting',
+                detail:
+                  'A no-name, no-email reporting channel built for students who fear retaliation. Reports are reviewed before they appear.',
+              },
+              {
+                title: 'Embeddable map',
+                detail:
+                  'Drop the SafeJew incident map into your Hillel or student-org site so students always know where to look.',
+              },
+              {
+                title: 'Title VI & resources',
+                detail:
+                  'Clear civil-rights guidance and reporting channels surfaced for each campus, so students know their options.',
+              },
+            ].map((f) => (
+              <div key={f.title} className="bg-cream-50 border border-cream-200 rounded-lg p-5">
+                <h3 className="font-sans font-semibold text-navy-800 mb-1.5">{f.title}</h3>
+                <p className="font-sans text-sm text-gray-600 leading-relaxed">{f.detail}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+            <a
+              href="mailto:contact.safejew@gmail.com?subject=SafeJew%20for%20Campus%20%E2%80%94%20partnership"
+              className="inline-flex items-center justify-center bg-navy-800 text-white px-6 py-3 rounded font-sans font-semibold text-sm hover:bg-navy-900 transition-colors"
+            >
+              Partner with us
+            </a>
+            <p className="font-sans text-sm text-gray-500">
+              Hillel, campus security, or a student org? We&apos;d love to build this with you.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Report CTA */}
       <section className="bg-navy-800 py-12">

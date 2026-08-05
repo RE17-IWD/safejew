@@ -29,7 +29,7 @@ export default function Footer() {
           <div>
             <div className="wm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo-mark.png" alt="" width={26} height={26} style={{ objectFit: 'contain' }} />
+              <img src="/logo-mark.png" alt="" style={{ height: 24, width: 'auto', display: 'block' }} />
               SafeJew
             </div>
             <p className="desc">
