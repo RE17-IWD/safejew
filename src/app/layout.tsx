@@ -30,6 +30,7 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://safejew.org'),
   title: {
     default: 'SafeJew — Jewish Community Safety Analytics',
     template: '%s | SafeJew',

@@ -44,6 +44,8 @@ export const NATIONAL_ADL_2025 = {
   assaultsPrev2024: 196,
   deadlyWeaponAssaults: 32,
   deadlyWeaponAssaultsPrev2024: 23,
+  israelRelatedSharePct: 45, // % of 2025 incidents that invoked Israel or Zionism
+  usFatalities2025: 3, // killed in antisemitic attacks in the U.S. in 2025
 };
 
 // ── Los Angeles County: Commission on Human Relations Hate Crime Report ─────
@@ -108,9 +110,65 @@ export const ADL_CAMPUS = {
   shareOfAllIncidents2024: 18,
   studentsExperiencedPct: 73,
   // ADL Campus Antisemitism Report Card: share of assessed schools graded A or B.
+  // 2026 report card assessed 150 schools: 23 A's, 64 B's, 51 C's, 8 D's, 4 F's.
   reportCardAB2024: 23.5,
-  reportCardAB2025: 40.7,
-  reportCardAB2026: 61,
+  reportCardAB2025: 41,
+  reportCardAB2026: 58,
+  reportCard2026SchoolsAssessed: 150,
+  reportCard2026As: 23,
+  reportCard2026Fs: 4,
+  reportCard2026ImprovedPct: 47, // share of 2025-assessed schools that improved in 2026
+};
+
+// ── AJC — State of Antisemitism in America (report released Feb 2026) ────────
+export const AJC_2026 = {
+  americanJewsFeelLessSafePct: 91, // feel less safe as a Jew in the U.S. in the past year
+  studentsExperiencedPct: 42, // Jewish college students who experienced antisemitism
+  studentsFeltUnsafeAtEventPct: 55, // of those, felt unsafe/uncomfortable at a campus event
+  studentsHidIdentityPct: 34, // avoided displaying Jewish identity out of fear
+  nonJewishWitnessedPct: 48, // non-Jewish students who witnessed anti-Jewish behavior
+};
+
+// ── Hillel International — campus antisemitic-incident tracker (academic year) ─
+// Hillel's own tracker counts campus-affiliated incidents broadly, so its totals
+// differ methodologically from the ADL Audit's calendar-year campus figure.
+export const HILLEL_TRACKER = {
+  incidents2022_23: 289,
+  incidents2023_24: 1853,
+  incidents2024_25: 2334, // most recent complete academic year
+  projected2025_26: 1800, // on track for 1,800+
+  onlineHarassmentIncreasePct: 185,
+  assaults2023_24: 50,
+  assaults2024_25: 32,
+};
+
+// ── ADL 2026 Campus Antisemitism Report Card ────────────────────────────────
+// 150 schools graded A–F on policy, response, and Jewish-life investment.
+export const REPORT_CARD_2026 = {
+  schoolsAssessed: 150,
+  distribution: [
+    { grade: 'A', count: 23 },
+    { grade: 'B', count: 64 },
+    { grade: 'C', count: 51 },
+    { grade: 'D', count: 8 },
+    { grade: 'F', count: 4 },
+  ],
+  topRated: [
+    'New York University',
+    'Temple University',
+    'American University',
+    'Washington University in St. Louis',
+    'Vanderbilt University',
+    'Johns Hopkins University',
+    'Vassar College',
+    'Arizona State University',
+  ],
+  lowestRated: [
+    'California State University, Los Angeles',
+    'University of North Texas',
+    'The New School',
+    'Scripps College',
+  ],
 };
 
 // ── City of LA: LAPD anti-Jewish hate crimes (freshest series) ──────────────
@@ -188,11 +246,11 @@ export interface NotableIncident {
 }
 export const NOTABLE_2026: NotableIncident[] = [
   {
-    date: '2026-07-28',
+    date: '2026-07-24',
     place: 'Pasadena, CA',
     summary:
-      'Swastikas and an anti-Zionist message were spray-painted across a community mural at the fire-damaged Pasadena Jewish Temple & Center as it rebuilds.',
-    url: 'https://www.algemeiner.com/2026/07/28/california-synagogue-vandalized-as-major-coastal-city-continue-to-see-antisemitic-incidents/',
+      'Swastikas and “Zionism is not welcome” were painted on a solidarity mural at the fire-destroyed Pasadena Jewish Temple & Center — a mural created after an earlier attack. A swatting call also forced a preschool evacuation; LA County offered a reward and held a July 30 solidarity rally.',
+    url: 'https://www.jns.org/news/u-s-news/pasadena-jewish-community-determined-to-be-very-jewish-after-vandalism-of-synagogue-mural',
   },
   {
     date: '2026-06',
@@ -200,6 +258,13 @@ export const NOTABLE_2026: NotableIncident[] = [
     summary:
       'LAPD reported 46 anti-Jewish hate crimes in the first five months of 2026 — on pace for a ~12% rise over 2025.',
     url: 'https://www.jns.org/news/u-s-news/los-angeles-records-46-anti-jewish-hate-crimes-so-far-in-2026-lapd-says',
+  },
+  {
+    date: '2026-04-27',
+    place: 'Los Angeles, CA',
+    summary:
+      'A 21-year-old was charged with a felony hate crime for an assault on a Jewish man outside the Adas Torah synagogue in the Pico-Robertson neighborhood.',
+    url: 'https://ktla.com/news/local-news/man-charged-with-felony-hate-crime-for-attacking-jewish-man-near-l-a-synagogue/',
   },
 ];
 
