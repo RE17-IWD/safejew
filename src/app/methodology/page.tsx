@@ -74,11 +74,37 @@ export default function MethodologyPage() {
 
           <h2>Limitations</h2>
           <p>
-            Hate-crime data is undercounted everywhere: many incidents go unreported, and reporting
-            practices differ between agencies (for example, FBI UCR/NIBRS counts differ
-            methodologically from California DOJ figures, so we never stitch those series together).
-            Treat these numbers as a floor, not a ceiling.
+            We&apos;d rather be honest about what this data can and can&apos;t tell you. A few things
+            to keep in mind:
           </p>
+          <ul>
+            <li>
+              <strong>It&apos;s an undercount.</strong> Most antisemitic incidents are never reported
+              to anyone. Every number here is a floor, not a ceiling.
+            </li>
+            <li>
+              <strong>Sources count differently.</strong> The FBI, California DOJ, ADL, and Hillel
+              each define and collect incidents their own way, so their totals aren&apos;t directly
+              comparable — we never stitch different series into one line.
+            </li>
+            <li>
+              <strong>Locations are approximate.</strong> Incidents are placed at the neighborhood
+              level, never an exact address. A dot on the map marks a general area, not a specific spot.
+            </li>
+            <li>
+              <strong>Reporting is uneven.</strong> A rise in reported incidents can reflect better
+              reporting, not just more antisemitism — and a quiet area may simply be under-reported.
+            </li>
+            <li>
+              <strong>Community reports are unverified until reviewed.</strong> They&apos;re a
+              separate, clearly-labeled layer, and a person checks each one before it appears.
+            </li>
+            <li>
+              <strong>Numbers aren&apos;t the whole story.</strong> This data shows patterns; it
+              doesn&apos;t explain causes, and it isn&apos;t a substitute for law enforcement or
+              professional security advice.
+            </li>
+          </ul>
 
           <div className="sj-note">
             <b>For informational purposes only.</b> SafeJew does not assess or guarantee the security

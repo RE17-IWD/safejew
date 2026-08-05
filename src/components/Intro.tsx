@@ -2,22 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const BOOT_LINES = [
-  '> establishing secure channel …… [OK]',
-  '> loading LAPD feed …………… [OK]',
-  '> loading ADL audit 2025 ……… [OK]',
-  '> loading CA DOJ · FBI ……… [OK]',
-  '> plotting incidents …………',
-  '> ready.',
-];
-const STAGES = ['Initializing monitor', 'Connecting sources', 'Plotting incidents', 'Ready'];
-
 export default function Intro() {
   const [show, setShow] = useState(false);
   const [done, setDone] = useState(false);
   const [pct, setPct] = useState(0);
-  const [stage, setStage] = useState(STAGES[0]);
-  const [boot, setBoot] = useState<string[]>([]);
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
@@ -36,30 +24,17 @@ export default function Intro() {
     setShow(true);
     document.body.classList.add('sj-lock');
 
-    // boot log
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    BOOT_LINES.forEach((ln, i) => {
-      timers.push(setTimeout(() => setBoot((b) => [...b, ln]), 400 + i * 360));
-    });
-
-    // progress
     const start = Date.now();
-    const dur = 2700;
+    const dur = 2200;
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 2);
-      setPct(Math.round(e * 100));
-      setStage(STAGES[Math.min(STAGES.length - 1, Math.floor(e * STAGES.length))]);
-      if (p < 1) {
-        raf.current = requestAnimationFrame(tick);
-      } else {
-        setTimeout(finish, 420);
-      }
+      setPct(Math.round((1 - Math.pow(1 - p, 2)) * 100));
+      if (p < 1) raf.current = requestAnimationFrame(tick);
+      else setTimeout(finish, 380);
     };
     raf.current = requestAnimationFrame(tick);
 
     return () => {
-      timers.forEach(clearTimeout);
       if (raf.current) cancelAnimationFrame(raf.current);
       document.body.classList.remove('sj-lock');
     };
@@ -91,13 +66,7 @@ export default function Intro() {
   return (
     <div id="sj-intro" className={done ? 'done' : ''} onClick={finish}>
       <div className="grid" />
-      <div
-        className="sj-intro-skip"
-        onClick={(e) => {
-          e.stopPropagation();
-          finish();
-        }}
-      >
+      <div className="sj-intro-skip" onClick={(e) => { e.stopPropagation(); finish(); }}>
         Skip ⏎
       </div>
       <div className="sj-intro-logo" onClick={(e) => e.stopPropagation()}>
@@ -105,18 +74,9 @@ export default function Intro() {
         <img src="/logo-lockup.png" alt="SafeJew" />
         <div className="sweep" />
       </div>
-      <div className="sj-intro-status">{stage}</div>
+      <div className="sj-intro-status">Jewish community safety</div>
       <div className="sj-intro-bar">
         <i style={{ width: `${pct}%` }} />
-      </div>
-      <div className="sj-intro-pct">{pct}%</div>
-      <div className="sj-intro-boot">
-        {boot.map((l, i) => (
-          <div key={i}>
-            {l.replace(' [OK]', '')}
-            {l.includes('[OK]') ? <b> [OK]</b> : null}
-          </div>
-        ))}
       </div>
     </div>
   );

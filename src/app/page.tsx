@@ -72,83 +72,6 @@ function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
   );
 }
 
-/* ---------- trend chart (ADL national series) ---------- */
-function TrendChart() {
-  const ref = useRef<SVGPathElement>(null);
-  const areaRef = useRef<SVGPathElement>(null);
-  const W = 860, H = 320, padL = 8, padR = 8, padT = 30, padB = 40, max = 10000;
-  const pts = NATIONAL_ADL.map((d, i) => {
-    const x = padL + i * ((W - padL - padR) / (NATIONAL_ADL.length - 1));
-    const y = H - padB - (d.value / max) * (H - padT - padB);
-    return { x, y, ...d };
-  });
-  const dLine = pts.map((p, i) => `${i ? 'L' : 'M'}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
-  const dArea = `${dLine} L${pts[pts.length - 1].x.toFixed(1)} ${H - padB} L${pts[0].x.toFixed(1)} ${H - padB} Z`;
-  const ox = pts[0].x + (pts[1].x - pts[0].x) * 0.62;
-
-  useEffect(() => {
-    const path = ref.current, area = areaRef.current;
-    if (!path) return;
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
-      if (area) area.style.opacity = '1';
-      return;
-    }
-    const len = path.getTotalLength();
-    path.style.strokeDasharray = String(len);
-    path.style.strokeDashoffset = String(len);
-    path.style.transition = 'stroke-dashoffset 1.6s ease';
-    if (area) area.style.transition = 'opacity 1s ease .5s';
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            path.style.strokeDashoffset = '0';
-            if (area) area.style.opacity = '1';
-            io.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    io.observe(path);
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="sjGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgba(26,86,219,0.22)" />
-          <stop offset="100%" stopColor="rgba(26,86,219,0)" />
-        </linearGradient>
-      </defs>
-      {[0, 1, 2, 3, 4, 5].map((g) => {
-        const gy = padT + g * ((H - padT - padB) / 5);
-        return <line key={g} x1={0} y1={gy} x2={W} y2={gy} stroke="rgba(10,31,68,0.06)" strokeWidth={1} />;
-      })}
-      <path ref={areaRef} d={dArea} fill="url(#sjGrad)" opacity={0} />
-      <path ref={ref} d={dLine} fill="none" stroke="#1a56db" strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
-      <line x1={ox} y1={padT - 6} x2={ox} y2={H - padB} stroke="rgba(229,72,77,0.5)" strokeWidth={1} strokeDasharray="4 4" />
-      <text x={ox + 6} y={padT + 6} fill="#e5484d" fontFamily="var(--font-mono)" fontSize={11}>Oct 7, 2023</text>
-      {pts.map((p, i) => {
-        const emph = i === 2;
-        return (
-          <g key={i}>
-            <circle cx={p.x} cy={p.y} r={emph ? 5 : 3.5} fill={emph ? '#e5484d' : '#1a56db'} />
-            <text x={p.x} y={p.y - 12} fill={emph ? '#1a56db' : '#697588'} fontFamily="var(--font-mono)" fontSize={11} fontWeight={emph ? 600 : 400} textAnchor={i === 0 ? 'start' : i === pts.length - 1 ? 'end' : 'middle'}>
-              {p.value.toLocaleString()}
-            </text>
-            <text x={p.x} y={H - 14} fill="#97a1b2" fontFamily="var(--font-mono)" fontSize={11} textAnchor={i === 0 ? 'start' : i === pts.length - 1 ? 'end' : 'middle'}>
-              {p.year}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
 export default function HomePage() {
   // scroll reveal
   useEffect(() => {
@@ -179,16 +102,8 @@ export default function HomePage() {
       <section className="sj-hero">
         <video src="/hero.mp4" autoPlay muted loop playsInline />
         <div className="scrim" />
-        <div className="bggrid" />
-        <div className="scan" />
-        <div className="sj-corners w"><i /><i /><i /><i /></div>
-        <div className="sj-hero-fade" />
         <div className="sj-wrap sj-hero-in">
-          <div className="sj-hero-copy sj-rv">
-            <span className="sj-tagpill">
-              <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ff6b6b', display: 'inline-block' }} />
-              Live incident monitor
-            </span>
+          <div className="sj-hero-copy">
             <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
             <p className="sub">
               SafeJew maps antisemitic incidents across Greater LA — community reports plus verified
@@ -228,7 +143,6 @@ export default function HomePage() {
             </p>
           </div>
           <div className="sj-mapcard sj-rv">
-            <div className="sj-corners"><i /><i /><i /><i /></div>
             <div className="sj-mapbar">
               <span className="title">GREATER_LA</span>
               <Link className="sj-btn sj-btn-line" href="/map" style={{ padding: '8px 14px', fontSize: 13 }}>
@@ -267,29 +181,6 @@ export default function HomePage() {
             <div className="row"><span className="num"><CountUp value={ADL_CALIFORNIA_2025.incidents} /></span><span className="sj-chip watch">2ND STATE</span></div>
             <div className="lbl">ADL incidents in California, 2025</div>
             <div className="meta">2nd-most of any state</div>
-          </div>
-        </div>
-      </section>
-
-      {/* TREND */}
-      <section className="sj-trend">
-        <div className="sj-wrap">
-          <div className="sj-sec-head sj-rv">
-            <span className="sj-eyebrow">The national picture</span>
-            <h2>A spike after October 7 — then a partial retreat.</h2>
-            <p>
-              U.S. antisemitic incidents nearly tripled the year of the Hamas attack, peaked in 2024,
-              and fell by a third in 2025 — yet 2025 still ranks third-highest on record, and physical
-              assaults hit an all-time high.
-            </p>
-          </div>
-          <div className="sj-chartcard sj-rv">
-            <div className="sj-corners"><i /><i /><i /><i /></div>
-            <div className="sj-ch-head">
-              <span className="t">ADL Audit · United States · 2022–2025</span>
-              <span className="t" style={{ color: 'var(--blue)' }}>peak 9,354 · 2024</span>
-            </div>
-            <TrendChart />
           </div>
         </div>
       </section>
@@ -375,7 +266,6 @@ export default function HomePage() {
         <div className="sj-wrap">
           <div className="sj-cta-two sj-rv">
             <div className="sj-ctabox blue">
-              <div className="sj-corners w"><i /><i /><i /><i /></div>
               <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14, color: '#cfe0ff' }}>Free tool</span>
               <h2>SafeJew for Campus</h2>
               <p>Look up UCLA, USC, wherever you are — local antisemitism data plus nearby synagogues, Chabad houses, and Jewish spaces. No account needed.</p>
