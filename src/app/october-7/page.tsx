@@ -18,15 +18,15 @@ import {
 
 // ─── Chart colors (hex — Recharts does not understand Tailwind class names) ──
 const C = {
-  navy:       '#0e1855',   // navy-800
-  navyMid:    '#162270',   // navy-700
-  navyLight:  '#1d2f8f',   // navy-600
-  navyPale:   '#4a5cf5',   // navy-500
-  gold:       '#d97706',   // gold-500
-  goldLight:  '#f59e0b',   // gold-400
-  red:        '#dc2626',   // spike highlight
-  green:      '#059669',   // LA color
-  cream:      '#ebe8e0',   // cream-200
+  navy:       '#14357f',   // brand blue-800
+  navyMid:    '#1a44a8',   // blue-700
+  navyLight:  '#1a56db',   // brand blue
+  navyPale:   '#8fb4ff',   // light blue
+  gold:       '#1a56db',   // accent → brand blue
+  goldLight:  '#5b8cff',
+  red:        '#e5484d',   // spike highlight
+  green:      '#12a150',   // LA color
+  cream:      '#e4eaf3',   // line color
   gray:       '#9ca3af',
   grayDark:   '#6b7280',
 };
@@ -138,8 +138,8 @@ const LA_INCIDENTS = [
 function DarkTooltip({ active, payload, label }: TooltipProps<number, string>) {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: '#0e1855', border: '1px solid #162270', borderRadius: 6, padding: '10px 14px' }}>
-      <p style={{ color: '#f59e0b', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>{label}</p>
+    <div style={{ background: '#0f2a63', border: '1px solid #1a44a8', borderRadius: 6, padding: '10px 14px' }}>
+      <p style={{ color: '#8fb4ff', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>{label}</p>
       <p style={{ color: '#ffffff', fontSize: 13 }}>{payload[0].value?.toLocaleString()} incidents</p>
     </div>
   );
@@ -149,10 +149,10 @@ function MonthlyTooltip({ active, payload, label }: TooltipProps<number, string>
   if (!active || !payload?.length) return null;
   const isSpike = (payload[0].value ?? 0) > 800;
   return (
-    <div style={{ background: '#0e1855', border: `1px solid ${isSpike ? '#dc2626' : '#162270'}`, borderRadius: 6, padding: '10px 14px' }}>
-      <p style={{ color: '#f59e0b', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>{label}</p>
+    <div style={{ background: '#0f2a63', border: `1px solid ${isSpike ? '#e5484d' : '#1a44a8'}`, borderRadius: 6, padding: '10px 14px' }}>
+      <p style={{ color: '#8fb4ff', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>{label}</p>
       <p style={{ color: '#ffffff', fontSize: 13 }}>{payload[0].value?.toLocaleString()} incidents</p>
-      {isSpike && <p style={{ color: '#fca5a5', fontSize: 11, marginTop: 4 }}>Post-Oct 7 surge</p>}
+      {isSpike && <p style={{ color: '#ffb4b4', fontSize: 11, marginTop: 4 }}>Post-Oct 7 surge</p>}
     </div>
   );
 }
@@ -191,8 +191,23 @@ function DataNote({ children, light = false }: { children: React.ReactNode; ligh
 export default function October7Page() {
   return (
     <>
+      {/* ── 0. Memorial ── */}
+      <section className="bg-navy-900 pt-16 pb-3">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <svg width="26" height="36" viewBox="0 0 26 36" className="mx-auto mb-3" aria-hidden="true">
+            <path d="M13 1c3.2 4.4 5.2 6.4 5.2 9.4a5.2 5.2 0 0 1-10.4 0c0-1.1.7-2.2 1.7-3.3C11 8.6 12.2 5.4 13 1z" fill="#f6c453" />
+            <path d="M13 6c1.7 2.6 2.7 3.7 2.7 5.6a2.7 2.7 0 0 1-5.4 0c0-1 .9-2.2 2.7-5.6z" fill="#fff2c9" />
+            <rect x="9.5" y="17" width="7" height="17" rx="1.5" fill="#cdddff" />
+          </svg>
+          <p className="font-sans text-sm text-blue-100/70 leading-relaxed max-w-xl mx-auto">
+            In memory of the 1,200 murdered on October 7, 2023 — and in solidarity with the hostages,
+            the survivors, and their families.
+          </p>
+        </div>
+      </section>
+
       {/* ── 1. Hero ── */}
-      <section className="bg-navy-900 py-24">
+      <section className="bg-navy-900 pt-10 pb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-12 h-0.5 bg-gold-500 mb-6" aria-hidden="true" />
           <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-400 mb-4">

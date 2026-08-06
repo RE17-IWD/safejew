@@ -10,6 +10,17 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-08-04',
+    title: 'Deeper campus data + verified figures',
+    items: [
+      'Added Hillel International’s tracker: 2,334 campus incidents in 2024–25 (on pace for 1,800+ in 2025–26).',
+      'Added AJC’s 2026 survey: 91% of American Jews feel less safe; 42% of Jewish students have experienced antisemitism.',
+      'Corrected ADL 2026 Campus Report Card to 58% of 150 schools graded A/B (23 A’s, 4 F’s).',
+      'Added ADL 2025 detail: 45% of incidents invoked Israel/Zionism; 3 U.S. fatalities.',
+      'Added the April 2026 Adas Torah synagogue assault and enriched the Pasadena mural vandalism record.',
+    ],
+  },
+  {
     date: '2026-08-02',
     title: 'Full site rebuild + latest 2026 data',
     items: [

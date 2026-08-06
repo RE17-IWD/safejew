@@ -5,9 +5,11 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import type { Incident, IncidentCategory } from '@/types';
 import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
+import { HILLEL_TRACKER, AJC_2026, ADL_CAMPUS } from '@/data/hate-crime-stats';
 import TitleVIPanel from '@/components/campus/TitleVIPanel';
 import ReportingChannels from '@/components/campus/ReportingChannels';
 import CampusContextPanel from '@/components/campus/CampusContextPanel';
+import ReportCardPanel from '@/components/campus/ReportCardPanel';
 
 const CampusMap = dynamic(() => import('@/components/campus/CampusMap'), {
   ssr: false,
@@ -657,6 +659,9 @@ export default function CampusPage() {
 
             {/* National campus context */}
             <CampusContextPanel />
+
+            {/* ADL Campus Report Card */}
+            <ReportCardPanel />
           </div>
         </section>
       )}
@@ -675,6 +680,14 @@ export default function CampusPage() {
             university safety teams can see what&apos;s happening around their students — and give
             those students a safe, anonymous way to report it.
           </p>
+          <div className="grid grid-cols-3 gap-3 mb-8 max-w-2xl">
+            <StatPill
+              value={HILLEL_TRACKER.incidents2024_25.toLocaleString()}
+              label="Hillel campus incidents, 2024–25"
+            />
+            <StatPill value={`${AJC_2026.studentsExperiencedPct}%`} label="Jewish students affected (AJC)" />
+            <StatPill value={`${ADL_CAMPUS.reportCardAB2026}%`} label="Schools graded A/B (ADL 2026)" />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
