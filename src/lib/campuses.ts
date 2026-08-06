@@ -330,6 +330,62 @@ export const CAMPUSES: CampusInfo[] = [
     jewishLifeNotes:
       'UMBC Hillel serves a commuter-heavy student population in the Baltimore suburbs. The university draws heavily from Baltimore\'s historic Jewish community in neighborhoods like Pikesville and Owings Mills.',
   },
+  {
+    id: 'campus-rutgers',
+    uuid: 'a0000001-0000-0000-0000-000000000030',
+    name: 'Rutgers University',
+    city: 'New Brunswick',
+    state: 'NJ',
+    lat: 40.5008,
+    lng: -74.4474,
+    hillel: { name: 'Rutgers Hillel', url: null },
+    chabad: { name: 'Chabad at Rutgers', url: null },
+    jewishStudentEstimate: 6400,
+    jewishLifeNotes:
+      'Rutgers has one of the largest Jewish student populations of any public university in the country, and Rutgers Hillel runs one of the biggest Hillel buildings in the world. Jewish life on campus is deep and well established.',
+  },
+  {
+    id: 'campus-indiana',
+    uuid: 'a0000001-0000-0000-0000-000000000031',
+    name: 'Indiana University Bloomington',
+    city: 'Bloomington',
+    state: 'IN',
+    lat: 39.1682,
+    lng: -86.523,
+    hillel: { name: 'Helene G. Simon Hillel Center', url: null },
+    chabad: { name: 'Chabad at Indiana University', url: null },
+    jewishStudentEstimate: 4000,
+    jewishLifeNotes:
+      'Indiana University has a large and active Jewish community, anchored by the Helene G. Simon Hillel Center and a well-known Jewish studies program. Jewish student life is a visible part of campus.',
+  },
+  {
+    id: 'campus-ucsd',
+    uuid: 'a0000001-0000-0000-0000-000000000032',
+    name: 'UC San Diego',
+    city: 'La Jolla',
+    state: 'CA',
+    lat: 32.8801,
+    lng: -117.234,
+    hillel: { name: 'Hillel of San Diego', url: null },
+    chabad: { name: 'Chabad at UC San Diego', url: null },
+    jewishStudentEstimate: 1500,
+    jewishLifeNotes:
+      'UC San Diego is served by Hillel of San Diego and a campus Chabad. As a large UC campus in Southern California, it has seen the same wave of tensions around Israel-related activism as its sister campuses.',
+  },
+  {
+    id: 'campus-wisconsin',
+    uuid: 'a0000001-0000-0000-0000-000000000033',
+    name: 'University of Wisconsin–Madison',
+    city: 'Madison',
+    state: 'WI',
+    lat: 43.0766,
+    lng: -89.4125,
+    hillel: { name: 'UW-Madison Hillel', url: null },
+    chabad: { name: 'Chabad at UW-Madison', url: null },
+    jewishStudentEstimate: 4500,
+    jewishLifeNotes:
+      'UW–Madison has a large Jewish student population and an active Hillel and Chabad. The Madison campus has been a notable site of Israel-related campus activism.',
+  },
 ];
 
 // String id → Supabase UUID. Includes legacy aliases used in older data.

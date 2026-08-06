@@ -32,10 +32,12 @@ const CATEGORY_LABELS: Record<IncidentCategory, string> = {
   other: 'Other',
 };
 
+// Larger radii on purpose: locations are shown at the neighborhood level (not
+// exact addresses), so the circle represents an approximate area, not a point.
 const SEVERITY_RADIUS: Record<IncidentSeverity, number> = {
-  high: 10,
-  medium: 7,
-  low: 5,
+  high: 16,
+  medium: 13,
+  low: 11,
 };
 
 const SPACE_TYPE_LABELS: Record<CommunitySpaceType, string> = {
