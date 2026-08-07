@@ -25,7 +25,7 @@ export default function Intro() {
     document.body.classList.add('sj-lock');
 
     const start = Date.now();
-    const dur = 2200;
+    const dur = 4800;
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1);
       setPct(Math.round((1 - Math.pow(1 - p, 2)) * 100));
