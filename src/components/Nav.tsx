@@ -4,18 +4,25 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navLinks = [
+const primaryLinks = [
   { label: 'Map', href: '/map' },
   { label: 'Oct 7', href: '/october-7' },
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Campus', href: '/campus' },
   { label: 'Safety', href: '/safety' },
-  { label: 'About', href: '/about' },
+];
+
+const aboutLinks = [
+  { label: 'Our story', href: '/about', sub: 'How SafeJew started' },
+  { label: 'Methodology', href: '/methodology', sub: 'How we verify data' },
+  { label: 'Changelog', href: '/changelog', sub: 'What’s changed' },
+  { label: 'In the news', href: '/press', sub: 'Recent incidents & coverage' },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const aboutActive = aboutLinks.some((l) => l.href === pathname);
 
   return (
     <header className="sj-nav">
@@ -29,11 +36,30 @@ export default function Nav() {
         </Link>
 
         <nav className="sj-nav-links">
-          {navLinks.map(({ label, href }) => (
+          {primaryLinks.map(({ label, href }) => (
             <Link key={href} href={href} className={pathname === href ? 'active' : ''}>
               {label}
             </Link>
           ))}
+
+          {/* About / transparency dropdown */}
+          <div className="sj-dd">
+            <button type="button" className={`sj-dd-btn${aboutActive ? ' active' : ''}`} aria-haspopup="true">
+              About
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div className="sj-dd-menu">
+              {aboutLinks.map(({ label, href, sub }) => (
+                <Link key={href} href={href}>
+                  {label}
+                  <span className="sub">{sub}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link href="/report" className="sj-nav-report">
             Report
           </Link>
@@ -57,7 +83,13 @@ export default function Nav() {
       </div>
 
       <div className={`sj-mobile${open ? ' open' : ''}`}>
-        {navLinks.map(({ label, href }) => (
+        {primaryLinks.map(({ label, href }) => (
+          <Link key={href} href={href} onClick={() => setOpen(false)}>
+            {label}
+          </Link>
+        ))}
+        <div className="grp">About &amp; transparency</div>
+        {aboutLinks.map(({ label, href }) => (
           <Link key={href} href={href} onClick={() => setOpen(false)}>
             {label}
           </Link>

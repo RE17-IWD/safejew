@@ -186,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW */}
-      <section className="sj-sec">
+      <section className="sj-sec" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div className="sj-wrap">
           <div className="sj-sec-head sj-rv">
             <span className="sj-eyebrow">How it works</span>
