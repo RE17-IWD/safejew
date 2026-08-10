@@ -71,10 +71,10 @@ const ATTACK_TIMELINE = [
   { time: '6:29 AM', event: 'Hamas breaches the Gaza perimeter fence at 29+ points simultaneously' },
   { time: '6:30 AM', event: 'Rocket barrages launched at Israeli cities as cover for the ground invasion' },
   { time: '6:30 – 7 AM', event: '~3,000 Hamas fighters storm kibbutzim: Be\'eri, Nir Oz, Kfar Aza, Re\'im, and others' },
-  { time: '6:30 – 9 AM', event: 'Nova music festival massacre — 360+ festivalgoers killed; mass kidnappings begin' },
-  { time: 'Morning', event: 'Kibbutz Be\'eri falls — over 100 residents killed; Nir Oz loses 25% of its population dead or taken hostage' },
-  { time: 'All day', event: '251 people taken hostage into Gaza — citizens from 40+ countries including the US, Thailand, and Argentina' },
-  { time: 'By nightfall', event: '~1,200 people killed — the deadliest day for Jews since the Holocaust' },
+  { time: '6:30 – 9 AM', event: 'Nova music festival massacre: 360+ festivalgoers killed; mass kidnappings begin' },
+  { time: 'Morning', event: 'Kibbutz Be\'eri falls, over 100 residents killed; Nir Oz loses 25% of its population dead or taken hostage' },
+  { time: 'All day', event: '251 people taken hostage into Gaza, from 40+ countries including the US, Thailand, and Argentina' },
+  { time: 'By nightfall', event: '~1,200 people killed, the deadliest day for Jews since the Holocaust' },
 ];
 
 const CAMPUS_INCIDENTS = [
@@ -200,7 +200,7 @@ export default function October7Page() {
             <rect x="9.5" y="17" width="7" height="17" rx="1.5" fill="#cdddff" />
           </svg>
           <p className="font-sans text-sm text-blue-100/70 leading-relaxed max-w-xl mx-auto">
-            In memory of the 1,200 murdered on October 7, 2023 — and in solidarity with the hostages,
+            In memory of the 1,200 murdered on October 7, 2023, and in solidarity with the hostages,
             the survivors, and their families.
           </p>
         </div>
@@ -214,11 +214,11 @@ export default function October7Page() {
             October 7, 2023
           </p>
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl">
-            The deadliest day for Jews since the Holocaust — and what happened to American Jews in the months that followed
+            The deadliest day for Jews since the Holocaust, and what happened to American Jews in the months that followed
           </h1>
           <p className="font-sans text-base text-blue-100/70 max-w-2xl leading-relaxed mb-12">
             On October 7, 2023, Hamas invaded southern Israel in the largest massacre of Jewish people since World War II.
-            The attack sent shockwaves across the United States — and triggered the worst surge in antisemitic incidents
+            The attack sent shockwaves across the United States, and it triggered the worst surge in antisemitic incidents
             ever recorded on American soil.
           </p>
           {/* Three headline stats */}
@@ -245,7 +245,7 @@ export default function October7Page() {
       {/* ── 2. Attack facts & timeline ── */}
       <section className="bg-cream-50 py-20 border-b border-cream-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="What Happened" title="October 7, 2023 — The Attack" />
+          <SectionHeading eyebrow="What Happened" title="October 7, 2023: The Attack" />
 
           {/* Key attack numbers */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
@@ -288,7 +288,7 @@ export default function October7Page() {
           <div className="mt-10 bg-navy-800 rounded-lg px-6 py-5">
             <p className="font-sans text-sm text-blue-100/85 leading-relaxed">
               <span className="font-semibold text-gold-400">Who was taken hostage?</span>{' '}
-              Of the 251 people abducted into Gaza, approximately 40% were non-Israeli — including
+              Of the 251 people abducted into Gaza, approximately 40% were non-Israeli, including
               citizens of the United States, Thailand, Argentina, Germany, France, and dozens of other
               nations. Many were foreign workers and tourists visiting the region. As of mid-2025,
               some hostages remain in Gaza after more than a year in captivity.
@@ -303,7 +303,7 @@ export default function October7Page() {
           <SectionHeading eyebrow="What happened to American Jews" title="A surge unlike anything on record" />
           <p className="font-sans text-sm text-gray-600 mb-8 leading-relaxed max-w-2xl">
             The ADL has tracked antisemitic incidents in the United States since 1979. The 2023 total
-            shattered every prior record — not just post-October-7, but also the years that preceded it,
+            shattered every prior record, not just post-October-7, but also the years that preceded it,
             which were themselves record-setting. What happened after October 7 hit an already-rising baseline.
           </p>
 
@@ -360,7 +360,7 @@ export default function October7Page() {
           <SectionHeading eyebrow="Monthly Trend" title="The October 7 inflection point" />
           <p className="font-sans text-sm text-gray-600 mb-8 leading-relaxed max-w-2xl">
             The October 7 spike is visible as an almost-vertical wall of data. The Oct–Dec 2023
-            period — just 86 days — accounts for 59% of the entire year&apos;s total. No comparable
+            period, just 86 days, accounts for 59% of the entire year&apos;s total. No comparable
             spike appears anywhere in the ADL&apos;s 45-year tracking record.
           </p>
           <div className="bg-white border border-cream-200 rounded-lg p-6">
@@ -426,7 +426,7 @@ export default function October7Page() {
               </p>
               <p className="font-sans text-sm text-gray-700 leading-relaxed">
                 The surge did not reverse. The ADL recorded a record 9,354 antisemitic incidents in
-                2024, then 6,274 in 2025 — down a third from the peak, but still the third-highest
+                2024, then 6,274 in 2025, down a third from the peak, but still the third-highest
                 year since tracking began in 1979, and physical assaults reached an all-time high.
                 See the <Link href="/dashboard" className="text-navy-600 underline hover:text-navy-800">Dashboard</Link> for
                 the full 2022–2025 picture.
@@ -442,9 +442,9 @@ export default function October7Page() {
           <SectionHeading eyebrow="On Campus" title="Jewish students faced a new front" light />
           <p className="font-sans text-sm text-blue-100/75 mb-10 max-w-2xl leading-relaxed">
             No segment of American Jewry was hit harder, proportionally, than college students.
-            Campus antisemitic incidents spiked 321% in a single year — from 219 in 2022 to 922 in 2023.
+            Campus antisemitic incidents spiked 321% in a single year, from 219 in 2022 to 922 in 2023.
             Hillel International found that 1 in 4 Jewish college students reported experiencing antisemitism
-            in 2023-24 — the highest rate since modern tracking began.
+            in 2023-24, the highest rate since modern tracking began.
           </p>
 
           {/* Campus chart + stats side by side */}
@@ -517,7 +517,7 @@ export default function October7Page() {
             <p className="font-sans text-sm text-blue-100/80 leading-relaxed">
               This is precisely why the campus layer of SafeJew exists. 850+ Hillel communities across
               the country need localized incident tracking, anonymous reporting tools, and administrator
-              dashboards — not national aggregate statistics published months after the fact.{' '}
+              dashboards, not national aggregate statistics published months after the fact.{' '}
               <Link href="/campus" className="text-gold-400 underline hover:text-gold-300">
                 See the campus module →
               </Link>
@@ -531,7 +531,7 @@ export default function October7Page() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Greater Los Angeles" title="In Los Angeles" />
           <p className="font-sans text-sm text-gray-600 mb-10 leading-relaxed max-w-2xl">
-            Los Angeles is home to the second-largest Jewish population of any city in the United States —
+            Los Angeles is home to the second-largest Jewish population of any city in the United States,
             approximately 600,000 people. The October 7 attack sent immediate ripples through the community.
             Anti-Jewish hate incidents nearly doubled in a single year, and the incidents that followed were
             among the most brazen in the city&apos;s modern history.
@@ -582,7 +582,7 @@ export default function October7Page() {
               <div className="bg-white border border-cream-200 rounded-lg px-5 py-5">
                 <p className="font-sans text-sm text-gray-700 leading-relaxed">
                   Los Angeles&apos; Jewish community is concentrated in neighborhoods like Pico-Robertson,
-                  Westwood, Encino, Beverly Hills, and Brentwood — all within a compact metro corridor.
+                  Westwood, Encino, Beverly Hills, and Brentwood, all within a compact metro corridor.
                   SafeJew&apos;s map covers the full Greater LA metro with searchable incident pins,
                   neighborhood filters, and integrations with both LAPD data and community-sourced reports.
                 </p>
@@ -623,7 +623,7 @@ export default function October7Page() {
           <SectionHeading eyebrow="Context" title="A disproportionate burden" />
           <p className="font-sans text-sm text-gray-600 mb-10 leading-relaxed max-w-2xl">
             Even before October 7, Jews were already the most targeted religious group for hate crimes
-            in the United States — every single year. The FBI&apos;s annual hate crime statistics have
+            in the United States, every single year. The FBI&apos;s annual hate crime statistics have
             shown this consistently for decades. October 7 didn&apos;t create that reality. It amplified it.
           </p>
 
@@ -667,7 +667,7 @@ export default function October7Page() {
               {
                 n: '~57%',
                 label: 'of religious hate crime victims are Jewish',
-                sub: 'FBI Hate Crime Statistics — consistent finding every year since 1991',
+                sub: 'FBI Hate Crime Statistics, a consistent finding every year since 1991',
               },
               {
                 n: '#1',
@@ -691,7 +691,7 @@ export default function October7Page() {
           <SectionHeading eyebrow="Why It Matters" title="The case for real-time safety data infrastructure" />
           <div className="space-y-4 font-sans text-base text-gray-700 leading-relaxed mb-10">
             <p>
-              October 7 made something undeniable: antisemitism is not episodic — it is structural.
+              October 7 made something undeniable: antisemitism is not episodic. It is structural.
               It operates at a sustained background level and surges in response to geopolitical events
               in ways that Jewish community organizations were not equipped to track, communicate, or
               respond to in real time.
@@ -704,9 +704,9 @@ export default function October7Page() {
             </p>
             <p>
               SafeJew exists to close that gap. Community-sourced reporting with verified law enforcement
-              integration. A searchable map that shows patterns at the neighborhood level — not just
+              integration. A searchable map that shows patterns at the neighborhood level, not just
               annual totals. Anonymous reporting for students who fear retaliation. Deployed
-              per-campus, per-city, per-community — at the level where decisions actually get made.
+              per-campus, per-city, per-community, at the level where decisions actually get made.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -734,7 +734,7 @@ export default function October7Page() {
           </p>
           <ul className="space-y-3 font-sans text-xs text-gray-500 leading-relaxed">
             <li>
-              <span className="font-semibold text-gray-600">ADL-verified annual totals</span> —
+              <span className="font-semibold text-gray-600">ADL-verified annual totals</span>:
               National: 2,107 (2019), 2,026 (2020), 2,717 (2021), 3,697 (2022), 8,873 (2023),
               5,204 (Oct–Dec 2023). Campus: 61 (2021), 219 (2022), 922 (2023). All from the
               ADL Audit of Antisemitic Incidents and ADL Campus Antisemitism Report.{' '}
@@ -748,17 +748,17 @@ export default function October7Page() {
               </a>
             </li>
             <li>
-              <span className="font-semibold text-gray-600">LA figures</span> —
+              <span className="font-semibold text-gray-600">LA figures</span>:
               47 (2020), 71 (2021), 86 (2022), 165 (2023): ADL Pacific Southwest region and
               LAPD Annual Crime Statistics, anti-Jewish hate incidents.
             </li>
             <li>
-              <span className="font-semibold text-gray-600">Monthly chart</span> — Annual totals
+              <span className="font-semibold text-gray-600">Monthly chart</span>: Annual totals
               are ADL-verified. Monthly distributions within each year are illustrative approximations
               based on those verified totals and are not individually ADL-certified. Labeled accordingly.
             </li>
             <li>
-              <span className="font-semibold text-gray-600">FBI religious hate crime proportion</span> —
+              <span className="font-semibold text-gray-600">FBI religious hate crime proportion</span>:
               FBI Hate Crime Statistics 2022.{' '}
               <a
                 href="https://ucr.fbi.gov/hate-crime"
@@ -770,7 +770,7 @@ export default function October7Page() {
               </a>
             </li>
             <li>
-              <span className="font-semibold text-gray-600">Campus incidents</span> — Individual
+              <span className="font-semibold text-gray-600">Campus incidents</span>: Individual
               incident descriptions sourced from contemporaneous news reporting (AP, NYT, LA Times),
               university statements, and ADL campus reports. They represent documented, publicly
               reported events.

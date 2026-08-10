@@ -18,7 +18,7 @@ export default function ReportingChannels({ campusId, campusName }: ReportingCha
         <li className="flex gap-3">
           <span className="flex-none w-6 h-6 rounded-full bg-navy-800 text-white font-sans text-xs font-bold flex items-center justify-center">1</span>
           <div>
-            <p className="font-sans text-sm font-semibold text-navy-800">SafeJew — anonymously</p>
+            <p className="font-sans text-sm font-semibold text-navy-800">SafeJew, anonymously</p>
             <p className="font-sans text-xs text-gray-600 leading-relaxed">
               Add {campusName} to the community data record. No name or email required.{' '}
               <Link href={`/report?campus=${campusId}`} className="text-navy-600 underline hover:text-navy-800">
@@ -40,7 +40,7 @@ export default function ReportingChannels({ campusId, campusName }: ReportingCha
         <li className="flex gap-3">
           <span className="flex-none w-6 h-6 rounded-full bg-navy-800 text-white font-sans text-xs font-bold flex items-center justify-center">3</span>
           <div>
-            <p className="font-sans text-sm font-semibold text-navy-800">Federal — Office for Civil Rights</p>
+            <p className="font-sans text-sm font-semibold text-navy-800">Federal: Office for Civil Rights</p>
             <p className="font-sans text-xs text-gray-600 leading-relaxed">
               If the school fails to act, file a Title VI complaint with the U.S. Department of
               Education (see Know Your Rights above).

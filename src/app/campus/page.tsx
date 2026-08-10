@@ -340,8 +340,8 @@ export default function CampusPage() {
 
   useEffect(() => {
     document.title = campus
-      ? `SafeJew — ${campus.name} Campus Tool`
-      : 'SafeJew — Campus Jewish Community Tool';
+      ? `SafeJew · ${campus.name} Campus Tool`
+      : 'SafeJew · Campus Jewish Community Tool';
   }, [campus]);
 
   // Fetch live incidents whenever a campus is selected
@@ -405,7 +405,7 @@ export default function CampusPage() {
           </h1>
           <p className="font-sans text-base text-white/65 max-w-xl leading-relaxed mb-8">
             Antisemitism incidents, nearby synagogues, Chabad houses, and Jewish community
-            resources — by campus. No account, no sign-up.
+            resources, by campus. No account, no sign-up.
           </p>
 
           {/* Search embedded in hero */}
@@ -466,7 +466,7 @@ export default function CampusPage() {
                 </div>
                 <p className="font-sans text-xs text-gray-400 mb-10">
                   Incident locations are neighborhood-level only. Exact addresses are never stored.
-                  Points shown are illustrative sample data, not verified events — see the{' '}
+                  Points shown are illustrative sample data, not verified events. See the{' '}
                   <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
                   for verified antisemitism statistics.
                 </p>
@@ -607,7 +607,7 @@ export default function CampusPage() {
                   <p className="font-sans text-sm font-semibold text-white">Report anonymously</p>
                 </div>
                 <p className="font-sans text-sm text-white/65 leading-relaxed">
-                  Students often fear retaliation. You can file a report with no name and no email —
+                  Students often fear retaliation. You can file a report with no name and no email.
                   anonymity is built in. Reports are reviewed before they appear in the
                   {' '}{campus.name} tracker.
                 </p>
@@ -677,7 +677,7 @@ export default function CampusPage() {
           </h2>
           <p className="font-sans text-base text-gray-600 leading-relaxed max-w-2xl mb-8">
             We&apos;re building a campus program so Hillels, Jewish student organizations, and
-            university safety teams can see what&apos;s happening around their students — and give
+            university safety teams can see what&apos;s happening around their students, and give
             those students a safe, anonymous way to report it.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-8 max-w-2xl">

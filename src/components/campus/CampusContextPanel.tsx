@@ -17,7 +17,7 @@ export default function CampusContextPanel() {
     {
       value: `${ADL_CAMPUS.reportCardAB2026}%`,
       label: 'Schools graded A or B',
-      sub: `In ADL's 2026 Campus Report Card — up from ${Math.round(ADL_CAMPUS.reportCardAB2025)}% in 2025 as universities acted`,
+      sub: `In ADL's 2026 Campus Report Card, up from ${Math.round(ADL_CAMPUS.reportCardAB2025)}% in 2025 as universities acted`,
     },
   ];
 

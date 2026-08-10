@@ -10,7 +10,6 @@ const navLinks = [
 
 const transparencyLinks = [
   { label: 'Methodology', href: '/methodology' },
-  { label: 'Changelog', href: '/changelog' },
   { label: 'In the news', href: '/press' },
 ];
 
@@ -33,7 +32,7 @@ export default function Footer() {
               SafeJew
             </div>
             <p className="desc">
-              A live watch on antisemitism across Greater Los Angeles — built on verified data.
+              A live watch on antisemitism across Greater Los Angeles, built on verified data.
             </p>
             <a className="mail" href="mailto:contact.safejew@gmail.com">
               contact.safejew@gmail.com
