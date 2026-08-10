@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const KRAV_STUDIOS = [
   {
-    name: 'Krav Maga Worldwide — Beverly Hills',
+    name: 'Krav Maga Worldwide, Beverly Hills',
     address: '9036 Wilshire Blvd, Beverly Hills, CA 90211',
     miles: '0.4 mi from Pico-Robertson',
     url: 'https://www.kravmaga.com',
@@ -20,10 +20,10 @@ const KRAV_STUDIOS = [
     address: 'West Los Angeles',
     miles: 'Westside LA',
     url: 'https://kravmagaglobal.com',
-    note: 'KMG curriculum — civilian, law enforcement, and military-grade self-protection.',
+    note: 'KMG curriculum: civilian, law enforcement, and military-grade self-protection.',
   },
   {
-    name: 'Fit & Fearless — Studio City',
+    name: 'Fit & Fearless, Studio City',
     address: 'Studio City, CA',
     miles: 'San Fernando Valley',
     url: null,
@@ -34,7 +34,7 @@ const KRAV_STUDIOS = [
     address: 'Greater Los Angeles',
     miles: 'Multiple locations',
     url: 'https://ikmf.com',
-    note: 'IKMF-certified instruction — one of the original Israeli Krav Maga federations.',
+    note: 'IKMF-certified instruction from one of the original Israeli Krav Maga federations.',
   },
 ];
 
@@ -81,7 +81,7 @@ const LEGAL_RESOURCES = [
     contact: '(213) 977-9500',
   },
   {
-    name: 'California Department of Justice — Civil Rights Division',
+    name: 'California Department of Justice, Civil Rights Division',
     description:
       'State-level hate crime reporting and investigation. File independently of LAPD if needed.',
     url: 'https://oag.ca.gov/civilrights',
@@ -111,7 +111,7 @@ const MENTAL_HEALTH = [
     phone: '(800) 315-6252',
   },
   {
-    name: 'NCJW Los Angeles — Trauma Support',
+    name: 'NCJW Los Angeles, Trauma Support',
     description:
       'National Council of Jewish Women LA. Peer support groups and referrals for survivors of hate incidents.',
     url: 'https://ncjwla.org',
@@ -233,7 +233,7 @@ export default function SafetyPage() {
           <SectionTag>Self-Defense</SectionTag>
           <h2 className="font-serif text-3xl font-bold text-navy-800 mb-4">Krav Maga in Los Angeles</h2>
           <p className="font-sans text-sm text-gray-600 leading-relaxed mb-10 max-w-2xl">
-            Krav Maga is the Israeli Defense Forces' close-contact fighting system — practical,
+            Krav Maga is the Israeli Defense Forces' close-contact fighting system, practical,
             fast to learn, and built around real-world threat scenarios. Several LA studios have
             active Jewish community ties and offer beginner courses.
           </p>
@@ -297,7 +297,7 @@ export default function SafetyPage() {
           <h2 className="font-serif text-3xl font-bold text-navy-800 mb-4">Legal Help</h2>
           <p className="font-sans text-sm text-gray-600 leading-relaxed mb-10 max-w-2xl">
             Hate crimes are criminal offenses in California. If you were targeted, you have legal
-            options — and several organizations provide free or low-cost help.
+            options, and several organizations provide free or low-cost help.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {LEGAL_RESOURCES.map((r) => (
@@ -308,10 +308,10 @@ export default function SafetyPage() {
           </div>
           <div className="mt-8 bg-navy-800 text-white rounded-lg p-6">
             <h3 className="font-serif text-lg font-bold mb-2">
-              Documenting an Incident — What to Save
+              Documenting an Incident: What to Save
             </h3>
             <ul className="font-sans text-sm text-blue-100/80 leading-relaxed space-y-1.5">
-              <li>• Screenshots of online harassment, threats, or slurs — before they're deleted</li>
+              <li>• Screenshots of online harassment, threats, or slurs, before they're deleted</li>
               <li>• Photos of vandalism or physical damage</li>
               <li>• Dates, times, and locations of all incidents</li>
               <li>• Names or descriptions of any witnesses</li>
@@ -356,10 +356,10 @@ export default function SafetyPage() {
                 If you're being targeted online
               </h3>
               <ul className="font-sans text-sm text-blue-100/75 leading-relaxed space-y-2">
-                <li>Screenshot everything before reporting — platforms often remove content fast</li>
+                <li>Screenshot everything before reporting, platforms often remove content fast</li>
                 <li>Report to the platform and to ADL's Online Hate Reporting tool</li>
                 <li>If threats are credible, report to the FBI's Internet Crime Complaint Center (IC3)</li>
-                <li>Lock down your social profiles — go private, remove location data</li>
+                <li>Lock down your social profiles: go private, remove location data</li>
                 <li>Contact SCN if threats are coordinated or involve doxing</li>
               </ul>
             </div>
@@ -371,7 +371,7 @@ export default function SafetyPage() {
                 <li>Remove your home address from data broker sites (DeleteMe, Kanary)</li>
                 <li>Use a PO box or mail forwarding for Jewish organization memberships</li>
                 <li>Enable two-factor authentication everywhere</li>
-                <li>Google yourself — know what's publicly visible</li>
+                <li>Google yourself to know what's publicly visible</li>
                 <li>Be cautious about what you post near Jewish institutions</li>
               </ul>
             </div>

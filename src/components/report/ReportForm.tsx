@@ -275,7 +275,7 @@ export default function ReportForm() {
             {[
               'Your report enters our secure review queue.',
               'A team member reviews the information for completeness and plausibility.',
-              'Verified incidents are added to the map and analytics — neighborhood-level only, no addresses.',
+              'Verified incidents are added to the map and analytics: neighborhood-level only, no addresses.',
               'If you provided contact information and follow-up is needed, we may reach out.',
             ].map((step, i) => (
               <li key={i} className="flex gap-3 font-sans text-sm text-gray-700">
@@ -295,7 +295,7 @@ export default function ReportForm() {
           <ul className="space-y-3">
             <li>
               <p className="font-sans text-sm font-medium text-navy-800">
-                ADL — Report an Incident
+                ADL: Report an Incident
               </p>
               <a
                 href="https://www.adl.org/report-incident"
@@ -308,7 +308,7 @@ export default function ReportForm() {
             </li>
             <li>
               <p className="font-sans text-sm font-medium text-navy-800">
-                FBI — Submit a Tip
+                FBI: Submit a Tip
               </p>
               <a
                 href="https://tips.fbi.gov"
@@ -513,10 +513,10 @@ export default function ReportForm() {
               onChange={(e) => update('campus', e.target.value)}
               className={inputClass}
             >
-              <option value="">No — not campus-related</option>
+              <option value="">No, not campus-related</option>
               {CAMPUSES.map((c) => (
                 <option key={c.id} value={c.id}>
-                  {c.name} — {c.city}, {c.state}
+                  {c.name}, {c.city}, {c.state}
                 </option>
               ))}
             </select>
@@ -694,7 +694,7 @@ export default function ReportForm() {
                       form.neighborhood || null,
                     ]
                       .filter(Boolean)
-                      .join(' — ')}
+                      .join(', ')}
                   </td>
                 </tr>
                 <tr>
@@ -704,7 +704,7 @@ export default function ReportForm() {
                   <td className="px-4 py-3 text-gray-800">
                     {form.isAnonymous
                       ? 'Anonymous'
-                      : `Identified${form.contactName ? ` — ${form.contactName}` : ''}${form.contactEmail ? ` <${form.contactEmail}>` : ''}`}
+                      : `Identified${form.contactName ? `, ${form.contactName}` : ''}${form.contactEmail ? ` <${form.contactEmail}>` : ''}`}
                   </td>
                 </tr>
               </tbody>

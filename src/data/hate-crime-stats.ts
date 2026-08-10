@@ -249,14 +249,14 @@ export const NOTABLE_2026: NotableIncident[] = [
     date: '2026-07-24',
     place: 'Pasadena, CA',
     summary:
-      'Swastikas and “Zionism is not welcome” were painted on a solidarity mural at the fire-destroyed Pasadena Jewish Temple & Center — a mural created after an earlier attack. A swatting call also forced a preschool evacuation; LA County offered a reward and held a July 30 solidarity rally.',
+      'Swastikas and “Zionism is not welcome” were painted on a solidarity mural at the fire-destroyed Pasadena Jewish Temple & Center, a mural created after an earlier attack. A swatting call also forced a preschool evacuation; LA County offered a reward and held a July 30 solidarity rally.',
     url: 'https://www.jns.org/news/u-s-news/pasadena-jewish-community-determined-to-be-very-jewish-after-vandalism-of-synagogue-mural',
   },
   {
     date: '2026-06',
     place: 'Los Angeles, CA',
     summary:
-      'LAPD reported 46 anti-Jewish hate crimes in the first five months of 2026 — on pace for a ~12% rise over 2025.',
+      'LAPD reported 46 anti-Jewish hate crimes in the first five months of 2026, on pace for a ~12% rise over 2025.',
     url: 'https://www.jns.org/news/u-s-news/los-angeles-records-46-anti-jewish-hate-crimes-so-far-in-2026-lapd-says',
   },
   {

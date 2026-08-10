@@ -39,7 +39,7 @@ export default function DashboardPage() {
           </h1>
           <p className="mt-3 text-base text-blue-100/70 font-sans max-w-2xl leading-relaxed">
             Verified antisemitism and hate-crime data for Los Angeles, California, and the
-            United States — compiled from official reporting by the ADL, the LA County
+            United States, compiled from official reporting by the ADL, the LA County
             Commission on Human Relations, the California Department of Justice, and the FBI.
           </p>
           <p className="mt-4 inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-400/30 rounded px-2.5 py-1 text-xs text-emerald-100/90 font-sans">
@@ -88,7 +88,7 @@ export default function DashboardPage() {
             <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
               Reported antisemitic assault, harassment, and vandalism nationwide. After the
               post–Oct 7 peak of 9,354 in 2024, incidents fell to {nationalLatest.value.toLocaleString()} in
-              {' '}{nationalLatest.year} — still the third-highest total on record, and physical
+              {' '}{nationalLatest.year}, still the third-highest total on record, and physical
               assaults ({NATIONAL_ADL_2025.assaults}) hit an all-time high.
             </p>
             <AnnualBarChart data={NATIONAL_ADL} unitLabel="incidents" />
@@ -130,7 +130,7 @@ export default function DashboardPage() {
           {/* LA County context strip */}
           <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
             <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-              Los Angeles County — 2024 in context
+              Los Angeles County: 2024 in context
             </h2>
             <p className="font-sans text-xs text-gray-400 mb-6">
               From the LA County Commission on Human Relations 2024 Hate Crime Report
@@ -142,7 +142,7 @@ export default function DashboardPage() {
                 </p>
                 <p className="font-sans text-sm font-semibold text-navy-700">Anti-Israeli hate crimes</p>
                 <p className="font-sans text-xs text-gray-500 mt-1">
-                  Up from {LA_COUNTY_CONTEXT.antiIsraeli2023} in 2023 — the highest the Commission
+                  Up from {LA_COUNTY_CONTEXT.antiIsraeli2023} in 2023, the highest the Commission
                   has ever recorded.
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function DashboardPage() {
                 </p>
                 <p className="font-sans text-sm font-semibold text-navy-700">School-based hate crimes</p>
                 <p className="font-sans text-xs text-gray-500 mt-1">
-                  Up from {LA_COUNTY_CONTEXT.schoolBased2023} in 2023 — the highest count ever
+                  Up from {LA_COUNTY_CONTEXT.schoolBased2023} in 2023, the highest count ever
                   documented in the county.
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default function DashboardPage() {
               allocate resources proactively.
             </p>
             <p className="font-sans text-xs text-gray-400 mt-3 font-medium uppercase tracking-wide">
-              Roadmap — not yet available
+              Roadmap: not yet available
             </p>
           </div>
 

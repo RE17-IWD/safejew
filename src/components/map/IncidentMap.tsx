@@ -231,7 +231,7 @@ function LocationSearch({ onSearch, onEnableSpaces }: LocationSearchProps) {
       onEnableSpaces();
       if (data.warning) setError(data.warning);
     } catch {
-      setError('Search failed — showing Greater LA results');
+      setError('Search failed; showing Greater LA results');
     } finally {
       setLoading(false);
     }
@@ -589,7 +589,7 @@ export default function IncidentMap() {
         {/* Community spaces disclaimer */}
         {showCommunitySpaces && (
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[400] bg-white/90 border border-gray-200 rounded px-3 py-1.5 text-[11px] font-sans text-gray-500 max-w-xs text-center shadow-sm">
-            Publicly listed institutions — SafeJew does not assess or guarantee the security of any location.
+            Publicly listed institutions. SafeJew does not assess or guarantee the security of any location.
           </div>
         )}
       </div>

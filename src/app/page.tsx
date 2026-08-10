@@ -100,14 +100,14 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="sj-hero">
-        <video src="/hero.mp4" autoPlay muted loop playsInline />
+        <video src="/hero.mp4" autoPlay muted loop playsInline aria-hidden="true" tabIndex={-1} />
         <div className="scrim" />
         <div className="sj-wrap sj-hero-in">
           <div className="sj-hero-copy">
             <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
             <p className="sub">
-              SafeJew maps antisemitic incidents across Greater LA — community reports plus verified
-              LAPD, ADL, FBI, and California DOJ data, in one live picture.
+              SafeJew maps antisemitic incidents across Greater LA. It brings community reports together
+              with verified LAPD, ADL, FBI, and California DOJ data, in one live picture.
             </p>
             <div className="cta">
               <Link className="sj-btn sj-btn-white" href="/map">Open the map <span className="sj-arrow">→</span></Link>
@@ -149,7 +149,7 @@ export default function HomePage() {
                 Full map <span className="sj-arrow">→</span>
               </Link>
             </div>
-            <div className="sj-mapbody">
+            <div className="sj-mapbody" role="region" aria-label="Interactive map of antisemitic incidents across Greater Los Angeles">
               <IncidentMap />
             </div>
             <div className="sj-mapnote">
@@ -195,19 +195,19 @@ export default function HomePage() {
           <div className="sj-cards">
             <div className="sj-card sj-rv">
               <span className="idx">01 / TRACK</span>
-              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8}><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.4" /></svg></div>
+              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.4" /></svg></div>
               <h3>Tracks incidents</h3>
-              <p>Community reports plus LAPD hate-crime data, ADL audits, and FBI statistics — unified and mapped by neighborhood.</p>
+              <p>Community reports, LAPD hate-crime data, ADL audits, and FBI statistics, unified and mapped by neighborhood.</p>
             </div>
             <div className="sj-card sj-rv">
               <span className="idx">02 / ANALYZE</span>
-              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8}><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6" /></svg></div>
+              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6" /></svg></div>
               <h3>Shows patterns</h3>
-              <p>Maps and dashboards reveal where incidents cluster, when they spike, and which categories dominate — by month, neighborhood, or campus.</p>
+              <p>Maps and dashboards reveal where incidents cluster, when they spike, and which categories dominate, by month, neighborhood, or campus.</p>
             </div>
             <div className="sj-card sj-rv">
               <span className="idx">03 / CONNECT</span>
-              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8}><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M17 11l2 2 3-3.5" /></svg></div>
+              <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M17 11l2 2 3-3.5" /></svg></div>
               <h3>Connects community</h3>
               <p>The campus tool surfaces nearby synagogues, Chabad houses, and Jewish community spaces so students know what&apos;s around them.</p>
             </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
             <span className="sj-badge"><span className="dot" />Auto-updated daily</span>
             <h2>Verified data, refreshed automatically.</h2>
             <p>
-              Every headline figure traces to a published report from an official body — cited, dated,
+              Every headline figure traces to a published report from an official body. Cited, dated,
               never fabricated. A daily job checks each source and updates the site whenever new figures
               or incidents appear.
             </p>
@@ -234,10 +234,10 @@ export default function HomePage() {
           </div>
           <div className="sj-src-grid sj-rv">
             {[
-              { k: 'ADL', n: 'Audit of Antisemitic Incidents — national, 2025.', href: 'https://www.adl.org/resources/report/2025-audit-antisemitic-incidents' },
-              { k: 'LAPD', n: 'City of LA hate-crime tracking — 2026 YTD.', href: 'https://www.lapdonline.org/hate-crime' },
-              { k: 'CA DOJ', n: 'Hate Crime in California — 2025.', href: 'https://openjustice.doj.ca.gov/' },
-              { k: 'FBI', n: 'Crime Data Explorer — national, 2024.', href: 'https://cde.ucr.cjis.gov/' },
+              { k: 'ADL', n: 'Audit of Antisemitic Incidents, national (2025).', href: 'https://www.adl.org/resources/report/2025-audit-antisemitic-incidents' },
+              { k: 'LAPD', n: 'City of LA hate-crime tracking, 2026 YTD.', href: 'https://www.lapdonline.org/hate-crime' },
+              { k: 'CA DOJ', n: 'Hate Crime in California (2025).', href: 'https://openjustice.doj.ca.gov/' },
+              { k: 'FBI', n: 'Crime Data Explorer, national (2024).', href: 'https://cde.ucr.cjis.gov/' },
               { k: 'LA COUNTY HRC', n: 'Commission on Human Relations report.', href: 'https://hrc.lacounty.gov/' },
               { k: 'COMMUNITY', n: 'Verified reader submissions (reviewed).', href: '/report' },
             ].map((s) => {
@@ -268,13 +268,13 @@ export default function HomePage() {
             <div className="sj-ctabox blue">
               <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14, color: '#cfe0ff' }}>Free tool</span>
               <h2>SafeJew for Campus</h2>
-              <p>Look up UCLA, USC, wherever you are — local antisemitism data plus nearby synagogues, Chabad houses, and Jewish spaces. No account needed.</p>
+              <p>Look up UCLA, USC, or wherever you are. See local antisemitism data plus nearby synagogues, Chabad houses, and Jewish community spaces. No account needed.</p>
               <Link className="sj-btn sj-btn-white" href="/campus">Try the campus tool <span className="sj-arrow">→</span></Link>
             </div>
             <div className="sj-ctabox">
               <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14 }}>Get in touch</span>
               <h2>Working on community safety?</h2>
-              <p>Universities, synagogues, community organizations, security teams — if you&apos;re dealing with these problems, we want to hear from you.</p>
+              <p>Universities, synagogues, community organizations, security teams: if you&apos;re dealing with these problems, we want to hear from you.</p>
               <a className="sj-btn sj-btn-line" href="mailto:contact.safejew@gmail.com">Contact us <span className="sj-arrow">→</span></a>
             </div>
           </div>

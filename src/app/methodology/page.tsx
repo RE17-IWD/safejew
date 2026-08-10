@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { SOURCES, DATA_COMPILED } from '@/data/hate-crime-stats';
 
 export const metadata: Metadata = {
@@ -29,15 +28,14 @@ export default function MethodologyPage() {
           <p>
             Every headline figure on this site traces to a published report from an official body.
             We never invent numbers, and we keep community-submitted reports as a separate,
-            clearly-labeled layer — never mixed into the official statistics.
+            clearly-labeled layer, never mixed into the official statistics.
           </p>
           <ul>
             {SOURCES.map((s) => (
               <li key={s.key}>
                 <a href={s.url} target="_blank" rel="noopener noreferrer">
                   {s.name}
-                </a>{' '}
-                — {s.note}
+                </a>: {s.note}
               </li>
             ))}
           </ul>
@@ -60,7 +58,7 @@ export default function MethodologyPage() {
           <h2>De-duplication</h2>
           <p>
             The same incident is often reported by several sources. We collapse duplicates by
-            matching date, location, and description so a single event is counted once — while
+            matching date, location, and description so a single event is counted once, while
             preserving each corroborating source.
           </p>
 
@@ -68,8 +66,7 @@ export default function MethodologyPage() {
           <p>
             A daily job checks each machine-readable source and refreshes the site whenever new
             figures or incidents appear. Annual reports (ADL, LA County, CA DOJ) are incorporated as
-            soon as they publish. See the{' '}
-            <Link href="/changelog">changelog</Link> for the update history.
+            soon as they publish.
           </p>
 
           <h2>Limitations</h2>
@@ -85,7 +82,7 @@ export default function MethodologyPage() {
             <li>
               <strong>Sources count differently.</strong> The FBI, California DOJ, ADL, and Hillel
               each define and collect incidents their own way, so their totals aren&apos;t directly
-              comparable — we never stitch different series into one line.
+              comparable. We never stitch different series into one line.
             </li>
             <li>
               <strong>Locations are approximate.</strong> Incidents are placed at the neighborhood
@@ -93,7 +90,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong>Reporting is uneven.</strong> A rise in reported incidents can reflect better
-              reporting, not just more antisemitism — and a quiet area may simply be under-reported.
+              reporting, not just more antisemitism, and a quiet area may simply be under-reported.
             </li>
             <li>
               <strong>Community reports are unverified until reviewed.</strong> They&apos;re a

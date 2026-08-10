@@ -25,7 +25,7 @@ export default function TitleVIPanel({ campusName }: TitleVIPanelProps) {
         {campusName ? `, including at ${campusName}` : ''}.
       </p>
       <p className="font-sans text-sm text-gray-700 leading-relaxed mt-3">
-        If a school fails to address a hostile environment, you can file a complaint with OCR —
+        If a school fails to address a hostile environment, you can file a complaint with OCR,
         separately from any campus or police report. Complaints generally must be filed within
         <span className="whitespace-nowrap"> 180 days</span> of the incident.
       </p>

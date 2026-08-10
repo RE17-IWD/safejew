@@ -20,7 +20,7 @@ export default function ReportCardPanel() {
       </h2>
       <p className="font-sans text-sm text-gray-500 mb-8 text-center max-w-xl mx-auto">
         The ADL grades universities A–F on their policies, response, and investment in Jewish life.
-        Grades have improved sharply — but a handful still fail.
+        Grades have improved sharply, but a handful still fail.
       </p>
 
       {/* Distribution */}

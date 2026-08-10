@@ -15,7 +15,6 @@ const primaryLinks = [
 const aboutLinks = [
   { label: 'Our story', href: '/about', sub: 'How SafeJew started' },
   { label: 'Methodology', href: '/methodology', sub: 'How we verify data' },
-  { label: 'Changelog', href: '/changelog', sub: 'What’s changed' },
   { label: 'In the news', href: '/press', sub: 'Recent incidents & coverage' },
 ];
 
