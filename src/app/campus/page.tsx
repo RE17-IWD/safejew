@@ -675,10 +675,16 @@ export default function CampusPage() {
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-navy-800 mb-3">
             SafeJew for Hillels &amp; universities
           </h2>
+          <p className="font-sans text-base text-gray-600 leading-relaxed max-w-2xl mb-4">
+            National statistics come out once a year and never say what&apos;s happening at your
+            school. SafeJew for Campus is built to close that gap: a live, local picture of
+            antisemitism around a specific campus, paired with the tools to respond to it.
+          </p>
           <p className="font-sans text-base text-gray-600 leading-relaxed max-w-2xl mb-8">
-            We&apos;re building a campus program so Hillels, Jewish student organizations, and
-            university safety teams can see what&apos;s happening around their students, and give
-            those students a safe, anonymous way to report it.
+            For a Hillel, a Jewish student group, or a campus safety office, that means seeing
+            incidents near your students as they&apos;re reported, giving students a safe and
+            anonymous way to report what happens to them, and pointing them to their Title VI rights
+            and nearby Jewish spaces. We&apos;d build it with you, around how your campus actually works.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-8 max-w-2xl">
             <StatPill

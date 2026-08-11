@@ -64,9 +64,9 @@ export default function MethodologyPage() {
 
           <h2>How often it updates</h2>
           <p>
-            A daily job checks each machine-readable source and refreshes the site whenever new
-            figures or incidents appear. Annual reports (ADL, LA County, CA DOJ) are incorporated as
-            soon as they publish.
+            We review the sources and refresh the figures regularly, and we fold in each
+            source&apos;s annual report (ADL, LA County, CA DOJ) as soon as it publishes. The data on
+            this site was last compiled in {DATA_COMPILED}.
           </p>
 
           <h2>Limitations</h2>
