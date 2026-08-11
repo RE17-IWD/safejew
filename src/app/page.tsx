@@ -219,12 +219,11 @@ export default function HomePage() {
       <section className="sj-method">
         <div className="sj-wrap sj-sec sj-method-in">
           <div className="sj-rv">
-            <span className="sj-badge"><span className="dot" />Auto-updated daily</span>
-            <h2>Verified data, refreshed automatically.</h2>
+            <span className="sj-badge"><span className="dot" />Verified &amp; cited</span>
+            <h2>Verified data, from official sources.</h2>
             <p>
               Every headline figure traces to a published report from an official body. Cited, dated,
-              never fabricated. A daily job checks each source and updates the site whenever new figures
-              or incidents appear.
+              and never fabricated. We refresh the numbers as new reports come out.
             </p>
             <p>
               Community-submitted reports are reviewed before they appear on the map, shown as a

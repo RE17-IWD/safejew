@@ -521,6 +521,13 @@ export default function IncidentMap() {
         <MapContainer
           center={[34.0522, -118.2437]}
           zoom={11}
+          minZoom={10}
+          maxZoom={18}
+          maxBounds={[
+            [33.55, -119.0],
+            [34.45, -117.5],
+          ]}
+          maxBoundsViscosity={1.0}
           zoomControl={false}
           style={{ height: '100%', width: '100%' }}
           className="z-0"
