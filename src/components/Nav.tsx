@@ -6,16 +6,16 @@ import { usePathname } from 'next/navigation';
 
 const primaryLinks = [
   { label: 'Map', href: '/map' },
-  { label: 'Oct 7', href: '/october-7' },
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Campus', href: '/campus' },
   { label: 'Safety', href: '/safety' },
+  { label: 'News', href: '/press' },
+  { label: 'Oct 7', href: '/october-7' },
 ];
 
 const aboutLinks = [
   { label: 'Our story', href: '/about', sub: 'How SafeJew started' },
-  { label: 'Methodology', href: '/methodology', sub: 'How we verify data' },
-  { label: 'In the news', href: '/press', sub: 'Recent incidents & coverage' },
+  { label: 'Methodology', href: '/methodology', sub: 'How we verify the data' },
 ];
 
 export default function Nav() {
@@ -63,7 +63,7 @@ export default function Nav() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 3.5h.01M10.3 4.3 2.2 18a2 2 0 0 0 1.7 3h16.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z" />
             </svg>
-            Report an incident
+            Report
           </Link>
         </nav>
 
