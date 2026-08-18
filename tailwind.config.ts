@@ -41,6 +41,8 @@ const config: Config = {
         serif: ['var(--font-jakarta)', 'Georgia', 'serif'],
         mono: ['var(--font-plex)', 'ui-monospace', 'Menlo', 'monospace'],
       },
+      // Slightly softer than the defaults; keeps cards friendly but a touch less round.
+      borderRadius: { xl: '10px', '2xl': '12px' },
     },
   },
   plugins: [],

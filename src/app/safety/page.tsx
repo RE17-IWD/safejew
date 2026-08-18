@@ -67,6 +67,13 @@ const SECURITY_ORGS = [
 
 const LEGAL_RESOURCES = [
   {
+    name: 'StandWithUs Saidoff Legal Center',
+    description:
+      'The legal arm of StandWithUs. Provides free legal support to students, educators, and community members facing antisemitism and anti-Israel discrimination, including on campus.',
+    url: 'https://www.standwithus.com/legal',
+    contact: 'Via website',
+  },
+  {
     name: 'ADL Legal Affairs',
     description:
       'Free legal consultation for victims of bias-motivated crimes. Can connect you with civil rights attorneys and assist with law enforcement liaison.',
