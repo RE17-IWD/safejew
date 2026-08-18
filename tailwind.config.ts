@@ -42,7 +42,10 @@ const config: Config = {
         mono: ['var(--font-plex)', 'ui-monospace', 'Menlo', 'monospace'],
       },
       // Slightly softer than the defaults; keeps cards friendly but a touch less round.
-      borderRadius: { xl: '10px', '2xl': '12px' },
+      borderRadius: {
+        none: '0px', sm: '2px', DEFAULT: '4px', md: '4px',
+        lg: '5px', xl: '6px', '2xl': '8px', '3xl': '10px', full: '9999px',
+      },
     },
   },
   plugins: [],

@@ -284,7 +284,7 @@ function IncidentDetailPanel({ incident, onClose }: { incident: Incident; onClos
       <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-gray-100">
         <div>
           <span
-            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold text-white mb-1"
+            className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-sans font-semibold text-white mb-1"
             style={{ backgroundColor: color }}
           >
             {CATEGORY_LABELS[incident.category]}
@@ -340,7 +340,7 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
       <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-gray-100">
         <div>
           <span
-            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold text-white mb-1"
+            className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-sans font-semibold text-white mb-1"
             style={{ backgroundColor: COMMUNITY_SPACE_COLOR }}
           >
             {SPACE_TYPE_LABELS[space.type]}

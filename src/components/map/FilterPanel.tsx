@@ -75,7 +75,7 @@ export default function FilterPanel({ filters, onChange, incidentCount }: Filter
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 flex-none">
         <span className="text-sm font-sans font-semibold text-gray-900">Filters</span>
-        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-navy-100 text-navy-700">
+        <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-navy-100 text-navy-700">
           {incidentCount}
         </span>
       </div>

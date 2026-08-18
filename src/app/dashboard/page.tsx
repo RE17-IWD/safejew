@@ -188,7 +188,7 @@ export default function DashboardPage() {
               <h2 className="font-serif text-lg font-semibold text-navy-800">
                 Predictive Risk Modeling
               </h2>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full font-sans text-xs font-semibold bg-cream-100 text-gray-500 border border-cream-200 uppercase tracking-wide">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded font-sans text-xs font-semibold bg-cream-100 text-gray-500 border border-cream-200 uppercase tracking-wide">
                 Planned
               </span>
             </div>

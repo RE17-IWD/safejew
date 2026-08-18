@@ -252,11 +252,11 @@ export default function AdminPage() {
                     <span className="font-sans text-sm font-semibold text-navy-800">
                       {CATEGORY_LABELS[report.category] ?? report.category}
                     </span>
-                    <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${SEVERITY_COLORS[report.severity] ?? 'bg-gray-100 text-gray-600'}`}>
+                    <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded ${SEVERITY_COLORS[report.severity] ?? 'bg-gray-100 text-gray-600'}`}>
                       {report.severity}
                     </span>
                     {report.status !== 'pending' && (
-                      <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${STATUS_BADGE[report.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                      <span className={`font-sans text-xs font-semibold px-2 py-0.5 rounded ${STATUS_BADGE[report.status] ?? 'bg-gray-100 text-gray-600'}`}>
                         {report.status}
                       </span>
                     )}
@@ -326,7 +326,7 @@ export default function AdminPage() {
                       <p className="font-sans text-sm font-semibold text-navy-800">
                         {req.name}
                         {req.status !== 'pending' && (
-                          <span className={`ml-2 font-sans text-xs font-semibold px-2 py-0.5 rounded-full ${STATUS_BADGE[req.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                          <span className={`ml-2 font-sans text-xs font-semibold px-2 py-0.5 rounded ${STATUS_BADGE[req.status] ?? 'bg-gray-100 text-gray-600'}`}>
                             {req.status}
                           </span>
                         )}

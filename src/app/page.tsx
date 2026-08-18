@@ -100,18 +100,17 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="sj-hero">
-        <video src="/hero.mp4" autoPlay muted loop playsInline aria-hidden="true" tabIndex={-1} />
-        <div className="scrim" />
         <div className="sj-wrap sj-hero-in">
           <div className="sj-hero-copy">
+            <span className="sj-eyebrow" style={{ marginBottom: 18 }}>Greater Los Angeles</span>
             <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
             <p className="sub">
               SafeJew maps antisemitic incidents across Greater LA. It brings community reports together
               with verified LAPD, ADL, FBI, and California DOJ data, in one live picture.
             </p>
             <div className="cta">
-              <Link className="sj-btn sj-btn-white" href="/map">Open the map <span className="sj-arrow">→</span></Link>
-              <Link className="sj-btn sj-btn-outlinew" href="/october-7">October 7 report</Link>
+              <Link className="sj-btn sj-btn-blue" href="/map">Open the map <span className="sj-arrow">→</span></Link>
+              <Link className="sj-btn sj-btn-line" href="/october-7">October 7 report <span className="sj-arrow">→</span></Link>
             </div>
             <div className="stats">
               <div className="stat">

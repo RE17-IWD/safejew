@@ -435,7 +435,7 @@ export default function CampusPage() {
                 )}
               </div>
               {hasData && (
-                <span className="inline-flex items-center gap-1 self-start sm:self-auto bg-gold-100 text-gold-700 font-sans text-xs font-semibold px-3 py-1 rounded-full border border-gold-200">
+                <span className="inline-flex items-center gap-1 self-start sm:self-auto bg-gold-100 text-gold-700 font-sans text-xs font-semibold px-3 py-1 rounded border border-gold-200">
                   <svg viewBox="0 0 10 10" className="w-2 h-2 fill-current"><circle cx="5" cy="5" r="4" /></svg>
                   Incident data available
                 </span>
@@ -647,7 +647,7 @@ export default function CampusPage() {
                 <button
                   key={c.id}
                   onClick={() => setSelectedId(c.id)}
-                  className="font-sans text-sm px-4 py-2 rounded-full border border-cream-200 text-gray-600 bg-white hover:border-navy-300 hover:text-navy-700 transition-colors"
+                  className="font-sans text-sm px-4 py-2 rounded border border-cream-200 text-gray-600 bg-white hover:border-navy-300 hover:text-navy-700 transition-colors"
                 >
                   {c.name}
                 </button>
