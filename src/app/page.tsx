@@ -72,6 +72,25 @@ function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
   );
 }
 
+/* ---------- rotating fill-in-the-blank word ---------- */
+const HERO_VERBS = ['maps', 'tracks', 'documents', 'exposes'];
+function RotatingWord({ words }: { words: string[] }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const t = setInterval(() => setI((v) => (v + 1) % words.length), 2400);
+    return () => clearInterval(t);
+  }, [words.length]);
+  return (
+    <span className="sj-rotw">
+      <span key={i} className="sj-rotw-in hl">
+        {words[i]}
+      </span>
+    </span>
+  );
+}
+
 export default function HomePage() {
   // scroll reveal
   useEffect(() => {
@@ -103,10 +122,12 @@ export default function HomePage() {
         <div className="sj-wrap sj-hero-in">
           <div className="sj-hero-copy">
             <span className="sj-eyebrow" style={{ marginBottom: 18 }}>Greater Los Angeles</span>
-            <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
+            <h1>
+              SafeJew <RotatingWord words={HERO_VERBS} /> antisemitism across Greater LA.
+            </h1>
             <p className="sub">
-              SafeJew maps antisemitic incidents across Greater LA. It brings community reports together
-              with verified LAPD, ADL, FBI, and California DOJ data, in one live picture.
+              Community reports brought together with verified LAPD, ADL, FBI, and California DOJ data,
+              every documented incident on one live map.
             </p>
             <div className="cta">
               <Link className="sj-btn sj-btn-blue" href="/map">Open the full map <span className="sj-arrow">→</span></Link>
