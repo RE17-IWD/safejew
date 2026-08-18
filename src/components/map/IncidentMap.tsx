@@ -12,6 +12,7 @@ import type {
   CommunitySpaceType,
 } from '@/types';
 import { SOURCED_INCIDENTS } from '@/data/sourced-incidents';
+import newsFeed from '@/data/news.json';
 import FilterPanel from './FilterPanel';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -49,6 +50,11 @@ const SPACE_TYPE_LABELS: Record<CommunitySpaceType, string> = {
 
 const COMMUNITY_SPACE_COLOR = '#2e7d6e';
 const COMMUNITY_SPACE_STROKE = '#1a5c52';
+
+// Auto-located incidents pulled from the news feed (approximate).
+const NEWS_COLOR = '#e0900a';
+
+type NewsPoint = { title: string; url: string; source: string; date: string | null; lat: number; lng: number; place: string };
 
 const DEFAULT_FILTERS: IncidentFilters = {
   categories: ['vandalism', 'harassment', 'assault', 'online_threat', 'other'],
@@ -459,6 +465,30 @@ export default function IncidentMap() {
     });
   }, [incidents, filters, showIncidents]);
 
+  // Recent, auto-located incidents from the news feed. De-duplicated by ~1km area
+  // (many outlets cover one incident), newest kept, so one incident is one dot.
+  const newsPoints = useMemo<NewsPoint[]>(() => {
+    const items = (newsFeed.items ?? []) as Array<Partial<NewsPoint>>;
+    const seen = new Set<string>();
+    const out: NewsPoint[] = [];
+    for (const i of items) {
+      if (typeof i.lat !== 'number' || typeof i.lng !== 'number') continue;
+      const key = `${i.lat.toFixed(2)},${i.lng.toFixed(2)}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({
+        title: i.title ?? '',
+        url: i.url ?? '#',
+        source: i.source ?? 'News',
+        date: i.date ?? null,
+        lat: i.lat,
+        lng: i.lng,
+        place: i.place ?? 'Greater Los Angeles',
+      });
+    }
+    return out;
+  }, []);
+
   const handleIncidentClick = useCallback((incident: Incident) => {
     setSelectedIncident(incident);
     setSelectedSpace(null);
@@ -574,6 +604,32 @@ export default function IncidentMap() {
               </CircleMarker>
             );
           })}
+
+          {/* Recent news-derived incidents (approximate, auto-located) */}
+          {showIncidents && newsPoints.map((n, idx) => (
+            <CircleMarker
+              key={`news-${idx}`}
+              center={[n.lat, n.lng]}
+              radius={7}
+              fillColor={NEWS_COLOR}
+              fillOpacity={0.32}
+              stroke
+              color={NEWS_COLOR}
+              weight={1.5}
+              dashArray="4 3"
+            >
+              <Popup>
+                <div className="font-sans text-xs" style={{ maxWidth: 220 }}>
+                  <p className="font-semibold text-gray-900 mb-0.5">{n.place}</p>
+                  <p className="text-gray-700 mb-1">{n.title}</p>
+                  <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-navy-700 underline">
+                    {n.source} ↗
+                  </a>
+                  <p className="text-[10px] text-gray-500 mt-1">Approximate location · from recent news coverage</p>
+                </div>
+              </Popup>
+            </CircleMarker>
+          ))}
 
           {/* Community space markers */}
           {showCommunitySpaces && communitySpaces.map((space) => (

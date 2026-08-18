@@ -1,34 +1,35 @@
 #!/usr/bin/env node
 /**
- * SafeJew — daily news scraper.
+ * SafeJew — news scraper (runs every ~3 days from the GitHub Action).
  *
- * Pulls recent antisemitism coverage for Greater LA from Google News RSS across
- * several searches, de-duplicates, filters for relevance, and writes the newest
- * items to src/data/news.json. Runs from .github/workflows/scrape-news.yml.
- * Requires Node 18+ (global fetch).
+ * Pulls recent antisemitism coverage across Greater LA from Google News RSS,
+ * across several searches and ALL incident types (vandalism, assault, threats,
+ * arson, harassment). De-duplicates, filters for relevance, geocodes each item
+ * from its text (scripts/geo-la.mjs), and writes to src/data/news.json.
  *
- * This is COVERAGE (news links), kept separate from the hand-verified incident
- * records. It is clearly labeled as an automated feed on the page, never mixed
- * into the official statistics.
+ * Items that resolve to a known LA location AND look like an incident get lat/lng
+ * so the map can plot them (clearly labeled as approximate, news-derived points),
+ * on top of the hand-verified incident set. Requires Node 18+ (global fetch).
  */
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { geocodeFromText } from './geo-la.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', 'src', 'data', 'news.json');
 
-// Several complementary searches — merged and de-duplicated below. Casting a few
-// angles (place, institution, incident type) catches more than one broad query.
+// Several complementary searches spanning all incident types.
 const QUERIES = [
-  'antisemitism "Los Angeles" when:45d',
-  'antisemitic incident Los Angeles when:45d',
-  'antisemitism California hate crime when:45d',
-  'swastika OR synagogue vandalism Los Angeles when:60d',
-  'antisemitism UCLA OR USC OR "Cal State" when:60d',
-  'Jewish community Los Angeles threat OR harassment when:45d',
+  'antisemitism "Los Angeles" when:60d',
+  'antisemitic incident Los Angeles when:90d',
+  'antisemitism synagogue Los Angeles when:90d',
+  'swastika Los Angeles OR "San Fernando Valley" when:120d',
+  'Jewish Los Angeles hate crime OR assault OR threat OR vandalism when:90d',
+  'antisemitism UCLA OR USC OR "Cal State" when:120d',
+  'synagogue OR temple vandalized OR attacked California when:120d',
 ];
-const MAX_ITEMS = 10;
+const MAX_ITEMS = 40;
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
@@ -61,13 +62,15 @@ function decode(s) {
     .trim();
 }
 
-// An item must be BOTH about a Greater-LA location AND about antisemitism.
-// "jewish"/"synagogue" alone are too broad (they match national news), so the
-// location gate requires an actual LA place or local institution.
+// Must name a Greater-LA place or local institution.
 const LA_GEO =
-  /los angeles|\bl\.?a\.?\b|greater la|southern california|so[- ]?cal|pasadena|altadena|glendale|burbank|van nuys|north hollywood|studio city|sherman oaks|encino|tarzana|woodland hills|san fernando|westwood|pico[- ]?robertson|\bpico\b|fairfax|beverly hills|beverlywood|hancock park|mid-wilshire|santa monica|brentwood|culver city|west hollywood|los feliz|silver lake|valley village|long beach|ucla|\busc\b|cal state l\.?a\.?|cal state los angeles|csun|cal state northridge/i;
-const ANTISEMITIC =
-  /antisemit|anti-semit|swastika|hate[- ]?crime|hate[- ]?motivated|vandal|graffiti|mezuz|holocaust|\bnazi\b|desecrat/i;
+  /los angeles|\bl\.?a\.?\b|greater la|southern california|so[- ]?cal|san fernando valley|pasadena|altadena|glendale|burbank|van nuys|north hollywood|studio city|sherman oaks|encino|tarzana|reseda|northridge|granada hills|porter ranch|woodland hills|calabasas|westwood|pico[- ]?robertson|\bpico\b|fairfax|beverly hills|beverlywood|hancock park|mid-wilshire|koreatown|santa monica|venice|brentwood|pacific palisades|culver city|west hollywood|weho|los feliz|silver lake|valley village|long beach|ucla|\busc\b|cal state/i;
+// Must be about Jews / antisemitism (identity anchor — captures ALL incident types).
+const JEWISH =
+  /antisemit|anti-semit|\bjew(s|ish)?\b|synagogue|\bshul\b|chabad|hillel|yeshiva|kosher|mezuz|swastika|holocaust|\bnazi\b|torah|rabbi|zionis/i;
+// Looks like an actual incident (used to decide whether to plot it on the map).
+const INCIDENT =
+  /antisemit|swastika|hate[- ]?crime|hate[- ]?motivated|vandal|graffiti|defac|desecrat|assault|attack|threat|arson|firebomb|harass|slur|spray[- ]?paint|smash|stab|shoot|beat|mezuz|\bnazi\b/i;
 
 function tag(block, name) {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, 'i'));
@@ -78,7 +81,6 @@ async function fetchQuery(q) {
   try {
     const res = await fetch(rssUrl(q), { headers: { 'User-Agent': UA, Accept: 'application/rss+xml' } });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    // Decode explicitly as UTF-8 so curly quotes/dashes don't turn into mojibake.
     const xml = new TextDecoder('utf-8').decode(await res.arrayBuffer());
     return xml.split('<item>').slice(1).map((b) => b.split('</item>')[0]);
   } catch (err) {
@@ -108,20 +110,26 @@ async function main() {
     if (!title || !link) continue;
 
     const hay = `${title} ${desc}`;
-    // Keep only items that are both LA-local and about antisemitism.
-    if (!LA_GEO.test(hay) || !ANTISEMITIC.test(hay)) continue;
+    if (!LA_GEO.test(hay) || !JEWISH.test(hay)) continue;
 
-    // De-dupe across queries by URL and by normalized title.
     const titleKey = title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
     if (seen.has(link) || seen.has(titleKey)) continue;
     seen.add(link);
     seen.add(titleKey);
 
     const iso = pub ? new Date(pub).toISOString() : null;
-    items.push({ title, url: link, source: source || 'News', date: iso });
+    const item = { title, url: link, source: source || 'News', date: iso };
+
+    // Geocode from the text; only attach coords for items that read as incidents.
+    const geo = geocodeFromText(hay);
+    if (geo && INCIDENT.test(hay)) {
+      item.lat = geo.lat;
+      item.lng = geo.lng;
+      item.place = geo.place;
+    }
+    items.push(item);
   }
 
-  // Newest first; undated items sink to the bottom.
   items.sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0));
   const top = items.slice(0, MAX_ITEMS);
 
@@ -130,6 +138,7 @@ async function main() {
     process.exit(0);
   }
 
+  const mapped = top.filter((i) => typeof i.lat === 'number').length;
   const payload = {
     generatedAt: new Date().toISOString(),
     query: QUERIES[0],
@@ -137,7 +146,7 @@ async function main() {
     items: top,
   };
   writeFileSync(OUT, JSON.stringify(payload, null, 2) + '\n');
-  console.log(`[scrape-news] wrote ${top.length} items (from ${all.length} raw) to ${OUT}`);
+  console.log(`[scrape-news] wrote ${top.length} items (${mapped} geocoded for the map) from ${all.length} raw`);
 }
 
 main().catch((e) => {

@@ -40,7 +40,7 @@ export default function PressPage() {
           <span className="sj-eyebrow">In the news</span>
           <h1>Recent coverage</h1>
           <p>
-            A live feed of recent antisemitism coverage across Greater Los Angeles, refreshed daily
+            A live feed of recent antisemitism coverage across Greater Los Angeles, updated every few days
             {updated ? ` (last updated ${updated})` : ''}. These are external news reports, not
             SafeJew-verified incidents. Working on a story?{' '}
             <a href="mailto:contact.safejew@gmail.com" style={{ color: '#8fb4ff', fontWeight: 600 }}>
@@ -56,7 +56,7 @@ export default function PressPage() {
           {coverage.length > 0 ? (
             <>
               <div className="sj-news-grid">
-                {coverage.map((c, i) => (
+                {coverage.slice(0, 15).map((c, i) => (
                   <a key={i} className="sj-news" href={c.url} target="_blank" rel="noopener noreferrer">
                     <div className="meta">
                       {c.date && <span className="date">{fmt(c.date)}</span>}

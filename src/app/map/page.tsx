@@ -26,8 +26,9 @@ export default function MapPage() {
           (click a pin to open it). Aggregate, bias-specific statistics live on the Dashboard. */}
       <div className="bg-navy-50 border-b border-navy-100 px-4 py-2 text-center flex-none">
         <span className="text-xs font-sans font-medium text-navy-700">
-          Each point is a documented incident with a cited source — click a pin to read it. Shown at
-          neighborhood level for privacy. For aggregate statistics, see the{' '}
+          Colored pins are documented incidents with a cited source; amber pins are recent news
+          coverage (approximate location, auto-located). Click any pin to read it. For aggregate
+          statistics, see the{' '}
           <Link href="/dashboard" className="underline font-semibold hover:text-navy-900">
             Dashboard
           </Link>
