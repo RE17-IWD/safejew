@@ -31,7 +31,7 @@ export default function DashboardPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-navy-800 py-14">
+      <section className="bg-navy-900 py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-10 h-0.5 bg-gold-500 mb-5" aria-hidden="true" />
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight">

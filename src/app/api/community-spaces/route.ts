@@ -31,7 +31,7 @@ const CURATED_SPACES: CommunitySpace[] = [
   { id: 'jewish-family-service', name: 'Jewish Family Service of LA', type: 'community_center', lat: 34.0697, lng: -118.3606, address: '3580 Wilshire Blvd, Los Angeles, CA 90010', source: 'curated' },
   // Hillels
   { id: 'ucla-hillel', name: 'UCLA Hillel', type: 'hillel', lat: 34.0700, lng: -118.4432, address: '900 Hilgard Ave, Los Angeles, CA 90024', website: 'https://uclahillel.org', source: 'curated' },
-  { id: 'usc-hillel', name: 'USC Hillel', type: 'hillel', lat: 34.0156, lng: -118.2831, address: '3395 S Hoover St, Los Angeles, CA 90007', website: 'https://uscjewish.org', source: 'curated' },
+  { id: 'usc-hillel', name: 'USC Hillel', type: 'hillel', lat: 34.0156, lng: -118.2831, address: '3395 S Hoover St, Los Angeles, CA 90007', website: 'https://www.uschillel.org', source: 'curated' },
   { id: 'lmu-hillel', name: 'LMU Hillel', type: 'hillel', lat: 33.9709, lng: -118.4185, address: '1 LMU Dr, Los Angeles, CA 90045', source: 'curated' },
 ];
 

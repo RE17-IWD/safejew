@@ -30,7 +30,7 @@ export const CAMPUSES: CampusInfo[] = [
     state: 'CA',
     lat: 34.0689,
     lng: -118.4452,
-    hillel: { name: 'Hillel at UCLA', url: 'https://www.uclahillel.org' },
+    hillel: { name: 'Hillel at UCLA', url: 'https://uclahillel.org' },
     chabad: { name: 'Chabad House at UCLA', url: 'https://www.chabaducla.com' },
     jewishStudentEstimate: 4500,
     jewishLifeNotes:

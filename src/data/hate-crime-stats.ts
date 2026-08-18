@@ -284,7 +284,7 @@ export const SOURCES: DataSource[] = [
   {
     key: 'cadoj',
     name: 'California DOJ — Hate Crime in California (OpenJustice)',
-    url: 'https://openjustice.doj.ca.gov/',
+    url: 'https://oag.ca.gov/hatecrimes',
     note: 'Statewide anti-Jewish bias hate-crime events; 2025 released July 2026.',
   },
   {

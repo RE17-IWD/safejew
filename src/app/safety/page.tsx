@@ -33,7 +33,7 @@ const KRAV_STUDIOS = [
     name: 'IKMF Los Angeles (International Krav Maga Federation)',
     address: 'Greater Los Angeles',
     miles: 'Multiple locations',
-    url: 'https://ikmf.com',
+    url: 'https://www.ikmf.com',
     note: 'IKMF-certified instruction from one of the original Israeli Krav Maga federations.',
   },
 ];

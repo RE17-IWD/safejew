@@ -395,7 +395,7 @@ export default function CampusPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy-800 pt-28 pb-14">
+      <section className="bg-navy-900 pt-28 pb-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">
             Free Campus Tool

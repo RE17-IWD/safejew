@@ -221,7 +221,7 @@ export default function HomePage() {
             {[
               { k: 'ADL', n: 'Audit of Antisemitic Incidents, national (2025).', href: 'https://www.adl.org/resources/report/2025-audit-antisemitic-incidents' },
               { k: 'LAPD', n: 'City of LA hate-crime tracking, 2026 YTD.', href: 'https://www.lapdonline.org/hate-crime' },
-              { k: 'CA DOJ', n: 'Hate Crime in California (2025).', href: 'https://openjustice.doj.ca.gov/' },
+              { k: 'CA DOJ', n: 'Hate Crime in California (2025).', href: 'https://oag.ca.gov/hatecrimes' },
               { k: 'FBI', n: 'Crime Data Explorer, national (2024).', href: 'https://cde.ucr.cjis.gov/' },
               { k: 'LA COUNTY HRC', n: 'Commission on Human Relations report.', href: 'https://hrc.lacounty.gov/' },
               { k: 'COMMUNITY', n: 'Verified reader submissions (reviewed).', href: '/report' },
