@@ -139,7 +139,7 @@ export default function HomePage() {
               <IncidentMap />
             </div>
             <div className="sj-mapnote">
-              <b>Documented incidents</b> compiled from news reports and official sources, shown at neighborhood level. Click any pin for its source.
+              <b>Documented incidents</b> compiled from news reports and official sources, shown at neighborhood level. Most incidents go unreported, so this is likely only a fraction of the true total.
             </div>
           </div>
         </div>

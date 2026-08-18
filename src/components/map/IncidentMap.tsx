@@ -56,6 +56,39 @@ const NEWS_COLOR = '#e0900a';
 
 type NewsPoint = { title: string; url: string; source: string; date: string | null; lat: number; lng: number; place: string };
 
+// Spread incidents that share the exact same coordinate into a small ring so each
+// is individually clickable (locations are neighborhood-level / approximate anyway).
+type Placed = Incident & { _lat: number; _lng: number };
+function spreadOverlapping(items: Incident[]): Placed[] {
+  const groups = new Map<string, Incident[]>();
+  for (const it of items) {
+    const key = `${it.lat.toFixed(4)},${it.lng.toFixed(4)}`;
+    const g = groups.get(key);
+    if (g) g.push(it);
+    else groups.set(key, [it]);
+  }
+  const out: Placed[] = [];
+  for (const group of Array.from(groups.values())) {
+    if (group.length === 1) {
+      out.push({ ...group[0], _lat: group[0].lat, _lng: group[0].lng });
+      continue;
+    }
+    const PER_RING = 6;
+    const RING_STEP = 0.0016; // ~180m per ring
+    group.forEach((it, i) => {
+      const ring = Math.floor(i / PER_RING) + 1;
+      const idxInRing = i % PER_RING;
+      const inRing = Math.min(PER_RING, group.length - (ring - 1) * PER_RING);
+      const angle = (idxInRing / inRing) * Math.PI * 2 + ring * 0.6;
+      const r = RING_STEP * ring;
+      const dlat = r * Math.sin(angle);
+      const dlng = (r * Math.cos(angle)) / Math.cos((it.lat * Math.PI) / 180);
+      out.push({ ...it, _lat: it.lat + dlat, _lng: it.lng + dlng });
+    });
+  }
+  return out;
+}
+
 const DEFAULT_FILTERS: IncidentFilters = {
   categories: ['vandalism', 'harassment', 'assault', 'online_threat', 'other'],
   severities: ['high', 'medium', 'low'],
@@ -465,6 +498,9 @@ export default function IncidentMap() {
     });
   }, [incidents, filters, showIncidents]);
 
+  // Spread co-located pins so overlapping incidents stay individually clickable.
+  const displayIncidents = useMemo(() => spreadOverlapping(filteredIncidents), [filteredIncidents]);
+
   // Recent, auto-located incidents from the news feed. De-duplicated by ~1km area
   // (many outlets cover one incident), newest kept, so one incident is one dot.
   const newsPoints = useMemo<NewsPoint[]>(() => {
@@ -568,7 +604,7 @@ export default function IncidentMap() {
           <MapController target={mapTarget} />
 
           {/* Incident markers */}
-          {filteredIncidents.map((incident) => {
+          {displayIncidents.map((incident) => {
             const baseRadius = SEVERITY_RADIUS[incident.severity];
             const radius = showHeatmap ? 20 : baseRadius;
             const fillOpacity = showHeatmap ? 0.15 : 0.8;
@@ -576,7 +612,7 @@ export default function IncidentMap() {
             return (
               <CircleMarker
                 key={incident.id}
-                center={[incident.lat, incident.lng]}
+                center={[incident._lat, incident._lng]}
                 radius={radius}
                 fillColor={color}
                 fillOpacity={fillOpacity}

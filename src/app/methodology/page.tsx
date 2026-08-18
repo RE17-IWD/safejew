@@ -76,8 +76,9 @@ export default function MethodologyPage() {
           </p>
           <ul>
             <li>
-              <strong>It&apos;s an undercount.</strong> Most antisemitic incidents are never reported
-              to anyone. Every number here is a floor, not a ceiling.
+              <strong>Underreporting is the biggest limitation.</strong> Most antisemitic incidents are
+              never reported to police or any organization, so what appears here is likely only a small
+              fraction of what actually occurs. Every number is a floor, not a ceiling.
             </li>
             <li>
               <strong>Sources count differently.</strong> The FBI, California DOJ, ADL, and Hillel
