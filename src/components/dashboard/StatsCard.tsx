@@ -8,7 +8,7 @@ interface StatsCardProps {
 export default function StatsCard({ label, value, change, positive }: StatsCardProps) {
   return (
     <div className="bg-white border border-cream-100 rounded-lg px-6 py-5 flex flex-col gap-1 shadow-sm">
-      <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-400">
+      <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500">
         {label}
       </p>
       <div className="flex items-end gap-2 mt-1">

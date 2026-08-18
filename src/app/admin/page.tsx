@@ -232,17 +232,17 @@ export default function AdminPage() {
 
         {/* Incident Reports */}
         <section className="mb-10">
-          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
+          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
             Incident Reports
           </h2>
 
           {loading ? (
             <div className="bg-white border border-cream-200 rounded-lg p-8 text-center">
-              <p className="font-sans text-sm text-gray-400">Loading…</p>
+              <p className="font-sans text-sm text-gray-500">Loading…</p>
             </div>
           ) : reports.length === 0 ? (
             <div className="bg-white border border-cream-200 rounded-lg p-8 text-center">
-              <p className="font-sans text-sm text-gray-400">No pending reports.</p>
+              <p className="font-sans text-sm text-gray-500">No pending reports.</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -260,7 +260,7 @@ export default function AdminPage() {
                         {report.status}
                       </span>
                     )}
-                    <span className="font-sans text-xs text-gray-400 ml-auto">
+                    <span className="font-sans text-xs text-gray-500 ml-auto">
                       Submitted {formatDate(report.created_at)}
                     </span>
                   </div>
@@ -309,13 +309,13 @@ export default function AdminPage() {
 
         {/* Campus Requests */}
         <section>
-          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
+          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
             Campus Requests
           </h2>
 
           {campusRequests.length === 0 ? (
             <div className="bg-white border border-cream-200 rounded-lg p-8 text-center">
-              <p className="font-sans text-sm text-gray-400">No pending campus requests.</p>
+              <p className="font-sans text-sm text-gray-500">No pending campus requests.</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -333,7 +333,7 @@ export default function AdminPage() {
                       </p>
                       <p className="font-sans text-xs text-gray-500">{req.city}, {req.state}</p>
                     </div>
-                    <span className="font-sans text-xs text-gray-400 flex-shrink-0">
+                    <span className="font-sans text-xs text-gray-500 flex-shrink-0">
                       {formatDate(req.created_at)}
                     </span>
                   </div>
@@ -344,7 +344,7 @@ export default function AdminPage() {
                     <p className="font-sans text-sm text-gray-600 mb-2">{req.notes}</p>
                   )}
                   {req.requester_email && (
-                    <p className="font-sans text-xs text-gray-400 mb-3">Contact: {req.requester_email}</p>
+                    <p className="font-sans text-xs text-gray-500 mb-3">Contact: {req.requester_email}</p>
                   )}
                   {req.status === 'pending' && (
                     <div className="flex gap-2">

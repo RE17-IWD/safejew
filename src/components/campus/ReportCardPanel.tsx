@@ -104,7 +104,7 @@ export default function ReportCardPanel() {
                   </li>
                 ))}
               </ul>
-              <p className="font-sans text-[11px] text-gray-400 mt-3">
+              <p className="font-sans text-[11px] text-gray-500 mt-3">
                 ADL-highlighted examples. The full A to F roster is on the ADL report card.
               </p>
             </>
@@ -117,7 +117,7 @@ export default function ReportCardPanel() {
         </div>
       </div>
 
-      <p className="font-sans text-[11px] text-gray-400 mt-4 text-center">
+      <p className="font-sans text-[11px] text-gray-500 mt-4 text-center">
         Source: ADL 2026 Campus Antisemitism Report Card.{' '}
         <a
           href="https://www.adl.org/campus-antisemitism-report-card"

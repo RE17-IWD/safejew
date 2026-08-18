@@ -180,7 +180,7 @@ function SectionHeading({ eyebrow, title, light = false }: { eyebrow: string; ti
 
 function DataNote({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={`font-sans text-xs mt-3 leading-relaxed ${light ? 'text-blue-200/40' : 'text-gray-400'}`}>
+    <p className={`font-sans text-xs mt-3 leading-relaxed ${light ? 'text-blue-200/40' : 'text-gray-500'}`}>
       {children}
     </p>
   );
@@ -263,7 +263,7 @@ export default function October7Page() {
           </div>
 
           {/* Timeline */}
-          <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">
+          <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">
             Timeline of Events
           </h3>
           <div className="relative">
@@ -518,7 +518,7 @@ export default function October7Page() {
               This is precisely why the campus layer of SafeJew exists. 850+ Hillel communities across
               the country need localized incident tracking, anonymous reporting tools, and administrator
               dashboards, not national aggregate statistics published months after the fact.{' '}
-              <Link href="/campus" className="text-gold-400 underline hover:text-gold-300">
+              <Link href="/campus" className="text-gold-400 underline hover:text-gold-500">
                 See the campus module →
               </Link>
             </p>
@@ -539,7 +539,7 @@ export default function October7Page() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div className="bg-white border border-cream-200 rounded-lg p-5">
-              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">
                 LA Anti-Jewish Hate Incidents
               </h3>
               <ResponsiveContainer width="100%" height={220}>
@@ -600,7 +600,7 @@ export default function October7Page() {
           </div>
 
           {/* LA incident cards */}
-          <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">
+          <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mb-5">
             Documented LA Incidents, 2023–2024
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -608,7 +608,7 @@ export default function October7Page() {
               <div key={location} className="bg-white border border-cream-200 rounded-lg px-5 py-5">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <p className="font-sans text-sm font-bold text-navy-700">{location}</p>
-                  <p className="font-sans text-xs text-gray-400 whitespace-nowrap flex-shrink-0">{date}</p>
+                  <p className="font-sans text-xs text-gray-500 whitespace-nowrap flex-shrink-0">{date}</p>
                 </div>
                 <p className="font-sans text-xs text-gray-600 leading-relaxed">{what}</p>
               </div>
@@ -651,7 +651,7 @@ export default function October7Page() {
                 </div>
               </div>
             </div>
-            <p className="font-sans text-xs text-gray-400 mt-3">
+            <p className="font-sans text-xs text-gray-500 mt-3">
               Source: FBI Hate Crime Statistics (2022). Jews are ~2% of the US population but account
               for approximately 57% of all religiously-motivated hate crime victims.
             </p>
@@ -729,7 +729,7 @@ export default function October7Page() {
       {/* ── 9. Sources / data integrity footer ── */}
       <section className="bg-cream-100 py-12 border-t border-cream-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">
+          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gray-500 mb-5">
             Sources & Data Integrity
           </p>
           <ul className="space-y-3 font-sans text-xs text-gray-500 leading-relaxed">

@@ -83,9 +83,9 @@ export default function DashboardPage() {
               <h2 className="font-serif text-lg font-semibold text-navy-800">
                 U.S. antisemitic incidents, by year
               </h2>
-              <span className="font-sans text-xs text-gray-400">ADL Audit of Antisemitic Incidents</span>
+              <span className="font-sans text-xs text-gray-500">ADL Audit of Antisemitic Incidents</span>
             </div>
-            <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+            <p className="font-sans text-xs text-gray-500 mt-1 mb-5">
               Reported antisemitic assault, harassment, and vandalism nationwide. After the
               post–Oct 7 peak of 9,354 in 2024, incidents fell to {nationalLatest.value.toLocaleString()} in
               {' '}{nationalLatest.year}, still the third-highest total on record, and physical
@@ -101,14 +101,14 @@ export default function DashboardPage() {
                 <h2 className="font-serif text-lg font-semibold text-navy-800">
                   Anti-Jewish hate crimes · LA County
                 </h2>
-                <span className="font-sans text-xs text-gray-400">LA County Commission on Human Relations</span>
+                <span className="font-sans text-xs text-gray-500">LA County Commission on Human Relations</span>
               </div>
-              <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+              <p className="font-sans text-xs text-gray-500 mt-1 mb-5">
                 Anti-Jewish hate crimes reported across Los Angeles County. 2023 was the highest
                 ever recorded; 2024 the second-highest in 44 years.
               </p>
               <AnnualBarChart data={LA_COUNTY_ANTI_JEWISH} unitLabel="hate crimes" />
-              <p className="font-sans text-[11px] text-gray-400 mt-3 italic">{LA_COUNTY_NOTE}</p>
+              <p className="font-sans text-[11px] text-gray-500 mt-3 italic">{LA_COUNTY_NOTE}</p>
             </div>
 
             <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
@@ -116,9 +116,9 @@ export default function DashboardPage() {
                 <h2 className="font-serif text-lg font-semibold text-navy-800">
                   Anti-Jewish hate crimes · California
                 </h2>
-                <span className="font-sans text-xs text-gray-400">California DOJ</span>
+                <span className="font-sans text-xs text-gray-500">California DOJ</span>
               </div>
-              <p className="font-sans text-xs text-gray-400 mt-1 mb-5">
+              <p className="font-sans text-xs text-gray-500 mt-1 mb-5">
                 Statewide anti-Jewish bias hate-crime events reported to the California Department
                 of Justice. In {caLatest.year}, Jews were targeted in {CALIFORNIA_RELIGIOUS_JEWISH_SHARE_2025}%
                 {' '}of the state&apos;s religion-based hate crimes.
@@ -132,7 +132,7 @@ export default function DashboardPage() {
             <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
               Los Angeles County: 2024 in context
             </h2>
-            <p className="font-sans text-xs text-gray-400 mb-6">
+            <p className="font-sans text-xs text-gray-500 mb-6">
               From the LA County Commission on Human Relations 2024 Hate Crime Report
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -198,7 +198,7 @@ export default function DashboardPage() {
               geographic clusters, enabling community organizations and campus security teams to
               allocate resources proactively.
             </p>
-            <p className="font-sans text-xs text-gray-400 mt-3 font-medium uppercase tracking-wide">
+            <p className="font-sans text-xs text-gray-500 mt-3 font-medium uppercase tracking-wide">
               Roadmap: not yet available
             </p>
           </div>
@@ -221,7 +221,7 @@ export default function DashboardPage() {
                 </li>
               ))}
             </ul>
-            <p className="font-sans text-xs text-gray-400 mt-4">
+            <p className="font-sans text-xs text-gray-500 mt-4">
               Figures compiled {DATA_COMPILED} from the most recent published reports. References
               to these organizations do not imply partnership or endorsement.
             </p>

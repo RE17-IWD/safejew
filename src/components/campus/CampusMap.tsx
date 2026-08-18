@@ -106,7 +106,7 @@ export default function CampusMap({
                     {formatCategory(category)}
                   </p>
                   <p className="text-gray-500 mb-1">{inc.neighborhood ?? ''}</p>
-                  <p className="text-gray-400">{inc.occurred_at ? formatDate(inc.occurred_at) : ''}</p>
+                  <p className="text-gray-500">{inc.occurred_at ? formatDate(inc.occurred_at) : ''}</p>
                 </div>
               </Popup>
             </CircleMarker>

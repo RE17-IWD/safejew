@@ -158,7 +158,7 @@ function LayerControls({
 }: LayerControlsProps) {
   return (
     <div className="absolute top-4 right-4 z-[400] bg-white border border-gray-200 rounded shadow-md px-3 py-2 min-w-[140px]">
-      <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-2">Layers</p>
+      <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-2">Layers</p>
       {/* Incidents toggle */}
       <label className="flex items-center gap-2 cursor-pointer mb-1.5">
         <input
@@ -293,7 +293,7 @@ function IncidentDetailPanel({ incident, onClose }: { incident: Incident; onClos
             {incident.severity.charAt(0).toUpperCase() + incident.severity.slice(1)}
           </span>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors ml-2 flex-none" aria-label="Close">
+        <button onClick={onClose} className="text-gray-500 hover:text-gray-600 transition-colors ml-2 flex-none" aria-label="Close">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -301,19 +301,19 @@ function IncidentDetailPanel({ incident, onClose }: { incident: Incident; onClos
       </div>
       <div className="px-4 py-4 flex-1 space-y-4">
         <div>
-          <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Date</p>
+          <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Date</p>
           <p className="text-sm font-sans text-gray-800">{formatDate(incident.occurred_at)}</p>
         </div>
         <div>
-          <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Neighborhood</p>
+          <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Neighborhood</p>
           <p className="text-sm font-sans text-gray-800">{incident.neighborhood}</p>
         </div>
         <div>
-          <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Description</p>
+          <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Description</p>
           <p className="text-sm font-sans text-gray-700 leading-relaxed">{incident.description}</p>
         </div>
         <div>
-          <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Source</p>
+          <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Source</p>
           <p className="text-sm font-sans text-gray-800">{SOURCE_LABELS[incident.source] ?? incident.source}</p>
         </div>
         <div className="bg-gray-50 border border-gray-200 rounded px-3 py-2">
@@ -346,7 +346,7 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
             {SPACE_TYPE_LABELS[space.type]}
           </span>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors ml-2 flex-none" aria-label="Close">
+        <button onClick={onClose} className="text-gray-500 hover:text-gray-600 transition-colors ml-2 flex-none" aria-label="Close">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -354,18 +354,18 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
       </div>
       <div className="px-4 py-4 flex-1 space-y-4">
         <div>
-          <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Institution</p>
+          <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Institution</p>
           <p className="text-sm font-sans font-semibold text-gray-900">{space.name}</p>
         </div>
         {space.address && (
           <div>
-            <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Address</p>
+            <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Address</p>
             <p className="text-sm font-sans text-gray-800">{space.address}</p>
           </div>
         )}
         {space.website && (
           <div>
-            <p className="text-[10px] font-sans font-bold text-gray-400 uppercase tracking-wide mb-0.5">Website</p>
+            <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Website</p>
             <a
               href={space.website}
               target="_blank"

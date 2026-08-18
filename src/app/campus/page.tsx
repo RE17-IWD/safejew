@@ -123,7 +123,7 @@ function CampusSearch({
         <>
           <div className="relative">
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
               viewBox="0 0 20 20"
               fill="none"
               stroke="currentColor"
@@ -153,7 +153,7 @@ function CampusSearch({
               role="listbox"
             >
               {filtered.length === 0 ? (
-                <li className="px-4 py-3 font-sans text-sm text-gray-400">No campuses found</li>
+                <li className="px-4 py-3 font-sans text-sm text-gray-500">No campuses found</li>
               ) : (
                 filtered.map((c) => (
                   <li key={c.id} role="option" aria-selected={false}>
@@ -164,7 +164,7 @@ function CampusSearch({
                       <span className="font-sans text-sm font-semibold text-navy-800 group-hover:text-navy-900">
                         {c.name}
                       </span>
-                      <span className="ml-2 font-sans text-xs text-gray-400">
+                      <span className="ml-2 font-sans text-xs text-gray-500">
                         {c.city}, {c.state}
                       </span>
                     </button>
@@ -243,7 +243,7 @@ function CampusSuggestForm() {
     <div className="mt-10 max-w-md mx-auto bg-white border border-cream-200 rounded-lg p-6 text-left">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-sans text-sm font-semibold text-navy-800">Suggest a Campus</h3>
-        <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-gray-600 text-lg leading-none">&times;</button>
+        <button onClick={() => setOpen(false)} className="text-gray-500 hover:text-gray-600 text-lg leading-none">&times;</button>
       </div>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
@@ -429,7 +429,7 @@ export default function CampusPage() {
                   {campus.city}, {campus.state}
                 </p>
                 {campus.jewishStudentEstimate !== null && (
-                  <p className="font-sans text-xs text-gray-400 mt-1">
+                  <p className="font-sans text-xs text-gray-500 mt-1">
                     ~{campus.jewishStudentEstimate.toLocaleString()} estimated Jewish students
                   </p>
                 )}
@@ -464,7 +464,7 @@ export default function CampusPage() {
                     incidents={incidents}
                   />
                 </div>
-                <p className="font-sans text-xs text-gray-400 mb-10">
+                <p className="font-sans text-xs text-gray-500 mb-10">
                   Incident locations are neighborhood-level only. Exact addresses are never stored.
                   Points shown are illustrative sample data, not verified events. See the{' '}
                   <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
@@ -636,7 +636,7 @@ export default function CampusPage() {
               Search any of {CAMPUSES.length} campuses for Hillel, Chabad, Jewish community
               resources, and your Title VI civil-rights options.
             </p>
-            <p className="font-sans text-xs text-gray-400">
+            <p className="font-sans text-xs text-gray-500">
               Los Angeles campuses (UCLA, USC) have the deepest local data. Incident tracking is
               being expanded campus by campus as verified data and community reports grow.
             </p>
@@ -755,7 +755,7 @@ export default function CampusPage() {
             Hillel, campus security, or student org?{' '}
             <a
               href="mailto:contact.safejew@gmail.com"
-              className="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors"
+              className="text-gold-400 hover:text-gold-500 underline underline-offset-2 transition-colors"
             >
               contact.safejew@gmail.com
             </a>

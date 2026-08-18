@@ -60,7 +60,10 @@ export default function Nav() {
           </div>
 
           <Link href="/report" className="sj-nav-report">
-            Report
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 3.5h.01M10.3 4.3 2.2 18a2 2 0 0 0 1.7 3h16.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z" />
+            </svg>
+            Report an incident
           </Link>
         </nav>
 

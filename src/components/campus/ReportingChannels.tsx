@@ -66,7 +66,7 @@ export default function ReportingChannels({ campusId, campusName }: ReportingCha
           </div>
         </li>
       </ol>
-      <p className="font-sans text-xs text-gray-400 mt-4 leading-relaxed">
+      <p className="font-sans text-xs text-gray-500 mt-4 leading-relaxed">
         In an emergency or if you are in danger, call 911 first. SafeJew is not law enforcement.
       </p>
     </div>

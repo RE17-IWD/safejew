@@ -153,7 +153,7 @@ function ProgressIndicator({ currentStep }: { currentStep: number }) {
               <span
                 className={[
                   'mt-1 text-xs font-sans hidden sm:block',
-                  isCurrent ? 'text-navy-800 font-semibold' : 'text-gray-400',
+                  isCurrent ? 'text-navy-800 font-semibold' : 'text-gray-500',
                 ].join(' ')}
               >
                 {label}
@@ -459,7 +459,7 @@ export default function ReportForm() {
               placeholder="Describe what happened in as much detail as you can. Do not include names of victims."
               className={inputClass}
             />
-            <p className="font-sans text-xs text-gray-400 mt-1">
+            <p className="font-sans text-xs text-gray-500 mt-1">
               Minimum 20 characters. {form.description.length} entered.
             </p>
           </div>
@@ -490,7 +490,7 @@ export default function ReportForm() {
             <div>
               <label htmlFor="time" className={labelClass}>
                 Approximate Time{' '}
-                <span className="font-sans text-xs text-gray-400 font-normal">(optional)</span>
+                <span className="font-sans text-xs text-gray-500 font-normal">(optional)</span>
               </label>
               <input
                 type="time"
@@ -505,7 +505,7 @@ export default function ReportForm() {
           <div className="mb-4">
             <label htmlFor="campus" className={labelClass}>
               Did this happen on or near a campus?{' '}
-              <span className="font-sans text-xs text-gray-400 font-normal">(optional)</span>
+              <span className="font-sans text-xs text-gray-500 font-normal">(optional)</span>
             </label>
             <select
               id="campus"
@@ -520,7 +520,7 @@ export default function ReportForm() {
                 </option>
               ))}
             </select>
-            <p className="font-sans text-xs text-gray-400 mt-1">
+            <p className="font-sans text-xs text-gray-500 mt-1">
               Campus reports appear in that campus&apos;s incident tracker after review.
             </p>
           </div>
@@ -529,7 +529,7 @@ export default function ReportForm() {
             <label htmlFor="neighborhood" className={labelClass}>
               LA Neighborhood{' '}
               {form.campus ? (
-                <span className="font-sans text-xs text-gray-400 font-normal">(optional for campus reports)</span>
+                <span className="font-sans text-xs text-gray-500 font-normal">(optional for campus reports)</span>
               ) : (
                 <span className="text-red-500">*</span>
               )}
@@ -604,7 +604,7 @@ export default function ReportForm() {
               <div>
                 <label htmlFor="contactName" className={labelClass}>
                   Name{' '}
-                  <span className="font-sans text-xs text-gray-400 font-normal">(optional)</span>
+                  <span className="font-sans text-xs text-gray-500 font-normal">(optional)</span>
                 </label>
                 <input
                   type="text"
@@ -619,7 +619,7 @@ export default function ReportForm() {
               <div>
                 <label htmlFor="contactEmail" className={labelClass}>
                   Email{' '}
-                  <span className="font-sans text-xs text-gray-400 font-normal">(optional)</span>
+                  <span className="font-sans text-xs text-gray-500 font-normal">(optional)</span>
                 </label>
                 <input
                   type="email"
@@ -743,7 +743,7 @@ export default function ReportForm() {
           className={[
             'font-sans text-sm font-medium px-5 py-2.5 rounded border transition-colors',
             step === 1
-              ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+              ? 'border-gray-200 text-gray-500 cursor-not-allowed'
               : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:text-gray-900',
           ].join(' ')}
         >
@@ -761,7 +761,7 @@ export default function ReportForm() {
             className={[
               'font-sans text-sm font-semibold px-6 py-2.5 rounded transition-colors',
               (step === 1 && !isStep1Valid()) || (step === 2 && !isStep2Valid())
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
                 : 'bg-navy-800 text-white hover:bg-navy-700',
             ].join(' ')}
           >
@@ -775,7 +775,7 @@ export default function ReportForm() {
             className={[
               'font-sans text-sm font-semibold px-6 py-2.5 rounded transition-colors',
               !isStep4Valid() || isSubmitting
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
                 : 'bg-navy-800 text-white hover:bg-navy-700',
             ].join(' ')}
           >

@@ -38,7 +38,7 @@ export default function CampusContextPanel() {
           </div>
         ))}
       </div>
-      <p className="font-sans text-[11px] text-gray-400 mt-4 text-center">
+      <p className="font-sans text-[11px] text-gray-500 mt-4 text-center">
         Source: ADL Audit of Antisemitic Incidents (2024 &amp; 2025), ADL campus climate survey, and
         the 2026 ADL Campus Antisemitism Report Card. References to ADL do not imply partnership or
         endorsement.

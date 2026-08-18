@@ -57,7 +57,7 @@ export default function TitleVIPanel({ campusName }: TitleVIPanelProps) {
         </a>
       </div>
 
-      <p className="font-sans text-xs text-gray-400 mt-3">
+      <p className="font-sans text-xs text-gray-500 mt-3">
         General information, not legal advice.
       </p>
     </div>
