@@ -11,8 +11,7 @@ import type {
   CommunitySpace,
   CommunitySpaceType,
 } from '@/types';
-import { DEMO_INCIDENTS, isDemoMode } from '@/lib/demo-data';
-import { STATIC_INCIDENTS_2026 } from '@/data/static-incidents-2026';
+import { SOURCED_INCIDENTS } from '@/data/sourced-incidents';
 import FilterPanel from './FilterPanel';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -73,7 +72,7 @@ function formatDate(iso: string): string {
 }
 
 const SOURCE_LABELS: Record<string, string> = {
-  community: 'Community Report', ADL: 'ADL', FBI: 'FBI', LAPD: 'LAPD',
+  community: 'Community Report', ADL: 'ADL', FBI: 'FBI', LAPD: 'Police / official',
 };
 
 // ─── MapController (inside MapContainer) ─────────────────────────────────────
@@ -314,7 +313,18 @@ function IncidentDetailPanel({ incident, onClose }: { incident: Incident; onClos
         </div>
         <div>
           <p className="text-[10px] font-sans font-bold text-gray-500 uppercase tracking-wide mb-0.5">Source</p>
-          <p className="text-sm font-sans text-gray-800">{SOURCE_LABELS[incident.source] ?? incident.source}</p>
+          {incident.source_url ? (
+            <a
+              href={incident.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-sans font-medium text-navy-700 hover:text-navy-900 underline break-words"
+            >
+              {incident.source_name ?? SOURCE_LABELS[incident.source] ?? incident.source} ↗
+            </a>
+          ) : (
+            <p className="text-sm font-sans text-gray-800">{SOURCE_LABELS[incident.source] ?? incident.source}</p>
+          )}
         </div>
         <div className="bg-gray-50 border border-gray-200 rounded px-3 py-2">
           <p className="text-[11px] font-sans text-gray-500 leading-snug">
@@ -410,14 +420,12 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
 
 export default function IncidentMap() {
   // Incident state — start empty in live mode so demo pins never flash before real data
-  const [incidents, setIncidents] = useState<Incident[]>(() =>
-    isDemoMode() ? [...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026] : [...STATIC_INCIDENTS_2026]
-  );
+  const [incidents] = useState<Incident[]>(SOURCED_INCIDENTS);
   const [filters, setFilters] = useState<IncidentFilters>(DEFAULT_FILTERS);
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
   const [showHeatmap, setShowHeatmap] = useState(false);
   const [showIncidents, setShowIncidents] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   // Community spaces state
   const [communitySpaces, setCommunitySpaces] = useState<CommunitySpace[]>([]);
@@ -425,20 +433,6 @@ export default function IncidentMap() {
   const [spacesLoading, setSpacesLoading] = useState(false);
   const [selectedSpace, setSelectedSpace] = useState<CommunitySpace | null>(null);
   const [mapTarget, setMapTarget] = useState<[number, number] | null>(null);
-
-  // Fetch incidents
-  useEffect(() => {
-    if (isDemoMode()) { setIncidents([...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026]); return; }
-    setIsLoading(true);
-    fetch('/api/incidents?status=verified')
-      .then((r) => r.json())
-      .then(({ incidents: data }) => {
-        // Merge the live database (through 2025) with the curated 2026 overlay.
-        if (Array.isArray(data)) setIncidents([...data, ...STATIC_INCIDENTS_2026]);
-      })
-      .catch(() => setIncidents([...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026]))
-      .finally(() => setIsLoading(false));
-  }, []);
 
   // Fetch community spaces when layer is first toggled on
   useEffect(() => {
@@ -565,6 +559,16 @@ export default function IncidentMap() {
                   <div className="font-sans text-xs">
                     <p className="font-semibold text-gray-900 mb-0.5">{incident.neighborhood}</p>
                     <p className="text-gray-600">{CATEGORY_LABELS[incident.category]}</p>
+                    {incident.source_url && (
+                      <a
+                        href={incident.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-navy-700 underline mt-1 inline-block"
+                      >
+                        {incident.source_name ?? 'Source'} ↗
+                      </a>
+                    )}
                   </div>
                 </Popup>
               </CircleMarker>

@@ -22,14 +22,13 @@ const IncidentMap = dynamic(() => import('@/components/map/IncidentMap'), {
 export default function MapPage() {
   return (
     <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)' }}>
-      {/* Map points are illustrative sample incidents, not verified events. Verified,
-          bias-specific antisemitism data (ADL / LA County / CA DOJ / FBI) lives on the
-          Dashboard; keep this label honest until incident-level verified points go live. */}
-      <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center flex-none">
-        <span className="text-xs font-sans font-medium text-amber-800">
-          Map points are illustrative sample incidents, not verified events. For verified
-          antisemitism data, see the{' '}
-          <Link href="/dashboard" className="underline font-semibold hover:text-amber-900">
+      {/* Each point is a real, documented incident with a named news/official source
+          (click a pin to open it). Aggregate, bias-specific statistics live on the Dashboard. */}
+      <div className="bg-navy-50 border-b border-navy-100 px-4 py-2 text-center flex-none">
+        <span className="text-xs font-sans font-medium text-navy-700">
+          Each point is a documented incident with a cited source — click a pin to read it. Shown at
+          neighborhood level for privacy. For aggregate statistics, see the{' '}
+          <Link href="/dashboard" className="underline font-semibold hover:text-navy-900">
             Dashboard
           </Link>
           .

@@ -26,7 +26,7 @@ const ALL_SEVERITIES: { value: IncidentSeverity; label: string }[] = [
 const ALL_SOURCES: { value: IncidentSource; label: string }[] = [
   { value: 'community', label: 'Community Reports' },
   { value: 'ADL', label: 'ADL' },
-  { value: 'LAPD', label: 'LAPD' },
+  { value: 'LAPD', label: 'Police / official' },
   { value: 'FBI', label: 'FBI' },
 ];
 

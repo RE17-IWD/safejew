@@ -16,6 +16,9 @@ export interface Incident {
   status: IncidentStatus;
   campus_id: string | null;
   created_at: string;
+  /** Optional citation for documented incidents shown on the map. */
+  source_url?: string;
+  source_name?: string;
 }
 
 export interface Campus {

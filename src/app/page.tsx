@@ -130,7 +130,7 @@ export default function HomePage() {
 
           <div className="sj-mapcard sj-hero-mapcard">
             <div className="sj-mapbar">
-              <span className="title">Greater Los Angeles <span style={{ color: 'var(--faint)', fontWeight: 500 }}>· 2025–2026</span></span>
+              <span className="title">Greater Los Angeles <span style={{ color: 'var(--faint)', fontWeight: 500 }}>· documented incidents</span></span>
               <Link className="sj-btn sj-btn-line" href="/map" style={{ padding: '8px 14px', fontSize: 13 }}>
                 Full map <span className="sj-arrow">→</span>
               </Link>
@@ -139,7 +139,7 @@ export default function HomePage() {
               <IncidentMap />
             </div>
             <div className="sj-mapnote">
-              <b>Verified incidents</b> shown at neighborhood level for privacy · community reports reviewed before display.
+              <b>Documented incidents</b> compiled from news reports and official sources, shown at neighborhood level. Click any pin for its source.
             </div>
           </div>
         </div>
