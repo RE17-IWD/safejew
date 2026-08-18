@@ -101,18 +101,24 @@ export default function HomePage() {
       {/* HERO */}
       <section className="sj-hero">
         <div className="sj-wrap sj-hero-in">
-          <div className="sj-hero-copy">
-            <span className="sj-eyebrow" style={{ marginBottom: 18 }}>Greater Los Angeles</span>
-            <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
-            <p className="sub">
-              SafeJew maps antisemitic incidents across Greater LA. It brings community reports together
-              with verified LAPD, ADL, FBI, and California DOJ data, in one live picture.
-            </p>
-            <div className="cta">
-              <Link className="sj-btn sj-btn-blue" href="/map">Open the map <span className="sj-arrow">→</span></Link>
-              <Link className="sj-btn sj-btn-line" href="/october-7">October 7 report <span className="sj-arrow">→</span></Link>
+          <div className="sj-hero-grid">
+            <div className="sj-hero-copy">
+              <span className="sj-eyebrow" style={{ marginBottom: 18 }}>Greater Los Angeles</span>
+              <h1>Know where antisemitism is <span className="hl">happening.</span></h1>
+              <p className="sub">
+                SafeJew maps antisemitic incidents across Greater LA. It brings community reports together
+                with verified LAPD, ADL, FBI, and California DOJ data, in one live picture.
+              </p>
+              <div className="cta">
+                <Link className="sj-btn sj-btn-blue" href="/map">Open the map <span className="sj-arrow">→</span></Link>
+                <Link className="sj-btn sj-btn-line" href="/october-7">October 7 report <span className="sj-arrow">→</span></Link>
+              </div>
             </div>
-            <div className="stats">
+            <div className="sj-hero-media" aria-hidden="true">
+              <video src="/hero.mp4" autoPlay muted loop playsInline tabIndex={-1} />
+            </div>
+          </div>
+          <div className="stats">
               <div className="stat">
                 <div className="n"><CountUp value={LAPD_CITY_2026_YTD.incidents} /></div>
                 <div className="l">LA incidents · 2026 YTD <span className="u">pace {LAPD_CITY_2026_YTD.projectedFullYear}+</span></div>
@@ -127,7 +133,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* LIVE MAP */}
