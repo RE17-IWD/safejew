@@ -14,7 +14,7 @@ import {
 const IncidentMap = dynamic(() => import('@/components/map/IncidentMap'), {
   ssr: false,
   loading: () => (
-    <div style={{ height: '100%', display: 'grid', placeItems: 'center', color: 'var(--muted)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+    <div style={{ height: '100%', display: 'grid', placeItems: 'center', color: 'var(--muted)', fontFamily: 'var(--font-sj)', fontSize: 14, letterSpacing: '.02em' }}>
       Loading map…
     </div>
   ),

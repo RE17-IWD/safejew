@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 export default function Intro() {
   const [show, setShow] = useState(false);
   const [done, setDone] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const finished = useRef(false);
 
   useEffect(() => {
@@ -56,28 +55,17 @@ export default function Intro() {
   if (!show) return null;
 
   return (
-    <div id="sj-intro" className={`sj-intro-video${done ? ' done' : ''}`}>
-      <video
-        ref={videoRef}
-        className="sj-intro-vid"
-        src="/hero.mp4"
-        autoPlay
-        muted
-        playsInline
-        onEnded={finish}
-      />
-      <div className="sj-intro-scrim" aria-hidden="true" />
-      <div className="sj-intro-brand">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-lockup.png" alt="SafeJew" />
-        <div className="sj-intro-tag">Jewish community safety · Greater Los Angeles</div>
-        <button type="button" className="sj-intro-enter" onClick={finish}>
-          Enter <span aria-hidden="true">→</span>
-        </button>
-      </div>
-      <button type="button" className="sj-intro-skip" onClick={finish}>
-        Skip ⏎
-      </button>
+    <div
+      id="sj-intro"
+      className={`sj-intro-video${done ? ' done' : ''}`}
+      onClick={finish}
+      role="button"
+      tabIndex={0}
+      aria-label="Enter SafeJew"
+    >
+      <video className="sj-intro-vid" src="/hero.mp4" autoPlay muted playsInline onEnded={finish} />
+      <div className="sj-intro-hint" aria-hidden="true">Click anywhere to enter</div>
+      <div className="sj-intro-skip" aria-hidden="true">Skip ⏎</div>
     </div>
   );
 }
