@@ -144,9 +144,9 @@ export default function SafetyPage() {
                     {c.number}
                   </a>
                 ) : (
-                  <p className="font-sans font-bold text-white text-sm leading-tight">{c.note}</p>
+                  <p className="font-sans font-bold text-white text-sm leading-tight break-words">{c.note}</p>
                 )}
-                {c.number && <p className="font-sans text-xs text-red-200/90 mt-0.5">{c.note}</p>}
+                {c.number && <p className="font-sans text-xs text-red-200/90 mt-0.5 break-words">{c.note}</p>}
               </div>
             ))}
           </div>
