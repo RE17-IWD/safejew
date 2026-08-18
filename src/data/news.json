@@ -1,54 +1,74 @@
 {
-  "generatedAt": "2026-08-11T21:42:55.262Z",
+  "generatedAt": "2026-08-18T06:03:48.849Z",
   "query": "antisemitism \"Los Angeles\" when:45d",
+  "queries": [
+    "antisemitism \"Los Angeles\" when:45d",
+    "antisemitic incident Los Angeles when:45d",
+    "antisemitism California hate crime when:45d",
+    "swastika OR synagogue vandalism Los Angeles when:60d",
+    "antisemitism UCLA OR USC OR \"Cal State\" when:60d",
+    "Jewish community Los Angeles threat OR harassment when:45d"
+  ],
   "items": [
     {
-      "title": "Mural at site of Jewish temple that burned in Eaton fire vandalized with swastikas, antisemitic graffiti",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOclcxUnlTRmZ5RmxmM2tTZm5GUUZsR1BSelJON0p1Nmo0NFZFR2dZVWVnWGMtcE1pZnRleUNzN0t2UXZJb0VHUVFZNFgzc2ZGN1h6WmROWkVkTTExa1pDY3hUemFvZXJmb2lnQlptMlNCTkZPR2tpYUc1YjVEdHRNbll5QTdKVU1FRk16em96MTJFb01mOXRTT3dVVzV0c1lZRWhzUGtEa2NUV0xOS2NhU0tBZ09sY00?oc=5",
+      "title": "Judge dismisses suit over alleged Harvard antisemitism. What it could mean for UC cases",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMk41NUVWdkRuT1M1QndRM2F2LWxpUk9KcEZsOG0tSkFib2tJb3Q5YlZWdjVnRXJSc0tDVW8xUU1NUlByVU5OQW9YR3FMYTJ4ekx6N043VGI4ZmlDVV9vVktsZE9BMmhGUThTRkpXX1RabEVQNWZiTkdrU1U0azlPaWFrdUZCc1psSjZ3UU1iRm5pcXp2Rk15S01UcU5INTVzaXdYS0RoWWVHUVRnM3ZtVWd5VXpzemM?oc=5",
       "source": "Los Angeles Times",
-      "date": "2026-07-26T07:00:00.000Z"
+      "date": "2026-08-13T19:34:37.000Z"
     },
     {
-      "title": "Antisemitic markings found at Altadena synagogue",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxON1pWeWItN3FUWGZiekNvMVozSlY0Y2RTUVR1ZFpta1lWek01SmZnS1ZTMWhxM1ZxT24yQjBnVU9saG1sUmdpS0pWcS1FMFZYQnRWYjBJanZjeFI2aUptZUx6cGFqcTVIdjRKVlA5YlcyVjVBVVpFUlltOU9CV0JwUTlqU0VtOWNzN2VPQW9NWVFiSExmWXd2THF1STZSMGl3WHFj0gGrAUFVX3lxTFBBd2k1Z0hOLVdVTGVjNmEtaVNQVmJkUkdCWjh4MzFoZkljOHFyRW1tdF96bHVpU0ZuelcyU2VLaDlJUUdFMDRwYmp5VTBVX3NQc09mb0JQaDVMb3lqcEM5eVMxa3BfMF92OGtvTEgzQjVqQ1MzSVQyTlNsaEpQRkIwc1Fwd20wdnpieloxblhOcm44eWQtWGhjWDlMWEZ5QVRmNlNwZ08tUUhPYw?oc=5",
-      "source": "NBC Los Angeles",
-      "date": "2026-07-24T07:00:00.000Z"
+      "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
+      "source": "Combat Antisemitism Movement",
+      "date": "2026-08-12T19:36:39.000Z"
     },
     {
-      "title": "Synagogues build a new security playbook as antisemitic attacks intensify",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1wNG5MdTg1Tl9oVm13QjRJQ0VBS1MxYTNNNDYyYjZkcmVwUjJsRFpQSzNod3g4cENQTUFZRHAzOExqREdWd1JXSURwOU1OV2c0LUFBQkM3ZUxSV1Ewa3hSS09QS1BCREo0eFhYbWY1V04?oc=5",
-      "source": "axios.com",
-      "date": "2026-08-08T09:41:27.000Z"
-    },
-    {
-      "title": "Mural at Pasadena synagogue vandalized with antisemitic graffiti",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOeGhQb3l2UmVCeEM3ZHMwVVlxa2RZLXJ5UTdyWm15WjhYNUROR002aVcyLUJQLXJvd3cxWGFqMFBWWjlxRTdZM0ZhXzNNMHRMQXNXajcteU5LMlN2cW5OeWRHOVpEam1aUEJNVGpmMzdpN1lLUmJ1NmV2TUFBUmx0LTA1SjR5bk1KampiRHVlVHVJMmZpVjBBZ2g5YnlHUGtSb1A1eA?oc=5",
+      "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeDlkLVdtX00yaXBobGlmSlYybXY0SFlXQlhvTk90Z01Ib3JTN21jcjVUSXRuYnRsVXVDaVZWczhNcEVaenpxSElJX0ttVFg3OTM0UlJZQTBJUkl6NFJGTmxub1VVYXB2STJIZXl2V1paOFNrZGlsNmVkUU5nWHVjelI1cjFsN3pkeTByeExGUFE3ZV9EVnJIelF5M1dmTlNMb1g0anUxRXNLanp4ejhlMW41RXlGRWUyQnc?oc=5",
       "source": "CBS News",
-      "date": "2026-07-24T07:00:00.000Z"
+      "date": "2026-08-09T07:00:00.000Z"
     },
     {
-      "title": "Letter from Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNc3hVbXktbDBNYURpWVJ0aXpfNHB6YmNITmlINHJLTzZobUYtVzhsTXFjaHR4UmtYWlRSM3lZQnFOOThkdncyX01jM1NidlNpQ3BISS05UmRCY0Z6NlFsV1RUaGlLeUMyNjl2U1RpRjNvRksySEc2bENYTGhJWXJhYkhn?oc=5",
-      "source": "Jewish Journal",
-      "date": "2026-07-16T05:18:28.000Z"
+      "title": "Community, Leaders Rally After Antisemitic Vandalism at Site of Pasadena Jewish Temple",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNU01JdWhmS0V4ZFIzZGNobmg5OFFPb3ZodXRUTEZ2WnN4cHl2eVJEVGo3RnNlS0k0LTYwT2ItUWV4d2R2c0ZGR2ROT21tSTVHMll6dnlHTWhyMTR0eU1XdG5zRmhIMHpEbzEyaXYzR0Qxd1ZiMzV0ZFdHTTQ0SWhWMDF4TlduSHVfdU52TmRVZ0lGMGswRFpTbGpVOGhPY19pMllnSjZRQ2Vxek9IOURwZVRSVzFKNkgyaVppcQ?oc=5",
+      "source": "ColoradoBoulevard.net",
+      "date": "2026-07-31T07:00:00.000Z"
     },
     {
-      "title": "CAIR-LA Condemns Antisemitic Neo-Nazi Vandalism Targeting Mural at Pasadena Jewish Temple",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaVJiS19YZmRGQTUtSm1CZHluUV92MjhwbTBYcmItSTRIcjYzVXRqdXRveDBxSEdtOUxyZU1QSTRKdWFqdWZtS3I3QzZQck9kYlRBd1ZfdHFBckpCU3VUQ0ppTWQ2WDdtS2EzdWtmLWJwU3ZoSUw3Y2UwaW1uY3otVzFEblBfbWRGMjFvbmVMbVNMV1lxSHNvYVFpVFBzcWN6ZGpIYTh2MHljY1hVOVc0VDBRZ1RZdFRhR2R2eXZCdVVObmx1?oc=5",
-      "source": "CAIR",
-      "date": "2026-07-27T17:52:34.000Z"
+      "title": "‘To cover hate with more love’: Burned Pasadena temple's mural restored after more antisemitic vandalism",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNcmxqWFBWeFVId1RvTWtNNFV1ME02WmVBS0J5eDlKeTdvd3VlR3ExVDBfdmh6dlI4UTVYX3d4Rm1lREEtc1pVWHF1Y0tJWFVqVE9zOVpoU3pNbXZIenF4RzMxOGhaU2ZESlhycWVlRmxZd1NXVjRVSFlzcFktMlJrYzZMVnpaMlF4VERtWGhQeDBrYUJLazJzS1prSTNGbXQzRm41eEJyc2J3VUVSS0lFLUs4amZuUFdsUVFaWHFYblBZSnc?oc=5",
+      "source": "Los Angeles Times",
+      "date": "2026-07-31T07:00:00.000Z"
     },
     {
-      "title": "Hate crime probe underway after antisemitic markings found at Altadena synagogue",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPdE9YbGx2QWNRbzUxQ0pLWnZNeTY4eWpxc2JlT0JVNnl4MXhmeTZCbjd2aHZfN0ZSSk1neXpmODYySjlYMi1WQTRJeWZHR2phZWRlRmxBeDVKaW42N2E1dnhSVUNjajBuQldmUDV2THo3eWczbF9Vd0dCY1dRMEEzV0w4QVU2TFpJQUY5X0JtWnRwMm9yVGFMQWdJZUJVNFdUb1NYdHptM2Z2QzZEMFd5bF83M3JuVWplSFR0SNIBxAFBVV95cUxOU3MyQ2l5RmxIVDA3ZGx3b01ROGR3UHRfdG9jYzRQZTF0eXB1LWVmdG5zbmVfcUVpc29YM3ZFQzc0Rk9SdW9wRFNfNkJDTWN2OXZTakRvLTVueW82aTBPSDRqUy1zOFY1SnBKdzFybmNqWmFoU25qZ1lDb3h6bEdDQlhGbGVCZnVlMnBBZE9WYUowaFVnTlRlaHNQUkF3c2Z2TjRVRE9WMmtqdHg0c2x5amdFNEVxRUl0OGFsZnkzMzFjMGxs?oc=5",
-      "source": "NBC Los Angeles",
-      "date": "2026-07-24T07:00:00.000Z"
+      "title": "An Altadena synagogue’s mural was a symbol of community resilience after the LA fires. Antisemitic graffiti only proved the point.",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRTVPbmdpWjRXUUV3bFNXODU0M2JlSWMzeVRNT08yR0JwaFFuSjVSSHBFS3BXRTlwVXdFQVRydVU5RGNJOURNakRIUFkzZENJcHo5OWl1WXdTNGtMZTIzdGZBV2RRS09xZkZDWUx0ck5CdDVfd2dVVk5WdXVyOVM5cVJLOWJIVl9L?oc=5",
+      "source": "The Forward",
+      "date": "2026-07-31T07:00:00.000Z"
     },
     {
-      "title": "Mural vandalized with swastikas, antisemitic writing at site of Jewish temple that burned in Eaton Fire",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQeVNzTzg3YUxRaDh4NU00ZlpkUUJTdWI1SzJ1NEpfTGh3VEhnbnZpZGs2SS1VenVnWE1CdDQxZGhtODRTUHpQd1JXSkJDajFvY2tCM3Y0MEF3T0gySWc3Z3pFRDdfVG11dGxRbjlyVWR3dGp5T3RRTXRLSUZqRDEtbVhFTnZYNm9SbC1nRVZUXzJHRGpzN1JSTkczYVJSNEJrY0pleTNidHZsZ1RsQkVYajFZalFFdnM5WlJjOGRLOGhJODd1Z1pJTVRETHdrMzA0Y3fSAdcBQVVfeXFMTmx3Z1JNQllnbS1FcVpyNWwyOUFUXzFNMV9jUVRHY0F3MkFncm91TmY4VHZHdjJaWkJYYTVwcUhzYVBDbHNWVkkxb3lpQXN4N3hDZExUckV0Y2ZkMmJYRC1YTkFfRmZBVWFHNjhlOUQ4bkZwUy1nVFZfbHZXbzBzMFFiLW0zeEd5d3ZSRFA2TnNIRjJNamRFdWF2eDFhYWN5OHdoeHQ0bHFPMGtmRU5RN1NJSU1JMU1nRUdSOWowMUg0R0RRUllmbWpnZU9VVVRjWllZSnlwdzQ?oc=5",
-      "source": "KTLA",
-      "date": "2026-07-24T07:00:00.000Z"
+      "title": "Don’t want ‘what’s happening in NYC to come here,’ LA county official says at event on synagogue vandalism",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZnFLM2hCRGh4REhLTl9wVFFKUlBJMzNvNnNrZE9LbHotbU5tUHNaMk5RUks2YW84RmtYZnBTUS1DV0owTDZGdDFIeUtRV0xPcGptSmVzTmNUdm9QLWtDeERFblpnaGhydWI5Z0JmOFhzd0ZlSnVRQkNON2tGanNpRFJxdy1UMzRfTzN1a1hZU1ZiZVZjWklESnRZOUFtTFpldHVaeVhRSC0zdDdoRC1ZczFYcVpkQUN3bjRvelVjTnBfN05FRzhpQWFhUU5EYTFmdnI5b053eGZvM3NGaWVFRw?oc=5",
+      "source": "jns.org",
+      "date": "2026-07-31T07:00:00.000Z"
+    },
+    {
+      "title": "Los Angeles County supervisor proposes $20,000 reward after Pasadena synagogue vandalism",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOcDVsQ3VmaFVPNktZZ0U0UzNsZzdIT0VhWUhjZTBGNTVQdkVlTjFqV2ctSzJfM0w2NE9Qcm9jVk9oRFdjN3N4NjBnZnhwaGI1U0xnc3lyZnVCeTA5X3h1YWFqUEVnVjFhbkYzMVVaazk0MkdmVzBFNUtXb09fR24xb3JIYUk5Z0Zad2RUZ2FEQ3JmR0s3cF9aeGtSRGVBSlRwcEJzSG5ENlpwcDRob244YUhQSVpITWg0Q20tOW53?oc=5",
+      "source": "jns.org",
+      "date": "2026-07-29T07:00:00.000Z"
+    },
+    {
+      "title": "LA teacher union hit with false antisemitism claim",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNano0SkREYkc3c3FWM182dDlKOFpMY09HNUJJSUF2czlnYVkzU0dpOE1sUkRlamEtaHFpbU16WHZXUWpadWNpXzVyYjhUVVhKSURQVjFuV1VtTVNXbmUxQmthb3pYbm9jdEFjWTRvSUhvOE50UjczSzZ4Tzhib1NCOE54dUhzNFVMel9B?oc=5",
+      "source": "The Times of Israel",
+      "date": "2026-07-29T04:42:00.000Z"
+    },
+    {
+      "title": "Supervisor Barger Proposes $20K Reward to Help ID Jewish Center Mural Vandals",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZnVxbnRCSUNPRzJ1QTl0d2xJdHNrNHVobXBFbExxUTZfdC1EVWRDMldMNVpLSkJSU3FTSHNHZ25LMGZ2OVVLNDFyVFhudnFDdExrNFdfcFo4Yk9LTGpHekxvcHpoRG5zUjRSVzZIeTdpTy1kdmp3R0xKbC1pV0tCdGhOYUktRTRxbkZXaUZ6YnBHVVFwNVpNZ0FVeTRRUDN6NEpmZnBXZjZBVEVOcU0zdExZY25OQQ?oc=5",
+      "source": "MyNewsLA.com",
+      "date": "2026-07-28T07:00:00.000Z"
     }
   ]
 }

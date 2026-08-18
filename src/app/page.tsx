@@ -144,7 +144,7 @@ export default function HomePage() {
           </div>
           <div className="sj-mapcard sj-rv">
             <div className="sj-mapbar">
-              <span className="title">GREATER_LA</span>
+              <span className="title">Greater Los Angeles <span style={{ color: 'var(--faint)', fontWeight: 500 }}>· 2025–2026</span></span>
               <Link className="sj-btn sj-btn-line" href="/map" style={{ padding: '8px 14px', fontSize: 13 }}>
                 Full map <span className="sj-arrow">→</span>
               </Link>

@@ -12,6 +12,7 @@ import type {
   CommunitySpaceType,
 } from '@/types';
 import { DEMO_INCIDENTS, isDemoMode } from '@/lib/demo-data';
+import { STATIC_INCIDENTS_2026 } from '@/data/static-incidents-2026';
 import FilterPanel from './FilterPanel';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -410,7 +411,7 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
 export default function IncidentMap() {
   // Incident state — start empty in live mode so demo pins never flash before real data
   const [incidents, setIncidents] = useState<Incident[]>(() =>
-    isDemoMode() ? DEMO_INCIDENTS : []
+    isDemoMode() ? [...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026] : [...STATIC_INCIDENTS_2026]
   );
   const [filters, setFilters] = useState<IncidentFilters>(DEFAULT_FILTERS);
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
@@ -427,12 +428,15 @@ export default function IncidentMap() {
 
   // Fetch incidents
   useEffect(() => {
-    if (isDemoMode()) { setIncidents(DEMO_INCIDENTS); return; }
+    if (isDemoMode()) { setIncidents([...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026]); return; }
     setIsLoading(true);
     fetch('/api/incidents?status=verified')
       .then((r) => r.json())
-      .then(({ incidents: data }) => { if (Array.isArray(data)) setIncidents(data); })
-      .catch(() => setIncidents(DEMO_INCIDENTS))
+      .then(({ incidents: data }) => {
+        // Merge the live database (through 2025) with the curated 2026 overlay.
+        if (Array.isArray(data)) setIncidents([...data, ...STATIC_INCIDENTS_2026]);
+      })
+      .catch(() => setIncidents([...DEMO_INCIDENTS, ...STATIC_INCIDENTS_2026]))
       .finally(() => setIsLoading(false));
   }, []);
 
