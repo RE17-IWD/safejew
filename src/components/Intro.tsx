@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 export default function Intro() {
   const [show, setShow] = useState(false);
   const [done, setDone] = useState(false);
-  const [pct, setPct] = useState(0);
-  const raf = useRef<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const finished = useRef(false);
 
   useEffect(() => {
     const reduce =
@@ -23,25 +23,12 @@ export default function Intro() {
 
     setShow(true);
     document.body.classList.add('sj-lock');
-
-    const start = Date.now();
-    const dur = 4800;
-    const tick = () => {
-      const p = Math.min((Date.now() - start) / dur, 1);
-      setPct(Math.round((1 - Math.pow(1 - p, 2)) * 100));
-      if (p < 1) raf.current = requestAnimationFrame(tick);
-      else setTimeout(finish, 380);
-    };
-    raf.current = requestAnimationFrame(tick);
-
-    return () => {
-      if (raf.current) cancelAnimationFrame(raf.current);
-      document.body.classList.remove('sj-lock');
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => document.body.classList.remove('sj-lock');
   }, []);
 
   function finish() {
+    if (finished.current) return;
+    finished.current = true;
     try {
       sessionStorage.setItem('sj_intro_seen', '1');
     } catch {
@@ -49,35 +36,48 @@ export default function Intro() {
     }
     document.body.classList.remove('sj-lock');
     setDone(true);
-    setTimeout(() => setShow(false), 860);
+    setTimeout(() => setShow(false), 900);
   }
 
+  // Enter/Escape/Space to skip; a safety timeout in case the video can't autoplay/end.
   useEffect(() => {
     if (!show) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === 'Escape') finish();
+      if (e.key === 'Enter' || e.key === 'Escape' || e.key === ' ') finish();
     };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    const safety = setTimeout(finish, 12000);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      clearTimeout(safety);
+    };
   }, [show]);
 
   if (!show) return null;
 
   return (
-    <div id="sj-intro" className={done ? 'done' : ''} onClick={finish}>
-      <div className="grid" />
-      <div className="sj-intro-skip" onClick={(e) => { e.stopPropagation(); finish(); }}>
-        Skip ⏎
-      </div>
-      <div className="sj-intro-logo" onClick={(e) => e.stopPropagation()}>
+    <div id="sj-intro" className={`sj-intro-video${done ? ' done' : ''}`}>
+      <video
+        ref={videoRef}
+        className="sj-intro-vid"
+        src="/hero.mp4"
+        autoPlay
+        muted
+        playsInline
+        onEnded={finish}
+      />
+      <div className="sj-intro-scrim" aria-hidden="true" />
+      <div className="sj-intro-brand">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-lockup.png" alt="SafeJew" />
-        <div className="sweep" />
+        <div className="sj-intro-tag">Jewish community safety · Greater Los Angeles</div>
+        <button type="button" className="sj-intro-enter" onClick={finish}>
+          Enter <span aria-hidden="true">→</span>
+        </button>
       </div>
-      <div className="sj-intro-status">Jewish community safety</div>
-      <div className="sj-intro-bar">
-        <i style={{ width: `${pct}%` }} />
-      </div>
+      <button type="button" className="sj-intro-skip" onClick={finish}>
+        Skip ⏎
+      </button>
     </div>
   );
 }
