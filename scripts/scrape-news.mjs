@@ -11,7 +11,7 @@
  * so the map can plot them (clearly labeled as approximate, news-derived points),
  * on top of the hand-verified incident set. Requires Node 18+ (global fetch).
  */
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { geocodeFromText } from './geo-la.mjs';
@@ -131,22 +131,42 @@ async function main() {
   }
 
   items.sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0));
-  const top = items.slice(0, MAX_ITEMS);
+  const fresh = items.slice(0, MAX_ITEMS);
 
-  if (top.length === 0) {
+  if (fresh.length === 0) {
     console.warn('[scrape-news] no relevant items after filtering; leaving existing news.json untouched');
     process.exit(0);
   }
 
-  const mapped = top.filter((i) => typeof i.lat === 'number').length;
+  // Accumulate: merge with the previously-committed feed so map coverage GROWS over
+  // time instead of resetting each run. Dedup by URL, keep ~8 months, cap 150.
+  let prev = [];
+  try {
+    prev = JSON.parse(readFileSync(OUT, 'utf8')).items || [];
+  } catch {
+    prev = [];
+  }
+  const seenUrl = new Set();
+  const merged = [];
+  for (const it of [...fresh, ...prev]) {
+    if (!it.url || seenUrl.has(it.url)) continue;
+    seenUrl.add(it.url);
+    merged.push(it);
+  }
+  const cutoff = Date.now() - 240 * 24 * 3600 * 1000;
+  const kept = merged
+    .filter((it) => !it.date || Date.parse(it.date) >= cutoff)
+    .sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0))
+    .slice(0, 150);
+
+  const mapped = kept.filter((i) => typeof i.lat === 'number').length;
   const payload = {
     generatedAt: new Date().toISOString(),
-    query: QUERIES[0],
     queries: QUERIES,
-    items: top,
+    items: kept,
   };
   writeFileSync(OUT, JSON.stringify(payload, null, 2) + '\n');
-  console.log(`[scrape-news] wrote ${top.length} items (${mapped} geocoded for the map) from ${all.length} raw`);
+  console.log(`[scrape-news] ${fresh.length} fresh, ${kept.length} total (${mapped} geocoded for the map)`);
 }
 
 main().catch((e) => {

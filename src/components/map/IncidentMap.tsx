@@ -513,7 +513,8 @@ export default function IncidentMap() {
     const out: NewsPoint[] = [];
     for (const i of items) {
       if (typeof i.lat !== 'number' || typeof i.lng !== 'number') continue;
-      const key = `${i.lat.toFixed(2)},${i.lng.toFixed(2)}`;
+      // one dot per ~1km area per month, so distinct incidents accumulate over time
+      const key = `${i.lat.toFixed(2)},${i.lng.toFixed(2)}|${(i.date ?? '').slice(0, 7)}`;
       if (seen.has(key)) continue;
       seen.add(key);
       out.push({
