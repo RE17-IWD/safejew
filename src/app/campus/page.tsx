@@ -5,6 +5,20 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import type { Incident, IncidentCategory } from '@/types';
 import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
+import { SOURCED_INCIDENTS } from '@/data/sourced-incidents';
+import { ADL_INCIDENTS } from '@/data/adl-incidents';
+
+// Real documented incidents (SafeJew-sourced + ADL H.E.A.T. Map) shown near a campus.
+const CAMPUS_INCIDENTS = [...SOURCED_INCIDENTS, ...ADL_INCIDENTS];
+function kmBetween(aLat: number, aLng: number, bLat: number, bLng: number): number {
+  const R = 6371;
+  const dLat = ((bLat - aLat) * Math.PI) / 180;
+  const dLng = ((bLng - aLng) * Math.PI) / 180;
+  const s =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((aLat * Math.PI) / 180) * Math.cos((bLat * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
 import { HILLEL_TRACKER, AJC_2026, ADL_CAMPUS } from '@/data/hate-crime-stats';
 import TitleVIPanel from '@/components/campus/TitleVIPanel';
 import ReportingChannels from '@/components/campus/ReportingChannels';
@@ -333,10 +347,14 @@ function CampusSuggestForm() {
 
 export default function CampusPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [incidents, setIncidents] = useState<Incident[]>([]);
-  const [incidentsLoading, setIncidentsLoading] = useState(false);
+  const incidentsLoading = false;
 
   const campus = selectedId ? (CAMPUSES.find((c) => c.id === selectedId) ?? null) : null;
+  // Real documented incidents within ~8km of the selected campus.
+  const incidents = useMemo<Incident[]>(
+    () => (campus ? CAMPUS_INCIDENTS.filter((i) => kmBetween(campus.lat, campus.lng, i.lat, i.lng) <= 8) : []),
+    [campus]
+  );
   // The incident map + community-spaces layer only cover Greater LA.
   const campusInLA =
     !!campus && campus.lat >= 33.55 && campus.lat <= 34.45 && campus.lng >= -119.0 && campus.lng <= -117.5;
@@ -345,33 +363,6 @@ export default function CampusPage() {
     document.title = campus
       ? `SafeJew · ${campus.name} Campus Tool`
       : 'SafeJew · Campus Jewish Community Tool';
-  }, [campus]);
-
-  // Fetch live incidents whenever a campus is selected
-  useEffect(() => {
-    if (!campus) {
-      setIncidents([]);
-      return;
-    }
-    let cancelled = false;
-    setIncidentsLoading(true);
-    setIncidents([]);
-    fetch(`/api/incidents?campus_id=${encodeURIComponent(campus.id)}`)
-      .then((r) => r.json())
-      .then((json) => {
-        if (cancelled) return;
-        const data: Incident[] = Array.isArray(json) ? json : (json.incidents ?? []);
-        setIncidents(data);
-      })
-      .catch(() => {
-        if (!cancelled) setIncidents([]);
-      })
-      .finally(() => {
-        if (!cancelled) setIncidentsLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
   }, [campus]);
 
   const totalIncidents = incidents.length;
@@ -468,10 +459,12 @@ export default function CampusPage() {
                   />
                 </div>
                 <p className="font-sans text-xs text-gray-500 mb-10">
-                  Incident locations are neighborhood-level only. Exact addresses are never stored.
-                  Points shown are illustrative sample data, not verified events. See the{' '}
+                  Documented incidents within ~5 miles of campus, from SafeJew&apos;s sourced records and
+                  the{' '}
+                  <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
+                  Locations are neighborhood-level (approximate) for privacy. See the{' '}
                   <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
-                  for verified antisemitism statistics.
+                  for aggregate statistics.
                 </p>
               </>
             ) : (
