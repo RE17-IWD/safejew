@@ -19,17 +19,21 @@ import { geocodeFromText } from './geo-la.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', 'src', 'data', 'news.json');
 
-// Several complementary searches spanning all incident types.
+// Several complementary searches spanning all incident types and up to a year back,
+// so the feed shows a VARIETY of incidents, not one story from many outlets.
 const QUERIES = [
-  'antisemitism "Los Angeles" when:60d',
-  'antisemitic incident Los Angeles when:90d',
-  'antisemitism synagogue Los Angeles when:90d',
-  'swastika Los Angeles OR "San Fernando Valley" when:120d',
-  'Jewish Los Angeles hate crime OR assault OR threat OR vandalism when:90d',
-  'antisemitism UCLA OR USC OR "Cal State" when:120d',
-  'synagogue OR temple vandalized OR attacked California when:120d',
+  'antisemitism "Los Angeles" when:90d',
+  'antisemitic incident Los Angeles when:180d',
+  'antisemitism synagogue Los Angeles when:1y',
+  'swastika Los Angeles OR "San Fernando Valley" OR Pasadena when:1y',
+  'Jewish Los Angeles hate crime OR assault OR vandalism when:1y',
+  'antisemitism UCLA OR USC OR "Cal State" when:1y',
+  'synagogue OR temple OR "Jewish school" vandalized OR attacked Los Angeles when:1y',
+  'antisemitic graffiti OR flyers OR harassment "Los Angeles" OR "Beverly Hills" OR Encino OR "Santa Monica" when:1y',
+  'Jewish business OR Chabad OR Hillel vandalized OR attacked OR harassed Los Angeles when:1y',
+  'antisemitic assault OR "hate crime" charged Los Angeles OR "district attorney" when:1y',
 ];
-const MAX_ITEMS = 40;
+const MAX_ITEMS = 80;
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
@@ -100,6 +104,29 @@ async function fetchQuery(q) {
     console.error(`[scrape-news] query failed (${q}):`, err?.message ?? err);
     return [];
   }
+}
+
+// Collapse many outlets covering the SAME incident into one feed entry: geocoded
+// items dedupe by ~1km area + month; others by a few distinctive title words + month.
+const STOP = new Set(['after','over','with','from','near','amid','says','said','into','that','what','when','where','their','they','were','have','been','this','than','more','some','about','which','while','ignites','urges','debate','reward','offered','seeks','proposes','moves','community','leaders','rally','jewish','jews','antisemitic','antisemitism','anti','semitic','los','angeles','county','california','synagogue','temple','mural']);
+function incidentKey(it) {
+  let lat = it.lat, lng = it.lng;
+  if (typeof lat !== 'number') { const g = geocodeFromText(it.title); if (g) { lat = g.lat; lng = g.lng; } }
+  // One entry per ~1km area (the newest kept) — collapses many outlets on one incident.
+  if (typeof lat === 'number') return `g:${lat.toFixed(2)},${lng.toFixed(2)}`;
+  const w = (it.title || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter((x) => x.length > 3 && !STOP.has(x));
+  return `t:${w.slice(0, 3).sort().join(' ')}`;
+}
+function dedupeByIncident(items) {
+  const seen = new Set();
+  const out = [];
+  for (const it of items) {
+    const k = incidentKey(it);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(it);
+  }
+  return out;
 }
 
 async function main() {
@@ -174,11 +201,12 @@ async function main() {
     seenUrl.add(it.url);
     merged.push(it);
   }
-  const cutoff = Date.now() - 240 * 24 * 3600 * 1000;
-  const kept = merged
-    .filter((it) => !it.date || Date.parse(it.date) >= cutoff)
-    .sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0))
-    .slice(0, 150);
+  const cutoff = Date.now() - 400 * 24 * 3600 * 1000;
+  const kept = dedupeByIncident(
+    merged
+      .filter((it) => !it.date || Date.parse(it.date) >= cutoff)
+      .sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0))
+  ).slice(0, 80);
 
   const mapped = kept.filter((i) => typeof i.lat === 'number').length;
   const payload = {
