@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T07:05:35.435Z",
+  "generatedAt": "2026-08-19T13:36:17.155Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:60d",
     "antisemitic incident Los Angeles when:90d",
@@ -52,7 +52,7 @@
     {
       "title": "Seven months into 2026, Los Angeles district attorney doesn’t know how many of 66 hate crime cases filed target Jews",
       "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxORWJSQXBId1BWelJNeFU1UWpwVkRob3ZJc1djTmdKVjBIS1owY2FONHRHb1Nsc0tRV05fLUhzUkhZeUtOTFk2VXVBZjhwSXlyRGxJTXUyZmxCZVpDNEhUbml3a3FHMUJoTkVCQ1FjZVZtUUhjb19Dd292eUdkbmExZVpyeFR5QTY1S25BcTNQQ1NmUnhrdlhfM1BUc2k5T3IzWG9WNTNYcU9adFNES2JaU2w5RzRIaTM4bTFnbXBkeF9XUGxySDdtU010aC04RHNsd1lJNlY4SG5RT0JhanZRVDZR?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-08-07T07:00:00.000Z"
     },
     {
@@ -74,6 +74,12 @@
       "place": "Altadena"
     },
     {
+      "title": "AJC Names Kimberley Plotnik as Los Angeles Regional Director",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQk5laWg1eEFQOGIwNXBPMVRWWE9idFBuTGVsVFkxQVdhSXlTd2dBRENWUE94Y0U1OURxUUdVVkxrNV9pOFR1cHJGRUo0RGpHckt6V24zOTJQM2gzRzdYOGg2dXBuT1FuX3ExY25IOU16a0dYbklwVTh2Z2hhazl5cDZFQ05JS2JWNkt2aTF3?oc=5",
+      "source": "AJC - American Jewish Committee",
+      "date": "2026-08-03T07:00:00.000Z"
+    },
+    {
       "title": "Community, Leaders Rally After Antisemitic Vandalism at Site of Pasadena Jewish Temple",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNU01JdWhmS0V4ZFIzZGNobmg5OFFPb3ZodXRUTEZ2WnN4cHl2eVJEVGo3RnNlS0k0LTYwT2ItUWV4d2R2c0ZGR2ROT21tSTVHMll6dnlHTWhyMTR0eU1XdG5zRmhIMHpEbzEyaXYzR0Qxd1ZiMzV0ZFdHTTQ0SWhWMDF4TlduSHVfdU52TmRVZ0lGMGswRFpTbGpVOGhPY19pMllnSjZRQ2Vxek9IOURwZVRSVzFKNkgyaVppcQ?oc=5",
       "source": "ColoradoBoulevard.net",
@@ -92,12 +98,6 @@
       "place": "Pasadena"
     },
     {
-      "title": "Don’t want ‘what’s happening in NYC to come here,’ LA county official says at event on synagogue vandalism",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZnFLM2hCRGh4REhLTl9wVFFKUlBJMzNvNnNrZE9LbHotbU5tUHNaMk5RUks2YW84RmtYZnBTUS1DV0owTDZGdDFIeUtRV0xPcGptSmVzTmNUdm9QLWtDeERFblpnaGhydWI5Z0JmOFhzd0ZlSnVRQkNON2tGanNpRFJxdy1UMzRfTzN1a1hZU1ZiZVZjWklESnRZOUFtTFpldHVaeVhRSC0zdDdoRC1ZczFYcVpkQUN3bjRvelVjTnBfN05FRzhpQWFhUU5EYTFmdnI5b053eGZvM3NGaWVFRw?oc=5",
-      "source": "jns.org",
-      "date": "2026-07-31T07:00:00.000Z"
-    },
-    {
       "title": "An Altadena synagogue’s mural was a symbol of community resilience after the LA fires. Antisemitic graffiti only proved the point.",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRTVPbmdpWjRXUUV3bFNXODU0M2JlSWMzeVRNT08yR0JwaFFuSjVSSHBFS3BXRTlwVXdFQVRydVU5RGNJOURNakRIUFkzZENJcHo5OWl1WXdTNGtMZTIzdGZBV2RRS09xZkZDWUx0ck5CdDVfd2dVVk5WdXVyOVM5cVJLOWJIVl9L?oc=5",
       "source": "The Forward",
@@ -107,9 +107,15 @@
       "place": "Altadena"
     },
     {
+      "title": "Don’t want ‘what’s happening in NYC to come here,’ LA county official says at event on synagogue vandalism",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZnFLM2hCRGh4REhLTl9wVFFKUlBJMzNvNnNrZE9LbHotbU5tUHNaMk5RUks2YW84RmtYZnBTUS1DV0owTDZGdDFIeUtRV0xPcGptSmVzTmNUdm9QLWtDeERFblpnaGhydWI5Z0JmOFhzd0ZlSnVRQkNON2tGanNpRFJxdy1UMzRfTzN1a1hZU1ZiZVZjWklESnRZOUFtTFpldHVaeVhRSC0zdDdoRC1ZczFYcVpkQUN3bjRvelVjTnBfN05FRzhpQWFhUU5EYTFmdnI5b053eGZvM3NGaWVFRw?oc=5",
+      "source": "JNS.org",
+      "date": "2026-07-31T07:00:00.000Z"
+    },
+    {
       "title": "Los Angeles County supervisor proposes $20,000 reward after Pasadena synagogue vandalism",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOcDVsQ3VmaFVPNktZZ0U0UzNsZzdIT0VhWUhjZTBGNTVQdkVlTjFqV2ctSzJfM0w2NE9Qcm9jVk9oRFdjN3N4NjBnZnhwaGI1U0xnc3lyZnVCeTA5X3h1YWFqUEVnVjFhbkYzMVVaazk0MkdmVzBFNUtXb09fR24xb3JIYUk5Z0Zad2RUZ2FEQ3JmR0s3cF9aeGtSRGVBSlRwcEJzSG5ENlpwcDRob244YUhQSVpITWg0Q20tOW53?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-07-29T07:00:00.000Z",
       "lat": 34.1478,
       "lng": -118.1445,
@@ -130,13 +136,13 @@
     {
       "title": "LA synagogue sues three anti-Israel groups for disrupting December event",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQT09ocnRmTVkyRENzQzRYc2Zaa1VEcG9uR09UUXVGOWp6a0RlTFUzRjItdFZlalkwaWZPUXM3OEpJX0RnT3Z1Rk5ZS0JOeVg2aFZWallySVEyNFFuc3ZNWEx3d2ZfNzlMOVZvRUl5SEVvb1VKNHVfV0VHUmxrSFNCRmNZM3BvUWVDeHJmNUhZNU12X3RNcm9PWXpYT2toV3Q0LW1rXzRGNDZoQQ?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-07-28T07:00:00.000Z"
     },
     {
       "title": "Supervisor moves to set $20,000 reward for arrest of Pasadena Jewish Temple and Center vandals",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOSFYyWVk5YlVPS09vaFdPTk4xQVJOYjJOblVkdk9QRHA2bVJWN1JqM0xfTlZEeFpiLTVldG0wdzRYckM0ZUtCbWdCeUMxdUdRemg2U01JT2VueWp3aS14dEZ1U3Y0Q1ZCaE0wWVRmNzM3czQ3YTJuVDliaHJuTkNvMTdrYnZTUXZwTDN4TU5NcWNiakxGazZ5eFRnSWRqaVJJdUxSZEVHWkdxaDNYX3JOOUZZZnZkNmd6X21jM2Y2blhacDZQdE5ZdzkwUnlGbHkyV2I4?oc=5",
-      "source": "pasadenastarnews.com",
+      "source": "Pasadena Star News",
       "date": "2026-07-28T07:00:00.000Z",
       "lat": 34.147,
       "lng": -118.14,
@@ -145,7 +151,7 @@
     {
       "title": "Pasadena Jewish community ‘determined to be very Jewish’ after vandalism of synagogue mural",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNVVnUDY2bE5Lal9XRjRlbFdsQzFfRVVNOWhpODB4aGU5ZTRlVWFNTU5FRmpodVdHVGt1QXJ3S3VpakNtMGZyTXdoVzR2XzM4VzRUSkxFV3VTV1hRR2JSbDlhYjk0dnllQmJTY3lTUFMtdjI1TjZjVkdKOHV5ZlRGQWtaSGRCdEpqcjBnel9vdElYLXEzR084Y1F6TzFYcVdrcV82YksxQTZrS04zMjY2NEpLODFEcXJIVlpOcE51RE8?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-07-28T07:00:00.000Z",
       "lat": 34.1478,
       "lng": -118.1445,
@@ -187,7 +193,7 @@
     {
       "title": "Vile antisemitic graffiti defaces site of synagogue destroyed in LA wildfires",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPYXhiVkVDaTFyNzRBb1JvUEJaVFV0bFI2UzcyVjgtN1RTUF9YMUJ5YjJLSkZJYkJQZGRDeWpvQUNVSS16Nk9vN1lzcjVOZGpia18zdTEzdFNDbWRQX052ZXN1bUhpVDF1bTRqM3doeWc4TXFob1BHbWlieFQyTXdsV200WTFtZjNrTlNuajhuaEVCUUxnWmQyc2RtSEdaM2haajRRWTJhOVNVSEdpRDJXNS16QnppN2cyYlRJeGFxQVZkQ0N2ZDNrZmtvbkxiMXhl?oc=5",
-      "source": "New York Post",
+      "source": "nypost.com",
       "date": "2026-07-25T07:00:00.000Z"
     },
     {
@@ -202,7 +208,7 @@
     {
       "title": "Pasadena synagogue’s post-Eaton fire mural vandalized with swastikas, anti-Zionist graffiti",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlFZVE5wN1RGMW1GM2hJa3ZTTnY3bTU5YU5lR2xwSktzMEs3b3V1UDM5Skt4eVFLU0tId19ZdWZLXzBTRUhhSHJDTjAxWjFDeVF5TEFFS0kxQ3otOVpPdndZcHBTVEo0Ymg4XzhSQ1dZRDN1NGlXVXJubzZWSFdzTVBxVXEwdnQ0QnNXWXhIb3JxZVhWcnZXSU1LQ3hIZTZCOC03eUdFYzZnaDBvZkdNag?oc=5",
-      "source": "pasadenastarnews.com",
+      "source": "Pasadena Star News",
       "date": "2026-07-24T07:00:00.000Z",
       "lat": 34.1478,
       "lng": -118.1445,
@@ -253,19 +259,19 @@
     {
       "title": "Groups condemn ‘slap on the wrist’ sentence for man who killed Jewish protester near Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMTN2dFd5SkdSejc4RlVNTjQ3eXNoT1VpX01WNVo0WExWd1VsUkh4SDFqTmgwV1NHOW1yYmVGSUVwcm1jaHE3bEhSa1YyWEQ0bVAtX1FNV0NRS1hWNHNiMzA4ZEZlTjZHbktPTHZSR2l1eUxFTGQxVE9aazZzZWpuc3VmM0c1OFZlUDJTQjBtWS1za044d2VONWQtd3FRdGF3UHgxRDlvSl9wX1BJNy1yWGhLdWszOEZRVTNJa3lLRnlKM1hfU3dn?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-06-30T07:00:00.000Z"
     },
     {
       "title": "Antisemitism: From New York to LA, a new political scourge",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcXhnRlZfdGZzZlA5ZmdZd1hGQkZnT0UzRVl6emN6LUtLUjFJdl9jNENuRkdOTnRCazlsQk5WTEFxOHFZcWdPLTZQOWNSMDVscFBlV1JPM3ZQa1ZXalZmMjhBQzVyOTN5V1YwUGhlT0k0RE9laVg4c3JXV0UtanE0bUxMaEVOazIzU3F1bWZzaHh5S2VxV3hCbQ?oc=5",
-      "source": "New York Post",
+      "source": "nypost.com",
       "date": "2026-06-25T07:00:00.000Z"
     },
     {
       "title": "LA rabbi ‘elated’ raisin company heir arrested for antisemitic threat, frustrated ‘took a while’",
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdG9qczYzc19HY0lkbkE1LXhwNi1fYzVOQVJVQjRLcDJtX0ctcFBtbG5SVTBWbU1FYkhQeng3amxlSDJRUkFjM0tScWcwV3ItM24zZE1teXN0TTVjSXBKQ2JCeHBpdFZmOTNDb2ZKTG52LVAtMDVqaGJKd3NUd0xVTmhKZThpRFREZjlEczRJX0RCYUMxYXpDWjBiVE9PQ09jQlhkRXU2T3UxOHBrZUlKdmpPblRhRkRuSnU5MjN1OE5KTU0?oc=5",
-      "source": "jns.org",
+      "source": "JNS.org",
       "date": "2026-06-19T07:00:00.000Z"
     },
     {
