@@ -240,9 +240,13 @@ export default function SafetyPage() {
             ))}
           </div>
           <div className="mt-8 bg-navy-900 text-white rounded-lg p-6">
-            <h3 className="flex items-center gap-2 font-serif text-lg font-bold mb-3">
-              <IconCamera className="w-5 h-5 text-gold-400" /> Documenting an incident: what to save
+            <h3 className="flex items-center gap-2 font-serif text-lg font-bold mb-1">
+              <IconCamera className="w-5 h-5 text-gold-400" /> If you&apos;re targeted, save this evidence
             </h3>
+            <p className="font-sans text-sm text-blue-100/70 mb-4">
+              Preserve these before anything gets deleted, they strengthen a police report, an ADL complaint,
+              or a legal case:
+            </p>
             <ul className="font-sans text-sm text-blue-100/80 leading-relaxed grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
               <li>Screenshots of online harassment before deletion</li>
               <li>Photos of vandalism or physical damage</li>

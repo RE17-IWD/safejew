@@ -64,13 +64,26 @@ function decode(s) {
 
 // Must name a Greater-LA place or local institution.
 const LA_GEO =
-  /los angeles|\bl\.?a\.?\b|greater la|southern california|so[- ]?cal|san fernando valley|pasadena|altadena|glendale|burbank|van nuys|north hollywood|studio city|sherman oaks|encino|tarzana|reseda|northridge|granada hills|porter ranch|woodland hills|calabasas|westwood|pico[- ]?robertson|\bpico\b|fairfax|beverly hills|beverlywood|hancock park|mid-wilshire|koreatown|santa monica|venice|brentwood|pacific palisades|culver city|west hollywood|weho|los feliz|silver lake|valley village|long beach|ucla|\busc\b|cal state/i;
-// Must be about Jews / antisemitism (identity anchor — captures ALL incident types).
-const JEWISH =
-  /antisemit|anti-semit|\bjew(s|ish)?\b|synagogue|\bshul\b|chabad|hillel|yeshiva|kosher|mezuz|swastika|holocaust|\bnazi\b|torah|rabbi|zionis/i;
-// Looks like an actual incident (used to decide whether to plot it on the map).
+  /los angeles|\bl\.a\.?\b|greater la|san fernando valley|pasadena|altadena|glendale|burbank|van nuys|north hollywood|studio city|sherman oaks|encino|tarzana|reseda|northridge|granada hills|porter ranch|woodland hills|calabasas|westwood|pico[- ]?robertson|\bpico\b|fairfax|beverly hills|beverlywood|hancock park|mid-wilshire|koreatown|santa monica|venice|brentwood|pacific palisades|culver city|west hollywood|weho|los feliz|silver lake|valley village|long beach|ucla|\busc\b|cal state/i;
+// Explicit antisemitism markers.
+const ANTISEMITIC = /antisemit|anti-semit|anti-jewish|swastika|holocaust|neo-?nazi|\bnazi\b|desecrat|mezuz|blood libel|goyim defense|white supremacis|\bkkk\b/i;
+// A Jewish person / place / institution.
+const JEWISH_TARGET = /\b(synagogue|shul|temple|chabad|hillel|yeshiva|kosher|jewish|jews|rabbi|mezuz)\b/i;
+// An actual incident / harm (a story must describe one, not just mention the word
+// "antisemitism"). Also used to decide whether to plot it on the map.
 const INCIDENT =
-  /antisemit|swastika|hate[- ]?crime|hate[- ]?motivated|vandal|graffiti|defac|desecrat|assault|attack|threat|arson|firebomb|harass|slur|spray[- ]?paint|smash|stab|shoot|beat|mezuz|\bnazi\b/i;
+  /swastika|vandal|graffiti|defac|desecrat|assault|assaulted|attack|threat|arson|firebomb|molotov|harass|slur|smash|stab|\bshot\b|shoot|beaten|ransack|flyer|propaganda|sticker|\bbomb|swat|target(?:ed|ing)|\bnazi\b/i;
+// Clearly-other-city / foreign markers (so a non-LA story never slips through).
+const OTHER_CITY = /\b(new york|brooklyn|bronx|manhattan|queens|nyc|new jersey|boston|harvard|yale|princeton|columbia|chicago|miami|florida|philadelphia|seattle|denver|toronto|canada|london|\bu\.?k\.?\b|britain|england|france|paris|germany|berlin|europe|jerusalem|tel aviv|gaza)\b/i;
+
+// Relevant = the HEADLINE names a Greater-LA place, the story is about a Jewish
+// target or antisemitism (not just any "Jewish" mention), it describes an actual
+// incident, and it is not clearly about another city.
+function relevant(title, hay = title) {
+  if (!title || !LA_GEO.test(title)) return false;
+  if (OTHER_CITY.test(hay) && !/los angeles|\bl\.a\.?\b/i.test(title)) return false;
+  return (ANTISEMITIC.test(hay) || JEWISH_TARGET.test(hay)) && INCIDENT.test(hay);
+}
 
 function tag(block, name) {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, 'i'));
@@ -110,7 +123,7 @@ async function main() {
     if (!title || !link) continue;
 
     const hay = `${title} ${desc}`;
-    if (!LA_GEO.test(hay) || !JEWISH.test(hay)) continue;
+    if (!relevant(title, hay)) continue;
 
     const titleKey = title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
     if (seen.has(link) || seen.has(titleKey)) continue;
@@ -148,8 +161,16 @@ async function main() {
   }
   const seenUrl = new Set();
   const merged = [];
-  for (const it of [...fresh, ...prev]) {
+  for (const it of fresh) {
     if (!it.url || seenUrl.has(it.url)) continue;
+    seenUrl.add(it.url);
+    merged.push(it);
+  }
+  // Re-apply the (now stricter) relevance test to previously-saved items so old
+  // off-topic entries drop out of the accumulated feed.
+  for (const it of prev) {
+    if (!it.url || seenUrl.has(it.url)) continue;
+    if (!relevant(it.title)) continue;
     seenUrl.add(it.url);
     merged.push(it);
   }

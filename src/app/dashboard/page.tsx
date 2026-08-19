@@ -26,6 +26,9 @@ const laLatest = LA_COUNTY_ANTI_JEWISH[LA_COUNTY_ANTI_JEWISH.length - 1];
 const caLatest = CALIFORNIA_ANTI_JEWISH[CALIFORNIA_ANTI_JEWISH.length - 1];
 const caPrev = CALIFORNIA_ANTI_JEWISH[CALIFORNIA_ANTI_JEWISH.length - 2];
 const laFirst = LA_COUNTY_ANTI_JEWISH[0];
+// LA County's share of California's anti-Jewish hate crimes, same year (2024).
+const caSameYear = CALIFORNIA_ANTI_JEWISH.find((d) => d.year === laLatest.year);
+const laShareOfCA = caSameYear ? Math.round((laLatest.value / caSameYear.value) * 100) : null;
 
 export default function DashboardPage() {
   return (
@@ -54,26 +57,26 @@ export default function DashboardPage() {
           {/* Stat cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatsCard
-              label={`U.S. incidents (${nationalLatest.year})`}
+              label={`U.S. antisemitic incidents (${nationalLatest.year})`}
               value={nationalLatest.value.toLocaleString()}
               change="3rd-highest year on record · ADL"
             />
             <StatsCard
-              label={`Anti-Jewish · LA County (${laLatest.year})`}
+              label={`Anti-Jewish hate crimes · LA County (${laLatest.year})`}
               value={laLatest.value}
               change="2nd-highest in 44 years"
               positive={false}
             />
             <StatsCard
-              label={`Anti-Jewish · California (${caLatest.year})`}
+              label={`Anti-Jewish hate crimes · California (${caLatest.year})`}
               value={caLatest.value}
               change={`${pctChange(caPrev.value, caLatest.value) >= 0 ? '+' : ''}${pctChange(caPrev.value, caLatest.value)}% vs ${caPrev.year} · CA DOJ`}
               positive={pctChange(caPrev.value, caLatest.value) < 0}
             />
             <StatsCard
-              label="Share of LA religious hate crime"
+              label="Jewish share of LA religious hate crime"
               value={`${LA_COUNTY_CONTEXT.antiJewishShareOfReligious2024}%`}
-              change="targets Jewish community"
+              change="of religion-based hate crimes target Jews"
             />
           </div>
 
@@ -135,7 +138,17 @@ export default function DashboardPage() {
             <p className="font-sans text-xs text-gray-500 mb-6">
               From the LA County Commission on Human Relations 2024 Hate Crime Report
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="border-2 border-navy-800 rounded-lg px-5 py-4">
+                <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">
+                  {laShareOfCA ? `~${laShareOfCA}%` : '—'}
+                </p>
+                <p className="font-sans text-sm font-semibold text-navy-700">Of California&apos;s anti-Jewish hate crimes</p>
+                <p className="font-sans text-xs text-gray-500 mt-1">
+                  Happened in LA County alone in {laLatest.year} ({laLatest.value} of {caSameYear?.value} statewide;
+                  LA County Commission &amp; CA DOJ).
+                </p>
+              </div>
               <div className="border border-cream-200 rounded-lg px-5 py-4">
                 <p className="font-serif text-2xl font-bold text-navy-800 leading-none mb-1">
                   {LA_COUNTY_CONTEXT.antiIsraeli2024}

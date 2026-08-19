@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T13:36:17.155Z",
+  "generatedAt": "2026-08-19T21:32:13.698Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:60d",
     "antisemitic incident Los Angeles when:90d",
@@ -10,30 +10,6 @@
     "synagogue OR temple vandalized OR attacked California when:120d"
   ],
   "items": [
-    {
-      "title": "Bronx Man Charged With Hate Crimes After Assaults at Midtown Synagogue",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdmpXYXBBV1NBazRMVDBfSnc1TWo0Z1hhQXUyRjlrbS14ZGlVN0JFUG5OZ2FzaEtQZlhZQ3lYT0x1ak5wby1GTHFTclU2ZHRFUHNOa0hORUlhTjJTUjFGV2RhRHBRSmNyZ2FiSXQxRFZDR1hkSHhwOTM3ZlZNemJkLVpNRjdyWnM5VE1idmRWZmJ2SUZiQVF4QzNIRzJsS2MxeGkxdjdXY2lMbjFkLW1YQlRvTzU3Ni1tWW1MdWowYw?oc=5",
-      "source": "La Voce di New York",
-      "date": "2026-08-15T18:57:21.000Z"
-    },
-    {
-      "title": "Rabbi Daniel Sayani Built Bridges After Antisemitic Attack at Brooklyn Synagogue",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWW1UUXFERDZrRnBxcU9FeFJBNnJPQ09mM05PMkdteVFhY3BBblYzdTBzUWNOYnR6MmlDM0ZReF9Eb0xRUFpTS0FWSjNqOWV1d1ltVHZXcTRvd29Bejh3cjFua3hadzUxajVVbV9JU28zV1I2eVo0OWVqT1ZmdURNS2tPN0wyRmVCN2pjQUE2ZEFJTEprWnBrUnJ4czVrWmVqS2VHdGNDRHRpQQ?oc=5",
-      "source": "LA Weekly",
-      "date": "2026-08-15T07:07:32.000Z"
-    },
-    {
-      "title": "Jewish businessmen Joshua Kushner, Bob Iger buy Los Angeles Lakers for record $12.5bn",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQjAxUUVfV3E4SWtQRk1VVTZPaExVNFg5RGY2MUNOWV95WTJrOVNiZExNRjBwMTA2VV9KUEFVVHBWUEFmajlkY01pZmlGRTl1X2ZMNEdlcDVYTDhoR0h4cFVpS2QzNTlSQkF5ODNlQUZyUkc4b1luNEV5OXdqV2lzX1FTR3JSX09hX1paMDBZV2NvanI1UXJGMEtqYXFXc2hrOE5pdi1iRmhhTk3SAbABQVVfeXFMTVkyOG94NXBMREtkVHFkb2RpemQ1RGlXQTczdHlUZGlpZjQydGxOT3l2Z3hXOW9FUUd1X3dxOTVjeS1MUTdGVGlTWkNQVDFWeEpHZml0SEstY0JWZWp6RHlzb3M3aGFXenBfaWR3TzBGV2tOZ0tCazRLMFlZd2RUalJ6blByY0wtd1RqWW42NmR5T1czNGZmTG1XU0Y4dmFwN1huUm41ckRLaXRzRHlqWVQ?oc=5",
-      "source": "South African Jewish Report",
-      "date": "2026-08-14T11:32:42.000Z"
-    },
-    {
-      "title": "Judge dismisses suit over alleged Harvard antisemitism. What it could mean for UC cases",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMk41NUVWdkRuT1M1QndRM2F2LWxpUk9KcEZsOG0tSkFib2tJb3Q5YlZWdjVnRXJSc0tDVW8xUU1NUlByVU5OQW9YR3FMYTJ4ekx6N043VGI4ZmlDVV9vVktsZE9BMmhGUThTRkpXX1RabEVQNWZiTkdrU1U0azlPaWFrdUZCc1psSjZ3UU1iRm5pcXp2Rk15S01UcU5INTVzaXdYS0RoWWVHUVRnM3ZtVWd5VXpzemM?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-08-13T19:34:37.000Z"
-    },
     {
       "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
@@ -48,12 +24,6 @@
       "lat": 34.1478,
       "lng": -118.1445,
       "place": "Pasadena"
-    },
-    {
-      "title": "Seven months into 2026, Los Angeles district attorney doesn’t know how many of 66 hate crime cases filed target Jews",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxORWJSQXBId1BWelJNeFU1UWpwVkRob3ZJc1djTmdKVjBIS1owY2FONHRHb1Nsc0tRV05fLUhzUkhZeUtOTFk2VXVBZjhwSXlyRGxJTXUyZmxCZVpDNEhUbml3a3FHMUJoTkVCQ1FjZVZtUUhjb19Dd292eUdkbmExZVpyeFR5QTY1S25BcTNQQ1NmUnhrdlhfM1BUc2k5T3IzWG9WNTNYcU9adFNES2JaU2w5RzRIaTM4bTFnbXBkeF9XUGxySDdtU010aC04RHNsd1lJNlY4SG5RT0JhanZRVDZR?oc=5",
-      "source": "JNS.org",
-      "date": "2026-08-07T07:00:00.000Z"
     },
     {
       "title": "Barger Seeks $20K Reward For Pasadena Jewish Temple Mural Vandals",
@@ -72,12 +42,6 @@
       "lat": 34.1897,
       "lng": -118.1312,
       "place": "Altadena"
-    },
-    {
-      "title": "AJC Names Kimberley Plotnik as Los Angeles Regional Director",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQk5laWg1eEFQOGIwNXBPMVRWWE9idFBuTGVsVFkxQVdhSXlTd2dBRENWUE94Y0U1OURxUUdVVkxrNV9pOFR1cHJGRUo0RGpHckt6V24zOTJQM2gzRzdYOGg2dXBuT1FuX3ExY25IOU16a0dYbklwVTh2Z2hhazl5cDZFQ05JS2JWNkt2aTF3?oc=5",
-      "source": "AJC - American Jewish Committee",
-      "date": "2026-08-03T07:00:00.000Z"
     },
     {
       "title": "Community, Leaders Rally After Antisemitic Vandalism at Site of Pasadena Jewish Temple",
@@ -107,12 +71,6 @@
       "place": "Altadena"
     },
     {
-      "title": "Don’t want ‘what’s happening in NYC to come here,’ LA county official says at event on synagogue vandalism",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZnFLM2hCRGh4REhLTl9wVFFKUlBJMzNvNnNrZE9LbHotbU5tUHNaMk5RUks2YW84RmtYZnBTUS1DV0owTDZGdDFIeUtRV0xPcGptSmVzTmNUdm9QLWtDeERFblpnaGhydWI5Z0JmOFhzd0ZlSnVRQkNON2tGanNpRFJxdy1UMzRfTzN1a1hZU1ZiZVZjWklESnRZOUFtTFpldHVaeVhRSC0zdDdoRC1ZczFYcVpkQUN3bjRvelVjTnBfN05FRzhpQWFhUU5EYTFmdnI5b053eGZvM3NGaWVFRw?oc=5",
-      "source": "JNS.org",
-      "date": "2026-07-31T07:00:00.000Z"
-    },
-    {
       "title": "Los Angeles County supervisor proposes $20,000 reward after Pasadena synagogue vandalism",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOcDVsQ3VmaFVPNktZZ0U0UzNsZzdIT0VhWUhjZTBGNTVQdkVlTjFqV2ctSzJfM0w2NE9Qcm9jVk9oRFdjN3N4NjBnZnhwaGI1U0xnc3lyZnVCeTA5X3h1YWFqUEVnVjFhbkYzMVVaazk0MkdmVzBFNUtXb09fR24xb3JIYUk5Z0Zad2RUZ2FEQ3JmR0s3cF9aeGtSRGVBSlRwcEJzSG5ENlpwcDRob244YUhQSVpITWg0Q20tOW53?oc=5",
       "source": "JNS.org",
@@ -120,24 +78,6 @@
       "lat": 34.1478,
       "lng": -118.1445,
       "place": "Pasadena"
-    },
-    {
-      "title": "Eight years after deadliest antisemitic attack in U.S. history, Tree of Life rabbi bids farewell",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPQnZFMXBoaWJvbk9nSkhsWlAyMmdpUEthXzFaNzBhSGJEdnNUVzN5VU5OeUs3TE9EdmNZX3ZDb3Z1ZWJQWXlqY2FuQTlzdm94SDYybl8wM2lUT0xWQ0tBZ2gzak9OQ053YTllWWRobllyNGo0NEhuaEpSZ3BzakZvWlhqb3U3VkVPWl9yQjNfbkdqcG5zUm5mOE1zUnQ1Ymx1WXR5SzNDUXVVcThJRXZRQmhzNmhjSzd3SmIzTzV4TlJvelZWRzNjZUFMRmlnaTMyWEU3SlBFWEtraEQwMl9WX2lR?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-07-29T07:00:00.000Z"
-    },
-    {
-      "title": "LA teacher union hit with false antisemitism claim",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNano0SkREYkc3c3FWM182dDlKOFpMY09HNUJJSUF2czlnYVkzU0dpOE1sUkRlamEtaHFpbU16WHZXUWpadWNpXzVyYjhUVVhKSURQVjFuV1VtTVNXbmUxQmthb3pYbm9jdEFjWTRvSUhvOE50UjczSzZ4Tzhib1NCOE54dUhzNFVMel9B?oc=5",
-      "source": "The Times of Israel",
-      "date": "2026-07-29T04:42:00.000Z"
-    },
-    {
-      "title": "LA synagogue sues three anti-Israel groups for disrupting December event",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQT09ocnRmTVkyRENzQzRYc2Zaa1VEcG9uR09UUXVGOWp6a0RlTFUzRjItdFZlalkwaWZPUXM3OEpJX0RnT3Z1Rk5ZS0JOeVg2aFZWallySVEyNFFuc3ZNWEx3d2ZfNzlMOVZvRUl5SEVvb1VKNHVfV0VHUmxrSFNCRmNZM3BvUWVDeHJmNUhZNU12X3RNcm9PWXpYT2toV3Q0LW1rXzRGNDZoQQ?oc=5",
-      "source": "JNS.org",
-      "date": "2026-07-28T07:00:00.000Z"
     },
     {
       "title": "Supervisor moves to set $20,000 reward for arrest of Pasadena Jewish Temple and Center vandals",
@@ -176,12 +116,6 @@
       "place": "Burbank"
     },
     {
-      "title": "Mural at site of Jewish temple that burned in Eaton fire vandalized with swastikas, antisemitic graffiti",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOclcxUnlTRmZ5RmxmM2tTZm5GUUZsR1BSelJON0p1Nmo0NFZFR2dZVWVnWGMtcE1pZnRleUNzN0t2UXZJb0VHUVFZNFgzc2ZGN1h6WmROWkVkTTExa1pDY3hUemFvZXJmb2lnQlptMlNCTkZPR2tpYUc1YjVEdHRNbll5QTdKVU1FRk16em96MTJFb01mOXRTT3dVVzV0c1lZRWhzUGtEa2NUV0xOS2NhU0tBZ09sY00?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-07-26T07:00:00.000Z"
-    },
-    {
       "title": "Tagged Vandalizes Mural at Pasadena Jewish Temple",
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPeWN5Z2tWbUJFNjBLX2dnQTQzbXBzcGNmaUdUZDM1THYtb0tieFVWdkNPSV9fRGpLemVIZWR1akNseGloMW10TUo0Um1wYW9nZ1htbDNBR3k4QVIxZFluemFWTGlFMmJPX1FrRWpwQUsxZjlSZTg0cko0dW5WbkNTcDU5Vi11ZVQwTzdvUUp5eDlpTW5Cc1k1QkNoc01QVUZOcXJISUlhVUxrMTFiclE?oc=5",
       "source": "MyNewsLA.com",
@@ -189,12 +123,6 @@
       "lat": 34.147,
       "lng": -118.14,
       "place": "Pasadena Jewish Temple"
-    },
-    {
-      "title": "Vile antisemitic graffiti defaces site of synagogue destroyed in LA wildfires",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPYXhiVkVDaTFyNzRBb1JvUEJaVFV0bFI2UzcyVjgtN1RTUF9YMUJ5YjJLSkZJYkJQZGRDeWpvQUNVSS16Nk9vN1lzcjVOZGpia18zdTEzdFNDbWRQX052ZXN1bUhpVDF1bTRqM3doeWc4TXFob1BHbWlieFQyTXdsV200WTFtZjNrTlNuajhuaEVCUUxnWmQyc2RtSEdaM2haajRRWTJhOVNVSEdpRDJXNS16QnppN2cyYlRJeGFxQVZkQ0N2ZDNrZmtvbkxiMXhl?oc=5",
-      "source": "nypost.com",
-      "date": "2026-07-25T07:00:00.000Z"
     },
     {
       "title": "Mural at Pasadena synagogue vandalized with antisemitic graffiti",
@@ -224,79 +152,10 @@
       "place": "Pasadena"
     },
     {
-      "title": "Letter from Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNc3hVbXktbDBNYURpWVJ0aXpfNHB6YmNITmlINHJLTzZobUYtVzhsTXFjaHR4UmtYWlRSM3lZQnFOOThkdncyX01jM1NidlNpQ3BISS05UmRCY0Z6NlFsV1RUaGlLeUMyNjl2U1RpRjNvRksySEc2bENYTGhJWXJhYkhn?oc=5",
-      "source": "Jewish Journal",
-      "date": "2026-07-16T05:18:28.000Z"
-    },
-    {
-      "title": "Emails reveal professors bashing Jewish scholar for inviting ‘Zionist’ Bari Weiss to UCLA",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUTRiODNaUHRPRGwyQk9ic1Z2TnZRMG5XSmlxdjJNdUIzdDNxelZiMVNUOHJGVnZ5QUxWeDRDdER4cTVwYVhjdVBScWtHSGdBSDlQQ3hOQnJDSmh1QThSU1RlSzljWWxCWHF0Sy0zcWY3ck50V1lpakpTMFAyTGlmRnM5Z09PSUlmQTNlazlpQ045MFdKOGMwLVZfUURwOW81dTJ6UmJQSERIOFZ6VS1lQmxxQ2tFNS1wN1E?oc=5",
-      "source": "The College Fix",
-      "date": "2026-07-15T07:00:00.000Z"
-    },
-    {
-      "title": "U.K. says an Iran-backed group was behind attacks on Jewish community, bans Revolutionary Guard",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQTnhXUV9EcFczOWRpcXd1alNhSmNpM1IxcFNiMVJySHJKYUdXS2Z3dGxjTmlReWp4Zy1Vc0dNTmNvY0ZmUmc2akNKMXp3SVBRZHBOeUxUMTVtcVJ1M3U5R2ZCMl9EZG5veVVMQ2lhd3JxS19nN2hlZ3I4QlN6WUt2NldGa3pVVVEyQ3FhUDlMOEJGUER6Z3lPWnN6cGtzY2V6QkFkMnhqVEFMdDF2RXFnRHUySVo2RU5jU1lUeGlDWjRZQkFJdmVMTm5OaTZKSUktUlpHektxbjFleFZu?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-07-13T07:00:00.000Z"
-    },
-    {
-      "title": "Macron warns of resurgent ‘demons of antisemitism’ as France honors Alfred Dreyfus",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPaTVDM1JtNHEtUWViVmZ0WllVbWZ1b0tYY29QWW9SR0luSXZJTGgyR3M1dzZVek9UT3dMX1EzNkVmQV9aVVpPd3BoUmUtVlk2Mks1ejVYYXNxSEZjYXJTd2FUQWo1S2ZYeDJoN2FhcTZKY1VFTmF3Z2hfSHozck5yWnExeTVnYXNlRnpDU2tPNDViWkJkekIya1JIWkhfQlNfTEN6MUV2WHdacUtyNEJCNXd1RUJWMHNxc0EyVGN2OTdqUQ?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-07-12T07:00:00.000Z"
-    },
-    {
-      "title": "From Roadmap to Reality: UCLA Must Move Beyond Aspirational Commitments in Combating Antisemitism",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxObzZQRlN3dGpMb3Y1Qkh0bENqbmczbFFfSlVCd2pPZk1Zbl8wWmp2X3MwdjdmNFRvbnh1MmpGYjdlMHJxZjlmZ0RPbzByMWVpcE55NlloQzJuR0ZhS3BhTGt6RlhHeTNKWUtPRUdlbl92cHhEeTc2ZjZOV1BhODVwWGJ4NzNCYkZuWjJ3WjN4T0VxQkFpbDRuQ1ZfdDl3eHNRVlRKeEVWU3FSZDZMenE3V2xCWWxnalBUdkRWQ2I4MHBocUZlU1RKSERXY2V5Y0t4N0ozb3dDeC12Y2hmRERUcnRWOA?oc=5",
-      "source": "Jewish Journal",
-      "date": "2026-07-08T07:00:00.000Z",
-      "lat": 34.0689,
-      "lng": -118.4452,
-      "place": "UCLA"
-    },
-    {
-      "title": "Groups condemn ‘slap on the wrist’ sentence for man who killed Jewish protester near Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMTN2dFd5SkdSejc4RlVNTjQ3eXNoT1VpX01WNVo0WExWd1VsUkh4SDFqTmgwV1NHOW1yYmVGSUVwcm1jaHE3bEhSa1YyWEQ0bVAtX1FNV0NRS1hWNHNiMzA4ZEZlTjZHbktPTHZSR2l1eUxFTGQxVE9aazZzZWpuc3VmM0c1OFZlUDJTQjBtWS1za044d2VONWQtd3FRdGF3UHgxRDlvSl9wX1BJNy1yWGhLdWszOEZRVTNJa3lLRnlKM1hfU3dn?oc=5",
-      "source": "JNS.org",
-      "date": "2026-06-30T07:00:00.000Z"
-    },
-    {
-      "title": "Antisemitism: From New York to LA, a new political scourge",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcXhnRlZfdGZzZlA5ZmdZd1hGQkZnT0UzRVl6emN6LUtLUjFJdl9jNENuRkdOTnRCazlsQk5WTEFxOHFZcWdPLTZQOWNSMDVscFBlV1JPM3ZQa1ZXalZmMjhBQzVyOTN5V1YwUGhlT0k0RE9laVg4c3JXV0UtanE0bUxMaEVOazIzU3F1bWZzaHh5S2VxV3hCbQ?oc=5",
-      "source": "nypost.com",
-      "date": "2026-06-25T07:00:00.000Z"
-    },
-    {
-      "title": "LA rabbi ‘elated’ raisin company heir arrested for antisemitic threat, frustrated ‘took a while’",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdG9qczYzc19HY0lkbkE1LXhwNi1fYzVOQVJVQjRLcDJtX0ctcFBtbG5SVTBWbU1FYkhQeng3amxlSDJRUkFjM0tScWcwV3ItM24zZE1teXN0TTVjSXBKQ2JCeHBpdFZmOTNDb2ZKTG52LVAtMDVqaGJKd3NUd0xVTmhKZThpRFREZjlEczRJX0RCYUMxYXpDWjBiVE9PQ09jQlhkRXU2T3UxOHBrZUlKdmpPblRhRkRuSnU5MjN1OE5KTU0?oc=5",
-      "source": "JNS.org",
-      "date": "2026-06-19T07:00:00.000Z"
-    },
-    {
       "title": "California raisin company heir Bruce Lion of Lion Raisins charged with hate crimes after alleged threats to rabbi in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWHBNdDVWc1VhSGFKM1RvVEd0bk1ObVF2ZTc0bHg1a09zOUViUWpyYzdCWUtOVzJhRWw1UHVSSGF4SVBwNFNDVkR0X2tKc1pKVnRZeWg0ZGxUVWtMUjR4cnVhVTF4cmZvdHlCNUJWSXh0ZDd1MzMyVjgwWkVxcHItd09kSDhkSEJDREw4UmNIa1ZYRmk1Zl81UzJtdkRYX21mQV9DdGNqNVB0M2dsZTMwYmRRQTFrdE81WTk4MVVzc2VaZkppdkHSAcsBQVVfeXFMUGZoVVpkSlhUSkQ1dFk0Q1hxWnVLblB3SUxVR3dNZGNoTEdoSy04WWVHUjNrbE5BNjZOb1RCX3ZneVpzMTRBOW8tMkliMW1xODVwNl8yX3p6YXFPOFl2T2pVWG53amNCUHpHSk1RM1JaRVpZM3lnb1MtZUV6U012V1h2NkRCcEFEVUhDQVJEVnNBMGc1ck1hR3FEQjZBVEdDb0ZsdW5HalAxRDNGX3dUdzZrb0k2aW1FZEhzMDVCNHpBOFdxWUtBN2VpdU0?oc=5",
       "source": "ABC7 Los Angeles",
       "date": "2026-06-18T07:00:00.000Z"
-    },
-    {
-      "title": "Jewish residents in Palisades say neighbor terrorized them; member of Lion Raisins family arrested",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcFJ4OVJBWDNzYXNIblJqV3BKbFMyZDlaMFk2ZF9KNE14VVBnYUFza1lRd18tNG9JQ2RlaDdIR2RBUzFnYkJKR3JPZlJ0aUhiSngwdXFOdmVLOXMwdTNUR292N1pmMm9sNnZyRXlGYm5FeTRxaDQ0U3FIb1JOUm5PQkNhaVdRLXdPQm1nQ21vTk1SazlocEFDZXRXbjVQcmVsV2dldXJ4b1JlMzZwMGM0Ymdib3kzeHFLM2tV?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-06-18T07:00:00.000Z"
-    },
-    {
-      "title": "Fresno raisin company heir arrested after alleged antisemitic rant in Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYS1ONE1SQjBDRkdCcDFwWDZIQXQydnhSaEtzamRWc1RaVmJIX3RXOVBNTGVXQVA5NVd4aU9nQlBzbklvdjc4Q0NpSmRReFB6MWtNdENJTXZkcWkzbGwxVWUxVWY4al8yNjBCcllqTmw3OWpEbk9nNUlvbm5zRnZOYlJKdVVlMjVYeWRRekNKd2pXTElIZkdyVzB4UUpvSnIxRHR1ajhsV2XSAa4BQVVfeXFMUFVfQkdjQnd6WjFBWW5kRUNzQjE3eENvMGdNeGJlWmFtaHhEN3B3dmtNRUdSNVNEclpLUF9zUTJmc25IWWdvTFAtaHhRaDI2c1VrZzlTblI5a1VudlBlbTJYTDg3SHpQenAtdXlLd2RrcFlTRmtTdC1rbVJWRWRQU05ndloxZjhHX3NRb1hER3VjU3BicEU5LWxETlBGX0J4bzc3NWxoM2l6elVwcWZ3?oc=5",
-      "source": "ABC30 Fresno",
-      "date": "2026-06-17T07:00:00.000Z"
-    },
-    {
-      "title": "Footage Shows Security Removing Israeli Flag From World Cup Match in Los Angeles While Palestinian Flags Remain",
-      "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQMGZzVUJuVnhqZV9SMV8ycnd2dmIydFU5RlhVb0lUOGlRV3Y5TUZhM3NDSmczODVZaUxVSnN3WHR0V1c3RklLTXE1YlgyZXNVUy1TY3FvelpiVkNnd3d5ei1HMl9uMlVJeHpXTmFqVFhhZlR2Y05XZlRDbUo1VHJJV0ZUaVd6RVo5WG9lS2M5T2hZOE1CRmpTSkJsRnBNX0NjYl84QnpKcUl1a0hsaTZsdEt1NVhOeC1FVFEySmFXU0I4VnB1RUJtV1NjSHluanY1OEJGdHhxOGZxazhRcFhBblBEdC1tV0U?oc=5",
-      "source": "Combat Antisemitism Movement",
-      "date": "2026-06-17T07:00:00.000Z"
     },
     {
       "title": "Raisin company heir arrested after alleged antisemitic harassment in Pacific Palisades",
@@ -308,31 +167,109 @@
       "place": "Pacific Palisades"
     },
     {
-      "title": "Feds accuse UCLA of refusing to protect Jewish students from antisemitic ‘mob’",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVVI4ajVic2JsX3Q0QVc4SHdSMHgtUDRBMnpXd3BIdC1ibkZWSFM2alRfNVEyNktmVXJ5ME9JMy15QjBuNXh3N3puUi1Rd3ZiRzUwaDFORlRPZzAwc1NQbEptSE96c2tXRDFsNGhXZkZvNDhPenNhbWY2MkRoTUZmakR2V21RSEhOR3UxMmtvd0hkUTI3M0Joek5tbkdSSHN6cWZheDY1UWxoUGN4OEUyaHhmR2kxWGN2?oc=5",
-      "source": "Just The News",
-      "date": "2026-06-05T07:00:00.000Z",
-      "lat": 34.0689,
-      "lng": -118.4452,
-      "place": "UCLA"
-    },
-    {
       "title": "Carlsbad Man Arrested on Federal Indictment Charging Him with Assaulting Jewish Man Near Pico-Robertson Synagogue",
       "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQYmtfc05RNERINEZVLWd5aldvNVdfZVo3MjgyOVl3aHFhM2p0VDZOX0FHLWZGYzFZVTdnR2t6ZnlnNDVyVEZNVzhIMVR2aXJIRXVRRHNPQ0tFMDBHRXFNbHhjOWY3S05VNlhmeHU0dDVraUgyR0Z3M05mWGpRdVpPT3pfeGRkazBWbHVUU05HS01DTWVkQWxpVXZKbTd3NFVEdzJ3eF9nWHBPX3Ewd1lDVFVBUS1DYnZ4RzJJbU1VbWRUTkFZR1lyZDZhYWlWd2Naenl2SmJSc242dEFGbFB6SnB3cElWa2sxREk4N0VkV2d5anNhMzRXdWFXaHNCNlQyTUJucy1WRHJ2WXktWmc?oc=5",
-      "source": "Culver City Observer",
+      "source": "culvercityobserver.com",
       "date": "2026-06-04T07:00:00.000Z",
       "lat": 34.0533,
       "lng": -118.3862,
       "place": "Pico-Robertson"
     },
     {
-      "title": "UCLA sued by Justice Department again over alleged antisemitism",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWkk3WUctRVBER3hZXzRfaGtIMWZia0dSTS1sRnlyaDg2MDdyd2FTVHVjMHJDSXpMVEZvOTJFRlpDek91cFFJTUF1ODdMck9NbVE0VkVmR3FPLTVtWUZFV3J2UGdmd0JmUGJGd0pGdG90UkVURWJpdm9faGs3THhrdkw2a25qQW5UdHdkbmNkWTh1VlRvbGIyWjFPQ3FIdEZKYlE2T9IBqgFBVV95cUxPbWF5R1NkSkJNVTRSdV8tUWJhRjc0WDFJdFF3S3VGOUI4RVI3dTQ0Q05QV3NuRjNQb3kweVNBRWRNc0tfbm0wMkVzU2gtV2tRQTRGOGs3QkU0eEJHejVndnRsNi1OVmNRUlpWR3lpelFOR3VxUGJMWmVLTE4wQ0djSjNLamhrWjZKZmFxb2VLZHlncU1wdDBQdmdyaFpGYUtFSnJzTjVpOE5ZQQ?oc=5",
-      "source": "NewsNation",
-      "date": "2026-06-04T07:00:00.000Z",
+      "title": "Release of L.A. rabbi attack suspect ignites debate over bail after high court ruling",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdm5GMFNhOXlrR2pjZzQ4TlhMV3JZMG40U2MwYzdtcGJVVmg2eVJLWGZOWHBNLXhWRXZPVlJTdzRNVzlUX21YSktvM3JMZ0ZIRFBWZ0dOTHVXV2V2WlNseDhIMXZ2OEwxLVhFdlhUbFprMzlsX3hvWXhNckM1d3VIUVR1cGM3aGItUUUtUGhiam1uUQ?oc=5",
+      "source": "Los Angeles Times",
+      "date": "2026-05-29T07:00:00.000Z"
+    },
+    {
+      "title": "Santa Monica police defends not calling attack on Jews a hate crime",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOLU1ELTFiWXY1ZkxqdjJhX3B2b3N3c2YxSEVQTmFfSlBlVC0yTGU5VnNyM05haEVGYmY2a3g2MnJiVV9ERG9wak11Y0RUT3lBUnhqZW5CUkpnT3BUOUpKV1ZkUXlwTnBUa0RfLW1UVjVqV0lTYVpjU1FmRXRkaHMtdy1fTnJUdlFNa2xxa08zZHgxZDlZNEJtVzE2dENGTXNfQkRr?oc=5",
+      "source": "JNS.org",
+      "date": "2026-05-29T07:00:00.000Z",
+      "lat": 34.0195,
+      "lng": -118.4912,
+      "place": "Santa Monica"
+    },
+    {
+      "title": "Jewish UCLA students beaten with sticks, pepper sprayed and knocked out by anti-Israel campus mob: lawsuit",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFB4WXlPREhSUnpmLVltYktPX0pZXzZ6ZTBQOUhHX2pQSV9KVVVTY2dJc0t0N3N3ZjJxRTFRcVZiTmN3MFpjOFJHTUkza3Y2T0JHR2lOMHRGeGhTaV9iY1dlT1FNdmtPZFl0bnN0V1l0c1dzN0xNLXhXMDczb1Qtc2duMnotOV94SVA0NWtBdUgzMXdsWU9ZS0VmQlZPejExdUw0XzdxRjg3NXZWTXBhR0toMUgxZ9IBuwFBVV95cUxPTlRFRzU4SzF4UG5PdURraW5sR1o1YjJlcU8xbEJqMUpiNFFnaDM3TUZNdEVzQjcwc3VDOVdvYUpPLTBYMG1UYWc0ZFE4dGRLUzhMbWgtTXdMdVlSTHp4S1lzYmRiUXhzakZmVFowRnhvNk9WY0lUYVFWQzgyTks3ekpCc1B5U01pUXc2eU1jOVZYVGFvck1KRjQxclNhTUk2b2NjMDAxUVdNWlluTFNjdGZZYWxMTGVOZHAw?oc=5",
+      "source": "Fox News",
+      "date": "2026-05-27T07:00:00.000Z",
       "lat": 34.0689,
       "lng": -118.4452,
       "place": "UCLA"
+    },
+    {
+      "title": "Jewish couple in Santa Monica attacked by man who shouted ‘genocide’",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSmkxc2VEdlFJeUFVSEdIcE9lWFJlaWc3YlhFeVlrWU1IRVZnS2paNVVDQXBMYjV5V1lKVkhMcF9iVE9LWXlUZ3VZZHJrZkFjQW9SeG0yYmVYOFN1a25lQXBXNjhHdjdCakE1a3g2WEpQNEFIZVlib0dPY3NZTDg5Zm1LNldUenBTc01PRnZqdVJUQ3FPOUlF0gGcAUFVX3lxTE9JSVNQdklHcDZlclhJYml3enY3emFLNUNXNThFbDZMMXlMVUg2TFk4SkRsaHBONXNoUmVwZ213ZmVVMzl5NDlPSnUwUkdyb3hJdERfVEpMb094SXRuUWdCVGhYUlZGTDk0bm5jbGszZUdsTDlhQkh0LTJ4TVN4cEVoNWxsQ0FnZXg2VXB0SFdfZy1TQ2FyUng5UGtldA?oc=5",
+      "source": "KTLA",
+      "date": "2026-05-27T07:00:00.000Z",
+      "lat": 34.0195,
+      "lng": -118.4912,
+      "place": "Santa Monica"
+    },
+    {
+      "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTRpQk4zWXJhbHZfNWdQd1NCTGNsMDNjdmhRTlJzdkJWUF9NSnBuZ1BlZnpOUl9YVGYwS2hUV2h3emNYMDNhZDFwTjBwc19uai1ZNVpLeVo3U0doLWxFdXpXUjlFdVczdUdYRG1yS0hCcTlxNlhXN0M1UUhNNVZVOUpId3VMVS1UUUwwQ0NfdFJ0OWNlRm5FdEZTdjZXRllmQTdYNXdZQllibzlOM1JjdUN30gG3AUFVX3lxTE5hVnpqelJqYzk0WnlyUUxUbDJHYWFEWmhtN1pMZ044c1Rzc2JaM0RhN1NEdUtxSEx5ZXM1M1FnOWV5bE45OGFmV3h6OS0yRzR2LWFlQUNxcjdTUjRyaXpGMWEyRzI0OTJzaTZ2STVXOXVlWURCczhvd21COTV5aW9CNTJEbHNzbGlsc0xPbFoycXUybld4NHV3aHlmSzlibGE2UWJfSWRTOWZkNUFSSnFLaGFSd0h4QQ?oc=5",
+      "source": "KTLA",
+      "date": "2026-05-26T07:00:00.000Z"
+    },
+    {
+      "title": "Man Charged With Felony Hate Crime for Attack Outside Pico-Robertson Synagogue",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZEwwbWdnT0RKM0xTVTRTS2xBckV6SEdvNVNqNGRKTnhfb19yRkJvbDdObkxZbVNoLU9NTHB6NDk5S3dqeXZoMjFKNVhUcm9BWkJJZDlFNFgzNklVd2pKclFqMFJWVlo4S21IUFJLUzB0ZV9xdGZhcUY5c3Zncmd6dW94ZGZkRkFQcXJaWlVyQVhQZkVZYzBfZW9yci1IMTN1MUxYY1R1OTlxZjR5UDhKbg?oc=5",
+      "source": "COUNTY OF LOS ANGELES (.gov)",
+      "date": "2026-05-26T07:00:00.000Z",
+      "lat": 34.0533,
+      "lng": -118.3862,
+      "place": "Pico-Robertson"
+    },
+    {
+      "title": "University of California sued by Justice Department for \"antisemitic\" environment on UCLA campus in aftermath of Oct. 7, 2023 attack, prosecutors say",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQzhFSGxCaUdFS0VOLU9PdGNXR01janpydExjSE12eG1LcWFZMW5FQi1iUUN6WGVJT0FhZ2l0UlFCMTN6V056d2drN05YSVJBUFZTclVJRFZoNjZvQWF0TDNScWlwVkRHTkFUMmxQb1lLbjZ5ZUhrYWlCME5mZF9MajFjSU1VQlYyWXIwbExfU1d1V18xNDcxbNIBngFBVV95cUxNWm5rZWtSM1VFOHFHbURqNjVYNnlERk5oWDk0ck0zWFZNbE9aYnEzaFd5dndxbDJ3UWVqQ3RuUG43Mm9CV3NkeU1DaEFEVkZWcm93dEg2SnNDemZGS0g5SzBYODh5elp1UzJwVnFWUzhsTHQxSVFTUEZONS1nRElVZ3hUc3J6ejQwLUNza2xZalBpMDB5dWRqZV9HMDQwZw?oc=5",
+      "source": "CBS News",
+      "date": "2026-05-26T07:00:00.000Z",
+      "lat": 34.0689,
+      "lng": -118.4452,
+      "place": "UCLA"
+    },
+    {
+      "title": "28-year-old arrested, charged with hate crime for alleged assault of Jewish man near L.A. synagogue",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSWt6MzlHVUEzaGo3clVreVdXWENRWmM1QXBiYmRMYVJqVzZwbE5kT3VBaGtoV1prdjNmV0hIS3dEX0RybVM5dFc3TlVGQ3BTY2Z1ZVVpMnZncTFQMWd6cDY1d0M4WUpNaEdkNXFRVU5jdTdvUW5tc3ZLYWM3MEJCaWw1SGZ2UHU0aTRBQ0UzTW56dm1NancyM00yRWtaUXgwTkZOWExpMzQzZXc4ajc5cE5nVWpRR0XSAbwBQVVfeXFMT2FnazEzd0tWbGVLMG9qQ3cwSE1DeFhaeFFOb04yWDFLd3B1eEtoN1VpS083QS1HWnEySFJfSGdLV05BWElhVjBjN1I3dUJ5c3BPcmZPQkxNVjNYRHRab0ZWOTEzNWl4ZmJ0MXEtQnBDWk1mclZIa0d6Wm1uY3ZkUjlnZkVvbzJuZTRWZ19sNDcwY2dOS2g3UktzODRQOWwxNjY3VWVINllKaktQWHpkanVab2VBNWl3M3VTT1c?oc=5",
+      "source": "KTLA",
+      "date": "2026-05-18T07:00:00.000Z"
+    },
+    {
+      "title": "UCLA task force urges stronger policies against antisemitic harassment on campus",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPT0ZXbHJpbFZMOE1EV1N2OEZNZDRMYmdoa2VtOWoyOVowT1lQeFNTWHA4d0psQXVBb3hnS1N6Z1BZdUttaGlZb3NFQ082ellOcElIV2lKbHhHVUZDY0o5TTNuZEZRR2ZJdU9pM0tYVVh5WHJfVkU3elNKUzhkMUpOeEROcWhfQnZwUFJMaDdrUVF4bUg5NEYxV2JSdzZGOWZjeHNpVQ?oc=5",
+      "source": "Jewish Insider",
+      "date": "2026-05-14T07:00:00.000Z",
+      "lat": 34.0689,
+      "lng": -118.4452,
+      "place": "UCLA"
+    },
+    {
+      "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNenRyM19zQjVnX1B0eW54MTQxNkNHNVlKMV9OTmdIQk5Gd0xCTlk3elVCdkQ2SjBMcE5WQXIzWFdGcWxtd2FiVkxsZGUzNWp5RDBVWW4zS2VKNllzN0tqV09wQ1JRdXcxRXZIbno0VHFqSl9fT0JycHJXTHhBMklCbjZOeGF0ejlnZk9TMW9icEN0b2V2N0hTbWxzSmZxYVZRaVJSMGZjclJuMzBGcjhTWTlZS0V0dEwwbHc?oc=5",
+      "source": "The Forward",
+      "date": "2026-04-30T07:00:00.000Z"
+    },
+    {
+      "title": "Jewish man attacked near Pico-Robertson synagogue recounts alleged hate crime",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPY2xpUWwtVnh0aldTdFFJVFBuM0tFcDkzRjlSeURfbkVRV3VNbHNnb1BmLWVvR09IUVFxVmhNc25IOUpRWFlNTFVVVGliSTlzemJVb2RGVXczMlQwRnExeWM3Vndzc3ktbmFRdURWcF9IUjE3T2h1OW1GcXh1TzlTUXNmMDNBc2VpWUlJMlhmT0JBRWxJdEVRQkpfTFg5dWx3Y1BDbjRIcknSAbABQVVfeXFMTjlRdnRGZERyMHZ0TU03TGttVVY4MnU2bE9YRVlPbnZPazN6cVRDY1BzUFpQZWRUa3NZZ0I0Y1NvSEh6RXlqZklHb1FmSm1acExNUnp1MFV6X2d0ZVB3MGhRWWczb0VzNHlHTEp3NVlPYmNCbGxicnFvSkVjc3dSbU1NWW85bUJQNVRLWE5TZy1yaUtMTl9ZUDhaM2tEYWtzbzUtdWJFTklLVFNnU3JVckM?oc=5",
+      "source": "NBC Los Angeles",
+      "date": "2026-04-29T07:00:00.000Z",
+      "lat": 34.0533,
+      "lng": -118.3862,
+      "place": "Pico-Robertson"
+    },
+    {
+      "title": "VIDEO: Anti-Semetic Assault Reported Near Adas Torah Synagogue in Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNcFpCajZHRFdod3pmU0Zmcm8zaTBNMlVzU1cxQllNSnFfb3BKWmtuWm5TaUZxbS1vdWtCYXpDNnlCUDFvcW5nd1pJVkdSR2FwVVp0TC0zSGFKeUNzVHBtWG5pTzZteWN3ZGJ1UkVmQV9VcUlLZjc2eGhfYXotTGVrdVh1RW10RTRCNFo1OHpVTHFnVDA?oc=5",
+      "source": "VINnews",
+      "date": "2026-04-28T07:00:00.000Z",
+      "lat": 34.051,
+      "lng": -118.39,
+      "place": "Adas Torah"
     }
   ]
 }
