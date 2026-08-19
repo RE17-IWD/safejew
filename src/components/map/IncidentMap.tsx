@@ -12,6 +12,7 @@ import type {
   CommunitySpaceType,
 } from '@/types';
 import { SOURCED_INCIDENTS } from '@/data/sourced-incidents';
+import { ADL_INCIDENTS } from '@/data/adl-incidents';
 import newsFeed from '@/data/news.json';
 import FilterPanel from './FilterPanel';
 
@@ -463,7 +464,7 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
 
 export default function IncidentMap() {
   // Incident state — start empty in live mode so demo pins never flash before real data
-  const [incidents] = useState<Incident[]>(SOURCED_INCIDENTS);
+  const [incidents] = useState<Incident[]>(() => [...SOURCED_INCIDENTS, ...ADL_INCIDENTS]);
   const [filters, setFilters] = useState<IncidentFilters>(DEFAULT_FILTERS);
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
   const [showHeatmap, setShowHeatmap] = useState(false);
@@ -625,24 +626,7 @@ export default function IncidentMap() {
                 color="white"
                 weight={1.5}
                 eventHandlers={{ click: () => handleIncidentClick(incident) }}
-              >
-                <Popup>
-                  <div className="font-sans text-xs">
-                    <p className="font-semibold text-gray-900 mb-0.5">{incident.neighborhood}</p>
-                    <p className="text-gray-600">{CATEGORY_LABELS[incident.category]}</p>
-                    {incident.source_url && (
-                      <a
-                        href={incident.source_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-navy-700 underline mt-1 inline-block"
-                      >
-                        {incident.source_name ?? 'Source'} ↗
-                      </a>
-                    )}
-                  </div>
-                </Popup>
-              </CircleMarker>
+              />
             );
           })}
 
