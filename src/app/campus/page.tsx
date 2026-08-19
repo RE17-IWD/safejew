@@ -337,6 +337,9 @@ export default function CampusPage() {
   const [incidentsLoading, setIncidentsLoading] = useState(false);
 
   const campus = selectedId ? (CAMPUSES.find((c) => c.id === selectedId) ?? null) : null;
+  // The incident map + community-spaces layer only cover Greater LA.
+  const campusInLA =
+    !!campus && campus.lat >= 33.55 && campus.lat <= 34.45 && campus.lng >= -119.0 && campus.lng <= -117.5;
 
   useEffect(() => {
     document.title = campus
@@ -573,16 +576,26 @@ export default function CampusPage() {
                 <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
                   Nearby Synagogues &amp; Jewish Institutions
                 </p>
-                <p className="font-sans text-sm text-gray-700 leading-relaxed">
-                  Use the community spaces layer on the main map to find publicly listed
-                  synagogues, JCCs, and Jewish student centers near any location.
-                </p>
-                <Link
-                  href="/map"
-                  className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline"
-                >
-                  See all community spaces on the map
-                </Link>
+                {campusInLA ? (
+                  <>
+                    <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                      Use the community spaces layer on the main map to find publicly listed
+                      synagogues, JCCs, and Jewish student centers near {campus.name}.
+                    </p>
+                    <Link
+                      href="/map"
+                      className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline"
+                    >
+                      See all community spaces on the map
+                    </Link>
+                  </>
+                ) : (
+                  <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                    SafeJew&apos;s live incident map and community-spaces layer currently cover Greater Los
+                    Angeles, so they don&apos;t extend to {campus.city}, {campus.state} yet. For Jewish life at{' '}
+                    {campus.name}, see the campus Hillel and Chabad listed above.
+                  </p>
+                )}
               </div>
             </div>
 
