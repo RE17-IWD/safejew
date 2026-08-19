@@ -1,9 +1,10 @@
 import type { Incident } from '@/types';
 
 /**
- * 109 real, individually-sourced antisemitic incidents across Greater Los Angeles.
- * Each links to a verified source (shown in the map popup). Placed on the map by the
- * geocoding algorithm in scripts/geo-la.mjs from each incident's stated location.
+ * 90 real, individually-sourced antisemitic incidents (2020 onward) across
+ * Greater Los Angeles. Each links to a verified source (shown in the map popup).
+ * Coordinates are approximate, neighborhood/site level. Overlapping points are spread
+ * apart at render time in IncidentMap so each stays individually clickable.
  */
 export const SOURCED_INCIDENTS: Incident[] = [
   {
@@ -41,7 +42,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
   {
     id: 'src-005', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2026-02-16T12:00:00Z', created_at: '2026-02-16T12:00:00Z',
-    neighborhood: 'Burbank', lat: 34.1808, lng: -118.309,
+    neighborhood: 'Burbank', lat: 34.1899, lng: -118.32,
     description:
       'Two large swastikas were painted on the exterior wall of Temple Emanu El on the 1300 block of North Glenoaks Boulevard in Burbank. A 17-year-old, also linked to neo-Nazi recruitment materials posted at Los Angeles Mission College, was arrested on suspicion of felony vandalism and hate-motivated graffiti.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/burbank-temple-emanu-el-swastikas-vandalism-arrest/',
@@ -57,7 +58,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
   {
     id: 'src-007', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2026-01-12T12:00:00Z', created_at: '2026-01-12T12:00:00Z',
-    neighborhood: 'Pasadena', lat: 34.1478, lng: -118.1445,
+    neighborhood: 'Pasadena', lat: 34.1637, lng: -118.0977,
     description:
       'The vacant lot where the Pasadena Jewish Temple and Center stood, after being destroyed in the Eaton Fire, was spray-painted with an expletive and the word \'Zionism\' on an outer wall. A $10,000 reward was offered for information.',
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/pasadena-jewish-temple-burned-in-eaton-fire-vandalized-with-antisemitic-graffiti/',
@@ -81,7 +82,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
   {
     id: 'src-010', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-09-28T12:00:00Z', created_at: '2025-09-28T12:00:00Z',
-    neighborhood: 'Glendale (Adams Hill)', lat: 34.1425, lng: -118.2551,
+    neighborhood: 'Glendale (Adams Hill)', lat: 34.14, lng: -118.256,
     description:
       'Multiple swastikas were drawn in chalk on private and public property in Glendale\'s Adams Hill neighborhood, along with the number \'1488\' and the phrase \'Jews control gov,\' including a swastika on a fire hydrant on East Palmer Avenue. Glendale police investigated it as a suspected hate crime.',
     source_name: 'FOX 11 Los Angeles', source_url: 'https://www.foxla.com/news/antisemitic-hate-symbols-found-glendale',
@@ -95,15 +96,23 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'ABC7 Los Angeles', source_url: 'https://www.aol.com/security-cameras-capture-man-drawing-185008239.html',
   },
   {
-    id: 'src-012', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-012', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2025-09-22T12:00:00Z', created_at: '2025-09-22T12:00:00Z',
+    neighborhood: 'Beverly Hills', lat: 34.0808, lng: -118.4155,
+    description:
+      'A man was captured on surveillance video drawing a swastika on the sidewalk outside El Rodeo Elementary School in Beverly Hills, discovered the day Rosh Hashanah began. Police launched an investigation and the graffiti was removed.',
+    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/beverly-hills-police-investigate-swastika-rodeo-elementary-school/',
+  },
+  {
+    id: 'src-013', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-09-20T12:00:00Z', created_at: '2025-09-20T12:00:00Z',
-    neighborhood: 'Long Beach', lat: 33.7701, lng: -118.1937,
+    neighborhood: 'Long Beach', lat: 33.771, lng: -118.165,
     description:
       'A utility box outside the Long Beach Pride headquarters was spray-painted with a swastika alongside anti-LGBTQ graffiti. Long Beach police opened an investigation and the city\'s graffiti-removal team cleaned the vandalism.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/amp/losangeles/news/long-beach-pride-anti-lgbtq-antisemitic-graffiti',
   },
   {
-    id: 'src-013', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-014', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-31T12:00:00Z', created_at: '2025-08-31T12:00:00Z',
     neighborhood: 'Encino', lat: 34.1591, lng: -118.5012,
     description:
@@ -111,15 +120,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/antisemitic-messages-spray-painted-encino-park-is-latest-case-hate-speech-spotted-socal/17699298/',
   },
   {
-    id: 'src-014', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-015', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-31T12:00:00Z', created_at: '2025-08-31T12:00:00Z',
-    neighborhood: 'Santa Monica', lat: 34.0195, lng: -118.4912,
+    neighborhood: 'Santa Monica', lat: 34.0087, lng: -118.4977,
     description:
       'A 24-year-old Israeli visitor was surrounded and physically assaulted by a group at the Santa Monica Pier after being overheard speaking Hebrew; his Star of David necklace was torn off. Santa Monica police are investigating the attack as a hate crime.',
     source_name: 'Santa Monica Daily Press', source_url: 'https://smdp.com/news/crime/pier-assault-on-israeli-tourist-being-probed-as-hate-crime/',
   },
   {
-    id: 'src-015', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-016', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-30T12:00:00Z', created_at: '2025-08-30T12:00:00Z',
     neighborhood: 'Encino', lat: 34.1591, lng: -118.5012,
     description:
@@ -127,7 +136,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/encino-jewish-business-antisemitic-graffiti/',
   },
   {
-    id: 'src-016', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-017', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-30T12:00:00Z', created_at: '2025-08-30T12:00:00Z',
     neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
     description:
@@ -135,15 +144,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Canyon News', source_url: 'https://www.canyon-news.com/montes-gutierrez-arrested-for-multiple-vandalism-hate-crimes/',
   },
   {
-    id: 'src-017', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-018', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-29T12:00:00Z', created_at: '2025-08-29T12:00:00Z',
-    neighborhood: 'Encino', lat: 34.1591, lng: -118.5012,
+    neighborhood: 'Encino', lat: 34.155, lng: -118.489,
     description:
       'A suspect spray-painted a yellow swastika on the glass door of Mitzvahland, a Jewish religious-supply store on Ventura Boulevard in Encino, during Shabbat; the act was captured on surveillance video. LAPD investigated it as a hate crime amid a series of Encino-area antisemitic vandalism.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/encino-jewish-business-antisemitic-graffiti',
   },
   {
-    id: 'src-018', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-019', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-24T12:00:00Z', created_at: '2025-08-24T12:00:00Z',
     neighborhood: 'Camarillo', lat: 34.2233, lng: -119.0398,
     description:
@@ -151,7 +160,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'KEYT News Channel 3', source_url: 'https://keyt.com/news/ventura-county/2025/08/26/camarillo-police-investigating-racial-slurs-and-hate-symbol-spray-painted-at-community-center-park/',
   },
   {
-    id: 'src-019', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-020', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-16T12:00:00Z', created_at: '2025-08-16T12:00:00Z',
     neighborhood: 'Tarzana', lat: 34.1728, lng: -118.5537,
     description:
@@ -159,7 +168,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/wilbur-charter-elementary-tarzana-graffiti-antisemitic-swasitkas',
   },
   {
-    id: 'src-020', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-021', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-08-10T12:00:00Z', created_at: '2025-08-10T12:00:00Z',
     neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
     description:
@@ -167,7 +176,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/israeli-american-council-la-headquarters-vandalized-with-nazi-symbols/',
   },
   {
-    id: 'src-021', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-022', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-07-26T12:00:00Z', created_at: '2025-07-26T12:00:00Z',
     neighborhood: 'West Hollywood', lat: 34.09, lng: -118.3617,
     description:
@@ -175,31 +184,39 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Beverly Press', source_url: 'https://beverlypress.com/2025/07/weho-condemns-antisemitic-signage/',
   },
   {
-    id: 'src-022', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-023', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-03-23T12:00:00Z', created_at: '2025-03-23T12:00:00Z',
-    neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
+    neighborhood: 'Fairfax District', lat: 34.0821, lng: -118.3714,
     description:
       'A swastika was painted on the side of an under-construction building at Melrose and Laurel avenues, near the Fairfax Jewish community. LAPD\'s Wilshire Division classified it as a hate incident and investigated.',
     source_name: 'Beverly Press', source_url: 'https://beverlypress.com/2025/03/swastika-found-on-melrose-building/',
   },
   {
-    id: 'src-023', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-024', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2025-01-24T12:00:00Z', created_at: '2025-01-24T12:00:00Z',
-    neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
+    neighborhood: 'Fairfax District', lat: 34.0745, lng: -118.3593,
     description:
       'Antisemitic graffiti mocking the six million Jews murdered in the Holocaust was scrawled on a sidewalk in Pan Pacific Park, adjacent to Holocaust Museum LA. LAPD opened a hate-speech and vandalism investigation.',
     source_name: 'TMZ', source_url: 'https://www.tmz.com/2025/01/24/antisemitic-graffiti-near-los-angeles-holocaust-museum-pan-pacific-park/',
   },
   {
-    id: 'src-024', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-025', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-11-05T12:00:00Z', created_at: '2024-11-05T12:00:00Z',
-    neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3862,
+    neighborhood: 'Pico-Robertson', lat: 34.0537, lng: -118.384,
     description:
       'Six Jewish-owned businesses on the 8700 block of Pico Boulevard, including the Got Kosher? bakery and Glatt Mart, had windows broken and were tagged with graffiti, with police reporting possible bullet holes. The LAPD investigated the incidents as hate crimes.',
     source_name: 'Patch (Los Angeles)', source_url: 'https://patch.com/california/los-angeles/jewish-businesses-targeted-hate-crimes-lapd',
   },
   {
-    id: 'src-025', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-026', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2024-11-05T12:00:00Z', created_at: '2024-11-05T12:00:00Z',
+    neighborhood: 'Pico-Robertson', lat: 34.0523, lng: -118.3849,
+    description:
+      'Six to seven mostly Jewish-owned businesses along Pico Boulevard, including Got Kosher? Bakery, had storefront windows smashed and were graffitied over consecutive nights; one was burglarized. LAPD investigated the spree as a hate crime after an owner said someone was \'systematically targeting our type of businesses.\'',
+    source_name: 'Yahoo News / City News Service', source_url: 'https://www.yahoo.com/news/possible-hate-crime-investigated-vandalism-232302532.html',
+  },
+  {
+    id: 'src-027', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-10-14T12:00:00Z', created_at: '2024-10-14T12:00:00Z',
     neighborhood: 'Thousand Oaks', lat: 34.1706, lng: -118.8376,
     description:
@@ -207,7 +224,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Thousand Oaks Acorn', source_url: 'https://www.toacorn.com/articles/two18-year-olds-nabbed-on-suspicion-of-antisemitic-graffiti-in-t-o/',
   },
   {
-    id: 'src-026', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-028', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-07-25T12:00:00Z', created_at: '2024-07-25T12:00:00Z',
     neighborhood: 'Hollywood', lat: 34.0928, lng: -118.3287,
     description:
@@ -215,7 +232,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'The Forward', source_url: 'https://forward.com/fast-forward/639012/a-new-synagogues-rite-of-passage-in-2024-shattered-glass/',
   },
   {
-    id: 'src-027', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-029', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2024-07-25T12:00:00Z', created_at: '2024-07-25T12:00:00Z',
+    neighborhood: 'Hollywood', lat: 34.0983, lng: -118.3437,
+    description:
+      'Two men were captured on security footage using hammers to smash multiple windows at Kahal Ahavas Yisroel synagogue in Hollywood, the second such attack in two weeks. Police investigated the incidents as potential hate crimes.',
+    source_name: 'JNS', source_url: 'https://www.jns.org/smashed-windows-at-hollywood-shul-second-incident-in-as-many-weeks/',
+  },
+  {
+    id: 'src-030', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-06-23T12:00:00Z', created_at: '2024-06-23T12:00:00Z',
     neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3862,
     description:
@@ -223,55 +248,71 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/violent-clashes-erupt-between-pro-and-anti-israel-protesters-outside-la-synagogue/',
   },
   {
-    id: 'src-028', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-031', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2024-06-23T12:00:00Z', created_at: '2024-06-23T12:00:00Z',
+    neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3862,
+    description:
+      'Zaid Gitesatani, 28, of Carlsbad punched a Jewish man in the jaw as he walked his dog near Adas Torah synagogue during the June 23, 2024 protest, then posted about it on Instagram (\'Whooped the Zios today\'). He was federally charged with a hate crime.',
+    source_name: '10News (ABC San Diego)', source_url: 'https://www.10news.com/news/local-news/carlsbad-man-charged-with-hate-crime-for-alleged-assault-on-jewish-man-in-los-angeles',
+  },
+  {
+    id: 'src-032', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2024-06-23T12:00:00Z', created_at: '2024-06-23T12:00:00Z',
+    neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3907,
+    description:
+      'Pro-Palestinian protesters and counter-protesters clashed violently outside Adas Torah synagogue on Pico Boulevard, with punches thrown and congregants reporting being maced; protesters blocked entry to the synagogue. Two batteries were reported and one person was arrested with a spiked flag.',
+    source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/clashes-break-involving-pro-palestinians-protesters-front-synagogue/14993656/',
+  },
+  {
+    id: 'src-033', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-06-04T12:00:00Z', created_at: '2024-06-04T12:00:00Z',
-    neighborhood: 'University Park (USC)', lat: 34.0224, lng: -118.2851,
+    neighborhood: 'University Park (USC)', lat: 34.025, lng: -118.287,
     description:
       'Four people on bicycles approached the USC Chabad House on Severance Street; two smashed the glass front door before fleeing, in an incident captured on surveillance video. A report was filed and the LAPD did not classify it as a hate crime.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/usc-chabad-house-vandalized-overnight-incident-caught-video/14914052/',
   },
   {
-    id: 'src-029', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-034', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-05-13T12:00:00Z', created_at: '2024-05-13T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.0668, lng: -118.3789,
     description:
       '\'GAZA\' was spray-painted on the Saban Theatre on Wilshire Boulevard and a nearby parking garage on Olympic Boulevard shortly after a large Yom Hazikaron (Israeli Memorial Day) event. Beverly Hills police investigated; a hate-crime determination was left open.',
     source_name: 'Beverly Press', source_url: 'https://beverlypress.com/2024/05/bhpd-investigates-antisemitic-vandalism/',
   },
   {
-    id: 'src-030', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-035', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-05-01T12:00:00Z', created_at: '2024-05-01T12:00:00Z',
-    neighborhood: 'Westwood', lat: 34.0636, lng: -118.4455,
+    neighborhood: 'Westwood', lat: 34.0689, lng: -118.4452,
     description:
       'During the spring 2024 pro-Palestinian encampment at UCLA, Jewish and Israeli students were physically assaulted and blocked from parts of campus; one student was knocked unconscious with an open head wound. The DOJ and a $6.13M settlement found UCLA deliberately indifferent to the hostile environment.',
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/uc-sued-justice-department-ucla-palestinian-protests/',
   },
   {
-    id: 'src-031', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-036', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-04-30T12:00:00Z', created_at: '2024-04-30T12:00:00Z',
-    neighborhood: 'Westwood', lat: 34.0636, lng: -118.4455,
+    neighborhood: 'Westwood', lat: 34.0722, lng: -118.4421,
     description:
       'Jewish and Israeli students at UCLA\'s Royce Quad in Westwood were beaten with sticks, pepper-sprayed, and physically blocked from parts of campus by masked demonstrators during the pro-Palestinian encampment; one student was hospitalized. The incidents are cited in a federal lawsuit against the university.',
     source_name: 'Fox News', source_url: 'https://www.foxnews.com/us/jewish-ucla-students-beaten-sticks-pepper-sprayed-knocked-anti-israel-campus-mob-lawsuit',
   },
   {
-    id: 'src-032', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-037', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-04-30T12:00:00Z', created_at: '2024-04-30T12:00:00Z',
-    neighborhood: 'University Park', lat: 34.0224, lng: -118.2851,
+    neighborhood: 'University Park', lat: 34.0189, lng: -118.2851,
     description:
       'A swastika was drawn on a fencepost near Exposition Boulevard on USC\'s campus. USC President Carol Folt condemned it as a deplorable hate symbol and the graffiti was removed.',
     source_name: 'Annenberg Media', source_url: 'https://www.uscannenbergmedia.com/2024/04/30/folt-condemns-swastika-vandalism-at-usc/',
   },
   {
-    id: 'src-033', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-038', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-04-16T12:00:00Z', created_at: '2024-04-16T12:00:00Z',
-    neighborhood: 'Downtown Los Angeles', lat: 34.0407, lng: -118.2468,
+    neighborhood: 'Downtown Los Angeles', lat: 34.043, lng: -118.2686,
     description:
       'Attendees at an April 16 event organized by the Jewish Law Students Association at Loyola Law School (LMU) were subjected to antisemitic insults. The U.S. Department of Education later opened an investigation into religious discrimination and harassment.',
     source_name: 'JNS', source_url: 'https://www.jns.org/ed-department-looks-into-religious-discrimination-racial-harassment-at-loyola-law-school/',
   },
   {
-    id: 'src-034', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-039', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-04-05T12:00:00Z', created_at: '2024-04-05T12:00:00Z',
     neighborhood: 'Santa Monica', lat: 34.0195, lng: -118.4912,
     description:
@@ -279,31 +320,31 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'City of Santa Monica', source_url: 'https://www.santamonica.gov/press/2024/04/07/santa-monica-police-department-investigating-anti-semitic-graffiti',
   },
   {
-    id: 'src-035', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-040', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-04-05T12:00:00Z', created_at: '2024-04-05T12:00:00Z',
-    neighborhood: 'Long Beach (Los Cerritos)', lat: 33.7701, lng: -118.1937,
+    neighborhood: 'Long Beach (Los Cerritos)', lat: 33.8183, lng: -118.1866,
     description:
       'A sidewalk in the Los Cerritos neighborhood of Long Beach was spray-painted with antisemitic graffiti, which police investigated as a possible hate-motivated crime. City officials cited it amid a rise in racist and antisemitic tagging, including swastikas, across the city.',
     source_name: 'Long Beach Post', source_url: 'https://lbpost.com/news/racist-antisemitic-graffiti-prompts-warnings-about-a-rise-in-hate-incidents-across-long-beach/',
   },
   {
-    id: 'src-036', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-041', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-02-27T12:00:00Z', created_at: '2024-02-27T12:00:00Z',
-    neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
+    neighborhood: 'Woodland Hills', lat: 34.1748, lng: -118.6355,
     description:
       'A Jewish student at El Camino Real Charter High School said a classmate called her a \'dirty Jew\' and then pushed and punched her, one of several antisemitic incidents that prompted a student walkout. The victim\'s family said the school took minimal disciplinary action.',
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/students-stage-walkout-at-el-camino-high-school-over-alleged-antisemitism-on-campus/',
   },
   {
-    id: 'src-037', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-042', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-01-06T12:00:00Z', created_at: '2024-01-06T12:00:00Z',
-    neighborhood: 'Canoga Park', lat: 34.201, lng: -118.598,
+    neighborhood: 'Canoga Park', lat: 34.2011, lng: -118.5983,
     description:
       'A suspect threw rocks through the windows of roughly 15 businesses in Canoga Park and Woodland Hills over several days, some rocks bearing painted words such as \'Pay Up\' and \'Glory\'; several targeted businesses were Jewish-owned with visible religious symbols. Edelidio David Wallace, 64, was arrested for felony vandalism.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/canoga-park-businesses-vandalized-investigation/14302464/',
   },
   {
-    id: 'src-038', category: 'online_threat', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-043', category: 'online_threat', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2024-01-02T12:00:00Z', created_at: '2024-01-02T12:00:00Z',
     neighborhood: 'Hollywood', lat: 34.1016, lng: -118.3376,
     description:
@@ -311,7 +352,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/366887/nearly-100-jewish-sites-across-california-receive-bomb-threats-law-enforcement-deem-threats-hoax/',
   },
   {
-    id: 'src-039', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-044', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-12-14T12:00:00Z', created_at: '2023-12-14T12:00:00Z',
     neighborhood: 'Santa Monica', lat: 34.0195, lng: -118.4912,
     description:
@@ -319,7 +360,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/8-foot-tall-menorah-vandalized-in-santa-monica/',
   },
   {
-    id: 'src-040', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-045', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-12-09T12:00:00Z', created_at: '2023-12-09T12:00:00Z',
     neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
     description:
@@ -327,7 +368,23 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'ABC News', source_url: 'https://abcnews.com/US/beverly-hills-police-arrest-man-alleged-hate-crime/story?id=105542162',
   },
   {
-    id: 'src-041', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-046', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2023-12-09T12:00:00Z', created_at: '2023-12-09T12:00:00Z',
+    neighborhood: 'Beverly Hills', lat: 34.07, lng: -118.4004,
+    description:
+      'A man struck an elderly Jewish man on the head with a belt while making antisemitic statements near North Rexford Drive and North Santa Monica Boulevard. Jarris Jay Silagi, 44, was arrested and charged with assault with a deadly weapon, a hate crime and elder abuse.',
+    source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/beverly-hills-police-arrest-man-for-alleged-hate-crime-assault-wit/14165776/',
+  },
+  {
+    id: 'src-047', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2023-12-09T12:00:00Z', created_at: '2023-12-09T12:00:00Z',
+    neighborhood: 'Beverly Hills', lat: 34.0696, lng: -118.4004,
+    description:
+      'Raphael Nissel, a 75-year-old Orthodox Jewish man walking to synagogue on Shabbat, was struck on the head with a belt buckle by an attacker who demanded his jewelry and called him \'Jew,\' leaving a deep laceration. The suspect was charged with a hate crime.',
+    source_name: 'Jewish Telegraphic Agency', source_url: 'https://www.jta.org/2023/12/11/united-states/man-charged-with-hate-crime-in-alleged-robbery-and-assault-on-jews-in-beverly-hills-on-shabbat',
+  },
+  {
+    id: 'src-048', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-12-01T12:00:00Z', created_at: '2023-12-01T12:00:00Z',
     neighborhood: 'Burbank', lat: 34.1808, lng: -118.309,
     description:
@@ -335,39 +392,39 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Los Angeles County District Attorney', source_url: 'https://da.lacounty.gov/about/inside-LADA/district-attorney-gasc-n-announces-charges-against-two-men-two-anti-semitic',
   },
   {
-    id: 'src-042', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-049', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-11-25T12:00:00Z', created_at: '2023-11-25T12:00:00Z',
-    neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3862,
+    neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3866,
     description:
       'B\'nai David-Judea, an Orthodox synagogue, was defaced over Thanksgiving weekend with anti-Israel graffiti reading \'Israel bombs, we pay.\' It was one of several U.S. synagogues hit with similar graffiti weeks into the Israel-Hamas war.',
     source_name: 'The Forward', source_url: 'https://forward.com/fast-forward/571378/multiple-us-synagogues-hit-with-anti-israel-antisemitic-graffiti-7-weeks-into-israel-hamas-war/',
   },
   {
-    id: 'src-043', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-050', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-11-24T12:00:00Z', created_at: '2023-11-24T12:00:00Z',
-    neighborhood: 'Burbank', lat: 34.1808, lng: -118.309,
+    neighborhood: 'Burbank', lat: 34.1878, lng: -118.3235,
     description:
       'Temple Emanu El near N. Glenoaks Boulevard and Amherst Drive, along with a nearby apartment complex, was spray-painted with swastikas, an iron cross and an \'SS\' Nazi symbol. Burbank police sought a named transient suspect and investigated the vandalism as antisemitic.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/burbank-police-search-for-suspect-that-spray-painted-swastikas-on-synagogue/',
   },
   {
-    id: 'src-044', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-051', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-11-09T12:00:00Z', created_at: '2023-11-09T12:00:00Z',
-    neighborhood: 'Tarzana', lat: 34.1728, lng: -118.5537,
+    neighborhood: 'Tarzana', lat: 34.158, lng: -118.547,
     description:
       'A woman rammed her vehicle twice into the gates of the Eretz Synagogue and Cultural Center on Wilbur Avenue in Tarzana, damaging two sections of the perimeter fencing. Tikvah Mottahedeh, 54, was arrested on hate crime and vandalism charges.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/woman-arrested-for-hate-crime-after-allegedly-ramming-her-vehicle-into-tarzana-synagogue-gates/',
   },
   {
-    id: 'src-045', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-052', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-11-05T12:00:00Z', created_at: '2023-11-05T12:00:00Z',
-    neighborhood: 'Thousand Oaks', lat: 34.1706, lng: -118.8376,
+    neighborhood: 'Thousand Oaks', lat: 34.1928, lng: -118.8378,
     description:
       'Paul Kessler, a 69-year-old Jewish man, was struck and fell during dueling pro-Israel and pro-Palestinian demonstrations at a Thousand Oaks intersection and died the next day of blunt-force head trauma. His death was ruled a homicide; counter-protester Loay Alnaji was arrested and later pleaded guilty to involuntary manslaughter and battery.',
     source_name: 'Wikipedia', source_url: 'https://en.wikipedia.org/wiki/Killing_of_Paul_Kessler',
   },
   {
-    id: 'src-046', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-053', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-11-01T12:00:00Z', created_at: '2023-11-01T12:00:00Z',
     neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
     description:
@@ -375,23 +432,31 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Los Angeles Times', source_url: 'https://finance.yahoo.com/news/lapd-investigating-reports-graffiti-incidents-193714493.html',
   },
   {
-    id: 'src-047', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-054', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2023-11-01T12:00:00Z', created_at: '2023-11-01T12:00:00Z',
+    neighborhood: 'Fairfax District', lat: 34.0765, lng: -118.3616,
+    description:
+      'The historic Jewish deli Canter\'s on the 400 block of North Fairfax Avenue was defaced with graffiti reading \'Free Gaza,\' \'Israel\'s only religion is capitalism\' and \'How many dead in the name of greed?\' LAPD launched a hate-crime investigation.',
+    source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/lapd-launches-hate-crime-investigation-after-canters-deli-is-vandalized-with-antisemitic-graffitti/',
+  },
+  {
+    id: 'src-055', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-10-27T12:00:00Z', created_at: '2023-10-27T12:00:00Z',
-    neighborhood: 'Studio City', lat: 34.1394, lng: -118.387,
+    neighborhood: 'Studio City', lat: 34.1395, lng: -118.387,
     description:
       'Daniel Garcia, 44, was charged with criminal threats, attempted residential burglary and a hate-crime allegation after yelling \'Free Palestine\' and \'Kill Jews\' at a Jewish family\'s home on the 3000 block of Laurel Canyon Boulevard in Studio City and threatening to kill them.',
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/man-faces-hate-crime-charges-after-threatening-to-kill-jewish-family-at-their-studio-city-home/',
   },
   {
-    id: 'src-048', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-056', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-10-25T12:00:00Z', created_at: '2023-10-25T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.062, lng: -118.4004,
     description:
       'Antisemitic graffiti was spray-painted at the Bedford Manor apartments on Bedford Drive in Beverly Hills, a building where roughly 60% of residents are Jewish. The graffiti was painted over after discovery.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/beverly-hills-antisemitic-graffiti-apartment-complex/13976686/',
   },
   {
-    id: 'src-049', category: 'other', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-057', category: 'other', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-08-12T12:00:00Z', created_at: '2023-08-12T12:00:00Z',
     neighborhood: 'Fullerton', lat: 33.8955, lng: -117.9159,
     description:
@@ -399,15 +464,23 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/fake-bomb-threat-forces-fullerton-synagogue-to-evacuate-during-sabbath-service',
   },
   {
-    id: 'src-050', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-058', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-06-19T12:00:00Z', created_at: '2023-06-19T12:00:00Z',
-    neighborhood: 'Redondo Beach', lat: 33.8492, lng: -118.3884,
+    neighborhood: 'Redondo Beach', lat: 33.8447, lng: -118.386,
     description:
       'A resident in the 400 block of South Gertruda Avenue in Redondo Beach found a Ziploc bag weighted with white rocks containing a flyer promoting an antisemitic website and video. Police said they had responded to several similar propaganda drops in the neighborhood in preceding months.',
     source_name: 'FOX 11 Los Angeles', source_url: 'https://www.foxla.com/news/antisemitic-flyer-redondo-beach-latest-string-similar-incidents-police.amp',
   },
   {
-    id: 'src-051', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-059', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2023-06-19T12:00:00Z', created_at: '2023-06-19T12:00:00Z',
+    neighborhood: 'Redondo Beach', lat: 33.8447, lng: -118.3876,
+    description:
+      'A plastic bag containing white rocks and a paper directing readers to an antisemitic website and video was tossed onto a Redondo Beach lawn. Police said they had responded to several similar flyer-drop incidents in the area in recent months.',
+    source_name: 'FOX 11 Los Angeles', source_url: 'https://www.foxla.com/news/antisemitic-flyer-redondo-beach-latest-string-similar-incidents-police',
+  },
+  {
+    id: 'src-060', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2023-02-15T12:00:00Z', created_at: '2023-02-15T12:00:00Z',
     neighborhood: 'Pico-Robertson', lat: 34.0533, lng: -118.3862,
     description:
@@ -415,23 +488,31 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/jamie-tran-gunman-accused-jewish-hate-crime-shooting-pico-robertson-sentenced-today/15375502/',
   },
   {
-    id: 'src-052', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-061', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-12-20T12:00:00Z', created_at: '2022-12-20T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.081, lng: -118.413,
     description:
       'On the first night of Hanukkah, a man threw objects at a residential menorah and carved Nazi symbols into its base near Sunset Boulevard and Foothill Road. Eric Brian King, 47, of Dallas was arrested on suspicion of felony vandalism and a hate crime.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/beverly-hills-menorah-vandalized-nazi-symbols-man-arrested/12591810/',
   },
   {
-    id: 'src-053', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-062', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-12-18T12:00:00Z', created_at: '2022-12-18T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.0808, lng: -118.4139,
     description:
       'Eric Brian King, 47, of Dallas, Texas, was charged by the L.A. County District Attorney with felony vandalism and a hate-crime allegation for carving Nazi symbols into, and throwing objects at, a nine-foot menorah displayed outside a Beverly Hills home on Dec. 18, 2022, the first night of Hanukkah. King later pleaded no contest and was placed on probation.',
     source_name: 'HeySoCal (reporting L.A. County District Attorney charges)', source_url: 'https://heysocal.com/2022/12/20/texas-man-charged-with-hate-crime-allegation-for-beverly-hills-menorah-damage/',
   },
   {
-    id: 'src-054', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-063', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    occurred_at: '2022-12-18T12:00:00Z', created_at: '2022-12-18T12:00:00Z',
+    neighborhood: 'Beverly Hills', lat: 34.0808, lng: -118.41,
+    description:
+      'On the first night of Hanukkah, a man threw objects at a nine-foot public menorah displayed at a Beverly Hills home and carved Nazi \'SS\' symbols into its base. A Texas suspect was arrested and charged with a felony hate crime.',
+    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/354107/beverly-hills-man-arrested-for-vandalizing-menorah-on-first-night-of-hanukkah/',
+  },
+  {
+    id: 'src-064', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-11-19T12:00:00Z', created_at: '2022-11-19T12:00:00Z',
     neighborhood: 'Culver City', lat: 34.0211, lng: -118.3965,
     description:
@@ -439,15 +520,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/antisemitic-literature-distributed-throughout-culver-city-neighborhood/',
   },
   {
-    id: 'src-055', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-065', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-10-23T12:00:00Z', created_at: '2022-10-23T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.095, lng: -118.42,
     description:
       'About 25 antisemitic flyers blaming gun control and other social issues on Jewish people were distributed overnight in the north end of Beverly Hills, north of Sunset Boulevard. The distribution coincided with the Goyim Defense League\'s 405 Freeway banner display.',
     source_name: 'Spectrum News 1', source_url: 'https://spectrumnews1.com/ca/la-west/public-safety/2022/10/23/beverly-hills-police-antisemitic-flyers-investigation',
   },
   {
-    id: 'src-056', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-066', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-10-22T12:00:00Z', created_at: '2022-10-22T12:00:00Z',
     neighborhood: 'West Los Angeles (405 Freeway overpass)', lat: 34.043, lng: -118.456,
     description:
@@ -455,7 +536,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Jewish Telegraphic Agency', source_url: 'https://www.jta.org/2022/10/23/united-states/kanye-was-right-about-the-jews-antisemitic-group-says-on-los-angeles-highway-banner',
   },
   {
-    id: 'src-057', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-067', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-10-22T12:00:00Z', created_at: '2022-10-22T12:00:00Z',
     neighborhood: 'Sepulveda Pass', lat: 34.088, lng: -118.473,
     description:
@@ -463,47 +544,47 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'JNS', source_url: 'https://www.jns.org/antisemitism/anti-semitic-banners-hung-over-los-angeles-freeway',
   },
   {
-    id: 'src-058', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-068', category: 'harassment', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-10-01T12:00:00Z', created_at: '2022-10-01T12:00:00Z',
-    neighborhood: 'Northridge, Los Angeles', lat: 34.2381, lng: -118.5301,
+    neighborhood: 'Northridge, Los Angeles', lat: 34.2283, lng: -118.5359,
     description:
       'Andre Morrow Lackner, 35, of Northridge, pleaded guilty to federal stalking and admitted a June 2021-October 2022 campaign of antisemitic threats sent by text message, including messages such as \'I want to see every single Jew exterminated from this earth\' and \'Would you like to celebrate the next synagogue shooting?\' He was sentenced to 43 months in federal prison.',
     source_name: 'Patch (reporting USAO-CDCA / DOJ)', source_url: 'https://patch.com/california/northridge/valley-man-threatened-shoot-synagogues-department-justice',
   },
   {
-    id: 'src-059', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-069', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-09-17T12:00:00Z', created_at: '2022-09-17T12:00:00Z',
-    neighborhood: 'Manhattan Beach', lat: 33.8847, lng: -118.4109,
+    neighborhood: 'Manhattan Beach', lat: 33.888, lng: -118.403,
     description:
       'Antisemitic graffiti appeared repeatedly across Manhattan Beach Unified schools in 2022, including swastikas at Mira Costa High School and Robinson Elementary and hateful phrases discovered at Pennekamp Elementary on September 17. The district reported nine antisemitic incidents that year, leaving Jewish students fearful.',
     source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/anti-semitic-graffiti-has-students-fearful-of-returning-to-school-rabbis-concerned-hate-symbols/',
   },
   {
-    id: 'src-060', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-070', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-08-21T12:00:00Z', created_at: '2022-08-21T12:00:00Z',
-    neighborhood: 'Brentwood', lat: 34.052, lng: -118.473,
+    neighborhood: 'Brentwood', lat: 34.0526, lng: -118.4738,
     description:
       'Antisemitic flyers attributed to the Goyim Defense League were thrown from a vehicle onto driveways across many Brentwood streets in August 2022. The propaganda was weighted in plastic bags; residents reported it to LAPD and the ADL.',
     source_name: 'Santa Monica Daily Press', source_url: 'https://smdp.com/2022/10/25/antisemitic-activity-hits-neighboring-communities/',
   },
   {
-    id: 'src-061', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-071', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-08-20T12:00:00Z', created_at: '2022-08-20T12:00:00Z',
-    neighborhood: 'Brentwood', lat: 34.052, lng: -118.473,
+    neighborhood: 'Brentwood', lat: 34.0637, lng: -118.475,
     description:
       'Residents across Brentwood, including the Brentwood Glen area, found antisemitic flyers thrown from a vehicle onto their doorsteps and streets over a weekend. Rep. Ted Lieu called on the FBI to investigate the distribution in Brentwood and neighboring communities.',
     source_name: 'Santa Monica Daily Press', source_url: 'https://www.smdp.com/antisemitic-activity-hits-neighboring-communities/',
   },
   {
-    id: 'src-062', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-072', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-06-15T12:00:00Z', created_at: '2022-06-15T12:00:00Z',
-    neighborhood: 'Westwood', lat: 34.0636, lng: -118.4455,
+    neighborhood: 'Westwood', lat: 34.0602, lng: -118.4436,
     description:
       'Antisemitic brochures placed in plastic bags weighted with small stones were tossed onto lawns and doorsteps along Ashton Avenue near the Wilshire Corridor. The Goyim Defense League propaganda blamed Jews for the media, war, COVID and slavery and advertised the group\'s GoyimTV.',
     source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/349373/antisemitic-brochures-found-in-westwood/',
   },
   {
-    id: 'src-063', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-073', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-05-02T12:00:00Z', created_at: '2022-05-02T12:00:00Z',
     neighborhood: 'Culver City', lat: 34.0211, lng: -118.3965,
     description:
@@ -511,15 +592,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Patch', source_url: 'https://patch.com/california/culvercity/more-antisemitic-flyers-found-time-culver-city',
   },
   {
-    id: 'src-064', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-074', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-03-08T12:00:00Z', created_at: '2022-03-08T12:00:00Z',
-    neighborhood: 'Granada Hills', lat: 34.2686, lng: -118.503,
+    neighborhood: 'Granada Hills', lat: 34.2726, lng: -118.5048,
     description:
       'An abandoned RV parked for months on a Granada Hills street was spray-painted with swastikas and hate speech, prompting condemnation from the ADL, AJC, Simon Wiesenthal Center and StandWithUs. The vehicle was towed the following day.',
     source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/united-states/345901/swastikas-found-on-abandoned-granada-hills-rv/',
   },
   {
-    id: 'src-065', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-075', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-02-16T12:00:00Z', created_at: '2022-02-16T12:00:00Z',
     neighborhood: 'Huntington Beach', lat: 33.662, lng: -117.956,
     description:
@@ -527,15 +608,15 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Patch', source_url: 'https://patch.com/california/orange-county/antisemitic-flyers-left-around-huntington-beach-neighborhood',
   },
   {
-    id: 'src-066', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-076', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-02-12T12:00:00Z', created_at: '2022-02-12T12:00:00Z',
-    neighborhood: 'Newbury Park (Thousand Oaks)', lat: 34.1706, lng: -118.8376,
+    neighborhood: 'Newbury Park (Thousand Oaks)', lat: 34.1808, lng: -118.927,
     description:
       'About 10 members of the white-supremacist Rise Above Movement hung banners bearing the neo-Nazi \'14 words\' slogan from the Borchard Road overpass of the 101 Freeway and performed Nazi salutes at a nearby children\'s playground in Newbury Park. Sheriff\'s deputies responded but the masked group left before being identified.',
     source_name: 'Thousand Oaks Acorn', source_url: 'https://www.toacorn.com/articles/neo-nazi-group-makes-appearance-in-newbury-park/',
   },
   {
-    id: 'src-067', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-077', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2022-01-13T12:00:00Z', created_at: '2022-01-13T12:00:00Z',
     neighborhood: 'Santa Monica', lat: 34.0195, lng: -118.4912,
     description:
@@ -543,7 +624,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/344134/flyers-tying-jews-to-anti-vaxxers-found-at-santa-monica-schools/',
   },
   {
-    id: 'src-068', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-078', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-12-23T12:00:00Z', created_at: '2021-12-23T12:00:00Z',
     neighborhood: 'Manhattan Beach / Hermosa Beach', lat: 33.8847, lng: -118.4109,
     description:
@@ -551,31 +632,31 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'Spectrum News 1', source_url: 'https://spectrumnews1.com/ca/la-west/public-safety/2021/12/23/anti-semitic-stickers-placed--throughout--manhattan-beach--police-say',
   },
   {
-    id: 'src-069', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-079', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-11-28T12:00:00Z', created_at: '2021-11-28T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
+    neighborhood: 'Beverly Hills', lat: 34.0901, lng: -118.4065,
     description:
       'Antisemitic flyers from the Goyim Defense League were distributed to Beverly Hills homes, weighted with rice in plastic bags. The propaganda claimed \'every aspect of the COVID agenda is Jewish\' and advanced the antisemitic trope that Jews control media.',
     source_name: 'The Forward', source_url: 'https://forward.com/fast-forward/478774/beverly-hills-jews-goyim-defense-league-jewish-covid-antisemitic-flyers/',
   },
   {
-    id: 'src-070', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-080', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-05-30T12:00:00Z', created_at: '2021-05-30T12:00:00Z',
-    neighborhood: 'Century City', lat: 34.0553, lng: -118.417,
+    neighborhood: 'Century City', lat: 34.0546, lng: -118.396,
     description:
       'A man hurled a concrete block at two windows of Young Israel of Century City at 9317 W. Pico Blvd. around 1 a.m.; the reinforced glass held. He also broke a window at a neighboring restaurant, and police investigated the suspected antisemitism.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/synagogue-vandalized-century-city-suspected-anti-semitism-young-israel-of/10717767/',
   },
   {
-    id: 'src-071', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-081', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-05-28T12:00:00Z', created_at: '2021-05-28T12:00:00Z',
-    neighborhood: 'Century City / Pico-Robertson', lat: 34.0533, lng: -118.3862,
+    neighborhood: 'Century City / Pico-Robertson', lat: 34.0553, lng: -118.4004,
     description:
       'During a week-long spree of 13 vandalism incidents along Westwood and Pico boulevards, a suspect hurled a concrete brick at the windows of Young Israel of Century City synagogue and broke a window at Pat\'s, a kosher restaurant. Jon Knight Prince, 26, was arrested on felony vandalism charges.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/amp/losangeles/news/jon-knight-prince-arrested-on-suspicion-of-felony-vandalism/',
   },
   {
-    id: 'src-072', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-082', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-05-20T12:00:00Z', created_at: '2021-05-20T12:00:00Z',
     neighborhood: 'Beverly Grove', lat: 34.0759, lng: -118.3765,
     description:
@@ -583,47 +664,47 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/anti-semitism-fight-la-restaurant-beverly-grove/10661721/',
   },
   {
-    id: 'src-073', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-083', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-05-20T12:00:00Z', created_at: '2021-05-20T12:00:00Z',
-    neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
+    neighborhood: 'Fairfax District', lat: 34.0838, lng: -118.3441,
     description:
       'An Orthodox Jewish man walking to synagogue near Rosewood and La Brea avenues was chased by two vehicles whose occupants waved Palestinian flags and screamed \'Allahu Akbar\' at him. LAPD investigated the incident as a possible hate crime.',
     source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/post/man-chased-down-fairfax-district-video-los-angeles-lapd/10665553/',
   },
   {
-    id: 'src-074', category: 'assault', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-084', category: 'assault', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-05-18T12:00:00Z', created_at: '2021-05-18T12:00:00Z',
-    neighborhood: 'Beverly Grove, Los Angeles', lat: 34.0759, lng: -118.3765,
+    neighborhood: 'Beverly Grove, Los Angeles', lat: 34.0745, lng: -118.3766,
     description:
       'Xavier Pabon and Samer Jayylusi were charged by the L.A. County District Attorney with felony assault by means of force likely to cause great bodily injury, with a hate-crime allegation, for a May 18, 2021 attack on Jewish diners outside Sushi Fumi restaurant on North La Cienega Boulevard. Members of a pro-Palestinian caravan hurled antisemitic slurs and objects and then beat patrons who identified themselves as Jewish.',
     source_name: 'The Times of Israel (reporting L.A. County District Attorney charges)', source_url: 'https://www.timesofisrael.com/2-charged-with-hate-crime-for-may-attack-on-jewish-diners-in-los-angeles/',
   },
   {
-    id: 'src-075', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-085', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-04-01T12:00:00Z', created_at: '2021-04-01T12:00:00Z',
-    neighborhood: 'Venice', lat: 33.985, lng: -118.4695,
+    neighborhood: 'Venice', lat: 33.9906, lng: -118.4665,
     description:
       'A stenciled antisemitic message reading \'the jew is guilty\' was found on the sidewalk along Abbot Kinney Boulevard in Venice in April 2021, part of a pattern of similar graffiti reported in the same area.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/anti-semitic-graffiti-abbot-kinney-venice/',
   },
   {
-    id: 'src-076', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-086', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-01-19T12:00:00Z', created_at: '2021-01-19T12:00:00Z',
-    neighborhood: 'Koreatown', lat: 34.058, lng: -118.3009,
+    neighborhood: 'Koreatown', lat: 34.0616, lng: -118.3009,
     description:
       'A Nazi symbol was spray-painted on the exterior wall of the historic Wilshire Boulevard Temple, Los Angeles\'s oldest synagogue, along with the phrase \'I hate your race.\' Police opened a hate-crime investigation.',
     source_name: 'CBS Los Angeles', source_url: 'https://cbsnews.com/losangeles/news/anti-semitic-graffiti-wilshire-boulevard-temple-investigated-hate-crime',
   },
   {
-    id: 'src-077', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-087', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2021-01-18T12:00:00Z', created_at: '2021-01-18T12:00:00Z',
-    neighborhood: 'Koreatown', lat: 34.058, lng: -118.3009,
+    neighborhood: 'Koreatown', lat: 34.0616, lng: -118.3006,
     description:
       'A Nazi symbol and the words \'I hate your race\' were spray-painted on the exterior of the historic Wilshire Boulevard Temple in Koreatown. LAPD investigated it as a hate crime.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/amp/losangeles/news/anti-semitic-graffiti-wilshire-boulevard-temple-investigated-hate-crime',
   },
   {
-    id: 'src-078', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-088', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2020-05-30T12:00:00Z', created_at: '2020-05-30T12:00:00Z',
     neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
     description:
@@ -631,7 +712,7 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/synagogues-in-los-angeles-and-richmond-vandalized-during-protests/',
   },
   {
-    id: 'src-079', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-089', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2020-01-27T12:00:00Z', created_at: '2020-01-27T12:00:00Z',
     neighborhood: 'Torrance', lat: 33.8358, lng: -118.3406,
     description:
@@ -639,243 +720,11 @@ export const SOURCED_INCIDENTS: Incident[] = [
     source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/two-former-california-police-officers-charged-with-painting-swastika-on-car/',
   },
   {
-    id: 'src-080', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
+    id: 'src-090', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
     occurred_at: '2020-01-02T12:00:00Z', created_at: '2020-01-02T12:00:00Z',
-    neighborhood: 'West Hollywood', lat: 34.09, lng: -118.3617,
+    neighborhood: 'West Hollywood', lat: 34.09, lng: -118.385,
     description:
       'A suspect spray-painted two Stars of David and the letters \'GDLK\' on the Block Party store in West Hollywood, caught on video from a neighboring business. The letters referenced the antisemitic Goyim Defense League.',
     source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/amp/losangeles/news/weho-store-vandalized-with-anti-semitic-graffiti/',
-  },
-  {
-    id: 'src-081', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-12-31T12:00:00Z', created_at: '2019-12-31T12:00:00Z',
-    neighborhood: 'West Hollywood', lat: 34.09, lng: -118.3617,
-    description:
-      'The Block Party store on Sunset Boulevard was spray-painted with two Star-of-David symbols and the letters \'GDLK,\' referencing the Goyim Defense League. Video captured a young man tagging the storefront.',
-    source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/weho-store-vandalized-with-anti-semitic-graffiti/',
-  },
-  {
-    id: 'src-082', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-12-17T12:00:00Z', created_at: '2019-12-17T12:00:00Z',
-    neighborhood: 'Bel Air / Westwood', lat: 34.0636, lng: -118.4455,
-    description:
-      'A swastika and messages including \'time to pay\' were spray-painted at three Los Angeles Jewish schools: American Jewish University in Bel Air, Westwood Charter School, and Milken Community High School. The vandalism came days after the Nessah Synagogue was ransacked in Beverly Hills.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/online/308746/3-la-jewish-schools-spray-painted-with-anti-semitic-graffiti-days-after-beverly-hills-synagogue-vandalized/',
-  },
-  {
-    id: 'src-083', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-12-17T12:00:00Z', created_at: '2019-12-17T12:00:00Z',
-    neighborhood: 'Bel Air', lat: 34.094, lng: -118.459,
-    description:
-      'American Jewish University\'s Bel Air campus on Mulholland Drive was spray-painted with antisemitic graffiti including the phrases \'time to pay\' and \'time to do the time.\' It was part of a string of overnight attacks on Westside Jewish schools investigated by LAPD as a hate crime.',
-    source_name: 'LAist', source_url: 'https://laist.com/2019/12/19/anti-semitic_graffiti_at_multiple_westside_schools_marks_the_2nd_local_incident_targeting_jewish_peo.php',
-  },
-  {
-    id: 'src-084', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-12-14T12:00:00Z', created_at: '2019-12-14T12:00:00Z',
-    neighborhood: 'Beverly Hills', lat: 34.0736, lng: -118.4004,
-    description:
-      'Nessah Synagogue, a Persian Jewish congregation in Beverly Hills, was ransacked, with prayer books torn and Torah scrolls strewn on the floor. Nathaniel Anton Redding was arrested and charged with vandalism of religious property with a hate-crime enhancement.',
-    source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/suspect-arrested-charged-with-hate-crime-for-vandalism-of-los-angeles-synagogue/',
-  },
-  {
-    id: 'src-085', category: 'online_threat', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-11-01T12:00:00Z', created_at: '2019-11-01T12:00:00Z',
-    neighborhood: 'Los Angeles (synagogue not publicly named)', lat: 34.0522, lng: -118.2437,
-    description:
-      'William Alexander, 50, of Anchorage, Alaska, pleaded guilty in federal court (U.S. Attorney\'s Office, Central District of California) to making threatening interstate communications and obstructing the free exercise of religion after leaving a Nov. 1, 2019 voicemail at a Los Angeles-area synagogue threatening to kill its congregants while repeatedly using anti-Jewish slurs. The specific synagogue was not publicly named in charging documents.',
-    source_name: 'Newsweek (reporting DOJ / USAO-CDCA guilty plea)', source_url: 'https://www.newsweek.com/alaska-man-william-alexander-pleads-guilty-kill-congregants-los-angeles-synagogue-1595657',
-  },
-  {
-    id: 'src-086', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-09-18T12:00:00Z', created_at: '2019-09-18T12:00:00Z',
-    neighborhood: 'Northridge', lat: 34.2381, lng: -118.5301,
-    description:
-      'Temple Ahavat Shalom in Northridge was vandalized with a message reading \'Six million $ was not enough\' written on its gate, an apparent reference to the Holocaust. Police investigated with the ADL.',
-    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/la-synagogue-vandalism-anti-semitic-hate-crime/',
-  },
-  {
-    id: 'src-087', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-09-11T12:00:00Z', created_at: '2019-09-11T12:00:00Z',
-    neighborhood: 'Fairfax', lat: 34.0762, lng: -118.3614,
-    description:
-      'The Moroccan Orthodox Baba Sale Congregation in the Fairfax district was spray-painted with \'Free Palestine\' graffiti on the morning of the 9/11 anniversary, while worshippers were inside for early services. Surveillance video showed hooded suspects fleeing in a waiting vehicle.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/304267/baba-sale-congregation-vandalized-with-free-palestine-graffiti/',
-  },
-  {
-    id: 'src-088', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-09-01T12:00:00Z', created_at: '2019-09-01T12:00:00Z',
-    neighborhood: 'San Pedro', lat: 33.7361, lng: -118.2922,
-    description:
-      'A masked suspect spray-painted swastikas on the walls of at least eight homes and businesses along the 2000 block of Pacific Avenue in San Pedro. Police investigated the attack as a hate crime and released surveillance video of the vandal.',
-    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/wanted-vandal-sprays-swastikas-on-san-pedro-homes-businesses/',
-  },
-  {
-    id: 'src-089', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-08-14T12:00:00Z', created_at: '2019-08-14T12:00:00Z',
-    neighborhood: 'Venice', lat: 33.985, lng: -118.4695,
-    description:
-      'Vandals etched a Star of David and the word \'Jude\'—a term the Nazis used to mark Jewish businesses—into the wooden door of Temple Mishkon Tephilo, a synagogue in Venice.',
-    source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/anti-semitic-slur-carved-into-door-of-california-synagogue/',
-  },
-  {
-    id: 'src-090', category: 'vandalism', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-07-17T12:00:00Z', created_at: '2019-07-17T12:00:00Z',
-    neighborhood: 'Santa Monica', lat: 34.0195, lng: -118.4912,
-    description:
-      'Antisemitic hate-speech graffiti was scrawled on the California Incline pedestrian bridge in Santa Monica in July 2019. The city removed it and police patrolled the nearby Palisades Park area for further vandalism.',
-    source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/anti-semitic-graffiti-santa-monica',
-  },
-  {
-    id: 'src-091', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-07-16T12:00:00Z', created_at: '2019-07-16T12:00:00Z',
-    neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
-    description:
-      'A man threw a can of white paint across the front entrance of the Hebrew Discovery Center synagogue and school on Ventura Boulevard, splattering the building from roof to ground before fleeing. LAPD investigated the roughly $10,000 in damage as a hate crime.',
-    source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/vandalism-woodland-hills-synagogue-hebrew-discovery-center/5397036/',
-  },
-  {
-    id: 'src-092', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-07-14T12:00:00Z', created_at: '2019-07-14T12:00:00Z',
-    neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
-    description:
-      'A vandal threw a can of white paint across the entrance of the Hebrew Discovery Center synagogue and school in Woodland Hills, causing an estimated $10,000 in damage and attempting to write a message before fleeing. LAPD investigated it as a hate crime.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/los_angeles/san_fernando_valley/301603/white-paint-thrown-on-woodland-hills-synagogue-in-act-of-vandalism/',
-  },
-  {
-    id: 'src-093', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-03-18T12:00:00Z', created_at: '2019-03-18T12:00:00Z',
-    neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
-    description:
-      'Antisemitic flyers equating the Star of David with a swastika and posing a slur against Jews were found near West Valley schools, including El Camino Real Charter High School (Woodland Hills), Nestle Avenue Charter Elementary (Tarzana) and Calabasas High School. LAPD investigated as a hate crime.',
-    source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/anti-semitic-anti-semitism-jewish-nazi/5210203/',
-  },
-  {
-    id: 'src-094', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-03-04T12:00:00Z', created_at: '2019-03-04T12:00:00Z',
-    neighborhood: 'Fairfax District', lat: 34.0762, lng: -118.3614,
-    description:
-      'Swastikas drawn in blood and bloody footprints were found by a restroom next to the playground at Pan-Pacific Park, which is adjacent to the Los Angeles Museum of the Holocaust and used daily by the Orthodox community. LAPD treated it as a hate crime.',
-    source_name: 'ABC7 Los Angeles', source_url: 'https://abc7.com/swastika-in-blood-pan-pacific-park-hate-crime/5167291/',
-  },
-  {
-    id: 'src-095', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2019-01-29T12:00:00Z', created_at: '2019-01-29T12:00:00Z',
-    neighborhood: 'Tarzana', lat: 34.1728, lng: -118.5537,
-    description:
-      'Antisemitic graffiti was spray-painted on the walls of the Mishkan Torah / Valley Community Kollel synagogue in Tarzana and painted over the same day it was discovered. Local officials and the ADL condemned the vandalism.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/san_fernando_valley/293157/tarzana-synagogue-vandalized-with-anti-semitic-graffiti/',
-  },
-  {
-    id: 'src-096', category: 'other', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2018-12-05T12:00:00Z', created_at: '2018-12-05T12:00:00Z',
-    neighborhood: 'Northridge', lat: 34.2381, lng: -118.5301,
-    description:
-      'Antisemitic graffiti featuring a swastika and the words \'mass shooting 12/12\' was found in a Sierra Hall restroom at Cal State Northridge. Days later a letter at Redwood Hall threatened to kill people on December 12; police boosted patrols and investigated the threats.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/united-states/243411/letter-detailing-shooting-threat-found-at-csun/',
-  },
-  {
-    id: 'src-097', category: 'assault', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2018-11-23T12:00:00Z', created_at: '2018-11-23T12:00:00Z',
-    neighborhood: 'Hancock Park', lat: 34.0736, lng: -118.3389,
-    description:
-      'A driver on the 300 block of North La Brea Avenue yelled slurs about the victims\' Jewish heritage and twice steered his car at two men walking near a synagogue on Shabbat, who leaped clear. The Seattle suspect was arrested and charged with assault with a deadly weapon as a hate crime.',
-    source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/driver-accused-trying-run-down-pedestrians-hancock-park-synagogue-could-face-hate-crime/',
-  },
-  {
-    id: 'src-098', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2017-12-11T12:00:00Z', created_at: '2017-12-11T12:00:00Z',
-    neighborhood: 'Woodland Hills', lat: 34.1683, lng: -118.6059,
-    description:
-      'Vandals spray-painted a backwards swastika and gang symbols at the entrance of Temple Aliyah, a Conservative synagogue in Woodland Hills, and drew genitalia on the temple\'s name sign. LAPD investigated it as a hate crime; security footage did not capture the act.',
-    source_name: 'Jewish Telegraphic Agency', source_url: 'https://www.jta.org/2017/12/12/united-states/los-angeles-synagogue-targeted-with-anti-semitic-vandalism',
-  },
-  {
-    id: 'src-099', category: 'online_threat', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2017-06-11T12:00:00Z', created_at: '2017-06-11T12:00:00Z',
-    neighborhood: 'Brentwood', lat: 34.052, lng: -118.473,
-    description:
-      'Three Los Angeles synagogues—University Synagogue in Brentwood and two campuses of Wilshire Boulevard Temple—were closed on Shabbat after receiving online bomb threats. LAPD K-9 units searched the sites and found no explosives.',
-    source_name: 'The Times of Israel', source_url: 'https://www.timesofisrael.com/3-los-angeles-synagogues-close-on-shabbat-over-bomb-threats/',
-  },
-  {
-    id: 'src-100', category: 'harassment', severity: 'low', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2017-02-27T12:00:00Z', created_at: '2017-02-27T12:00:00Z',
-    neighborhood: 'Miracle Mile', lat: 34.0762, lng: -118.3614,
-    description:
-      'Nine members of the Westboro Baptist Church staged a 30-minute demonstration on Fairfax Avenue outside Shalhevet High School, a Modern Orthodox Jewish school. About 300 students from Shalhevet, de Toledo, YULA and Milken instead gathered for a Torah learning program.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/215848/sharing-love-lessons-face-hate-rally/',
-  },
-  {
-    id: 'src-101', category: 'other', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2017-02-27T12:00:00Z', created_at: '2017-02-27T12:00:00Z',
-    neighborhood: 'Mid-City Los Angeles', lat: 34.05, lng: -118.344,
-    description:
-      'The Westside Jewish Community Center near Olympic Boulevard and Fairfax Avenue received a bomb threat by phone, prompting the rapid evacuation of more than 400 people; no device was found. It was the first Los Angeles Jewish facility hit in the 2017 national bomb-threat wave.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/215756/westside-jcc-latest-facility-receive-bomb-threat/',
-  },
-  {
-    id: 'src-102', category: 'other', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2017-02-01T12:00:00Z', created_at: '2017-02-01T12:00:00Z',
-    neighborhood: 'Long Beach', lat: 33.7701, lng: -118.1937,
-    description:
-      'A phoned bomb threat forced the evacuation of roughly 300 seniors, parents and preschoolers from the Alpert Jewish Community Center; police searched the building and declared the threat a hoax. It was part of a nationwide wave of bomb threats against Jewish institutions.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/los_angeles/214145/long-beach-jcc-targeted-new-wave-bomb-threats/',
-  },
-  {
-    id: 'src-103', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2016-03-15T12:00:00Z', created_at: '2016-03-15T12:00:00Z',
-    neighborhood: 'Pacific Palisades', lat: 34.0452, lng: -118.5265,
-    description:
-      'Hate graffiti including swastikas, along with references to gays and the KKK, was spray-painted at Palisades Charter High School. Two students were arrested; a city councilman had offered a $50,000 reward.',
-    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/two-students-arrested-for-hate-graffiti-at-pacific-palisades-high-school/',
-  },
-  {
-    id: 'src-104', category: 'harassment', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2014-06-02T12:00:00Z', created_at: '2014-06-02T12:00:00Z',
-    neighborhood: 'Valley Village', lat: 34.1667, lng: -118.396,
-    description:
-      'Residents of apartment complexes in Valley Village and North Hollywood found antisemitic fliers bearing Nazi swastikas dropped in their carports. The four-paragraph flier contained violent rhetoric; North Hollywood police identified a person of interest and said the suspect could face hate-crime charges.',
-    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/sfv-residents-on-edge-after-fliers-with-swastikas-dropped-in-carports/',
-  },
-  {
-    id: 'src-105', category: 'vandalism', severity: 'high', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2014-04-01T12:00:00Z', created_at: '2014-04-01T12:00:00Z',
-    neighborhood: 'Van Nuys', lat: 34.1866, lng: -118.4487,
-    description:
-      'A Jewish-owned plumbing business in Van Nuys was vandalized twice with swastikas and the message \'Adolf was right. Kill Jews!\' spray-painted on its rear fence and dumpster. Amos Hason, 49, was arrested and charged with hate crimes and vandalism.',
-    source_name: 'CBS News Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/man-49-faces-hate-crime-charges-in-anti-semitic-vandalism-case/',
-  },
-  {
-    id: 'src-106', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2013-06-23T12:00:00Z', created_at: '2013-06-23T12:00:00Z',
-    neighborhood: 'Tarzana', lat: 34.1728, lng: -118.5537,
-    description:
-      'The wall surrounding an Iranian Jewish family\'s home directly across from Congregation Bais Mordechai was spray-painted with a backwards swastika and white-power/skinhead symbols. A synagogue rabbi said the vandalism was meant to intimidate worshippers; LAPD had no suspects.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/los_angeles/118171',
-  },
-  {
-    id: 'src-107', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2013-06-10T12:00:00Z', created_at: '2013-06-10T12:00:00Z',
-    neighborhood: 'Reseda', lat: 34.201, lng: -118.536,
-    description:
-      'Leichman High School Special Education Center on Gault Street was vandalized with graffiti that included swastikas alongside other hateful markings. Los Angeles School Police and LAPD investigated; damage was estimated at about $2,500.',
-    source_name: 'CBS Los Angeles', source_url: 'https://cbsnews.com/losangeles/news/reseda-special-education-school-vandalized-with-swastikas-anti-obama-graffiti',
-  },
-  {
-    id: 'src-108', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2012-03-14T12:00:00Z', created_at: '2012-03-14T12:00:00Z',
-    neighborhood: 'Sherman Oaks', lat: 34.1508, lng: -118.4489,
-    description:
-      'Three Jewish-owned homes on Leghorn Avenue were vandalized overnight with swastikas drawn on a mailbox, an Israeli family\'s fencepost and another Orthodox family\'s light-fixture column. LAPD investigated it as a hate crime on a block home to about a dozen Orthodox families.',
-    source_name: 'Jewish Journal', source_url: 'https://jewishjournal.com/news/los_angeles/community/102132/',
-  },
-  {
-    id: 'src-109', category: 'vandalism', severity: 'medium', source: 'LAPD', status: 'verified', campus_id: null,
-    occurred_at: '2011-04-23T12:00:00Z', created_at: '2011-04-23T12:00:00Z',
-    neighborhood: 'Calabasas', lat: 34.1367, lng: -118.6614,
-    description:
-      'Maintenance workers found Nazi swastikas and antisemitic words and symbols spray-painted on doors, walls, sidewalks and a stop sign across Calabasas High School. The Los Angeles County Sheriff\'s Department opened a hate-crime and felony vandalism investigation.',
-    source_name: 'CBS Los Angeles', source_url: 'https://www.cbsnews.com/losangeles/news/sheriffs-investigate-hate-crime-at-calabasas-high-school/',
   },
 ];

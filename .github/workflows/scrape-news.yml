@@ -1,11 +1,11 @@
-name: News scrape
+name: Daily news scrape
 
 # Pulls recent Greater-LA antisemitism coverage (all incident types) into
-# src/data/news.json every ~3 days and commits it (no [skip ci], so Vercel
+# src/data/news.json once a day and commits it (no [skip ci], so Vercel
 # redeploys with the fresh feed). Also geocodes incidents for the map.
 on:
   schedule:
-    - cron: '0 13 */3 * *' # 13:00 UTC, every 3rd day
+    - cron: '0 13 * * *' # 13:00 UTC daily (~6am PT)
   workflow_dispatch: {}
 
 permissions:
@@ -30,7 +30,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           if [[ -n "$(git status --porcelain src/data/news.json)" ]]; then
             git add src/data/news.json
-            git commit -m "chore(news): coverage refresh"
+            git commit -m "chore(news): daily coverage refresh"
             git push
           else
             echo "No change."

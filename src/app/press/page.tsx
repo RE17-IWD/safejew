@@ -40,7 +40,7 @@ export default function PressPage() {
           <span className="sj-eyebrow">In the news</span>
           <h1>Recent coverage</h1>
           <p>
-            A live feed of recent antisemitism coverage across Greater Los Angeles, updated every few days
+            A live feed of recent antisemitism coverage across Greater Los Angeles, updated daily
             {updated ? ` (last updated ${updated})` : ''}. These are external news reports, not
             SafeJew-verified incidents. Working on a story?{' '}
             <a href="mailto:contact.safejew@gmail.com" style={{ color: '#8fb4ff', fontWeight: 600 }}>

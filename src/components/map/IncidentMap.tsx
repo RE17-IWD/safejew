@@ -36,9 +36,9 @@ const CATEGORY_LABELS: Record<IncidentCategory, string> = {
 // Larger radii on purpose: locations are shown at the neighborhood level (not
 // exact addresses), so the circle represents an approximate area, not a point.
 const SEVERITY_RADIUS: Record<IncidentSeverity, number> = {
-  high: 16,
-  medium: 13,
-  low: 11,
+  high: 11,
+  medium: 9,
+  low: 7,
 };
 
 const SPACE_TYPE_LABELS: Record<CommunitySpaceType, string> = {
@@ -62,7 +62,8 @@ type Placed = Incident & { _lat: number; _lng: number };
 function spreadOverlapping(items: Incident[]): Placed[] {
   const groups = new Map<string, Incident[]>();
   for (const it of items) {
-    const key = `${it.lat.toFixed(4)},${it.lng.toFixed(4)}`;
+    // ~330m cells: cluster nearby incidents (not just exact-overlap) so they fan out.
+    const key = `${(Math.round(it.lat / 0.003) * 0.003).toFixed(3)},${(Math.round(it.lng / 0.003) * 0.003).toFixed(3)}`;
     const g = groups.get(key);
     if (g) g.push(it);
     else groups.set(key, [it]);
@@ -73,8 +74,11 @@ function spreadOverlapping(items: Incident[]): Placed[] {
       out.push({ ...group[0], _lat: group[0].lat, _lng: group[0].lng });
       continue;
     }
+    // Fan the group out around its centroid so each marker is separately clickable.
+    const cLat = group.reduce((s, x) => s + x.lat, 0) / group.length;
+    const cLng = group.reduce((s, x) => s + x.lng, 0) / group.length;
     const PER_RING = 6;
-    const RING_STEP = 0.0016; // ~180m per ring
+    const RING_STEP = 0.0022; // ~250m per ring
     group.forEach((it, i) => {
       const ring = Math.floor(i / PER_RING) + 1;
       const idxInRing = i % PER_RING;
@@ -82,8 +86,8 @@ function spreadOverlapping(items: Incident[]): Placed[] {
       const angle = (idxInRing / inRing) * Math.PI * 2 + ring * 0.6;
       const r = RING_STEP * ring;
       const dlat = r * Math.sin(angle);
-      const dlng = (r * Math.cos(angle)) / Math.cos((it.lat * Math.PI) / 180);
-      out.push({ ...it, _lat: it.lat + dlat, _lng: it.lng + dlng });
+      const dlng = (r * Math.cos(angle)) / Math.cos((cLat * Math.PI) / 180);
+      out.push({ ...it, _lat: cLat + dlat, _lng: cLng + dlng });
     });
   }
   return out;
