@@ -58,13 +58,17 @@ export default function FilterPanel({ filters, onChange, incidentCount }: Filter
     onChange({ ...filters, sources: toggleItem(filters.sources, src) });
   };
 
-  const handleDateFrom = (val: string) => {
-    onChange({ ...filters, dateFrom: val || null });
+  const setYear = (year: string | null) => {
+    onChange({
+      ...filters,
+      dateFrom: year ? `${year}-01-01` : null,
+      dateTo: year ? `${year}-12-31` : null,
+    });
   };
-
-  const handleDateTo = (val: string) => {
-    onChange({ ...filters, dateTo: val || null });
-  };
+  const activeYear =
+    filters.dateFrom && /^(\d{4})-01-01$/.test(filters.dateFrom) && filters.dateTo === `${filters.dateFrom.slice(0, 4)}-12-31`
+      ? filters.dateFrom.slice(0, 4)
+      : null;
 
   const handleReset = () => {
     onChange(DEFAULT_FILTERS);
@@ -150,30 +154,29 @@ export default function FilterPanel({ filters, onChange, incidentCount }: Filter
           </div>
         </fieldset>
 
-        {/* Date Range */}
+        {/* Year quick-toggle */}
         <fieldset>
           <legend className="text-xs font-sans font-bold text-gray-700 uppercase tracking-wide mb-2">
-            Date Range
+            Year
           </legend>
-          <div className="space-y-2">
-            <div>
-              <label className="block text-xs font-sans text-gray-500 mb-1">From</label>
-              <input
-                type="date"
-                value={filters.dateFrom ?? ''}
-                onChange={(e) => handleDateFrom(e.target.value)}
-                className="w-full text-xs font-sans border border-gray-300 rounded px-2 py-1.5 text-gray-700 focus:outline-none focus:ring-1 focus:ring-navy-500 focus:border-navy-500"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-sans text-gray-500 mb-1">To</label>
-              <input
-                type="date"
-                value={filters.dateTo ?? ''}
-                onChange={(e) => handleDateTo(e.target.value)}
-                className="w-full text-xs font-sans border border-gray-300 rounded px-2 py-1.5 text-gray-700 focus:outline-none focus:ring-1 focus:ring-navy-500 focus:border-navy-500"
-              />
-            </div>
+          <div className="flex flex-wrap gap-1.5">
+            {[null, '2026', '2025', '2024', '2023', '2022', '2021', '2020'].map((y) => {
+              const active = y === activeYear;
+              return (
+                <button
+                  key={y ?? 'all'}
+                  type="button"
+                  onClick={() => setYear(y)}
+                  className={`text-xs font-sans font-semibold rounded px-2.5 py-1 border transition-colors ${
+                    active
+                      ? 'bg-navy-800 text-white border-navy-800'
+                      : 'bg-white text-gray-600 border-gray-300 hover:border-navy-400'
+                  }`}
+                >
+                  {y ?? 'All'}
+                </button>
+              );
+            })}
           </div>
         </fieldset>
       </div>

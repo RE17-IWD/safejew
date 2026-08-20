@@ -386,6 +386,48 @@ export const CAMPUSES: CampusInfo[] = [
     jewishLifeNotes:
       'UW–Madison has a large Jewish student population and an active Hillel and Chabad. The Madison campus has been a notable site of Israel-related campus activism.',
   },
+  {
+    id: 'campus-csun',
+    uuid: 'a0000001-0000-0000-0000-000000000034',
+    name: 'Cal State Northridge (CSUN)',
+    city: 'Northridge',
+    state: 'CA',
+    lat: 34.2410,
+    lng: -118.5290,
+    hillel: { name: 'Hillel 818', url: 'https://www.hillel818.org' },
+    chabad: null,
+    jewishStudentEstimate: 3000,
+    jewishLifeNotes:
+      'CSUN sits in the San Fernando Valley, home to one of the largest Jewish communities in Los Angeles. Hillel 818 serves CSUN and neighboring Valley colleges with Shabbat programming, holiday events, and student support.',
+  },
+  {
+    id: 'campus-csulb',
+    uuid: 'a0000001-0000-0000-0000-000000000035',
+    name: 'Cal State Long Beach',
+    city: 'Long Beach',
+    state: 'CA',
+    lat: 33.7838,
+    lng: -118.1141,
+    hillel: { name: 'Beach Hillel', url: 'https://www.beachhillel.org' },
+    chabad: null,
+    jewishStudentEstimate: 1200,
+    jewishLifeNotes:
+      'Cal State Long Beach is served by Beach Hillel, which runs Shabbat dinners, holiday celebrations, and Jewish student programming in the Long Beach area.',
+  },
+  {
+    id: 'campus-lmu',
+    uuid: 'a0000001-0000-0000-0000-000000000036',
+    name: 'Loyola Marymount University (LMU)',
+    city: 'Los Angeles',
+    state: 'CA',
+    lat: 33.9697,
+    lng: -118.4168,
+    hillel: null,
+    chabad: null,
+    jewishStudentEstimate: 800,
+    jewishLifeNotes:
+      'LMU is a Jesuit university in Westchester with a smaller but active Jewish student community supported through campus ministry and student-led Jewish life. Nearby Westside synagogues and JCCs serve the surrounding area.',
+  },
 ];
 
 // String id → Supabase UUID. Includes legacy aliases used in older data.

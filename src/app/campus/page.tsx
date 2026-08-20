@@ -51,6 +51,8 @@ const CATEGORY_LABELS: Record<IncidentCategory, string> = {
 const FEATURED_CAMPUS_IDS = [
   'campus-ucla',
   'campus-usc',
+  'campus-csun',
+  'campus-csulb',
   'campus-columbia',
   'campus-harvard',
   'campus-nyu',
