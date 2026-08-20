@@ -653,15 +653,15 @@ export default function CampusPage() {
               being expanded campus by campus as verified data and community reports grow.
             </p>
 
-            {/* All campuses — click to open */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {/* All campuses — click to open (dense) */}
+            <div className="mt-7 max-w-3xl mx-auto flex flex-wrap justify-center gap-1.5">
               {[...CAMPUSES]
                 .sort((a, b) => a.name.localeCompare(b.name))
                 .map((c) => (
                   <button
                     key={c.id}
                     onClick={() => setSelectedId(c.id)}
-                    className="font-sans text-sm px-4 py-2 rounded border border-cream-200 text-gray-600 bg-white hover:border-navy-300 hover:text-navy-700 transition-colors"
+                    className="font-sans text-xs leading-none px-2.5 py-1.5 rounded-full border border-cream-200 text-gray-600 bg-white hover:border-navy-400 hover:text-navy-700 hover:bg-navy-50 transition-colors"
                   >
                     {c.name}
                   </button>
