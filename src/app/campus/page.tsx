@@ -438,47 +438,26 @@ export default function CampusPage() {
               )}
             </div>
 
-            {/* Incident tracking section */}
-            {incidentsLoading ? (
-              <div className="mb-8 bg-white border border-cream-200 rounded-lg p-8 flex items-center justify-center">
-                <div className="w-5 h-5 border-2 border-navy-600 border-t-transparent rounded-full animate-spin mr-3" />
-                <p className="font-sans text-sm text-gray-500">Loading incident data…</p>
+            {/* Incident tracking section — map always renders once a campus is picked */}
+            {hasData && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                <StatPill value={String(totalIncidents)} label="Incidents tracked" />
+                <StatPill value={mostCommonCategory} label="Most common" />
+                <StatPill value={`${highSeverityCount}`} label="High severity" />
               </div>
-            ) : hasData ? (
-              <>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-                  <StatPill value={String(totalIncidents)} label="Incidents tracked" />
-                  <StatPill value={mostCommonCategory} label="Most common" />
-                  <StatPill value={`${highSeverityCount}`} label="High severity" />
-                </div>
+            )}
 
-                <div className="mb-3">
-                  <CampusMap
-                    campusLat={campus.lat}
-                    campusLng={campus.lng}
-                    campusName={campus.name}
-                    incidents={incidents}
-                  />
-                </div>
-                <p className="font-sans text-xs text-gray-500 mb-10">
-                  Documented incidents within ~5 miles of campus, from SafeJew&apos;s sourced records and
-                  the{' '}
-                  <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
-                  Locations are neighborhood-level (approximate) for privacy. See the{' '}
-                  <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
-                  for aggregate statistics.
-                </p>
-              </>
-            ) : (
-              /* No data yet */
-              <div className="mb-8 bg-white border border-cream-200 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            {!hasData && (
+              <div className="mb-6 bg-white border border-cream-200 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex-1">
                   <p className="font-sans text-sm font-semibold text-navy-800 mb-1">
-                    Incident tracking for {campus.name} coming soon
+                    No SafeJew-tracked incidents near {campus.name} yet
                   </p>
                   <p className="font-sans text-sm text-gray-600 leading-relaxed">
-                    We don&apos;t yet have verified incident data for this campus. Report an
-                    incident to help build this dataset and protect students here.
+                    Our incident data currently covers Greater Los Angeles. The map below still shows
+                    your campus and nearby Jewish community spaces — tap{' '}
+                    <span className="font-semibold text-navy-700">Show Jewish community spaces</span>. If
+                    something happened here, reporting it helps build this dataset.
                   </p>
                 </div>
                 <Link
@@ -489,6 +468,34 @@ export default function CampusPage() {
                 </Link>
               </div>
             )}
+
+            <div className="mb-3">
+              <CampusMap
+                campusLat={campus.lat}
+                campusLng={campus.lng}
+                campusName={campus.name}
+                incidents={incidents}
+              />
+            </div>
+            <p className="font-sans text-xs text-gray-500 mb-10">
+              {hasData ? (
+                <>
+                  Documented incidents within ~5 miles of campus, from SafeJew&apos;s sourced records and
+                  the{' '}
+                  <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
+                  Locations are neighborhood-level (approximate) for privacy. See the{' '}
+                  <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
+                  for aggregate statistics.
+                </>
+              ) : (
+                <>
+                  Incident data (SafeJew + the{' '}
+                  <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>)
+                  currently covers Greater Los Angeles. Use the toggle above the map to add nearby
+                  Jewish community spaces.
+                </>
+              )}
+            </p>
 
             {/* Jewish life notes */}
             <div className="mb-8 bg-white border border-cream-200 rounded-lg p-5">
