@@ -428,6 +428,62 @@ export const CAMPUSES: CampusInfo[] = [
     jewishLifeNotes:
       'LMU is a Jesuit university in Westchester with a smaller but active Jewish student community supported through campus ministry and student-led Jewish life. Nearby Westside synagogues and JCCs serve the surrounding area.',
   },
+  {
+    id: 'campus-yale',
+    uuid: 'a0000001-0000-0000-0000-000000000037',
+    name: 'Yale University',
+    city: 'New Haven',
+    state: 'CT',
+    lat: 41.3163,
+    lng: -72.9223,
+    hillel: { name: 'Slifka Center (Yale Hillel)', url: 'https://www.slifkacenter.org' },
+    chabad: { name: 'Chabad at Yale', url: null },
+    jewishStudentEstimate: 1500,
+    jewishLifeNotes:
+      'Jewish life at Yale is anchored by the Slifka Center, a dedicated building serving as the home of Yale Hillel with kosher dining and year-round programming. Yale has drawn national attention over campus antisemitism since 2023, and Jewish student organizations remain highly active.',
+  },
+  {
+    id: 'campus-ut-austin',
+    uuid: 'a0000001-0000-0000-0000-000000000038',
+    name: 'University of Texas at Austin',
+    city: 'Austin',
+    state: 'TX',
+    lat: 30.2849,
+    lng: -97.7341,
+    hillel: { name: 'Texas Hillel', url: 'https://www.texashillel.org' },
+    chabad: { name: 'Rohr Chabad (Chabad Austin)', url: 'https://chabadaustin.com' },
+    jewishStudentEstimate: 4000,
+    jewishLifeNotes:
+      'UT Austin has one of the largest Jewish student populations in the South, served by Texas Hillel just off campus at the Topfer Center and an active Chabad. Austin has a fast-growing Jewish community with multiple congregations across the city.',
+  },
+  {
+    id: 'campus-emory',
+    uuid: 'a0000001-0000-0000-0000-000000000039',
+    name: 'Emory University',
+    city: 'Atlanta',
+    state: 'GA',
+    lat: 33.7925,
+    lng: -84.3237,
+    hillel: { name: 'Emory Hillel', url: 'https://www.emoryhillel.org' },
+    chabad: { name: 'Chabad at Emory', url: null },
+    jewishStudentEstimate: 2500,
+    jewishLifeNotes:
+      'Emory has one of the highest concentrations of Jewish students of any private university in the Southeast, with a strong Hillel and Jewish studies program. Atlanta has a large, established Jewish community with numerous synagogues and a JCC serving the metro area.',
+  },
+  {
+    id: 'campus-washu',
+    uuid: 'a0000001-0000-0000-0000-000000000040',
+    name: 'Washington University in St. Louis',
+    city: 'St. Louis',
+    state: 'MO',
+    lat: 38.6488,
+    lng: -90.3108,
+    hillel: { name: 'WashU Hillel', url: 'https://washuhillel.org' },
+    chabad: { name: 'Chabad on Campus at WashU', url: null },
+    jewishStudentEstimate: 2500,
+    jewishLifeNotes:
+      'Washington University draws a large Jewish student body, many from the coasts, and Jewish life is supported by an active Hillel and Chabad. The surrounding St. Louis area, including nearby University City, has a historic and well-established Jewish community.',
+  },
 ];
 
 // String id → Supabase UUID. Includes legacy aliases used in older data.

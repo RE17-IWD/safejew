@@ -7,9 +7,12 @@ import type { Incident, IncidentCategory } from '@/types';
 import { CAMPUSES, type CampusInfo } from '@/lib/campuses';
 import { SOURCED_INCIDENTS } from '@/data/sourced-incidents';
 import { ADL_INCIDENTS } from '@/data/adl-incidents';
+import { CAMPUS_EXTRA_INCIDENTS } from '@/data/campus-incidents';
 
-// Real documented incidents (SafeJew-sourced + ADL H.E.A.T. Map) shown near a campus.
-const CAMPUS_INCIDENTS = [...SOURCED_INCIDENTS, ...ADL_INCIDENTS];
+// Real documented incidents shown near a campus. Greater-LA campuses draw from the
+// LA-wide sets (SafeJew-sourced + ADL) by distance; non-LA campuses draw from a
+// per-campus ADL H.E.A.T. Map slice tagged with campus_id.
+const CAMPUS_LA_INCIDENTS = [...SOURCED_INCIDENTS, ...ADL_INCIDENTS];
 function kmBetween(aLat: number, aLng: number, bLat: number, bLng: number): number {
   const R = 6371;
   const dLat = ((bLat - aLat) * Math.PI) / 180;
@@ -352,11 +355,14 @@ export default function CampusPage() {
   const incidentsLoading = false;
 
   const campus = selectedId ? (CAMPUSES.find((c) => c.id === selectedId) ?? null) : null;
-  // Real documented incidents within ~8km of the selected campus.
-  const incidents = useMemo<Incident[]>(
-    () => (campus ? CAMPUS_INCIDENTS.filter((i) => kmBetween(campus.lat, campus.lng, i.lat, i.lng) <= 8) : []),
-    [campus]
-  );
+  // Real documented incidents near the selected campus: per-campus ADL slice (by
+  // campus_id) for non-LA schools, plus the LA-wide sets within ~8km for LA schools.
+  const incidents = useMemo<Incident[]>(() => {
+    if (!campus) return [];
+    const tagged = CAMPUS_EXTRA_INCIDENTS.filter((i) => i.campus_id === campus.id);
+    if (tagged.length) return tagged;
+    return CAMPUS_LA_INCIDENTS.filter((i) => kmBetween(campus.lat, campus.lng, i.lat, i.lng) <= 8);
+  }, [campus]);
   // The incident map + community-spaces layer only cover Greater LA.
   const campusInLA =
     !!campus && campus.lat >= 33.55 && campus.lat <= 34.45 && campus.lng >= -119.0 && campus.lng <= -117.5;
@@ -479,14 +485,24 @@ export default function CampusPage() {
             </div>
             <p className="font-sans text-xs text-gray-500 mb-10">
               {hasData ? (
-                <>
-                  Documented incidents within ~5 miles of campus, from SafeJew&apos;s sourced records and
-                  the{' '}
-                  <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
-                  Locations are neighborhood-level (approximate) for privacy. See the{' '}
-                  <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
-                  for aggregate statistics.
-                </>
+                campusInLA ? (
+                  <>
+                    Documented incidents within ~5 miles of campus, from SafeJew&apos;s sourced records and
+                    the{' '}
+                    <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
+                    Locations are neighborhood-level (approximate) for privacy. See the{' '}
+                    <Link href="/dashboard" className="underline hover:text-gray-600">Dashboard</Link>{' '}
+                    for aggregate statistics.
+                  </>
+                ) : (
+                  <>
+                    Recent antisemitic incidents (2020–present) reported in {campus.city} from the{' '}
+                    <a href="https://www.adl.org/apps/heatmap/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">ADL H.E.A.T. Map</a>.
+                    ADL publishes city-level locations, not addresses, so pins are placed at
+                    approximate points near campus — click any pin to read the report. Use the toggle
+                    above to add nearby Jewish community spaces.
+                  </>
+                )
               ) : (
                 <>
                   Incident data (SafeJew + the{' '}
@@ -578,26 +594,20 @@ export default function CampusPage() {
                 <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
                   Nearby Synagogues &amp; Jewish Institutions
                 </p>
-                {campusInLA ? (
-                  <>
-                    <p className="font-sans text-sm text-gray-700 leading-relaxed">
-                      Use the community spaces layer on the main map to find publicly listed
-                      synagogues, JCCs, and Jewish student centers near {campus.name}.
-                    </p>
-                    <Link
-                      href="/map"
-                      className="inline-block mt-3 font-sans text-xs text-navy-600 hover:text-navy-800 underline"
-                    >
-                      See all community spaces on the map
-                    </Link>
-                  </>
-                ) : (
-                  <p className="font-sans text-sm text-gray-700 leading-relaxed">
-                    SafeJew&apos;s live incident map and community-spaces layer currently cover Greater Los
-                    Angeles, so they don&apos;t extend to {campus.city}, {campus.state} yet. For Jewish life at{' '}
-                    {campus.name}, see the campus Hillel and Chabad listed above.
-                  </p>
-                )}
+                <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                  On the campus map above, tap{' '}
+                  <span className="font-semibold text-navy-700">Show Jewish community spaces</span> to
+                  plot publicly listed synagogues, JCCs, and Jewish student centers near {campus.name}.
+                  {campusInLA && (
+                    <>
+                      {' '}You can also{' '}
+                      <Link href="/map" className="text-navy-600 hover:text-navy-800 underline">
+                        explore the full Greater-LA map
+                      </Link>
+                      .
+                    </>
+                  )}
+                </p>
               </div>
             </div>
 
