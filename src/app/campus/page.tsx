@@ -51,19 +51,6 @@ const CATEGORY_LABELS: Record<IncidentCategory, string> = {
   other: 'Other',
 };
 
-const FEATURED_CAMPUS_IDS = [
-  'campus-ucla',
-  'campus-usc',
-  'campus-csun',
-  'campus-csulb',
-  'campus-columbia',
-  'campus-harvard',
-  'campus-nyu',
-  'campus-michigan',
-  'campus-berkeley',
-  'campus-brandeis',
-];
-
 function StatPill({ value, label }: { value: string; label: string }) {
   return (
     <div className="bg-white border border-cream-200 rounded-lg px-4 py-3">
@@ -658,25 +645,27 @@ export default function CampusPage() {
         <section className="bg-cream-50 py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="font-sans text-gray-500 text-sm mb-2">
-              Search any of {CAMPUSES.length} campuses for Hillel, Chabad, Jewish community
-              resources, and your Title VI civil-rights options.
+              Tap any of the {CAMPUSES.length} campuses below — or search — for incidents, Hillel,
+              Chabad, Jewish community resources, and your Title VI civil-rights options.
             </p>
             <p className="font-sans text-xs text-gray-500">
               Los Angeles campuses (UCLA, USC) have the deepest local data. Incident tracking is
               being expanded campus by campus as verified data and community reports grow.
             </p>
 
-            {/* Quick-pick chips */}
+            {/* All campuses — click to open */}
             <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {CAMPUSES.filter((c) => FEATURED_CAMPUS_IDS.includes(c.id)).map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => setSelectedId(c.id)}
-                  className="font-sans text-sm px-4 py-2 rounded border border-cream-200 text-gray-600 bg-white hover:border-navy-300 hover:text-navy-700 transition-colors"
-                >
-                  {c.name}
-                </button>
-              ))}
+              {[...CAMPUSES]
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setSelectedId(c.id)}
+                    className="font-sans text-sm px-4 py-2 rounded border border-cream-200 text-gray-600 bg-white hover:border-navy-300 hover:text-navy-700 transition-colors"
+                  >
+                    {c.name}
+                  </button>
+                ))}
             </div>
 
             {/* Suggest a campus */}
