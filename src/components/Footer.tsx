@@ -77,6 +77,13 @@ export default function Footer() {
         </div>
 
         <div className="bottom">
+          <div className="grant">
+            <span className="mark" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logos/tig-logo-footer.png" alt="" width={96} height={99} />
+            </span>
+            <span>Made possible by JFEDLA and the Teen Innovation Grant</span>
+          </div>
           <p>&copy; 2026 SafeJew. Founded by Adrian Erlikhman, Ryan Erlikhman, and Yonatan Zarur.</p>
           <p>
             All data is for informational purposes only. Always contact law enforcement for

@@ -166,6 +166,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* GRANT ATTRIBUTION — quiet credit, subordinate to hero */}
+      <aside className="sj-attrib">
+        <Link className="sj-attrib-link" href="/about#grant">
+          <div className="sj-wrap sj-attrib-in">
+            <span className="logos">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="tig" src="/logos/tig-logo.png" alt="The Julie Beren Platt Teen Innovation Grants" width={240} height={248} loading="lazy" />
+              <span className="sep" aria-hidden="true" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="jfed" src="/logos/jfedla-logo.png" alt="Jewish Federation Los Angeles" width={2390} height={975} loading="lazy" />
+            </span>
+            <span className="txt">
+              <span className="lead">Made possible by JFEDLA and the Teen Innovation Grant</span>
+              <span className="more">Read how SafeJew started <span className="sj-arrow">→</span></span>
+            </span>
+          </div>
+        </Link>
+      </aside>
+
       {/* KPI BAND */}
       <section className="sj-band">
         <div className="sj-wrap sj-band-in">

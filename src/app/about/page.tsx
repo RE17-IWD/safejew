@@ -116,6 +116,59 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Where SafeJew started — grant attribution */}
+      <section id="grant" className="scroll-mt-24 bg-white py-20 border-t border-cream-200">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
+            Where SafeJew started
+          </p>
+          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-6">
+            Made possible by a Julie Beren Platt Teen Innovation Grant
+          </h2>
+
+          {/* Logos */}
+          <div className="flex flex-wrap items-center gap-6 sm:gap-10 mb-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/tig-logo@2x.png"
+              alt="The Julie Beren Platt Teen Innovation Grants"
+              width={480}
+              height={495}
+              className="h-24 w-auto"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/jfedla-logo.png"
+              alt="Jewish Federation Los Angeles"
+              width={2390}
+              height={975}
+              className="h-11 w-auto rounded-md ring-1 ring-cream-200"
+            />
+          </div>
+
+          <div className="space-y-4 font-sans text-base text-gray-700 leading-relaxed">
+            <p>
+              SafeJew began in 2024 as a recipient of a Julie Beren Platt Teen Innovation Grant from
+              the Jewish Federation Los Angeles. The grant funded the first version of the platform —
+              an incident map and community reporting tool — which was shared across JFEDLA&apos;s
+              Greater Los Angeles network.
+            </p>
+            <p>
+              Version 2, launched in 2026, is a complete rebuild. It adds an automated news monitoring
+              pipeline, a live analytics dashboard, a campus deployment model, and a redesigned
+              reporting system. The mission hasn&apos;t changed: give the Los Angeles Jewish community a
+              clear, sourced picture of what is happening near them.
+            </p>
+          </div>
+
+          <p className="mt-8 pt-5 border-t border-cream-200 max-w-2xl font-sans text-xs text-gray-500 leading-relaxed">
+            SafeJew is an independent project. References to the Jewish Federation Los Angeles reflect
+            grant support and do not imply endorsement or partnership. SafeJew does not assess or
+            guarantee security at any location.
+          </p>
+        </div>
+      </section>
+
       {/* Team */}
       <section className="bg-white py-16 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
