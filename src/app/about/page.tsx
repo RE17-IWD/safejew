@@ -160,10 +160,10 @@ export default function AboutPage() {
               clear, sourced picture of what is happening near them.
             </p>
             <p>
-              We owe an enormous thank you to Hannah and Orly. Their guidance, encouragement, and
-              belief in three students with an idea shaped SafeJew from the very beginning, and we are
-              endlessly grateful for everything they have done for us and for this project. Thank you,
-              truly.
+              We owe an enormous thank you to Hannah Sidell and Orly Frank. Their guidance,
+              encouragement, and belief in three students with an idea shaped SafeJew from the very
+              beginning, and we are endlessly grateful for everything they have done for us and for
+              this project. Thank you, truly.
             </p>
           </div>
 
