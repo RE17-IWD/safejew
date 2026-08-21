@@ -72,21 +72,6 @@ export default function AboutPage() {
             </p>
           </Block>
 
-          <Block kicker="The grant &amp; a mentor" title="Someone believed in it">
-            <p>
-              That first version earned a $1,000 Teen Innovation Grant from JFEDLA, the Jewish
-              Federation of Greater Los Angeles and one of the largest Jewish communal organizations in
-              the country. It was the first real sign that the problem was worth solving, and that
-              nothing else was filling the gap.
-            </p>
-            <p>
-              Jane Miller mentored the team through the program. She pushed us on how to frame the
-              problem and on what the tool actually needed to be, and she shaped SafeJew at every step.
-              She helped make it what it is, and we are grateful to her and to JFEDLA for betting on
-              three students with an idea.
-            </p>
-          </Block>
-
           <Block kicker="Lessons" title="What Version 1 taught us">
             <p>
               Version 1 had real limits, and they taught us a lot. The phone experience was rough, and
@@ -160,10 +145,10 @@ export default function AboutPage() {
               clear, sourced picture of what is happening near them.
             </p>
             <p>
-              We owe an enormous thank you to Hannah Sidell and Orly Frank. Their guidance,
-              encouragement, and belief in three students with an idea shaped SafeJew from the very
-              beginning, and we are endlessly grateful for everything they have done for us and for
-              this project. Thank you, truly.
+              We owe an enormous thank you to Hannah Sidell, Orly Frank, and Jane Miller, who mentored
+              us through the program. Their guidance, encouragement, and belief in three students with
+              an idea shaped SafeJew from the very beginning, and we are endlessly grateful for
+              everything they have done for us and for this project. Thank you, truly.
             </p>
           </div>
 
