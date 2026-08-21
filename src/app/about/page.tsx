@@ -116,7 +116,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Where SafeJew started — grant attribution */}
+      {/* Where SafeJew started - grant attribution */}
       <section id="grant" className="scroll-mt-24 bg-white py-20 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
@@ -149,15 +149,21 @@ export default function AboutPage() {
           <div className="space-y-4 font-sans text-base text-gray-700 leading-relaxed">
             <p>
               SafeJew began in 2024 as a recipient of a Julie Beren Platt Teen Innovation Grant from
-              the Jewish Federation Los Angeles. The grant funded the first version of the platform —
-              an incident map and community reporting tool — which was shared across JFEDLA&apos;s
-              Greater Los Angeles network.
+              the Jewish Federation Los Angeles. The grant funded the first version of the platform, an
+              incident map and community reporting tool, which was shared across JFEDLA&apos;s Greater
+              Los Angeles network.
             </p>
             <p>
               Version 2, launched in 2026, is a complete rebuild. It adds an automated news monitoring
               pipeline, a live analytics dashboard, a campus deployment model, and a redesigned
               reporting system. The mission hasn&apos;t changed: give the Los Angeles Jewish community a
               clear, sourced picture of what is happening near them.
+            </p>
+            <p>
+              We owe an enormous thank you to Hannah and Orly. Their guidance, encouragement, and
+              belief in three students with an idea shaped SafeJew from the very beginning, and we are
+              endlessly grateful for everything they have done for us and for this project. Thank you,
+              truly.
             </p>
           </div>
 
