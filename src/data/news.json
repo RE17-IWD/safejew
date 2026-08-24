@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T13:24:47.976Z",
+  "generatedAt": "2026-08-24T13:42:03.218Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -97,7 +97,7 @@
     {
       "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTRpQk4zWXJhbHZfNWdQd1NCTGNsMDNjdmhRTlJzdkJWUF9NSnBuZ1BlZnpOUl9YVGYwS2hUV2h3emNYMDNhZDFwTjBwc19uai1ZNVpLeVo3U0doLWxFdXpXUjlFdVczdUdYRG1yS0hCcTlxNlhXN0M1UUhNNVZVOUpId3VMVS1UUUwwQ0NfdFJ0OWNlRm5FdEZTdjZXRllmQTdYNXdZQllibzlOM1JjdUN30gG3AUFVX3lxTE5hVnpqelJqYzk0WnlyUUxUbDJHYWFEWmhtN1pMZ044c1Rzc2JaM0RhN1NEdUtxSEx5ZXM1M1FnOWV5bE45OGFmV3h6OS0yRzR2LWFlQUNxcjdTUjRyaXpGMWEyRzI0OTJzaTZ2STVXOXVlWURCczhvd21COTV5aW9CNTJEbHNzbGlsc0xPbFoycXUybld4NHV3aHlmSzlibGE2UWJfSWRTOWZkNUFSSnFLaGFSd0h4QQ?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2026-05-26T07:00:00.000Z"
     },
     {
@@ -109,7 +109,7 @@
     {
       "title": "28-year-old arrested, charged with hate crime for alleged assault of Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSWt6MzlHVUEzaGo3clVreVdXWENRWmM1QXBiYmRMYVJqVzZwbE5kT3VBaGtoV1prdjNmV0hIS3dEX0RybVM5dFc3TlVGQ3BTY2Z1ZVVpMnZncTFQMWd6cDY1d0M4WUpNaEdkNXFRVU5jdTdvUW5tc3ZLYWM3MEJCaWw1SGZ2UHU0aTRBQ0UzTW56dm1NancyM00yRWtaUXgwTkZOWExpMzQzZXc4ajc5cE5nVWpRR0XSAbwBQVVfeXFMT2FnazEzd0tWbGVLMG9qQ3cwSE1DeFhaeFFOb04yWDFLd3B1eEtoN1VpS083QS1HWnEySFJfSGdLV05BWElhVjBjN1I3dUJ5c3BPcmZPQkxNVjNYRHRab0ZWOTEzNWl4ZmJ0MXEtQnBDWk1mclZIa0d6Wm1uY3ZkUjlnZkVvbzJuZTRWZ19sNDcwY2dOS2g3UktzODRQOWwxNjY3VWVINllKaktQWHpkanVab2VBNWl3M3VTT1c?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2026-05-18T07:00:00.000Z"
     },
     {
@@ -197,9 +197,9 @@
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
-      "title": "Swastikas drawn on driveway and fire hydrant in South Glendale",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNT2dCSWFOTnprTnI2YU5zWEVyeHZ3NW84d0x5dlgzY2pOT1Awc2R4ZjNBNFVZbzBuWlFUVTF6X1FEX1FsZVE4NVA2dG4zcER3WGdRelRZZmV5dFhHcHoycERQZnkyNFBPajdSZXJRU2lEU1QxYVljaWtIZmVVRTVDR1NwM21VTjRULXFV0gGTAUFVX3lxTFBuTjEwcDRJSm5fSzQzaDNQUE5mRHFMdHBObmplZ2NEdEFCS293d1pSRG1XbmlwY2NjZEVzbUZTQ3cwMUx6Y3cyQkkyczN0MGRvY3l3S2VTR3FWNlZxTXRQaWRSdG5DY3dMbEk2ckwxRHc0V1pxaUt2MzRidzl4Q21JYlllaXJPRG14X3dtaEJCUXdnTQ?oc=5",
-      "source": "NBC Los Angeles",
+      "title": "Hate crime investigation launched after Glendale residents find swastikas drawn in their neighborhood",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVkdWTUNmdWNLSUVjd2J1U3F4NTZMWHhHS3k5MWtPM2hGdjd6TDNZbWQtWkdQb2JSMkpjaTlwUWQzRXFyNTRJMHcwamdZd1QwR1l4VTJBZ3ZaQmtMS294ZVByWkVBNDljUDItOUVJSk4tSC15dkVpN0pieGVIeUQxcDc3VkhyVDlFbnhIatIBkgFBVV95cUxQMnZ4N1dQenpuUG5DR2hBTXlqcXMySjFUX01ZUWVESDJtdnBiQ1VaUTM2Zm5WWXdzejdhUDBQa2REWDlYaVJVOEc2RkpnLXhkdG14ODk4bDNKLVotWlhMSmhnZFBsZmtTbUNDTm01cF9jNkNOU1poM3l6cURWQ2lKSXZONHQ2ZFVJNmsxU3VURnN6dw?oc=5",
+      "source": "CBS News",
       "date": "2025-09-29T07:00:00.000Z",
       "lat": 34.1425,
       "lng": -118.2551,
@@ -217,7 +217,7 @@
     {
       "title": "Swastika stickers placed on Teslas in L.A. County spark concern",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMWZYaEQ2MURuc01FazF3SUU3UEVFSjRRa2NEbUdxNzhBN25mZWZIOEdXSGp1c0p0bjdheVJvd3dNTFJxLUZ4d1pkUHVNY05EWUxBN1FoYWV5TklpWm1ieUxtOXdUZDJwY0pWWGNFZEJHd0FOOVNqd1BPV3A2cGJJS2p2SS1oWDVrN05wekU2RU80N1N1dDZsNllpd1U5b3FRdXfSAacBQVVfeXFMT3QybkVaY2k1NFVqTERDU1pVVVRXSGZsa1FzdmlUVzd5VEZZTXF1TVRfSXVPNlhNN0xWNkdTNVVmQzlFN2pJNkgxaWI3cTVkanEwWGE0MHpIbkkzQ0dFeDExZFRuTmFtQk1wVThnSDA4ckRaZTBfdTR3R245SnRnSkRIT0RiVXM3aWpqQUVVTDhVelBiMWgyeU5rLVBxYl91VFFQUlFoVnM?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2025-09-21T07:00:00.000Z"
     },
     {
