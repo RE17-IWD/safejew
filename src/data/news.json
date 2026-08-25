@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T13:42:03.218Z",
+  "generatedAt": "2026-08-25T13:40:38.597Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -13,12 +13,6 @@
     "antisemitic assault OR \"hate crime\" charged Los Angeles OR \"district attorney\" when:1y"
   ],
   "items": [
-    {
-      "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
-      "source": "Combat Antisemitism Movement",
-      "date": "2026-08-12T07:00:00.000Z"
-    },
     {
       "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeDlkLVdtX00yaXBobGlmSlYybXY0SFlXQlhvTk90Z01Ib3JTN21jcjVUSXRuYnRsVXVDaVZWczhNcEVaenpxSElJX0ttVFg3OTM0UlJZQTBJUkl6NFJGTmxub1VVYXB2STJIZXl2V1paOFNrZGlsNmVkUU5nWHVjelI1cjFsN3pkeTByeExGUFE3ZV9EVnJIelF5M1dmTlNMb1g0anUxRXNLanp4ejhlMW41RXlGRWUyQnc?oc=5",
@@ -97,7 +91,7 @@
     {
       "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTRpQk4zWXJhbHZfNWdQd1NCTGNsMDNjdmhRTlJzdkJWUF9NSnBuZ1BlZnpOUl9YVGYwS2hUV2h3emNYMDNhZDFwTjBwc19uai1ZNVpLeVo3U0doLWxFdXpXUjlFdVczdUdYRG1yS0hCcTlxNlhXN0M1UUhNNVZVOUpId3VMVS1UUUwwQ0NfdFJ0OWNlRm5FdEZTdjZXRllmQTdYNXdZQllibzlOM1JjdUN30gG3AUFVX3lxTE5hVnpqelJqYzk0WnlyUUxUbDJHYWFEWmhtN1pMZ044c1Rzc2JaM0RhN1NEdUtxSEx5ZXM1M1FnOWV5bE45OGFmV3h6OS0yRzR2LWFlQUNxcjdTUjRyaXpGMWEyRzI0OTJzaTZ2STVXOXVlWURCczhvd21COTV5aW9CNTJEbHNzbGlsc0xPbFoycXUybld4NHV3aHlmSzlibGE2UWJfSWRTOWZkNUFSSnFLaGFSd0h4QQ?oc=5",
-      "source": "ktla.com",
+      "source": "KTLA",
       "date": "2026-05-26T07:00:00.000Z"
     },
     {
@@ -109,7 +103,7 @@
     {
       "title": "28-year-old arrested, charged with hate crime for alleged assault of Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSWt6MzlHVUEzaGo3clVreVdXWENRWmM1QXBiYmRMYVJqVzZwbE5kT3VBaGtoV1prdjNmV0hIS3dEX0RybVM5dFc3TlVGQ3BTY2Z1ZVVpMnZncTFQMWd6cDY1d0M4WUpNaEdkNXFRVU5jdTdvUW5tc3ZLYWM3MEJCaWw1SGZ2UHU0aTRBQ0UzTW56dm1NancyM00yRWtaUXgwTkZOWExpMzQzZXc4ajc5cE5nVWpRR0XSAbwBQVVfeXFMT2FnazEzd0tWbGVLMG9qQ3cwSE1DeFhaeFFOb04yWDFLd3B1eEtoN1VpS083QS1HWnEySFJfSGdLV05BWElhVjBjN1I3dUJ5c3BPcmZPQkxNVjNYRHRab0ZWOTEzNWl4ZmJ0MXEtQnBDWk1mclZIa0d6Wm1uY3ZkUjlnZkVvbzJuZTRWZ19sNDcwY2dOS2g3UktzODRQOWwxNjY3VWVINllKaktQWHpkanVab2VBNWl3M3VTT1c?oc=5",
-      "source": "ktla.com",
+      "source": "KTLA",
       "date": "2026-05-18T07:00:00.000Z"
     },
     {
@@ -217,7 +211,7 @@
     {
       "title": "Swastika stickers placed on Teslas in L.A. County spark concern",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMWZYaEQ2MURuc01FazF3SUU3UEVFSjRRa2NEbUdxNzhBN25mZWZIOEdXSGp1c0p0bjdheVJvd3dNTFJxLUZ4d1pkUHVNY05EWUxBN1FoYWV5TklpWm1ieUxtOXdUZDJwY0pWWGNFZEJHd0FOOVNqd1BPV3A2cGJJS2p2SS1oWDVrN05wekU2RU80N1N1dDZsNllpd1U5b3FRdXfSAacBQVVfeXFMT3QybkVaY2k1NFVqTERDU1pVVVRXSGZsa1FzdmlUVzd5VEZZTXF1TVRfSXVPNlhNN0xWNkdTNVVmQzlFN2pJNkgxaWI3cTVkanEwWGE0MHpIbkkzQ0dFeDExZFRuTmFtQk1wVThnSDA4ckRaZTBfdTR3R245SnRnSkRIT0RiVXM3aWpqQUVVTDhVelBiMWgyeU5rLVBxYl91VFFQUlFoVnM?oc=5",
-      "source": "ktla.com",
+      "source": "KTLA",
       "date": "2025-09-21T07:00:00.000Z"
     },
     {
