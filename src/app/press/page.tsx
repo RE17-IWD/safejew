@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import news from '@/data/news.json';
 
 export const metadata: Metadata = {
-  title: 'In the news',
+  title: 'In the News',
   description: 'A daily-refreshed feed of recent antisemitism coverage across Greater Los Angeles.',
 };
 
@@ -37,15 +38,15 @@ export default function PressPage() {
       <section className="sj-page-hero">
         <div className="bggrid" aria-hidden="true" />
         <div className="sj-wrap">
-          <span className="sj-eyebrow">In the news</span>
-          <h1>Recent coverage</h1>
+          <span className="sj-eyebrow">In the News</span>
+          <h1>Recent Coverage</h1>
           <p>
             A live feed of recent antisemitism coverage across Greater Los Angeles, updated daily
             {updated ? ` (last updated ${updated})` : ''}. These are external news reports, not
             SafeJew-verified incidents. Working on a story?{' '}
-            <a href="mailto:contact.safejew@gmail.com" style={{ color: '#8fb4ff', fontWeight: 600 }}>
-              Get in touch
-            </a>
+            <Link href="/contact" style={{ color: '#8fb4ff', fontWeight: 600 }}>
+              Get in Touch
+            </Link>
             .
           </p>
         </div>
@@ -63,7 +64,7 @@ export default function PressPage() {
                       <span className="place">· {c.source}</span>
                     </div>
                     <h3>{c.title}</h3>
-                    <p>Read the source →</p>
+                    <p>Read the Source →</p>
                   </a>
                 ))}
               </div>

@@ -7,10 +7,10 @@ export const metadata = {
 const TEAM = ['Adrian Erlikhman', 'Ryan Erlikhman', 'Yonatan Zarur'];
 
 const ROADMAP = [
-  ['Mobile reporting app', 'Fast reporting from your phone, the way most people actually report, with offline queuing.'],
+  ['Mobile Reporting App', 'Fast reporting from your phone, the way most people actually report, with offline queuing.'],
   ['Beyond Los Angeles', 'Expanding to other cities as data partnerships and community relationships grow.'],
-  ['Campus program', 'A per-campus deployment with Hillels and universities: anonymous student reporting, per-school data, and an administrator dashboard.'],
-  ['Verified data partnerships', 'Direct feeds from official sources, so the map stays current instead of running months behind.'],
+  ['Campus Program', 'A per-campus deployment with Hillels and universities: anonymous student reporting, per-school data, and an administrator dashboard.'],
+  ['Verified Data Partnerships', 'Direct feeds from official sources, so the map stays current instead of running months behind.'],
 ];
 
 function Block({ kicker, title, children }: { kicker: string; title: string; children: React.ReactNode }) {
@@ -27,11 +27,11 @@ export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-navy-800 py-20">
+      <section className="bg-navy-800 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-12 h-0.5 bg-gold-500 mb-6" aria-hidden="true" />
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight">
-            Our story
+            Our Story
           </h1>
           <p className="mt-4 text-lg text-blue-100/70 max-w-xl leading-relaxed">
             Three LA students kept asking one question: where is the data? So they built it.
@@ -40,9 +40,9 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="bg-cream-50 py-20">
+      <section className="bg-cream-50 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-          <Block kicker="2023 · How it started" title="The question">
+          <Block kicker="2023 · How It Started" title="The Question">
             <p>
               In 2023, Adrian Erlikhman, Ryan Erlikhman, and Yonatan Zarur watched antisemitism climb
               in their schools, their neighborhoods, and their feeds. Swastikas on lockers. Slurs in
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </p>
           </Block>
 
-          <Block kicker="The build" title="Version 1">
+          <Block kicker="The Build" title="Version 1">
             <p>
               So they built it. The first version was scrappy. The team taught themselves what they
               needed as they went. They pulled public incident data from the ADL, FBI reports, and LAPD
@@ -72,7 +72,7 @@ export default function AboutPage() {
             </p>
           </Block>
 
-          <Block kicker="Lessons" title="What Version 1 taught us">
+          <Block kicker="Lessons" title="What Version 1 Taught Us">
             <p>
               Version 1 had real limits, and they taught us a lot. The phone experience was rough, and
               most people report from their phones. The analytics were thin, so the map showed incidents
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <p>Those failures made it obvious what Version 2 had to be.</p>
           </Block>
 
-          <Block kicker="Now · Version 2" title="A full rebuild">
+          <Block kicker="Now · Version 2" title="A Full Rebuild">
             <p>
               Version 2 is built from scratch: new code, new design, new data. A cleaner, faster map.
               Mobile-first reporting. A real campus tool. Analytics that tell a story instead of listing
@@ -102,13 +102,13 @@ export default function AboutPage() {
       </section>
 
       {/* Where SafeJew started - grant attribution */}
-      <section id="grant" className="scroll-mt-24 bg-white py-20 border-t border-cream-200">
+      <section id="grant" className="scroll-mt-24 bg-white py-14 sm:py-20 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="font-sans text-xs font-semibold uppercase tracking-widest text-gold-500 mb-3">
-            Where SafeJew started
+            Where SafeJew Started
           </p>
           <h2 className="font-serif text-2xl font-bold text-navy-800 mb-6">
-            Made possible by a Julie Beren Platt Teen Innovation Grant
+            Made Possible by a Julie Beren Platt Teen Innovation Grant
           </h2>
 
           {/* Logos */}
@@ -161,9 +161,9 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-white py-16 border-t border-cream-200">
+      <section className="bg-white py-12 sm:py-16 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-8">The team</h2>
+          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-8">The Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {TEAM.map((name) => (
               <div key={name} className="border-t-2 border-gold-500 pt-4">
@@ -178,9 +178,9 @@ export default function AboutPage() {
       </section>
 
       {/* Roadmap */}
-      <section className="bg-cream-50 py-16 border-t border-cream-200">
+      <section className="bg-cream-50 py-12 sm:py-16 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-2">What&apos;s next</h2>
+          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-2">What&apos;s Next</h2>
           <p className="font-sans text-sm text-gray-500 mb-8">Where SafeJew is headed.</p>
           <ul className="space-y-5">
             {ROADMAP.map(([label, detail]) => (
@@ -197,21 +197,29 @@ export default function AboutPage() {
       </section>
 
       {/* Contact */}
-      <section className="bg-navy-800 py-16">
+      <section className="bg-navy-800 py-12 sm:py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white mb-3">
-            Working on community or campus safety?
+            Working on Community or Campus Safety?
           </h2>
           <p className="font-sans text-base text-blue-100/70 mb-8 leading-relaxed">
             Universities, synagogues, community organizations, security teams: if you are dealing with
             this, we want to hear from you.
           </p>
-          <a
-            href="mailto:contact.safejew@gmail.com"
-            className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
-          >
-            Get in touch
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center bg-gold-500 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-gold-600 transition-colors"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="mailto:contact.safejew@gmail.com"
+              className="inline-flex items-center justify-center border border-white/25 text-white px-8 py-3 rounded font-sans font-semibold text-sm hover:bg-white/10 transition-colors"
+            >
+              Email Us
+            </a>
+          </div>
         </div>
       </section>
     </>

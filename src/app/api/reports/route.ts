@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { randomUUID } from 'crypto';
 import { isDemoMode } from '@/lib/demo-data';
 import { findCampus } from '@/lib/campuses';
 import { rateLimit, clientIp, tooMany } from '@/lib/rate-limit';
@@ -43,7 +44,17 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { category, description, occurred_at, neighborhood, severity, is_anonymous, reporter_contact, campus_id } = body;
+    const {
+      category,
+      description,
+      occurred_at,
+      neighborhood,
+      neighborhood_detail,
+      severity,
+      is_anonymous,
+      reporter_contact,
+      campus_id,
+    } = body;
 
     // A report is located either by LA neighborhood or by campus
     const campus = campus_id ? findCampus(String(campus_id)) : undefined;
@@ -65,6 +76,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Description too short' }, { status: 400 });
     }
 
+    // When the reporter picks "Other" they name the area in a free-text box. Keep
+    // it as the label only — coordinates still come from the generic centroid, so
+    // nothing typed here can sharpen the stored location.
+    const detail =
+      typeof neighborhood_detail === 'string'
+        ? neighborhood_detail.replace(/\s+/g, ' ').trim().slice(0, 80)
+        : '';
+
     // Campus reports anchor to the campus coordinates; LA reports to their neighborhood centroid
     let lat: number;
     let lng: number;
@@ -79,36 +98,88 @@ export async function POST(request: NextRequest) {
       lng = jitter(centroid[1]);
       place = neighborhood;
     }
+    if (neighborhood === 'Other' && detail) {
+      place = detail;
+    }
 
     if (isDemoMode()) {
       return NextResponse.json({ success: true, id: 'demo-' + Date.now() });
     }
 
+    // Writes go through the service role. If that key is missing the Supabase
+    // client still constructs but every insert is rejected, which used to
+    // surface as a generic "Failed to submit report".
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error(
+        'Report submission blocked: SUPABASE_SERVICE_ROLE_KEY is not set in this environment.'
+      );
+      return NextResponse.json(
+        {
+          error:
+            'Reporting is temporarily unavailable. Please email contact.safejew@gmail.com and we will log your report manually.',
+          code: 'service_key_missing',
+        },
+        { status: 503 }
+      );
+    }
+
     const { createServiceClient } = await import('@/lib/supabase/server');
     const supabase = createServiceClient();
 
-    // Insert into `reports` table (not incidents) — reports has is_anonymous + reporter_contact
-    const { data, error } = await supabase
-      .from('reports')
-      .insert({
-        category,
-        description: description.slice(0, 2000),
-        occurred_at,
-        neighborhood: String(place).slice(0, 120),
-        lat,
-        lng,
-        severity,
-        source: 'community',
-        status: 'pending',
-        campus_id: campus?.uuid ?? null,
-        is_anonymous: Boolean(is_anonymous),
-        reporter_contact: is_anonymous ? null : (reporter_contact?.slice(0, 200) || null),
-      })
-      .select('id')
-      .single();
+    // Insert into `reports` table (not incidents) — reports has is_anonymous + reporter_contact.
+    // The id is supplied explicitly so the insert does not depend on the column
+    // carrying a server-side default.
+    const row = {
+      id: randomUUID(),
+      category,
+      description: description.slice(0, 2000),
+      occurred_at,
+      neighborhood: String(place).slice(0, 120),
+      lat,
+      lng,
+      severity,
+      source: 'community',
+      status: 'pending',
+      campus_id: campus?.uuid ?? null,
+      is_anonymous: Boolean(is_anonymous),
+      reporter_contact: is_anonymous ? null : (reporter_contact?.slice(0, 200) || null),
+    };
 
-    if (error) throw error;
-    return NextResponse.json({ success: true, id: data.id });
+    let { data, error } = await supabase.from('reports').insert(row).select('id').single();
+
+    // A campus row missing from the `campuses` table must not cost us the report;
+    // keep the campus name in the location label and store it unlinked.
+    if (error?.code === '23503' && row.campus_id) {
+      console.warn(
+        `Report insert hit a foreign-key error on campus_id=${row.campus_id}; retrying unlinked.`
+      );
+      const retry = await supabase
+        .from('reports')
+        .insert({
+          ...row,
+          campus_id: null,
+          neighborhood: String(campus ? `${campus.name} area` : place).slice(0, 120),
+        })
+        .select('id')
+        .single();
+      data = retry.data;
+      error = retry.error;
+    }
+
+    if (error) {
+      console.error('Report insert failed:', {
+        code: error.code,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+      });
+      return NextResponse.json(
+        { error: 'Failed to submit report', code: error.code ?? 'unknown' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, id: data?.id ?? row.id });
   } catch (error) {
     console.error('Report submission error:', error);
     return NextResponse.json({ error: 'Failed to submit report' }, { status: 500 });

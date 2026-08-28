@@ -14,12 +14,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/methodology',
     '/press',
+    '/contact',
+    '/privacy',
+    '/terms',
   ];
   const now = new Date();
   return routes.map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: path === '' || path === '/map' ? 'daily' : 'weekly',
-    priority: path === '' ? 1 : 0.7,
+    priority: path === '' ? 1 : path === '/privacy' || path === '/terms' ? 0.3 : 0.7,
   }));
 }

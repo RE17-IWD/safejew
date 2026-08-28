@@ -14,7 +14,7 @@ export default function MethodologyPage() {
         <div className="bggrid" aria-hidden="true" />
         <div className="sj-wrap">
           <span className="sj-eyebrow">Methodology</span>
-          <h1>How we source and verify the data</h1>
+          <h1>How We Source and Verify the Data</h1>
           <p>
             SafeJew is only as trustworthy as its data. Here is exactly where every number comes
             from, what &ldquo;verified&rdquo; means, and how we protect the people involved.
@@ -24,7 +24,7 @@ export default function MethodologyPage() {
 
       <section className="sj-sec">
         <div className="sj-wrap sj-prose">
-          <h2>Where the numbers come from</h2>
+          <h2>Where the Numbers Come From</h2>
           <p>
             Every headline figure on this site traces to a published report from an official body.
             We never invent numbers, and we keep community-submitted reports as a separate,
@@ -40,7 +40,7 @@ export default function MethodologyPage() {
             ))}
           </ul>
 
-          <h2>What &ldquo;verified&rdquo; means</h2>
+          <h2>What &ldquo;Verified&rdquo; Means</h2>
           <p>
             An incident is marked <strong>verified</strong> only when it is corroborated by an
             official record (a police report or an established monitoring organization) or by
@@ -48,21 +48,21 @@ export default function MethodologyPage() {
             by a person before they ever appear on the map.
           </p>
 
-          <h2>Location &amp; privacy</h2>
+          <h2>Location &amp; Privacy</h2>
           <p>
             To protect victims and witnesses, incident locations are shown at the{' '}
             <strong>neighborhood level</strong>, not at an exact address. We do not publish personal
             information, and we remove details that could identify individuals.
           </p>
 
-          <h2>De-duplication</h2>
+          <h2>De-Duplication</h2>
           <p>
             The same incident is often reported by several sources. We collapse duplicates by
             matching date, location, and description so a single event is counted once, while
             preserving each corroborating source.
           </p>
 
-          <h2>How often it updates</h2>
+          <h2>How Often It Updates</h2>
           <p>
             We review the sources and refresh the figures regularly, and we fold in each
             source&apos;s annual report (ADL, LA County, CA DOJ) as soon as it publishes. The data on

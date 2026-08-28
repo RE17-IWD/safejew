@@ -243,7 +243,7 @@ export default function October7Page() {
       </section>
 
       {/* ── 2. Attack facts & timeline ── */}
-      <section className="bg-cream-50 py-20 border-b border-cream-200">
+      <section className="bg-cream-50 py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="What Happened" title="October 7, 2023: The Attack" />
 
@@ -271,7 +271,7 @@ export default function October7Page() {
             <div className="space-y-6">
               {ATTACK_TIMELINE.map(({ time, event }) => (
                 <div key={time} className="flex gap-6 items-start">
-                  <div className="w-[82px] sm:w-[100px] flex-shrink-0 text-right">
+                  <div className="w-[82px] sm:w-[100px] flex-shrink-0 text-left">
                     <span className="font-sans text-xs font-semibold text-navy-600">{time}</span>
                   </div>
                   <div className="flex-shrink-0 w-4 flex items-center justify-center pt-0.5">
@@ -298,9 +298,9 @@ export default function October7Page() {
       </section>
 
       {/* ── 3. National antisemitism surge ── */}
-      <section className="bg-white py-20 border-b border-cream-200">
+      <section className="bg-white py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="What happened to American Jews" title="A surge unlike anything on record" />
+          <SectionHeading eyebrow="What Happened to American Jews" title="A Surge Unlike Anything on Record" />
           <p className="font-sans text-sm text-gray-600 mb-8 leading-relaxed max-w-2xl">
             The ADL has tracked antisemitic incidents in the United States since 1979. The 2023 total
             shattered every prior record, not just post-October-7, but also the years that preceded it,
@@ -355,9 +355,9 @@ export default function October7Page() {
       </section>
 
       {/* ── 4. Monthly timeline / area chart ── */}
-      <section className="bg-cream-50 py-20 border-b border-cream-200">
+      <section className="bg-cream-50 py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Monthly Trend" title="The October 7 inflection point" />
+          <SectionHeading eyebrow="Monthly Trend" title="The October 7 Inflection Point" />
           <p className="font-sans text-sm text-gray-600 mb-8 leading-relaxed max-w-2xl">
             The October 7 spike is visible as an almost-vertical wall of data. The Oct–Dec 2023
             period, just 86 days, accounts for 59% of the entire year&apos;s total. No comparable
@@ -437,9 +437,9 @@ export default function October7Page() {
       </section>
 
       {/* ── 5. Campus section ── */}
-      <section className="bg-navy-800 py-20 border-b border-navy-700">
+      <section className="bg-navy-800 py-14 sm:py-20 border-b border-navy-700">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="On Campus" title="Jewish students faced a new front" light />
+          <SectionHeading eyebrow="On Campus" title="Jewish Students Faced a New Front" light />
           <p className="font-sans text-sm text-blue-100/75 mb-10 max-w-2xl leading-relaxed">
             No segment of American Jewry was hit harder, proportionally, than college students.
             Campus antisemitic incidents spiked 321% in a single year, from 219 in 2022 to 922 in 2023.
@@ -527,7 +527,7 @@ export default function October7Page() {
       </section>
 
       {/* ── 6. Los Angeles section ── */}
-      <section className="bg-cream-100 py-20 border-b border-cream-200">
+      <section className="bg-cream-100 py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Greater Los Angeles" title="In Los Angeles" />
           <p className="font-sans text-sm text-gray-600 mb-10 leading-relaxed max-w-2xl">
@@ -618,9 +618,9 @@ export default function October7Page() {
       </section>
 
       {/* ── 7. Proportion section ── */}
-      <section className="bg-white py-20 border-b border-cream-200">
+      <section className="bg-white py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Context" title="A disproportionate burden" />
+          <SectionHeading eyebrow="Context" title="A Disproportionate Burden" />
           <p className="font-sans text-sm text-gray-600 mb-10 leading-relaxed max-w-2xl">
             Even before October 7, Jews were already the most targeted religious group for hate crimes
             in the United States, every single year. The FBI&apos;s annual hate crime statistics have
@@ -686,9 +686,9 @@ export default function October7Page() {
       </section>
 
       {/* ── 8. Why it matters / mission ── */}
-      <section className="bg-cream-50 py-20 border-b border-cream-200">
+      <section className="bg-cream-50 py-14 sm:py-20 border-b border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Why It Matters" title="The case for real-time safety data infrastructure" />
+          <SectionHeading eyebrow="Why It Matters" title="The Case for Real-Time Safety Data Infrastructure" />
           <div className="space-y-4 font-sans text-base text-gray-700 leading-relaxed mb-10">
             <p>
               October 7 made something undeniable: antisemitism is not episodic. It is structural.

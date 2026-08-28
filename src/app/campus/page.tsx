@@ -390,7 +390,7 @@ export default function CampusPage() {
             Free Campus Tool
           </p>
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-            Jewish community on campus
+            Jewish Community on Campus
           </h1>
           <p className="font-sans text-base text-white/65 max-w-xl leading-relaxed mb-8">
             Antisemitism incidents, nearby synagogues, Chabad houses, and Jewish community
@@ -616,7 +616,7 @@ export default function CampusPage() {
                     <path d="M10 2a3 3 0 013 3v3H7V5a3 3 0 013-3z" />
                     <rect x="4.5" y="8" width="11" height="9" rx="1.5" />
                   </svg>
-                  <p className="font-sans text-sm font-semibold text-white">Report anonymously</p>
+                  <p className="font-sans text-sm font-semibold text-white">Report Anonymously</p>
                 </div>
                 <p className="font-sans text-sm text-white/65 leading-relaxed">
                   Students often fear retaliation. You can file a report with no name and no email.
@@ -642,7 +642,7 @@ export default function CampusPage() {
         </section>
       ) : (
         /* No campus selected — show browse prompt + suggest form */
-        <section className="bg-cream-50 py-16">
+        <section className="bg-cream-50 py-12 sm:py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="font-sans text-gray-500 text-sm mb-2">
               Tap any of the {CAMPUSES.length} campuses below — or search — for incidents, Hillel,
@@ -681,13 +681,13 @@ export default function CampusPage() {
       )}
 
       {/* For Hillels & universities */}
-      <section className="bg-white py-16 border-t border-cream-200">
+      <section className="bg-white py-12 sm:py-16 border-t border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
             For institutions
           </p>
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-navy-800 mb-3">
-            SafeJew for Hillels &amp; universities
+            SafeJew for Hillels &amp; Universities
           </h2>
           <p className="font-sans text-base text-gray-600 leading-relaxed max-w-2xl mb-4">
             National statistics come out once a year and never say what&apos;s happening at your
@@ -738,12 +738,12 @@ export default function CampusPage() {
             ))}
           </div>
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-            <a
-              href="mailto:contact.safejew@gmail.com?subject=SafeJew%20for%20Campus%20%E2%80%94%20partnership"
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center bg-navy-800 text-white px-6 py-3 rounded font-sans font-semibold text-sm hover:bg-navy-900 transition-colors"
             >
-              Partner with us
-            </a>
+              Partner With Us
+            </Link>
             <p className="font-sans text-sm text-gray-500">
               Hillel, campus security, or a student org? We&apos;d love to build this with you.
             </p>
@@ -767,6 +767,13 @@ export default function CampusPage() {
           </Link>
           <p className="font-sans text-sm text-white/60 mt-5">
             Hillel, campus security, or student org?{' '}
+            <Link
+              href="/contact"
+              className="text-gold-400 hover:text-gold-500 underline underline-offset-2 transition-colors"
+            >
+              Send us a message
+            </Link>{' '}
+            or email{' '}
             <a
               href="mailto:contact.safejew@gmail.com"
               className="text-gold-400 hover:text-gold-500 underline underline-offset-2 transition-colors"

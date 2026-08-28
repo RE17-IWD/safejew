@@ -51,16 +51,29 @@ export async function GET(request: NextRequest) {
       .select('*')
       .order('created_at', { ascending: false })
       .limit(100);
+    let contactQuery = supabase
+      .from('contact_messages')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(100);
     if (!all) {
       reportsQuery = reportsQuery.eq('status', 'pending');
       campusReqQuery = campusReqQuery.eq('status', 'pending');
+      contactQuery = contactQuery.eq('status', 'new');
     }
 
-    const [reportsRes, campusReqRes] = await Promise.all([reportsQuery, campusReqQuery]);
+    const [reportsRes, campusReqRes, contactRes] = await Promise.all([
+      reportsQuery,
+      campusReqQuery,
+      contactQuery,
+    ]);
 
+    // campus_requests and contact_messages are optional tables; if the migration
+    // has not been run yet, show an empty list rather than failing the whole page.
     return NextResponse.json({
       reports: reportsRes.data ?? [],
       campusRequests: campusReqRes.error ? [] : (campusReqRes.data ?? []),
+      contactMessages: contactRes.error ? [] : (contactRes.data ?? []),
     });
   } catch (error) {
     console.error('Admin GET error:', error);

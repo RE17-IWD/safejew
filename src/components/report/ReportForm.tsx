@@ -93,6 +93,7 @@ interface FormData {
   date: string;
   time: string;
   neighborhood: string;
+  neighborhoodOther: string;
   campus: string;
   isAnonymous: boolean;
   contactName: string;
@@ -107,6 +108,7 @@ const INITIAL_FORM: FormData = {
   date: '',
   time: '',
   neighborhood: '',
+  neighborhoodOther: '',
   campus: '',
   isAnonymous: true,
   contactName: '',
@@ -206,7 +208,11 @@ export default function ReportForm() {
 
   function isStep2Valid(): boolean {
     const today = new Date().toISOString().split('T')[0];
-    return form.date !== '' && form.date <= today && (form.neighborhood !== '' || form.campus !== '');
+    const hasPlace =
+      form.campus !== '' ||
+      (form.neighborhood !== '' &&
+        (form.neighborhood !== 'Other' || form.neighborhoodOther.trim().length >= 2));
+    return form.date !== '' && form.date <= today && hasPlace;
   }
 
   function isStep4Valid(): boolean {
@@ -227,6 +233,8 @@ export default function ReportForm() {
         description: form.description.trim(),
         occurred_at,
         neighborhood: form.neighborhood,
+        neighborhood_detail:
+          form.neighborhood === 'Other' ? form.neighborhoodOther.trim() : null,
         campus_id: form.campus || null,
         is_anonymous: form.isAnonymous,
         reporter_contact:
@@ -549,6 +557,29 @@ export default function ReportForm() {
                 </option>
               ))}
             </select>
+
+            {/* "Other" is only useful if we know which area it was. */}
+            {form.neighborhood === 'Other' && (
+              <div className="mt-3">
+                <label htmlFor="neighborhoodOther" className={labelClass}>
+                  Which neighborhood or area? <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="neighborhoodOther"
+                  value={form.neighborhoodOther}
+                  onChange={(e) => update('neighborhoodOther', e.target.value.slice(0, 80))}
+                  placeholder="e.g. Van Nuys, Northridge, Long Beach"
+                  className={inputClass}
+                  maxLength={80}
+                  autoComplete="off"
+                />
+                <p className="font-sans text-xs text-gray-500 mt-1">
+                  Name the neighborhood, district, or city only. Please do not enter a street
+                  address, we do not store them.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="mt-3 border border-cream-200 rounded bg-cream-50 px-4 py-3">
@@ -691,7 +722,9 @@ export default function ReportForm() {
                   <td className="px-4 py-3 text-gray-800">
                     {[
                       form.campus ? CAMPUSES.find((c) => c.id === form.campus)?.name : null,
-                      form.neighborhood || null,
+                      form.neighborhood === 'Other'
+                        ? form.neighborhoodOther.trim() || 'Other'
+                        : form.neighborhood || null,
                     ]
                       .filter(Boolean)
                       .join(', ')}

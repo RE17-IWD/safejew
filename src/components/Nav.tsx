@@ -14,7 +14,7 @@ const primaryLinks = [
 ];
 
 const aboutLinks = [
-  { label: 'Our story', href: '/about', sub: 'How SafeJew started' },
+  { label: 'Our Story', href: '/about', sub: 'How SafeJew started' },
   { label: 'Methodology', href: '/methodology', sub: 'How we verify the data' },
 ];
 
@@ -90,14 +90,14 @@ export default function Nav() {
             {label}
           </Link>
         ))}
-        <div className="grp">About &amp; transparency</div>
+        <div className="grp">About &amp; Transparency</div>
         {aboutLinks.map(({ label, href }) => (
           <Link key={href} href={href} onClick={() => setOpen(false)}>
             {label}
           </Link>
         ))}
         <Link href="/report" className="rep" onClick={() => setOpen(false)}>
-          Report an incident
+          Report an Incident
         </Link>
       </div>
     </header>
