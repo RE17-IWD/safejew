@@ -164,10 +164,11 @@ body.sj-lock{ overflow:hidden; }
 @media(max-width:640px){ .sj-hero-in{ padding-top:56px; padding-bottom:44px; } }
 .sj-hero-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap:52px; align-items:center; }
 .sj-hero-copy{ max-width:860px; margin:0 auto; text-align:center; }
-.sj-rotw{ position:relative; display:inline-block; text-align:left; vertical-align:baseline; }
-.sj-rotw .sj-rotw-sizer{ visibility:hidden; }
-.sj-rotw .sj-rotw-in{ position:absolute; left:0; top:0; white-space:nowrap; }
-.sj-rotw-in{ display:inline-block; animation:sj-wordIn .5s cubic-bezier(.2,.8,.2,1); }
+/* The slot takes the width of the word currently in it — no reserved slack, so
+   every headline line is genuinely centred. The line re-centres when the word
+   swaps, which is the accepted trade for correct centring. */
+.sj-rotw{ display:inline-block; }
+.sj-rotw-in{ display:inline-block; white-space:nowrap; animation:sj-wordIn .5s cubic-bezier(.2,.8,.2,1); }
 @keyframes sj-wordIn{ from{opacity:0; transform:translateY(.4em)} to{opacity:1; transform:none} }
 @media(prefers-reduced-motion:reduce){ .sj-rotw-in{ animation:none } }
 .sj-hero-mapcard{ margin-top:46px; }

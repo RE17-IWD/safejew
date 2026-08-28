@@ -82,14 +82,10 @@ function RotatingWord({ words }: { words: string[] }) {
     const t = setInterval(() => setI((v) => (v + 1) % words.length), 2400);
     return () => clearInterval(t);
   }, [words.length]);
-  // The longest word sizes the slot so the headline never reflows; the visible
-  // word sits flush left inside it, so short words leave no gap mid-sentence.
-  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), '');
+  // The slot is only as wide as the word in it, so the headline stays properly
+  // centred; it re-centres as the word swaps.
   return (
     <span className="sj-rotw">
-      <span className="sj-rotw-sizer" aria-hidden="true">
-        {longest}
-      </span>
       <span key={i} className="sj-rotw-in hl">
         {words[i]}
       </span>
@@ -128,8 +124,13 @@ export default function HomePage() {
         <div className="sj-wrap sj-hero-in">
           <div className="sj-hero-copy">
             <span className="sj-eyebrow" style={{ marginBottom: 18 }}>Greater Los Angeles</span>
+            {/* The break is pinned after the rotating word so only that line
+                re-centres when the word swaps; the rest of the headline holds
+                still instead of re-wrapping around it. */}
             <h1>
-              SafeJew <RotatingWord words={HERO_VERBS} /> antisemitism across Greater LA.
+              SafeJew <RotatingWord words={HERO_VERBS} />
+              <br />
+              antisemitism across Greater LA.
             </h1>
             <p className="sub">
               Community reports brought together with verified LAPD, ADL, FBI, and California DOJ data,
