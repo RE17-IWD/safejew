@@ -7,7 +7,7 @@ export default function ReportPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy-800 py-16">
+      <section className="bg-navy-800 py-12 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-10 h-0.5 bg-gold-500 mb-6" aria-hidden="true" />
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white leading-tight">

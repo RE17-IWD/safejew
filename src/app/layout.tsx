@@ -4,6 +4,7 @@ import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Intro from '@/components/Intro';
+import CookieNotice from '@/components/CookieNotice';
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -32,15 +33,15 @@ const dmSerif = DM_Serif_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://safejew.org'),
   title: {
-    default: 'SafeJew — Jewish Community Safety Analytics',
+    default: 'SafeJew: Jewish Community Safety Analytics',
     template: '%s | SafeJew',
   },
   description:
-    'A live watch on antisemitism across Greater Los Angeles — community reports plus verified LAPD, ADL, FBI, and California DOJ data, on one map.',
+    'A live watch on antisemitism across Greater Los Angeles: community reports plus verified LAPD, ADL, FBI, and California DOJ data, on one map.',
   openGraph: {
-    title: 'SafeJew — Jewish Community Safety Analytics',
+    title: 'SafeJew: Jewish Community Safety Analytics',
     description:
-      'A live watch on antisemitism across Greater Los Angeles — built on verified data.',
+      'A live watch on antisemitism across Greater Los Angeles, built on verified data.',
     type: 'website',
   },
 };
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <CookieNotice />
       </body>
     </html>
   );

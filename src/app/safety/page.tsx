@@ -28,14 +28,14 @@ const IconAlert = (p: IconProps) => <Ico {...p} d="M12 9v4m0 3.5h.01M10.3 4.3 2.
 const IconPhone = (p: IconProps) => <Ico {...p} d="M5 4h4l2 5-3 2a12 12 0 005 5l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" />;
 
 const MOMENT_STEPS = [
-  { icon: <IconShield className="w-5 h-5" />, title: 'Get to safety', body: 'If you are in danger, call 911 first. Move to a public or secure place. Your safety comes before anything else.' },
-  { icon: <IconCamera className="w-5 h-5" />, title: 'Document it', body: 'Photograph damage and screenshot threats before they are deleted. Note the date, time, and exact location while it is fresh.' },
-  { icon: <IconFlag className="w-5 h-5" />, title: 'Report it', body: 'File with LAPD (911 or non-emergency), then report to ADL and SCN so it enters the community record and threat picture.' },
-  { icon: <IconHeart className="w-5 h-5" />, title: 'Get support', body: 'You have legal options and trauma support. Use the Legal Help and Mental Health resources below when you are ready.' },
+  { icon: <IconShield className="w-5 h-5" />, title: 'Get to Safety', body: 'If you are in danger, call 911 first. Move to a public or secure place. Your safety comes before anything else.' },
+  { icon: <IconCamera className="w-5 h-5" />, title: 'Document It', body: 'Photograph damage and screenshot threats before they are deleted. Note the date, time, and exact location while it is fresh.' },
+  { icon: <IconFlag className="w-5 h-5" />, title: 'Report It', body: 'File with LAPD (911 or non-emergency), then report to ADL and SCN so it enters the community record and threat picture.' },
+  { icon: <IconHeart className="w-5 h-5" />, title: 'Get Support', body: 'You have legal options and trauma support. Use the Legal Help and Mental Health resources below when you are ready.' },
 ];
 
 const KRAV_STUDIOS = [
-  { name: 'Krav Maga Worldwide, Beverly Hills', address: '9036 Wilshire Blvd, Beverly Hills', miles: '0.4 mi from Pico-Robertson', url: 'https://www.kravmaga.com', note: 'Global Krav Maga Worldwide HQ and flagship training center.' },
+  { name: 'Krav Maga Worldwide by KLR', address: '5551 Balboa Blvd, Encino', miles: 'San Fernando Valley', url: 'https://www.valleykmw.com', note: 'Official Krav Maga Worldwide licensee. Took over the Sherman Oaks KMW program in June 2026 and runs the full KMW curriculum with certified black-belt instructors.' },
   { name: 'KMG Los Angeles (Krav Maga Global)', address: 'West Los Angeles', miles: 'Westside LA', url: 'https://kravmagaglobal.com', note: 'KMG curriculum: civilian, law enforcement, and military-grade self-protection.' },
   { name: 'Fit & Fearless, Studio City', address: 'Studio City', miles: 'San Fernando Valley', url: null, note: 'Mixed self-defense with Krav Maga and defensive tactics. Women-focused classes available.' },
   { name: 'IKMF Los Angeles', address: 'Greater Los Angeles', miles: 'Multiple locations', url: 'https://www.ikmf.com', note: 'IKMF-certified instruction from one of the original Israeli Krav Maga federations.' },
@@ -99,7 +99,7 @@ function ResourceCard({ title, children, url, phone, tag }: { title: string; chi
       <div className="flex items-center gap-4 flex-wrap">
         {url && (
           <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-sans font-semibold text-navy-700 hover:text-navy-900">
-            Visit website <span aria-hidden="true">↗</span>
+            Visit Website <span aria-hidden="true">↗</span>
           </a>
         )}
         {isTel && (
@@ -116,7 +116,7 @@ export default function SafetyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy-900 pt-32 pb-20">
+      <section className="bg-navy-900 pt-14 pb-14 sm:pt-24 sm:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-white/10 border border-white/15 text-white mb-6">
             <IconShield className="w-6 h-6" />
@@ -133,9 +133,9 @@ export default function SafetyPage() {
       <section className="bg-red-700 py-7">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-widest text-red-200 mb-4">
-            <IconAlert className="w-4 h-4" /> Emergency contacts
+            <IconAlert className="w-4 h-4" /> Emergency Contacts
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
             {EMERGENCY_CONTACTS.map((c) => (
               <div key={c.label} className="border-l border-white/20 pl-3">
                 <p className="font-sans text-[11px] uppercase tracking-wide text-red-200 mb-0.5">{c.label}</p>
@@ -154,9 +154,9 @@ export default function SafetyPage() {
       </section>
 
       {/* If it just happened — step guide */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHead icon={<IconAlert />} tag="If it just happened" title="Four steps, in order">
+          <SectionHead icon={<IconAlert />} tag="If It Just Happened" title="Four Steps, in Order">
             When you have just been targeted it is hard to think clearly. Follow these in sequence.
           </SectionHead>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -177,7 +177,7 @@ export default function SafetyPage() {
       </section>
 
       {/* Self-defense */}
-      <section className="bg-cream-50 py-20 border-t border-cream-200">
+      <section className="bg-cream-50 py-14 sm:py-20 border-t border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead icon={<IconShield />} tag="Self-Defense" title="Krav Maga in Los Angeles">
             Krav Maga is the Israeli Defense Forces&apos; close-contact system, practical, fast to
@@ -192,24 +192,34 @@ export default function SafetyPage() {
                 <p className="font-sans text-sm text-gray-600 leading-relaxed mb-3">{s.note}</p>
                 {s.url && (
                   <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-sans font-semibold text-navy-700 hover:text-navy-900">
-                    Visit website <span aria-hidden="true">↗</span>
+                    Visit Website <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>
             ))}
           </div>
-          <div className="mt-8 border-l-4 border-gold-500 bg-white border border-cream-200 rounded-r-lg p-5">
-            <p className="font-sans text-sm text-gray-700 leading-relaxed">
-              <span className="font-semibold text-navy-800">Also worth knowing:</span> many JCCs run
-              self-defense workshops. The Westside JCC and Valley Alliance JCC both offer periodic Krav
-              Maga and personal safety programs, check their schedules directly.
-            </p>
+          <div className="mt-8 space-y-4">
+            <div className="border-l-4 border-gold-500 bg-white border border-cream-200 rounded-r-lg p-5">
+              <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                <span className="font-semibold text-navy-800">Heads up:</span> the Krav Maga Worldwide
+                training centers run directly by KMW Los Angeles closed on 31 May 2026. The programs
+                did not stop, they moved to licensee and partner locations, so call ahead before
+                showing up at an address you find in an older listing.
+              </p>
+            </div>
+            <div className="border-l-4 border-gold-500 bg-white border border-cream-200 rounded-r-lg p-5">
+              <p className="font-sans text-sm text-gray-700 leading-relaxed">
+                <span className="font-semibold text-navy-800">Also worth knowing:</span> many JCCs run
+                self-defense workshops. The Westside JCC and Valley Alliance JCC both offer periodic Krav
+                Maga and personal safety programs, check their schedules directly.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Security organizations */}
-      <section className="bg-white py-20 border-t border-cream-200">
+      <section className="bg-white py-14 sm:py-20 border-t border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead icon={<IconShield />} tag="Community Security" title="Security Organizations">
             These organizations track threats, coordinate with law enforcement, and provide real
@@ -226,7 +236,7 @@ export default function SafetyPage() {
       </section>
 
       {/* Legal */}
-      <section className="bg-cream-50 py-20 border-t border-cream-200">
+      <section className="bg-cream-50 py-14 sm:py-20 border-t border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead icon={<IconScale />} tag="Legal Resources" title="Legal Help">
             Hate crimes are criminal offenses in California. If you were targeted, you have legal
@@ -240,14 +250,14 @@ export default function SafetyPage() {
             ))}
           </div>
           <div className="mt-8 bg-navy-900 text-white rounded-lg p-6">
-            <h3 className="flex items-center gap-2 font-serif text-lg font-bold mb-1">
-              <IconCamera className="w-5 h-5 text-gold-400" /> If you&apos;re targeted, save this evidence
+            <h3 className="flex items-center gap-2 font-serif text-lg font-bold text-white mb-1">
+              <IconCamera className="w-5 h-5 text-gold-400" /> If You&apos;re Targeted, Save This Evidence
             </h3>
             <p className="font-sans text-sm text-blue-100/70 mb-4">
               Preserve these before anything gets deleted, they strengthen a police report, an ADL complaint,
               or a legal case:
             </p>
-            <ul className="font-sans text-sm text-blue-100/80 leading-relaxed grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
+            <ul className="font-sans text-sm text-blue-100/80 leading-relaxed grid sm:grid-cols-2 gap-x-6 gap-y-1.5 list-disc pl-5 marker:text-gold-400">
               <li>Screenshots of online harassment before deletion</li>
               <li>Photos of vandalism or physical damage</li>
               <li>Dates, times, and locations of each incident</li>
@@ -260,7 +270,7 @@ export default function SafetyPage() {
       </section>
 
       {/* Mental health */}
-      <section className="bg-white py-20 border-t border-cream-200">
+      <section className="bg-white py-14 sm:py-20 border-t border-cream-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead icon={<IconHeart />} tag="Mental Health" title="Support After an Incident">
             Being targeted for who you are is traumatic. These organizations offer Jewish
@@ -277,7 +287,7 @@ export default function SafetyPage() {
       </section>
 
       {/* Online safety */}
-      <section className="bg-navy-900 py-20">
+      <section className="bg-navy-900 py-14 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">
             <IconGlobe className="w-4 h-4" /> Online Safety
@@ -285,8 +295,8 @@ export default function SafetyPage() {
           <h2 className="font-serif text-3xl font-bold text-white mb-10 max-w-2xl">Protecting Yourself Online</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="font-sans font-semibold text-white mb-4 text-sm uppercase tracking-wide">If you are targeted online</h3>
-              <ul className="font-sans text-sm text-blue-100/75 leading-relaxed space-y-2.5">
+              <h3 className="font-sans font-semibold text-white mb-4 text-sm uppercase tracking-wide">If You Are Targeted Online</h3>
+              <ul className="font-sans text-sm text-blue-100/75 leading-relaxed space-y-2.5 list-disc pl-5 marker:text-gold-400">
                 <li>Screenshot everything before reporting; platforms remove content fast</li>
                 <li>Report to the platform and to ADL&apos;s Online Hate reporting tool</li>
                 <li>If threats are credible, report to the FBI&apos;s IC3</li>
@@ -295,8 +305,8 @@ export default function SafetyPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-sans font-semibold text-white mb-4 text-sm uppercase tracking-wide">Preventive steps</h3>
-              <ul className="font-sans text-sm text-blue-100/75 leading-relaxed space-y-2.5">
+              <h3 className="font-sans font-semibold text-white mb-4 text-sm uppercase tracking-wide">Preventive Steps</h3>
+              <ul className="font-sans text-sm text-blue-100/75 leading-relaxed space-y-2.5 list-disc pl-5 marker:text-gold-400">
                 <li>Remove your home address from data-broker sites (DeleteMe, Kanary)</li>
                 <li>Use a PO box or mail forwarding for Jewish-org memberships</li>
                 <li>Enable two-factor authentication everywhere</li>
@@ -313,19 +323,19 @@ export default function SafetyPage() {
       </section>
 
       {/* Report CTA */}
-      <section className="bg-white py-16 border-t border-cream-200">
+      <section className="bg-white py-12 sm:py-16 border-t border-cream-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-3">Experienced an incident?</h2>
+          <h2 className="font-serif text-2xl font-bold text-navy-800 mb-3">Experienced an Incident?</h2>
           <p className="font-sans text-sm text-gray-600 leading-relaxed mb-7 max-w-xl mx-auto">
             Reporting it builds the community data record and helps identify the patterns that protect
             others. It takes two minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/report" className="inline-flex items-center justify-center bg-navy-900 text-white px-6 py-3 rounded font-sans font-semibold text-sm hover:bg-navy-700 transition-colors">
-              Report an incident
+              Report an Incident
             </Link>
             <Link href="/map" className="inline-flex items-center justify-center border border-cream-300 text-navy-700 px-6 py-3 rounded font-sans font-semibold text-sm hover:border-navy-300 transition-colors">
-              See the incident map
+              See the Incident Map
             </Link>
           </div>
         </div>

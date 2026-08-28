@@ -10,11 +10,17 @@ const navLinks = [
 
 const transparencyLinks = [
   { label: 'Methodology', href: '/methodology' },
-  { label: 'In the news', href: '/press' },
+  { label: 'In the News', href: '/press' },
+];
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Use', href: '/terms' },
 ];
 
 const resourceLinks = [
-  { label: 'Report an incident', href: '/report' },
+  { label: 'Report an Incident', href: '/report' },
+  { label: 'Contact Us', href: '/contact' },
   { label: 'ADL Incident Reporting', href: 'https://www.adl.org/report-incident' },
   { label: 'FBI Tips', href: 'https://tips.fbi.gov' },
   { label: 'LAPD Hate Crime Unit', href: 'https://www.lapdonline.org/hate-crime' },
@@ -37,6 +43,11 @@ export default function Footer() {
             <a className="mail" href="mailto:contact.safejew@gmail.com">
               contact.safejew@gmail.com
             </a>
+            <p style={{ marginTop: 10 }}>
+              <Link className="mail" href="/contact">
+                Or use the contact form →
+              </Link>
+            </p>
           </div>
 
           <div>
@@ -51,6 +62,14 @@ export default function Footer() {
             <h4 style={{ marginTop: 24 }}>Transparency</h4>
             <ul>
               {transparencyLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+            <h4 style={{ marginTop: 24 }}>Legal</h4>
+            <ul>
+              {legalLinks.map(({ label, href }) => (
                 <li key={href}>
                   <Link href={href}>{label}</Link>
                 </li>

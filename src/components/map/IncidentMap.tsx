@@ -439,7 +439,7 @@ function SpaceDetailPanel({ space, onClose }: { space: CommunitySpace; onClose: 
         </div>
         <div className="space-y-2">
           <a href="/report" className="inline-flex items-center text-sm font-sans font-medium text-navy-600 hover:text-navy-800 transition-colors">
-            Report an incident near here
+            Report an Incident Near Here
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

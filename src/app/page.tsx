@@ -82,8 +82,14 @@ function RotatingWord({ words }: { words: string[] }) {
     const t = setInterval(() => setI((v) => (v + 1) % words.length), 2400);
     return () => clearInterval(t);
   }, [words.length]);
+  // The longest word sizes the slot so the headline never reflows; the visible
+  // word sits flush left inside it, so short words leave no gap mid-sentence.
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), '');
   return (
     <span className="sj-rotw">
+      <span className="sj-rotw-sizer" aria-hidden="true">
+        {longest}
+      </span>
       <span key={i} className="sj-rotw-in hl">
         {words[i]}
       </span>
@@ -130,8 +136,8 @@ export default function HomePage() {
               every documented incident on one live map.
             </p>
             <div className="cta">
-              <Link className="sj-btn sj-btn-blue" href="/map">Open the full map <span className="sj-arrow">→</span></Link>
-              <Link className="sj-btn sj-btn-line" href="/october-7">October 7 report <span className="sj-arrow">→</span></Link>
+              <Link className="sj-btn sj-btn-blue" href="/map">Open the Full Map <span className="sj-arrow">→</span></Link>
+              <Link className="sj-btn sj-btn-line" href="/october-7">October 7 Report <span className="sj-arrow">→</span></Link>
             </div>
             <div className="stats">
               <div className="stat">
@@ -153,7 +159,7 @@ export default function HomePage() {
             <div className="sj-mapbar">
               <span className="title">Greater Los Angeles <span style={{ color: 'var(--faint)', fontWeight: 500 }}>· documented incidents</span></span>
               <Link className="sj-btn sj-btn-line" href="/map" style={{ padding: '8px 14px', fontSize: 13 }}>
-                Full map <span className="sj-arrow">→</span>
+                Full Map <span className="sj-arrow">→</span>
               </Link>
             </div>
             <div className="sj-mapbody" role="region" aria-label="Interactive map of antisemitic incidents across Greater Los Angeles">
@@ -179,7 +185,7 @@ export default function HomePage() {
             </span>
             <span className="txt">
               <span className="lead">Made possible by JFEDLA and the Teen Innovation Grant</span>
-              <span className="more">Read how SafeJew started <span className="sj-arrow">→</span></span>
+              <span className="more">Read How SafeJew Started <span className="sj-arrow">→</span></span>
             </span>
           </div>
         </Link>
@@ -215,26 +221,26 @@ export default function HomePage() {
       <section className="sj-sec" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div className="sj-wrap">
           <div className="sj-sec-head sj-rv">
-            <span className="sj-eyebrow">How it works</span>
-            <h2>From raw incident to community response</h2>
+            <span className="sj-eyebrow">How It Works</span>
+            <h2>From Raw Incident to Community Response</h2>
           </div>
           <div className="sj-cards">
             <div className="sj-card sj-rv">
               <span className="idx">01 / TRACK</span>
               <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.4" /></svg></div>
-              <h3>Tracks incidents</h3>
+              <h3>Tracks Incidents</h3>
               <p>Community reports, LAPD hate-crime data, ADL audits, and FBI statistics, unified and mapped by neighborhood.</p>
             </div>
             <div className="sj-card sj-rv">
               <span className="idx">02 / ANALYZE</span>
               <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6" /></svg></div>
-              <h3>Shows patterns</h3>
+              <h3>Shows Patterns</h3>
               <p>Maps and dashboards reveal where incidents cluster, when they spike, and which categories dominate, by month, neighborhood, or campus.</p>
             </div>
             <div className="sj-card sj-rv">
               <span className="idx">03 / CONNECT</span>
               <div className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth={1.8} aria-hidden="true"><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M17 11l2 2 3-3.5" /></svg></div>
-              <h3>Connects community</h3>
+              <h3>Connects Community</h3>
               <p>The campus tool surfaces nearby synagogues, Chabad houses, and Jewish community spaces so students know what&apos;s around them.</p>
             </div>
           </div>
@@ -245,8 +251,8 @@ export default function HomePage() {
       <section className="sj-method">
         <div className="sj-wrap sj-sec sj-method-in">
           <div className="sj-rv">
-            <span className="sj-badge"><span className="dot" />Verified &amp; cited</span>
-            <h2>Verified data, from official sources.</h2>
+            <span className="sj-badge"><span className="dot" />Verified &amp; Cited</span>
+            <h2>Verified Data, From Official Sources.</h2>
             <p>
               Every headline figure traces to a published report from an official body. Cited, dated,
               and never fabricated. We refresh the numbers as new reports come out.
@@ -255,7 +261,7 @@ export default function HomePage() {
               Community-submitted reports are reviewed before they appear on the map, shown as a
               clearly-labeled layer separate from official statistics.
             </p>
-            <Link className="sj-lnk" href="/dashboard">Explore the dashboard <span className="sj-arrow">→</span></Link>
+            <Link className="sj-lnk" href="/dashboard">Explore the Dashboard <span className="sj-arrow">→</span></Link>
           </div>
           <div className="sj-src-grid sj-rv">
             {[
@@ -291,16 +297,16 @@ export default function HomePage() {
         <div className="sj-wrap">
           <div className="sj-cta-two sj-rv">
             <div className="sj-ctabox blue">
-              <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14, color: '#cfe0ff' }}>Free tool</span>
+              <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14, color: '#cfe0ff' }}>Free Tool</span>
               <h2>SafeJew for Campus</h2>
               <p>Look up UCLA, USC, or wherever you are. See local antisemitism data plus nearby synagogues, Chabad houses, and Jewish community spaces. No account needed.</p>
-              <Link className="sj-btn sj-btn-white" href="/campus">Try the campus tool <span className="sj-arrow">→</span></Link>
+              <Link className="sj-btn sj-btn-white" href="/campus">Try the Campus Tool <span className="sj-arrow">→</span></Link>
             </div>
             <div className="sj-ctabox">
-              <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14 }}>Get in touch</span>
-              <h2>Working on community safety?</h2>
+              <span className="sj-eyebrow" style={{ display: 'inline-block', marginBottom: 14 }}>Get in Touch</span>
+              <h2>Working on Community Safety?</h2>
               <p>Universities, synagogues, community organizations, security teams: if you&apos;re dealing with these problems, we want to hear from you.</p>
-              <a className="sj-btn sj-btn-line" href="mailto:contact.safejew@gmail.com">Contact us <span className="sj-arrow">→</span></a>
+              <Link className="sj-btn sj-btn-line" href="/contact">Contact Us <span className="sj-arrow">→</span></Link>
             </div>
           </div>
         </div>

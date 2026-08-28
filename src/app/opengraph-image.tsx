@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { LAPD_CITY_2026_YTD } from '@/data/hate-crime-stats';
 
 export const runtime = 'edge';
-export const alt = 'SafeJew — Jewish Community Safety Analytics for Greater Los Angeles';
+export const alt = 'SafeJew: Jewish Community Safety Analytics for Greater Los Angeles';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -62,7 +62,7 @@ export default function OGImage() {
             <span style={{ color: '#8fb4ff' }}>is happening.</span>
           </div>
           <div style={{ display: 'flex', marginTop: 22, fontSize: 27, color: 'rgba(255,255,255,0.82)', lineHeight: 1.4, maxWidth: 940 }}>
-            A live map of antisemitic incidents — community reports plus verified LAPD, ADL, FBI, and
+            A live map of antisemitic incidents: community reports plus verified LAPD, ADL, FBI, and
             California DOJ data.
           </div>
         </div>

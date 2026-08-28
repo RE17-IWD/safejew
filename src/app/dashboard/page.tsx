@@ -84,7 +84,7 @@ export default function DashboardPage() {
           <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
             <div className="flex items-baseline justify-between gap-4 flex-wrap">
               <h2 className="font-serif text-lg font-semibold text-navy-800">
-                U.S. antisemitic incidents, by year
+                U.S. Antisemitic Incidents, by Year
               </h2>
               <span className="font-sans text-xs text-gray-500">ADL Audit of Antisemitic Incidents</span>
             </div>
@@ -133,7 +133,7 @@ export default function DashboardPage() {
           {/* LA County context strip */}
           <div className="bg-white border border-cream-200 rounded-lg shadow-sm p-6">
             <h2 className="font-serif text-lg font-semibold text-navy-800 mb-1">
-              Los Angeles County: 2024 in context
+              Los Angeles County: 2024 in Context
             </h2>
             <p className="font-sans text-xs text-gray-500 mb-6">
               From the LA County Commission on Human Relations 2024 Hate Crime Report

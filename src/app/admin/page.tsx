@@ -33,6 +33,35 @@ interface CampusRequest {
   created_at: string;
 }
 
+interface ContactMessage {
+  id: string;
+  name: string | null;
+  email: string;
+  role: string;
+  role_other: string | null;
+  organization: string | null;
+  subject: string | null;
+  message: string;
+  status: string;
+  created_at: string;
+}
+
+const CONTACT_ROLE_LABELS: Record<string, string> = {
+  community_member: 'Community member',
+  bystander: 'Bystander or witness',
+  victim: 'Was targeted',
+  student: 'Student',
+  campus_staff: 'Campus staff / Hillel / Chabad',
+  synagogue: 'Synagogue',
+  community_org: 'Community organization',
+  security: 'Security professional',
+  law_enforcement: 'Law enforcement',
+  press: 'Press or media',
+  educator: 'Educator or researcher',
+  partner: 'Partner or funder',
+  other: 'Other',
+};
+
 const STATUS_BADGE: Record<string, string> = {
   pending: 'bg-amber-100 text-amber-700',
   verified: 'bg-green-100 text-green-700',
@@ -66,6 +95,7 @@ export default function AdminPage() {
   const [authError, setAuthError] = useState('');
   const [reports, setReports] = useState<PendingReport[]>([]);
   const [campusRequests, setCampusRequests] = useState<CampusRequest[]>([]);
+  const [contactMessages, setContactMessages] = useState<ContactMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
@@ -90,6 +120,7 @@ export default function AdminPage() {
       const data = await res.json();
       setReports(data.reports ?? []);
       setCampusRequests(data.campusRequests ?? []);
+      setContactMessages(data.contactMessages ?? []);
     } catch {
       setAuthError('Could not connect to server.');
     } finally {
@@ -201,6 +232,7 @@ export default function AdminPage() {
             <p className="font-sans text-sm text-gray-500">
               {reports.length} report{reports.length !== 1 ? 's' : ''}
               {campusRequests.length > 0 && `, ${campusRequests.length} campus request${campusRequests.length !== 1 ? 's' : ''}`}
+              {contactMessages.length > 0 && `, ${contactMessages.length} message${contactMessages.length !== 1 ? 's' : ''}`}
               {scope === 'pending' ? ' pending review' : ' (all statuses)'}
             </p>
           </div>
@@ -364,6 +396,57 @@ export default function AdminPage() {
                       </button>
                     </div>
                   )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* Contact Messages (read-only; reply by email) */}
+        <section className="mt-10">
+          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+            Contact Messages
+          </h2>
+
+          {contactMessages.length === 0 ? (
+            <div className="bg-white border border-cream-200 rounded-lg p-8 text-center">
+              <p className="font-sans text-sm text-gray-500">No new contact messages.</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {contactMessages.map((m) => (
+                <div key={m.id} className="bg-white border border-cream-200 rounded-lg p-5">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <div>
+                      <p className="font-sans text-sm font-semibold text-navy-800">
+                        {m.subject || m.name || m.email}
+                        <span
+                          className={`ml-2 font-sans text-xs font-semibold px-2 py-0.5 rounded ${
+                            STATUS_BADGE[m.status] ?? 'bg-gray-100 text-gray-600'
+                          }`}
+                        >
+                          {m.status}
+                        </span>
+                      </p>
+                      <p className="font-sans text-xs text-gray-500">
+                        {CONTACT_ROLE_LABELS[m.role] ?? m.role}
+                        {m.role === 'other' && m.role_other ? `: ${m.role_other}` : ''}
+                        {m.organization ? ` · ${m.organization}` : ''}
+                      </p>
+                    </div>
+                    <span className="font-sans text-xs text-gray-500 flex-shrink-0">
+                      {formatDate(m.created_at)}
+                    </span>
+                  </div>
+                  <p className="font-sans text-sm text-gray-700 leading-relaxed whitespace-pre-line mb-3">
+                    {m.message}
+                  </p>
+                  <a
+                    href={`mailto:${m.email}${m.subject ? `?subject=Re: ${encodeURIComponent(m.subject)}` : ''}`}
+                    className="font-sans text-xs font-semibold text-navy-700 hover:underline"
+                  >
+                    Reply to {m.name ? `${m.name} <${m.email}>` : m.email}
+                  </a>
                 </div>
               ))}
             </div>
