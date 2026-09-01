@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T19:17:56.518Z",
+  "generatedAt": "2026-09-01T17:03:09.017Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -36,6 +36,12 @@
       "lat": 34.1897,
       "lng": -118.1312,
       "place": "Altadena"
+    },
+    {
+      "title": "Los Angeles County supervisor proposes $20,000 reward after synagogue vandalism",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOMDFnbF8tbUlPSmE5NmhPdWtOTXp6eGpsU09HZTdSSmN2RE5zSHdYXzVFTGZDVTRJeXNCZkFleTRvR1lqdG95d2tfTXNqM09zQUtrX3lYaFk3azZOUk1lNFVCT1VCU3UwbXNvS2FKTWVaSHZYckNoTnotMUZaS2hHTGxwSFE4Snpldi1kcmJyb3pPdDNQcFpiem9zejBKWG55LXNxU1Q4SGYzdVBTYXAzOFNCS1lCRjBXVkdIeQ?oc=5",
+      "source": "The Pittsburgh Jewish Chronicle",
+      "date": "2026-07-29T19:51:33.000Z"
     },
     {
       "title": "Burbank Arrest After Swastika Vandalism",
@@ -97,7 +103,7 @@
     {
       "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTRpQk4zWXJhbHZfNWdQd1NCTGNsMDNjdmhRTlJzdkJWUF9NSnBuZ1BlZnpOUl9YVGYwS2hUV2h3emNYMDNhZDFwTjBwc19uai1ZNVpLeVo3U0doLWxFdXpXUjlFdVczdUdYRG1yS0hCcTlxNlhXN0M1UUhNNVZVOUpId3VMVS1UUUwwQ0NfdFJ0OWNlRm5FdEZTdjZXRllmQTdYNXdZQllibzlOM1JjdUN30gG3AUFVX3lxTE5hVnpqelJqYzk0WnlyUUxUbDJHYWFEWmhtN1pMZ044c1Rzc2JaM0RhN1NEdUtxSEx5ZXM1M1FnOWV5bE45OGFmV3h6OS0yRzR2LWFlQUNxcjdTUjRyaXpGMWEyRzI0OTJzaTZ2STVXOXVlWURCczhvd21COTV5aW9CNTJEbHNzbGlsc0xPbFoycXUybld4NHV3aHlmSzlibGE2UWJfSWRTOWZkNUFSSnFLaGFSd0h4QQ?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2026-05-26T07:00:00.000Z"
     },
     {
@@ -109,7 +115,7 @@
     {
       "title": "28-year-old arrested, charged with hate crime for alleged assault of Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSWt6MzlHVUEzaGo3clVreVdXWENRWmM1QXBiYmRMYVJqVzZwbE5kT3VBaGtoV1prdjNmV0hIS3dEX0RybVM5dFc3TlVGQ3BTY2Z1ZVVpMnZncTFQMWd6cDY1d0M4WUpNaEdkNXFRVU5jdTdvUW5tc3ZLYWM3MEJCaWw1SGZ2UHU0aTRBQ0UzTW56dm1NancyM00yRWtaUXgwTkZOWExpMzQzZXc4ajc5cE5nVWpRR0XSAbwBQVVfeXFMT2FnazEzd0tWbGVLMG9qQ3cwSE1DeFhaeFFOb04yWDFLd3B1eEtoN1VpS083QS1HWnEySFJfSGdLV05BWElhVjBjN1I3dUJ5c3BPcmZPQkxNVjNYRHRab0ZWOTEzNWl4ZmJ0MXEtQnBDWk1mclZIa0d6Wm1uY3ZkUjlnZkVvbzJuZTRWZ19sNDcwY2dOS2g3UktzODRQOWwxNjY3VWVINllKaktQWHpkanVab2VBNWl3M3VTT1c?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2026-05-18T07:00:00.000Z"
     },
     {
@@ -191,6 +197,12 @@
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
+      "title": "Los Angeles synagogue vandalized during morning protest",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZFUyR3NxRTNSYzNCUTlMdjJwTGJlcDIwUWJkUXFfWWN4eTFGU3hrTGFwUjF1RUx6V2dSb01FdVdUbm02UU9oVnV2UWFuWXBSTjE1V1pzYlgxZkZHQTNfOTdkTkxlS21tblRZaEFxSlNJMHlfOUxIZTdObTVmSkF0WHR6ZUNadTBPSmJCVXJ2N3gxeF9pMThUSG9Kc1hIZw?oc=5",
+      "source": "CBS News",
+      "date": "2025-12-03T08:00:00.000Z"
+    },
+    {
       "title": "Vandals invade synagogue in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOaGM5MGEyR0dFZ2UzMjhMc1pyVGs5LWpKbzE2V0xtWld2TDlmZmZja29yLXhZUUFscThMa1F4RDltMmF1a1RLRk1MZmljZGtLSHhJMTFodjJfR1R2RjZoc1JsQVBMaGF3NFpWSXVyTzMxcU51cWNTZjFLUmFiR0VFMWl5d9IBiAFBVV95cUxQZFloSVlwVkJ4OHdzUTNzWUVKcXlkbEFuemppaENuS05FUkdEb1FQclFTcUFxbmR2SVphYTRWUVhiS21HM1lPckNEdFBEQXMzdmF1Z1dLNFZ3VTJyRWxzcmN2NV80dExGbE9KWTNJNE1fRnd3cUQwY1M2WnV1LURZd0huS0RyZUFX?oc=5",
       "source": "FOX 11 Los Angeles",
@@ -217,13 +229,13 @@
     {
       "title": "Swastika Stickers on Teslas in L.A. County Raise Alarm",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONlo2TmxPYVJWdjEzTVpyamVEVVQzNXFFMnY4RUpiNThnMHYyZ0ZCZkZsdHZxNmZ5Q3p4bjZ6TnI0TWJHWkh1eXZLam4tRDhOT21JYlN2aTlfX0RfOUctZ0d0YW5hTlBoeFl5b1R0QlAwTWR2d0JzZGE3cHp6clRUWUItTmgzUEdoZnpjdFIyOThtVGpzdXdDaDBpQkZpMzVrQkE?oc=5",
-      "source": "kfiam640.iheart.com",
+      "source": "KFI AM 640",
       "date": "2025-09-22T07:00:00.000Z"
     },
     {
       "title": "Swastika stickers placed on Teslas in L.A. County spark concern",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMWZYaEQ2MURuc01FazF3SUU3UEVFSjRRa2NEbUdxNzhBN25mZWZIOEdXSGp1c0p0bjdheVJvd3dNTFJxLUZ4d1pkUHVNY05EWUxBN1FoYWV5TklpWm1ieUxtOXdUZDJwY0pWWGNFZEJHd0FOOVNqd1BPV3A2cGJJS2p2SS1oWDVrN05wekU2RU80N1N1dDZsNllpd1U5b3FRdXfSAacBQVVfeXFMT3QybkVaY2k1NFVqTERDU1pVVVRXSGZsa1FzdmlUVzd5VEZZTXF1TVRfSXVPNlhNN0xWNkdTNVVmQzlFN2pJNkgxaWI3cTVkanEwWGE0MHpIbkkzQ0dFeDExZFRuTmFtQk1wVThnSDA4ckRaZTBfdTR3R245SnRnSkRIT0RiVXM3aWpqQUVVTDhVelBiMWgyeU5rLVBxYl91VFFQUlFoVnM?oc=5",
-      "source": "KTLA",
+      "source": "ktla.com",
       "date": "2025-09-21T07:00:00.000Z"
     },
     {
