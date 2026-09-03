@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T16:54:34.185Z",
+  "generatedAt": "2026-09-03T16:44:41.975Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -44,9 +44,9 @@
       "date": "2026-07-29T19:51:33.000Z"
     },
     {
-      "title": "Burbank Arrest After Swastika Vandalism",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVnQ5bHdvUEpVUy1xei03ZmE4emFkeWg4VDN2dEdpMDJQM2VEaWdKcjRoaTRMZjFnOHJIa3NNR245OUxEa2Jia1JDWHRjUVZfeTk2MVUxWXE0b1M3V21IWS1LTTJSMV83UXE5NDFWNUZYamVULUszaDN5RnNELXp6MFhCT25mZU1WQmRVaERqdmtYdkF1YmFabE9OTk1GNDJ3T3Vzag?oc=5",
-      "source": "Hoodline",
+      "title": "Arrest made after swastika is spray painted on a wall in Burbank",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcTBMZFAyblRJYWpQNVNENVoxWkJIeDJUVDB3dU1IaUxJUnRBT0swMmRWUWR5RllMT1Y5LUNqa2x4R1gyeFdVUFNEaXcxY3dZVWQ4anM1RTFqdDYwWWlrQUtTU3UwQngzaWJHOGxjZDRyTlhiQ01fUXhfLVVpVm5WdmVvdGxGR091LWpGRlAteExYYjI4dlQwVHI4amF3QURmS0VacFZPa2ROMG9rTmdxdW4xUmTSAbwBQVVfeXFMTjJxbm4waEFTd1hlLVZoejZ1b0hwaFJjaDYwR3ZCbzQxdHRKX0xWNFJIVUVZa0VObEJ4amhJME91MGdtNHZQUURoOTFac014UFVVTWNJcms1b0dEZm1nTDM3SFlYaXdFRUVIZC01NG5yZ1U5X015MFBELXZ2MEJPT25FSVpzTU94ZDYzNWZRRE40SVo0U19Pd1U1RURlUHRjbW9fb3NWeVE5NlVHY3NZUGRtRjFNeThWdXVpMzU?oc=5",
+      "source": "NBC Los Angeles",
       "date": "2026-07-27T07:00:00.000Z",
       "lat": 34.1808,
       "lng": -118.309,
@@ -55,7 +55,7 @@
     {
       "title": "Raisin company heir charged with hate crimes in Pacific Palisades rabbi threats",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNWWprMmJvNW9feDdxQ2JTV3NHS0E3a2U1ZkVlckNpeUdXby1EWllJWGdiVzRERkkwWnZlc2lQOXkzNWRLVlJLbkZoYTZRWFBsODk3VlZBTHRBaW1uTlZQaG83WC02dGlyMWZIOWlMSG14elo4ZEVLT2dDR1V6UThXTllOVGl2Qi13aFV0NDc5dWVVbUZHRUNCUllMeUhOcjFQeG1R?oc=5",
-      "source": "smmirror.com",
+      "source": "Santa Monica Mirror",
       "date": "2026-06-20T07:00:00.000Z",
       "lat": 34.0452,
       "lng": -118.5265,
@@ -79,13 +79,13 @@
     {
       "title": "Release of L.A. rabbi attack suspect ignites debate over bail after high court ruling",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdm5GMFNhOXlrR2pjZzQ4TlhMV3JZMG40U2MwYzdtcGJVVmg2eVJLWGZOWHBNLXhWRXZPVlJTdzRNVzlUX21YSktvM3JMZ0ZIRFBWZ0dOTHVXV2V2WlNseDhIMXZ2OEwxLVhFdlhUbFprMzlsX3hvWXhNckM1d3VIUVR1cGM3aGItUUUtUGhiam1uUQ?oc=5",
-      "source": "Los Angeles Times",
+      "source": "latimes.com",
       "date": "2026-05-29T07:00:00.000Z"
     },
     {
-      "title": "Santa Monica Police Defends Not Calling Attack on Jews a Hate Crime",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQUnBMR1ZBaUpNb1Rack9Rc3ExRU9jX2I0Qk9tNWZMY29wejUxNno4SlE3c05nMmx3NE96R1d1a0dudWVVTzNrQ1JUREU1UzBFUHF0Yk9oNWlrVXJtWFREYlUtUE9RTlpBQUxjTGZOR0ZxNV9vZUppOGFQX0haQWVsZEM4M256LXZUTHFDc01LelFuc3FTWldpdVUxb2VqNzNo?oc=5",
-      "source": "VINnews",
+      "title": "Santa Monica police defends not calling attack on Jews a hate crime",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOLU1ELTFiWXY1ZkxqdjJhX3B2b3N3c2YxSEVQTmFfSlBlVC0yTGU5VnNyM05haEVGYmY2a3g2MnJiVV9ERG9wak11Y0RUT3lBUnhqZW5CUkpnT3BUOUpKV1ZkUXlwTnBUa0RfLW1UVjVqV0lTYVpjU1FmRXRkaHMtdy1fTnJUdlFNa2xxa08zZHgxZDlZNEJtVzE2dENGTXNfQkRr?oc=5",
+      "source": "JNS.org",
       "date": "2026-05-29T07:00:00.000Z",
       "lat": 34.0195,
       "lng": -118.4912,
@@ -93,8 +93,8 @@
     },
     {
       "title": "Jewish UCLA students beaten with sticks, pepper sprayed and knocked out by anti-Israel campus mob: lawsuit",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFB4WXlPREhSUnpmLVltYktPX0pZXzZ6ZTBQOUhHX2pQSV9KVVVTY2dJc0t0N3N3ZjJxRTFRcVZiTmN3MFpjOFJHTUkza3Y2T0JHR2lOMHRGeGhTaV9iY1dlT1FNdmtPZFl0bnN0V1l0c1dzN0xNLXhXMDczb1Qtc2duMnotOV94SVA0NWtBdUgzMXdsWU9ZS0VmQlZPejExdUw0XzdxRjg3NXZWTXBhR0toMUgxZ9IBuwFBVV95cUxPTlRFRzU4SzF4UG5PdURraW5sR1o1YjJlcU8xbEJqMUpiNFFnaDM3TUZNdEVzQjcwc3VDOVdvYUpPLTBYMG1UYWc0ZFE4dGRLUzhMbWgtTXdMdVlSTHp4S1lzYmRiUXhzakZmVFowRnhvNk9WY0lUYVFWQzgyTks3ekpCc1B5U01pUXc2eU1jOVZYVGFvck1KRjQxclNhTUk2b2NjMDAxUVdNWlluTFNjdGZZYWxMTGVOZHAw?oc=5",
-      "source": "Fox News",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNRGdmU0VjYXZJMk9pTjBUdzRaU3piMlFESUx2WFU2VzlRQWlsMVk4aWV1SlFPRzBMcUZUaFZxcktHWDRyR2pTejhWYmhBODNtNjJTMXB0SjZmMWlpejN6QVByaTlyY1lCUnlBc3lEQzViYkhsek5tQThQNGVLRnFyODZrLU1ueFFkUUxWdzdGeDlaWi1UVnI0ZzdQaVBlZzRqbmR1eTR4ODdSdC1oeGNjc1drdVFEM0t3MWs0N0hzMzM1ZXNUVGVXUjc5V0RJd1c5TTBz?oc=5",
+      "source": "930 WFMD Free Talk",
       "date": "2026-05-27T07:00:00.000Z",
       "lat": 34.0689,
       "lng": -118.4452,
@@ -126,8 +126,8 @@
     },
     {
       "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNenRyM19zQjVnX1B0eW54MTQxNkNHNVlKMV9OTmdIQk5Gd0xCTlk3elVCdkQ2SjBMcE5WQXIzWFdGcWxtd2FiVkxsZGUzNWp5RDBVWW4zS2VKNllzN0tqV09wQ1JRdXcxRXZIbno0VHFqSl9fT0JycHJXTHhBMklCbjZOeGF0ejlnZk9TMW9icEN0b2V2N0hTbWxzSmZxYVZRaVJSMGZjclJuMzBGcjhTWTlZS0V0dEwwbHc?oc=5",
-      "source": "The Forward",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9QWVAxQ2gxempneEJFN01rMW1xM3UteTJ5dHd4bU10TldnX0xrRFIxeXVGMGQ2SUdxMHRHcnlmclB4bTNTTnpxMGUyYW9rRWdHSk9hT0F2Q0F4VkdHNldiTUJfaFFuUk5hZVE?oc=5",
+      "source": "jpost.com",
       "date": "2026-04-30T07:00:00.000Z"
     },
     {
@@ -181,7 +181,7 @@
     {
       "title": "Los Angeles Jewish groups ramp up Hanukkah festivities in response to Bondi Beach shooting",
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObU9QT2k4ejUzdURYS3JhSlNNT3oybTUzZUxzcHk2RmtEZk5XNnZReGdsV2lYYktoVFhpd3UxQzZCaTVFaXJqb21VdTNSTkFOMXVsLWFmU05Xb0RzaEJCM1pQdWdlclpyN3pwUUlNRlJNQVdsdWpLRjdiQ19jYkNUVlBuYkZVU09HcUUtZE1aaVlZNmg3MU5GYkdPQjhLRXc1Nnp3NkdfNmE5WGc5bC04dUtkZHUxMGJJemZpSHFyN3E1bUdoTkFGUkdONUstME9DcUQ2dzI2aFRseVJm?oc=5",
-      "source": "Los Angeles Times",
+      "source": "latimes.com",
       "date": "2025-12-14T08:00:00.000Z"
     },
     {
@@ -191,15 +191,15 @@
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
-      "title": "Los Angeles synagogue vandalized during morning protest",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZFUyR3NxRTNSYzNCUTlMdjJwTGJlcDIwUWJkUXFfWWN4eTFGU3hrTGFwUjF1RUx6V2dSb01FdVdUbm02UU9oVnV2UWFuWXBSTjE1V1pzYlgxZkZHQTNfOTdkTkxlS21tblRZaEFxSlNJMHlfOUxIZTdObTVmSkF0WHR6ZUNadTBPSmJCVXJ2N3gxeF9pMThUSG9Kc1hIZw?oc=5",
-      "source": "CBS News",
-      "date": "2025-12-03T08:00:00.000Z"
-    },
-    {
       "title": "Vandals invade synagogue in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOaGM5MGEyR0dFZ2UzMjhMc1pyVGs5LWpKbzE2V0xtWld2TDlmZmZja29yLXhZUUFscThMa1F4RDltMmF1a1RLRk1MZmljZGtLSHhJMTFodjJfR1R2RjZoc1JsQVBMaGF3NFpWSXVyTzMxcU51cWNTZjFLUmFiR0VFMWl5d9IBiAFBVV95cUxQZFloSVlwVkJ4OHdzUTNzWUVKcXlkbEFuemppaENuS05FUkdEb1FQclFTcUFxbmR2SVphYTRWUVhiS21HM1lPckNEdFBEQXMzdmF1Z1dLNFZ3VTJyRWxzcmN2NV80dExGbE9KWTNJNE1fRnd3cUQwY1M2WnV1LURZd0huS0RyZUFX?oc=5",
       "source": "FOX 11 Los Angeles",
+      "date": "2025-12-03T08:00:00.000Z"
+    },
+    {
+      "title": "Los Angeles synagogue vandalized during morning protest",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZFUyR3NxRTNSYzNCUTlMdjJwTGJlcDIwUWJkUXFfWWN4eTFGU3hrTGFwUjF1RUx6V2dSb01FdVdUbm02UU9oVnV2UWFuWXBSTjE1V1pzYlgxZkZHQTNfOTdkTkxlS21tblRZaEFxSlNJMHlfOUxIZTdObTVmSkF0WHR6ZUNadTBPSmJCVXJ2N3gxeF9pMThUSG9Kc1hIZw?oc=5",
+      "source": "CBS News",
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
