@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:42:03.093Z",
+  "generatedAt": "2026-09-06T15:53:24.501Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -123,6 +123,12 @@
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNXltcXh5d25KbUFRNUZldlZmUHdyTHF2YWY3a2lwUkhFaUpkZ1JqaG9fdGRNNTlSUUtURi1PNDVxb1Awc0w4Z19pS1pkS1kxaEEyQ0JhclgwYkZJZE15dWtFT09DQmNTU1d6QU9hSXhyQnVlc1pKZHB3X0Qzdjc0TzRLWm1YZi1LNFZfZV9wcmFxSnJPejBya3ZrZzZBWGtXUVIzZFlHVGllbVo0ajgxVUdMS0hjb2c?oc=5",
       "source": "JNS.org",
       "date": "2026-05-18T07:00:00.000Z"
+    },
+    {
+      "title": "Jewish Man Assaulted Outside Los Angeles Synagogue In Suspected Hate Crime",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM0lEWjMtdU1USXJzVkVjLWc2YzJHT1k1VXJTQWRwMDQ3N3FrZUVoZDZiRlAyaDNzcS01TWpoTWFUV01uSUpYaDdtdnhKQl9pcGpwS2Y2bi1HcnBHa3JoeWV6MG5BdVRaVjVPaEpEN1R6b2dVOVlBZW1tLWRqUUhldlFMelNaNVdCb0xJU2wtLTBRU0szYjI4elEyNkc0ZmNFTDk4cg?oc=5",
+      "source": "THEJ.CA",
+      "date": "2026-04-30T07:00:00.000Z"
     },
     {
       "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
