@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T15:55:25.710Z",
+  "generatedAt": "2026-09-13T16:44:26.205Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -16,7 +16,7 @@
     {
       "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeDlkLVdtX00yaXBobGlmSlYybXY0SFlXQlhvTk90Z01Ib3JTN21jcjVUSXRuYnRsVXVDaVZWczhNcEVaenpxSElJX0ttVFg3OTM0UlJZQTBJUkl6NFJGTmxub1VVYXB2STJIZXl2V1paOFNrZGlsNmVkUU5nWHVjelI1cjFsN3pkeTByeExGUFE3ZV9EVnJIelF5M1dmTlNMb1g0anUxRXNLanp4ejhlMW41RXlGRWUyQnc?oc=5",
-      "source": "CBS News",
+      "source": "cbsnews.com",
       "date": "2026-08-09T07:00:00.000Z",
       "lat": 34.1478,
       "lng": -118.1445,
@@ -58,7 +58,7 @@
     {
       "title": "California raisin company heir Bruce Lion of Lion Raisins charged with hate crimes after alleged threats to rabbi in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWHBNdDVWc1VhSGFKM1RvVEd0bk1ObVF2ZTc0bHg1a09zOUViUWpyYzdCWUtOVzJhRWw1UHVSSGF4SVBwNFNDVkR0X2tKc1pKVnRZeWg0ZGxUVWtMUjR4cnVhVTF4cmZvdHlCNUJWSXh0ZDd1MzMyVjgwWkVxcHItd09kSDhkSEJDREw4UmNIa1ZYRmk1Zl81UzJtdkRYX21mQV9DdGNqNVB0M2dsZTMwYmRRQTFrdE81WTk4MVVzc2VaZkppdkHSAcsBQVVfeXFMUGZoVVpkSlhUSkQ1dFk0Q1hxWnVLblB3SUxVR3dNZGNoTEdoSy04WWVHUjNrbE5BNjZOb1RCX3ZneVpzMTRBOW8tMkliMW1xODVwNl8yX3p6YXFPOFl2T2pVWG53amNCUHpHSk1RM1JaRVpZM3lnb1MtZUV6U012V1h2NkRCcEFEVUhDQVJEVnNBMGc1ck1hR3FEQjZBVEdDb0ZsdW5HalAxRDNGX3dUdzZrb0k2aW1FZEhzMDVCNHpBOFdxWUtBN2VpdU0?oc=5",
-      "source": "abc7.com",
+      "source": "ABC7 Los Angeles",
       "date": "2026-06-19T07:00:00.000Z"
     },
     {
@@ -109,7 +109,7 @@
     {
       "title": "Carlsbad man charged with alleged hate crime in assault near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQy1QREZ0V243SkVRMWgzYVZpNnUzODk5OVB3amJXOHFJWXdXeXFNcW04QmF1dkhza2g0dXcwUUhVZGdObHItZ1U4X2MzZVdDZEZXMEl4MWpTMXpvQU9kaHptdkVxR2F0TkU5T2ZlMFF1cmFNZy1jWWVFNWRhYW9RNjZSaTlGb3N1TFJucjZXaEZZeWphQTRRT1pTZDRuTDVSMDNOYktrNjN2VEJkQU9rZ3p5aW5XY0dWZWhkQkVGb3U?oc=5",
-      "source": "sandiegouniontribune.com",
+      "source": "San Diego Union-Tribune",
       "date": "2026-05-19T07:00:00.000Z"
     },
     {
@@ -157,7 +157,7 @@
     {
       "title": "Michigan synagogue attack latest: Beverly Hills event featuring Holocaust survivors highlights rising fears over antisemitism",
       "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNTjhTZTMwa0tLVkhUYnZRXzZRMmdUazhQenI4RklPaFlkbG5DQnpjZjFRTkxsNXlFNVFQNEE4WnhTbWxPd3EtNE5WaFl2ZXdMTmoxNW1HcE5YbzVGVWlWeHp1Mm5YVEhvaFMxWVZqSlNDN1k5WlJjYmxVZDVDY2JaQl9sek9zQllTVkJOUXk5MzhMbl9Nb2lUMlE2aDNjQXRGRHI5SldmdU04TFZJWi02X2tXQlNfYzVZQzNhZXBiUEtHME83TXFBa1NjWmlGcU5YTkpNZThndTFkN1ZqN3poQVMxazNUd9IB6wFBVV95cUxPaDhGYS1qdmVZTGRHVzhockI0Q2RUSTlldnJzYVVtbTAtTF9TZFIyUHBBWTE1M0ExVU1xSUNuVU93TjZVR3YzUkFReW9CdG13dWxjb1lVWTJ6cV9GV2ZtUUxwTUgxa0tHMXhSWkI0XzhBMU5RakIyeC1DT2VaRzV3cVZTYnhkdVIyNVNxdlN3aFhnSk9YQzJkbmhzOW0tUkdSYXRNV3Q0TFY0NnNsckpNb0JtSFNRWUxJdU42OVVaQTFUcTc4TWNuNHJzZzRDZmtoMlBuUlZYbDBORGxLalRFcFRILVdCUm4wRHkw?oc=5",
-      "source": "abc7.com",
+      "source": "ABC7 Los Angeles",
       "date": "2026-03-13T07:00:00.000Z",
       "lat": 34.0736,
       "lng": -118.4004,
@@ -166,7 +166,7 @@
     {
       "title": "LAPD arrests man for allegedly vandalizing multiple Jewish businesses in San Fernando Valley",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaEZfam8zRHV4T1pGTUJ0NHd3WXJGLTNtajBUOW1ZanNIN3BlNVItdXBZdmx6dUFtbzItb3dySTJDLXBzNnl5dXZqeEdnTjNBLWYtb1MxMV9pT2NnWUdCeUpDUC1Oa1pGZWtzU3d2eFBEcVBvNkUzWmFhS1pxVXhnZG1oZGJkb2Rka29manZIM3ppU1ZBelNPOVFfU0pmYVV5aVdXbTJKdU7SAa4BQVVfeXFMUE80c3QyYTBpZ0lxVmp2SHN3bkcwbmFPS0hKaURDRzJuWU5WTDE1S1lmNzl1SEotNGhkXzRZVVJjR0h5R1NDcW9GajZOSzRkZ3RMejNxOG5IN1VPcGhvMkQ0U28tdGlxbnY0NldGbXVKNjRxOEpfMTBJQVJhSkNueXprdEhWU3dOWnpmN0xJdHktQkNvM1ZVbWlhaDhBdmZRSkN3MXJ6eUJYd1duX0FR?oc=5",
-      "source": "CBS News",
+      "source": "cbsnews.com",
       "date": "2026-01-30T08:00:00.000Z",
       "lat": 34.2819,
       "lng": -118.439,
@@ -199,25 +199,25 @@
     {
       "title": "Los Angeles synagogue vandalized during protest, LAPD says",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNY1hyZWFDNzM5bjdXaTBicXlFMlJuNFUydzNDeFhvWFphU1FvY0U5bTJ6TndYbG9NTXA1czY0T0ozVFFKREJkZFJhdkd3U25PVHo2WGRpZFNhMTY0bXhYNFR0eXFKS3BZemkyWXpYZUNJVm1jYnlXSHh0Y2FBYzdyX3J0ekpLck9oSWZLakdkOUVwNGFhQVAwY2lsdjJXZ1HSAaQBQVVfeXFMT0hHR0VmSHd4X2llZ1Vzc1ViZHd1NDFvMTNpcDFNRzliYjNXVnZTTkJ4OGtpZWdQZmg0Ulo0bVY2S2FSUnNIVnZvYktJbXJ0QTFSa2I2dnRVRTJTQjladmhfaGdEU1RvUXhqZE02STVOeGhGSXhPM1hRR2JZcmVxU3FyZHZ4eGNMTUREczBBR29CUU43bE8ydnFsa1Bzd1otQnVkVEs?oc=5",
-      "source": "CBS News",
+      "source": "cbsnews.com",
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
       "title": "Los Angeles synagogue vandalized during morning protest",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZFUyR3NxRTNSYzNCUTlMdjJwTGJlcDIwUWJkUXFfWWN4eTFGU3hrTGFwUjF1RUx6V2dSb01FdVdUbm02UU9oVnV2UWFuWXBSTjE1V1pzYlgxZkZHQTNfOTdkTkxlS21tblRZaEFxSlNJMHlfOUxIZTdObTVmSkF0WHR6ZUNadTBPSmJCVXJ2N3gxeF9pMThUSG9Kc1hIZw?oc=5",
-      "source": "CBS News",
+      "source": "cbsnews.com",
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
       "title": "Vandals invade synagogue in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOaGM5MGEyR0dFZ2UzMjhMc1pyVGs5LWpKbzE2V0xtWld2TDlmZmZja29yLXhZUUFscThMa1F4RDltMmF1a1RLRk1MZmljZGtLSHhJMTFodjJfR1R2RjZoc1JsQVBMaGF3NFpWSXVyTzMxcU51cWNTZjFLUmFiR0VFMWl5d9IBiAFBVV95cUxQZFloSVlwVkJ4OHdzUTNzWUVKcXlkbEFuemppaENuS05FUkdEb1FQclFTcUFxbmR2SVphYTRWUVhiS21HM1lPckNEdFBEQXMzdmF1Z1dLNFZ3VTJyRWxzcmN2NV80dExGbE9KWTNJNE1fRnd3cUQwY1M2WnV1LURZd0huS0RyZUFX?oc=5",
-      "source": "FOX 11 Los Angeles",
+      "source": "foxla.com",
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
-      "title": "Swastikas drawn on driveway and fire hydrant in South Glendale",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNT2dCSWFOTnprTnI2YU5zWEVyeHZ3NW84d0x5dlgzY2pOT1Awc2R4ZjNBNFVZbzBuWlFUVTF6X1FEX1FsZVE4NVA2dG4zcER3WGdRelRZZmV5dFhHcHoycERQZnkyNFBPajdSZXJRU2lEU1QxYVljaWtIZmVVRTVDR1NwM21VTjRULXFV0gGTAUFVX3lxTFBuTjEwcDRJSm5fSzQzaDNQUE5mRHFMdHBObmplZ2NEdEFCS293d1pSRG1XbmlwY2NjZEVzbUZTQ3cwMUx6Y3cyQkkyczN0MGRvY3l3S2VTR3FWNlZxTXRQaWRSdG5DY3dMbEk2ckwxRHc0V1pxaUt2MzRidzl4Q21JYlllaXJPRG14X3dtaEJCUXdnTQ?oc=5",
-      "source": "NBC Los Angeles",
+      "title": "Hate crime investigation launched after Glendale residents find swastikas drawn in their neighborhood",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVkdWTUNmdWNLSUVjd2J1U3F4NTZMWHhHS3k5MWtPM2hGdjd6TDNZbWQtWkdQb2JSMkpjaTlwUWQzRXFyNTRJMHcwamdZd1QwR1l4VTJBZ3ZaQmtMS294ZVByWkVBNDljUDItOUVJSk4tSC15dkVpN0pieGVIeUQxcDc3VkhyVDlFbnhIatIBkgFBVV95cUxQMnZ4N1dQenpuUG5DR2hBTXlqcXMySjFUX01ZUWVESDJtdnBiQ1VaUTM2Zm5WWXdzejdhUDBQa2REWDlYaVJVOEc2RkpnLXhkdG14ODk4bDNKLVotWlhMSmhnZFBsZmtTbUNDTm01cF9jNkNOU1poM3l6cURWQ2lKSXZONHQ2ZFVJNmsxU3VURnN6dw?oc=5",
+      "source": "cbsnews.com",
       "date": "2025-09-29T07:00:00.000Z",
       "lat": 34.1425,
       "lng": -118.2551,
@@ -226,7 +226,7 @@
     {
       "title": "Long Beach Pride headquarters vandalized with anti-LGBTQ, antisemitic graffiti",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWDgtTHgwYkJWQVl1NWtBX3FHZlB5MjBLX0NjZ1V5S0xzUFRSclJWM1lTMi01TnZDMDdHVC1lTTBwTkJDTlV2YjR5REtNc1k1Sk9FdzUwTkpxRnBoaFlWa01qbzRxQkJzU214c0dEZEtJdXFWRzV2cGlQNWJqX2lMYWltdGJmTVhBcFRCZC1uSFRBbjDSAZgBQVVfeXFMT1E5a3Vic1I4UHozY29FdGlXSG1xWGgtRjRpR2gzamM2SjVyNnk4TUkxeWRDNUU4MFEtNUtZR2ZGVE9HbnU3NXZlb0N0N1AwZDZxMGN1VFB3QW95Wi0xUThnNEM2eEQ3X0JaT1Qxb2tkMjBWazhkcXJkczhqWnBKTkFMY054WmhnQ3U4dUJIaGRwN0VQZ2pYVVo?oc=5",
-      "source": "CBS News",
+      "source": "cbsnews.com",
       "date": "2025-09-23T07:00:00.000Z",
       "lat": 33.7701,
       "lng": -118.1937,
@@ -235,7 +235,7 @@
     {
       "title": "Swastika Stickers on Teslas in L.A. County Raise Alarm",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxONldpcE9DSjFKUDBDMkUxSnFQRU5TN0xlWEtlblc2SkEtNWhRRUVwcFVpMVRPbzZKdDlpMWtzU0QxNEpFTElVVUFNdFZtX0JTc3dmVmpBNkswSjZHMlBJYll3RFZ2VUdpRDE1bk54WU5IWE4tVTlUYzJ6enBWNlZRdEdZeGlhNEdSZXZEVFhtdnBlUzNGYWFBYUg2QzZVYUFubmRFNS00bWpjTUIwSDNmOE1ZNXpBbWVIamVoTEJlQWU?oc=5",
-      "source": "KFI AM 640",
+      "source": "kfiam640.iheart.com",
       "date": "2025-09-22T07:00:00.000Z"
     },
     {
