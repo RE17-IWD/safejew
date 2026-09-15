@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T18:15:34.010Z",
+  "generatedAt": "2026-09-15T17:23:33.030Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -13,6 +13,12 @@
     "antisemitic assault OR \"hate crime\" charged Los Angeles OR \"district attorney\" when:1y"
   ],
   "items": [
+    {
+      "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
+      "source": "Combat Antisemitism Movement",
+      "date": "2026-08-12T07:00:00.000Z"
+    },
     {
       "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeDlkLVdtX00yaXBobGlmSlYybXY0SFlXQlhvTk90Z01Ib3JTN21jcjVUSXRuYnRsVXVDaVZWczhNcEVaenpxSElJX0ttVFg3OTM0UlJZQTBJUkl6NFJGTmxub1VVYXB2STJIZXl2V1paOFNrZGlsNmVkUU5nWHVjelI1cjFsN3pkeTByeExGUFE3ZV9EVnJIelF5M1dmTlNMb1g0anUxRXNLanp4ejhlMW41RXlGRWUyQnc?oc=5",
@@ -87,8 +93,8 @@
     },
     {
       "title": "Jewish UCLA students beaten with sticks, pepper sprayed and knocked out by anti-Israel campus mob: lawsuit",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFB4WXlPREhSUnpmLVltYktPX0pZXzZ6ZTBQOUhHX2pQSV9KVVVTY2dJc0t0N3N3ZjJxRTFRcVZiTmN3MFpjOFJHTUkza3Y2T0JHR2lOMHRGeGhTaV9iY1dlT1FNdmtPZFl0bnN0V1l0c1dzN0xNLXhXMDczb1Qtc2duMnotOV94SVA0NWtBdUgzMXdsWU9ZS0VmQlZPejExdUw0XzdxRjg3NXZWTXBhR0toMUgxZ9IBuwFBVV95cUxPTlRFRzU4SzF4UG5PdURraW5sR1o1YjJlcU8xbEJqMUpiNFFnaDM3TUZNdEVzQjcwc3VDOVdvYUpPLTBYMG1UYWc0ZFE4dGRLUzhMbWgtTXdMdVlSTHp4S1lzYmRiUXhzakZmVFowRnhvNk9WY0lUYVFWQzgyTks3ekpCc1B5U01pUXc2eU1jOVZYVGFvck1KRjQxclNhTUk2b2NjMDAxUVdNWlluTFNjdGZZYWxMTGVOZHAw?oc=5",
-      "source": "Fox News",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNRGdmU0VjYXZJMk9pTjBUdzRaU3piMlFESUx2WFU2VzlRQWlsMVk4aWV1SlFPRzBMcUZUaFZxcktHWDRyR2pTejhWYmhBODNtNjJTMXB0SjZmMWlpejN6QVByaTlyY1lCUnlBc3lEQzViYkhsek5tQThQNGVLRnFyODZrLU1ueFFkUUxWdzdGeDlaWi1UVnI0ZzdQaVBlZzRqbmR1eTR4ODdSdC1oeGNjc1drdVFEM0t3MWs0N0hzMzM1ZXNUVGVXUjc5V0RJd1c5TTBz?oc=5",
+      "source": "wfmd.com",
       "date": "2026-05-27T07:00:00.000Z",
       "lat": 34.0689,
       "lng": -118.4452,
@@ -181,7 +187,7 @@
     {
       "title": "Property of Jewish temple destroyed in Los Angeles fires vandalized",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPRVlNU1dsVEh2b2NHNnB1Qlo4MDlZdDc4V1Z5TllvSWd2WV82SW0xWTZ0VWNEdnExY1R0UEhIUkVqbkMxU0tjSkc5Y2g0a2N0cjBTWTJXcUFGckg1cEY4c2pKRkdVZjcxMDdvdzM1NnZOTFZQbHJMQXhtckFtUGI5Qk5WdHZ3TldiUW54UQ?oc=5",
-      "source": "The Guardian",
+      "source": "theguardian.com",
       "date": "2026-01-14T08:00:00.000Z"
     },
     {
@@ -217,7 +223,7 @@
     {
       "title": "Vandals invade synagogue in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOaGM5MGEyR0dFZ2UzMjhMc1pyVGs5LWpKbzE2V0xtWld2TDlmZmZja29yLXhZUUFscThMa1F4RDltMmF1a1RLRk1MZmljZGtLSHhJMTFodjJfR1R2RjZoc1JsQVBMaGF3NFpWSXVyTzMxcU51cWNTZjFLUmFiR0VFMWl5d9IBiAFBVV95cUxQZFloSVlwVkJ4OHdzUTNzWUVKcXlkbEFuemppaENuS05FUkdEb1FQclFTcUFxbmR2SVphYTRWUVhiS21HM1lPckNEdFBEQXMzdmF1Z1dLNFZ3VTJyRWxzcmN2NV80dExGbE9KWTNJNE1fRnd3cUQwY1M2WnV1LURZd0huS0RyZUFX?oc=5",
-      "source": "foxla.com",
+      "source": "FOX 11 Los Angeles",
       "date": "2025-12-03T08:00:00.000Z"
     },
     {
