@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T17:25:40.208Z",
+  "generatedAt": "2026-09-23T17:33:24.702Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -88,7 +88,7 @@
     {
       "title": "Jewish UCLA students beaten with sticks, pepper sprayed and knocked out by anti-Israel campus mob: lawsuit",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFB4WXlPREhSUnpmLVltYktPX0pZXzZ6ZTBQOUhHX2pQSV9KVVVTY2dJc0t0N3N3ZjJxRTFRcVZiTmN3MFpjOFJHTUkza3Y2T0JHR2lOMHRGeGhTaV9iY1dlT1FNdmtPZFl0bnN0V1l0c1dzN0xNLXhXMDczb1Qtc2duMnotOV94SVA0NWtBdUgzMXdsWU9ZS0VmQlZPejExdUw0XzdxRjg3NXZWTXBhR0toMUgxZ9IBuwFBVV95cUxPTlRFRzU4SzF4UG5PdURraW5sR1o1YjJlcU8xbEJqMUpiNFFnaDM3TUZNdEVzQjcwc3VDOVdvYUpPLTBYMG1UYWc0ZFE4dGRLUzhMbWgtTXdMdVlSTHp4S1lzYmRiUXhzakZmVFowRnhvNk9WY0lUYVFWQzgyTks3ekpCc1B5U01pUXc2eU1jOVZYVGFvck1KRjQxclNhTUk2b2NjMDAxUVdNWlluTFNjdGZZYWxMTGVOZHAw?oc=5",
-      "source": "foxnews.com",
+      "source": "Fox News",
       "date": "2026-05-27T07:00:00.000Z",
       "lat": 34.0689,
       "lng": -118.4452,
@@ -125,15 +125,15 @@
       "date": "2026-05-18T07:00:00.000Z"
     },
     {
-      "title": "Jewish Man Assaulted Outside Los Angeles Synagogue In Suspected Hate Crime",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM0lEWjMtdU1USXJzVkVjLWc2YzJHT1k1VXJTQWRwMDQ3N3FrZUVoZDZiRlAyaDNzcS01TWpoTWFUV01uSUpYaDdtdnhKQl9pcGpwS2Y2bi1HcnBHa3JoeWV6MG5BdVRaVjVPaEpEN1R6b2dVOVlBZW1tLWRqUUhldlFMelNaNVdCb0xJU2wtLTBRU0szYjI4elEyNkc0ZmNFTDk4cg?oc=5",
-      "source": "thej.ca",
+      "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9QWVAxQ2gxempneEJFN01rMW1xM3UteTJ5dHd4bU10TldnX0xrRFIxeXVGMGQ2SUdxMHRHcnlmclB4bTNTTnpxMGUyYW9rRWdHSk9hT0F2Q0F4VkdHNldiTUJfaFFuUk5hZVE?oc=5",
+      "source": "The Jerusalem Post",
       "date": "2026-04-30T07:00:00.000Z"
     },
     {
-      "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9QWVAxQ2gxempneEJFN01rMW1xM3UteTJ5dHd4bU10TldnX0xrRFIxeXVGMGQ2SUdxMHRHcnlmclB4bTNTTnpxMGUyYW9rRWdHSk9hT0F2Q0F4VkdHNldiTUJfaFFuUk5hZVE?oc=5",
-      "source": "jpost.com",
+      "title": "Jewish Man Assaulted Outside Los Angeles Synagogue In Suspected Hate Crime",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM0lEWjMtdU1USXJzVkVjLWc2YzJHT1k1VXJTQWRwMDQ3N3FrZUVoZDZiRlAyaDNzcS01TWpoTWFUV01uSUpYaDdtdnhKQl9pcGpwS2Y2bi1HcnBHa3JoeWV6MG5BdVRaVjVPaEpEN1R6b2dVOVlBZW1tLWRqUUhldlFMelNaNVdCb0xJU2wtLTBRU0szYjI4elEyNkc0ZmNFTDk4cg?oc=5",
+      "source": "thej.ca",
       "date": "2026-04-30T07:00:00.000Z"
     },
     {
