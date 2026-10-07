@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T18:41:21.731Z",
+  "generatedAt": "2026-10-07T19:07:42.804Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -59,7 +59,7 @@
       "title": "California raisin company heir Bruce Lion of Lion Raisins charged with hate crimes after alleged threats to rabbi in Los Angeles",
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWHBNdDVWc1VhSGFKM1RvVEd0bk1ObVF2ZTc0bHg1a09zOUViUWpyYzdCWUtOVzJhRWw1UHVSSGF4SVBwNFNDVkR0X2tKc1pKVnRZeWg0ZGxUVWtMUjR4cnVhVTF4cmZvdHlCNUJWSXh0ZDd1MzMyVjgwWkVxcHItd09kSDhkSEJDREw4UmNIa1ZYRmk1Zl81UzJtdkRYX21mQV9DdGNqNVB0M2dsZTMwYmRRQTFrdE81WTk4MVVzc2VaZkppdkHSAcsBQVVfeXFMUGZoVVpkSlhUSkQ1dFk0Q1hxWnVLblB3SUxVR3dNZGNoTEdoSy04WWVHUjNrbE5BNjZOb1RCX3ZneVpzMTRBOW8tMkliMW1xODVwNl8yX3p6YXFPOFl2T2pVWG53amNCUHpHSk1RM1JaRVpZM3lnb1MtZUV6U012V1h2NkRCcEFEVUhDQVJEVnNBMGc1ck1hR3FEQjZBVEdDb0ZsdW5HalAxRDNGX3dUdzZrb0k2aW1FZEhzMDVCNHpBOFdxWUtBN2VpdU0?oc=5",
       "source": "ABC7 Los Angeles",
-      "date": "2026-06-19T07:00:00.000Z"
+      "date": "2026-06-18T07:00:00.000Z"
     },
     {
       "title": "Carlsbad Man Arrested on Federal Indictment Charging Him with Assaulting Jewish Man Near Pico-Robertson Synagogue",
@@ -143,15 +143,15 @@
       "date": "2026-04-29T07:00:00.000Z"
     },
     {
-      "title": "Jewish man assaulted leaving Los Angeles synagogue, Israeli envoy says",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0lZTmZEd2FUSnJJX29UM3RBTjlqaDI1R0cybl9kZlFtdmJDLVQyYXFXUEpNSENrcGR0Y01lM3BvbzVVcERoc2dteWdTVG9oQnYwQ2F1ZUVHR1NpanpJRktzZExNd3ljRHJMdmNDcnJMbmJna01wY21rWDB2U2ZlWkN0NGNfeUlpa2hLdjhSSUhMa2libV9KQk1zMzBiMUIzcGY1ZlRB?oc=5",
-      "source": "JNS.org",
-      "date": "2026-04-29T07:00:00.000Z"
-    },
-    {
       "title": "Jewish man attacked outside L.A. synagogue, suspect at large",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPZ3lDdUhGRlp4TkxEb2lFbjVNdExjbk1JcGZSa2hKTUp0cS0tVlpuVUpmYzBhcTRKZmZ5dC1uVjZpRFF2dDRxcGppcjhZcndfcFZCNmJWYnZjUmpzNGVKenF4UXp4MndZcUFnV1oyOENNTmxmV21fWFBqcFBtSVluWmdhSV84dFgteFdBYUxBam82bEFwMXc?oc=5",
       "source": "KTLA",
+      "date": "2026-04-29T07:00:00.000Z"
+    },
+    {
+      "title": "Jewish man assaulted leaving Los Angeles synagogue, Israeli envoy says",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0lZTmZEd2FUSnJJX29UM3RBTjlqaDI1R0cybl9kZlFtdmJDLVQyYXFXUEpNSENrcGR0Y01lM3BvbzVVcERoc2dteWdTVG9oQnYwQ2F1ZUVHR1NpanpJRktzZExNd3ljRHJMdmNDcnJMbmJna01wY21rWDB2U2ZlWkN0NGNfeUlpa2hLdjhSSUhMa2libV9KQk1zMzBiMUIzcGY1ZlRB?oc=5",
+      "source": "JNS.org",
       "date": "2026-04-29T07:00:00.000Z"
     },
     {
@@ -261,18 +261,6 @@
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMWZYaEQ2MURuc01FazF3SUU3UEVFSjRRa2NEbUdxNzhBN25mZWZIOEdXSGp1c0p0bjdheVJvd3dNTFJxLUZ4d1pkUHVNY05EWUxBN1FoYWV5TklpWm1ieUxtOXdUZDJwY0pWWGNFZEJHd0FOOVNqd1BPV3A2cGJJS2p2SS1oWDVrN05wekU2RU80N1N1dDZsNllpd1U5b3FRdXfSAacBQVVfeXFMT3QybkVaY2k1NFVqTERDU1pVVVRXSGZsa1FzdmlUVzd5VEZZTXF1TVRfSXVPNlhNN0xWNkdTNVVmQzlFN2pJNkgxaWI3cTVkanEwWGE0MHpIbkkzQ0dFeDExZFRuTmFtQk1wVThnSDA4ckRaZTBfdTR3R245SnRnSkRIT0RiVXM3aWpqQUVVTDhVelBiMWgyeU5rLVBxYl91VFFQUlFoVnM?oc=5",
       "source": "KTLA",
       "date": "2025-09-21T07:00:00.000Z"
-    },
-    {
-      "title": "Los Angeles police investigating antisemitic graffiti spray painted on side of Jewish business",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNeWxUalZkNGxfVkF3a25ndWIxX20wOEptZi1fNHg0eThnOFppVXJzUVFUWks0dHpjY05nUFppTkRFYU5SNTQta3JVcmg5UUREUzM3QXNhQ0FCSzZwM0tfOFlBSmZnSkh3bGFBc1lUV3RCTXVPOFVLbk95M0wyellPVXYxbWk4b3dBRXZaQzlPRnRXTjUxcXV6WDRnZmdMc1V2SE9vSURtTnFFNWdBMHpUY2pWV0Y2VkpFVGVXVEs1Qkx5dENFY0FHNnJCVmxBTjRyMXc?oc=5",
-      "source": "CBS News",
-      "date": "2025-09-02T07:00:00.000Z"
-    },
-    {
-      "title": "Anti-Israel protesters attack man speaking Hebrew in Los Angeles area - Israel & Jewish News",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWnNzWW16SjdjUnpTY2JLNl9MUVdSdFZDR1NmaXVZTmR1X2hYU1JHZXc3aXAxMWdwZXBoYWNEZklVOG8zdmU0eU5rRGREWjZNQURvZkdoSmcwbDlFd25tMjlVanR0NmlrUEU4c09Ia1haeW5CVmFRWmdUR0tMMzFveFRzaUhXRjRSM2xNV0NTdUtLdnVCYzZSdng4RVIzWVRMR3VEWmhCZlhodw?oc=5",
-      "source": "JNS.org",
-      "date": "2025-09-02T07:00:00.000Z"
     }
   ]
 }
