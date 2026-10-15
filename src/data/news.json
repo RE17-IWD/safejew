@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T17:40:44.509Z",
+  "generatedAt": "2026-10-15T17:28:23.050Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -13,6 +13,15 @@
     "antisemitic assault OR \"hate crime\" charged Los Angeles OR \"district attorney\" when:1y"
   ],
   "items": [
+    {
+      "title": "Law professors denounce UCLA chancellor, who attacked 9/11 symposium for promoting “terrorism” and “antisemitism”",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE51ZHMteldDdXozSHlNcDZSVXZUQ2tVZGVCalI1ZDdzT0JZSWRGb1RoSzA4REp3cmJPem1vZWNUazY5M2NIaWI0ek1iOW9VQ09fdFAtaWF4d0o0cFV0czJfbUlieTlKTkw2?oc=5",
+      "source": "World Socialist Web Site",
+      "date": "2026-09-20T07:00:00.000Z",
+      "lat": 34.0689,
+      "lng": -118.4452,
+      "place": "UCLA"
+    },
     {
       "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
@@ -90,15 +99,6 @@
       "lat": 34.0195,
       "lng": -118.4912,
       "place": "Santa Monica"
-    },
-    {
-      "title": "Jewish UCLA students beaten with sticks, pepper sprayed and knocked out by anti-Israel campus mob: lawsuit",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFB4WXlPREhSUnpmLVltYktPX0pZXzZ6ZTBQOUhHX2pQSV9KVVVTY2dJc0t0N3N3ZjJxRTFRcVZiTmN3MFpjOFJHTUkza3Y2T0JHR2lOMHRGeGhTaV9iY1dlT1FNdmtPZFl0bnN0V1l0c1dzN0xNLXhXMDczb1Qtc2duMnotOV94SVA0NWtBdUgzMXdsWU9ZS0VmQlZPejExdUw0XzdxRjg3NXZWTXBhR0toMUgxZ9IBuwFBVV95cUxPTlRFRzU4SzF4UG5PdURraW5sR1o1YjJlcU8xbEJqMUpiNFFnaDM3TUZNdEVzQjcwc3VDOVdvYUpPLTBYMG1UYWc0ZFE4dGRLUzhMbWgtTXdMdVlSTHp4S1lzYmRiUXhzakZmVFowRnhvNk9WY0lUYVFWQzgyTks3ekpCc1B5U01pUXc2eU1jOVZYVGFvck1KRjQxclNhTUk2b2NjMDAxUVdNWlluTFNjdGZZYWxMTGVOZHAw?oc=5",
-      "source": "Fox News",
-      "date": "2026-05-27T07:00:00.000Z",
-      "lat": 34.0689,
-      "lng": -118.4452,
-      "place": "UCLA"
     },
     {
       "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
