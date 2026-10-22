@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T17:45:17.963Z",
+  "generatedAt": "2026-10-22T17:44:00.315Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -41,6 +41,12 @@
       "place": "UCLA"
     },
     {
+      "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
+      "source": "Combat Antisemitism Movement",
+      "date": "2026-08-12T07:00:00.000Z"
+    },
+    {
       "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeDlkLVdtX00yaXBobGlmSlYybXY0SFlXQlhvTk90Z01Ib3JTN21jcjVUSXRuYnRsVXVDaVZWczhNcEVaenpxSElJX0ttVFg3OTM0UlJZQTBJUkl6NFJGTmxub1VVYXB2STJIZXl2V1paOFNrZGlsNmVkUU5nWHVjelI1cjFsN3pkeTByeExGUFE3ZV9EVnJIelF5M1dmTlNMb1g0anUxRXNLanp4ejhlMW41RXlGRWUyQnc?oc=5",
       "source": "CBS News",
@@ -52,7 +58,7 @@
     {
       "title": "$20K reward offered to catch vandal who damaged mural at Altadena Jewish center",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNDNsWnRIV2Mzb0YySEZIeDF2YWxPV0xOenFQLVBjMF9vaHpTemUxSTF5ZGdBWEMzUHMwMTV3Q2lHV3FHc3E2UUlsNjZBLXpyN2R6Z0VRSWF2d3J3RmQwSlh2czU5ZVp1azNwbkRUdnRFd3JVaGdsc3Jqc0psbmJfRmM2R2p3dFZkQ2RfZ3k2bENlOWJSZjNFSGVyZGtTRjjSAacBQVVfeXFMTjNzSWRlOHJOUXRTdVdyTlROUXZaelAyRzZaOThVZmpicDlhRUVyNFFKSWVSb010dmRNMS1mWlBKUGpaOUk3Qk9zSE1FS0pISDNqbTRiaV9qcnBlRDdOVWFMUkJVZWNVSjBqQ3NKN3FEMmJXcHo0SUVUTDIwcGZIVGgyQ04tYVF2Qk84VHl0LXI4Z1dSUWFYcVQ4a0hYbHdQUXNiTTlCM3M?oc=5",
-      "source": "NBC Los Angeles",
+      "source": "NBC4 Los Angeles",
       "date": "2026-08-04T07:00:00.000Z",
       "lat": 34.1897,
       "lng": -118.1312,
@@ -113,6 +119,12 @@
       "place": "Santa Monica"
     },
     {
+      "title": "A 21-year-old man has been charged with a felony hate crime for attacking a Jewish resident of West Los Angeles as he walked home from a synagogue last month. Semaj De Leone James of South Los Angeles was charged with one felony count of violation",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE16Z2VZeXpFZjVDRE4xcGFlOUZPVWhaOG4xLXhqRUhDT0lobVNXcFM2eGF2YmdlZmNTRkdqbUw0cDNqMGdkenBHcjk3UzVGeHdGWGc?oc=5",
+      "source": "Instagram",
+      "date": "2026-05-26T07:00:00.000Z"
+    },
+    {
       "title": "Man charged with felony hate crime for attacking Jewish man near L.A. synagogue",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTRpQk4zWXJhbHZfNWdQd1NCTGNsMDNjdmhRTlJzdkJWUF9NSnBuZ1BlZnpOUl9YVGYwS2hUV2h3emNYMDNhZDFwTjBwc19uai1ZNVpLeVo3U0doLWxFdXpXUjlFdVczdUdYRG1yS0hCcTlxNlhXN0M1UUhNNVZVOUpId3VMVS1UUUwwQ0NfdFJ0OWNlRm5FdEZTdjZXRllmQTdYNXdZQllibzlOM1JjdUN30gG3AUFVX3lxTE5hVnpqelJqYzk0WnlyUUxUbDJHYWFEWmhtN1pMZ044c1Rzc2JaM0RhN1NEdUtxSEx5ZXM1M1FnOWV5bE45OGFmV3h6OS0yRzR2LWFlQUNxcjdTUjRyaXpGMWEyRzI0OTJzaTZ2STVXOXVlWURCczhvd21COTV5aW9CNTJEbHNzbGlsc0xPbFoycXUybld4NHV3aHlmSzlibGE2UWJfSWRTOWZkNUFSSnFLaGFSd0h4QQ?oc=5",
       "source": "KTLA",
@@ -137,6 +149,12 @@
       "date": "2026-05-18T07:00:00.000Z"
     },
     {
+      "title": "Carlsbad man charged with hate crime for alleged assault on Jewish man in Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNU0hiZEhXdDZTMS1uMkF4VDIzbm1oSVhfYllCT0gzc0RYN3N0Q29ma2xMRmdYNDlQUFV6cnY2SHhKOVhFX0x0b19PcHVpNTFNQzQtMTliMC1naTVCbll5QmJndlZ3VFg5dVBWRk1jcDJTVzNVdzRVdElYYlh4ZEs3MGgwTlBiN2FsUzU2cGZHV2RldU1QYmREVHhQczNGRExwUkZxcEFySXJTV1ptaDViTTBlWkFBT2VtM2dPblB6MVZMQQ?oc=5",
+      "source": "ABC 10News San Diego",
+      "date": "2026-05-18T07:00:00.000Z"
+    },
+    {
       "title": "California man faces 10 years in prison for allegedly assaulting Jewish man in Los Angeles in 2024",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNXltcXh5d25KbUFRNUZldlZmUHdyTHF2YWY3a2lwUkhFaUpkZ1JqaG9fdGRNNTlSUUtURi1PNDVxb1Awc0w4Z19pS1pkS1kxaEEyQ0JhclgwYkZJZE15dWtFT09DQmNTU1d6QU9hSXhyQnVlc1pKZHB3X0Qzdjc0TzRLWm1YZi1LNFZfZV9wcmFxSnJPejBya3ZrZzZBWGtXUVIzZFlHVGllbVo0ajgxVUdMS0hjb2c?oc=5",
       "source": "JNS.org",
@@ -155,14 +173,14 @@
       "date": "2026-04-30T07:00:00.000Z"
     },
     {
-      "title": "‘Thought it was end of my life,’ says Jewish man attacked near Los Angeles synagogue",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeWtURmkxbFdJSjFNQVlzSDZjMmIteTBLQkQ2emlXUkpnQ3NnT2FzN3IxdU5HanMxTWxhS0p3Y0VBZE5aeDJJOGwtZ1hyMEtjNS1MQlQ0blJVbzFydnF0azhnM3FlTHVqVm9DZXFobnF6cTlXWko2MW5ndy1VN0tSY3QwVDJ1aGJqcWk4c2F5Uk9BUUE1RDRMeGRKVUtTMHhEaWZYT2ZKLUFCblZYVXpOU18zX1VPZw?oc=5",
+      "title": "Jewish man assaulted leaving Los Angeles synagogue, Israeli envoy says",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0lZTmZEd2FUSnJJX29UM3RBTjlqaDI1R0cybl9kZlFtdmJDLVQyYXFXUEpNSENrcGR0Y01lM3BvbzVVcERoc2dteWdTVG9oQnYwQ2F1ZUVHR1NpanpJRktzZExNd3ljRHJMdmNDcnJMbmJna01wY21rWDB2U2ZlWkN0NGNfeUlpa2hLdjhSSUhMa2libV9KQk1zMzBiMUIzcGY1ZlRB?oc=5",
       "source": "JNS.org",
       "date": "2026-04-29T07:00:00.000Z"
     },
     {
-      "title": "Jewish man assaulted leaving Los Angeles synagogue, Israeli envoy says",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0lZTmZEd2FUSnJJX29UM3RBTjlqaDI1R0cybl9kZlFtdmJDLVQyYXFXUEpNSENrcGR0Y01lM3BvbzVVcERoc2dteWdTVG9oQnYwQ2F1ZUVHR1NpanpJRktzZExNd3ljRHJMdmNDcnJMbmJna01wY21rWDB2U2ZlWkN0NGNfeUlpa2hLdjhSSUhMa2libV9KQk1zMzBiMUIzcGY1ZlRB?oc=5",
+      "title": "‘Thought it was end of my life,’ says Jewish man attacked near Los Angeles synagogue",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeWtURmkxbFdJSjFNQVlzSDZjMmIteTBLQkQ2emlXUkpnQ3NnT2FzN3IxdU5HanMxTWxhS0p3Y0VBZE5aeDJJOGwtZ1hyMEtjNS1MQlQ0blJVbzFydnF0azhnM3FlTHVqVm9DZXFobnF6cTlXWko2MW5ndy1VN0tSY3QwVDJ1aGJqcWk4c2F5Uk9BUUE1RDRMeGRKVUtTMHhEaWZYT2ZKLUFCblZYVXpOU18zX1VPZw?oc=5",
       "source": "JNS.org",
       "date": "2026-04-29T07:00:00.000Z"
     },
