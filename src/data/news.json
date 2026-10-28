@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T18:28:13.856Z",
+  "generatedAt": "2026-10-28T18:33:47.752Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -48,12 +48,6 @@
       "lat": 34.0689,
       "lng": -118.4452,
       "place": "UCLA"
-    },
-    {
-      "title": "Pro-Israel Advocate Assaulted by Failed Congressional Candidate After Los Angeles Podcast Debate",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPbDQ0cXpFdjJoZEYxa19ITk9mX2Y1NmxYTjg4OGFTdmhBOUp5N1M2ZDNtYUxkYWFsbjIxSXZBcXpEX29aZXdzZDI4Z3V0bnBPRkhKQWlPS0w5eVU0dHVpcVhxQW5TdDdRaFBQTzMtYTk1TW01cDRJaV9nT2lFY2Z1UTNYeU1qdDZXOFliSDZUdENkb3FLOEZBbEpiYUZDTWdqNEp0ZjMzWlRpRE1BWUNybDg3VmtSVk5Ld2kxN2NHWGFLLU9MaXdFdUJOSXRjTlFCQnVJ?oc=5",
-      "source": "Combat Antisemitism Movement",
-      "date": "2026-08-12T07:00:00.000Z"
     },
     {
       "title": "Teenagers rally to fund Pasadena mural vandalized with anti-semitic graffiti",
@@ -279,15 +273,6 @@
       "lat": 34.1425,
       "lng": -118.2551,
       "place": "Glendale"
-    },
-    {
-      "title": "Long Beach Pride headquarters vandalized with anti-LGBTQ, antisemitic graffiti",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWDgtTHgwYkJWQVl1NWtBX3FHZlB5MjBLX0NjZ1V5S0xzUFRSclJWM1lTMi01TnZDMDdHVC1lTTBwTkJDTlV2YjR5REtNc1k1Sk9FdzUwTkpxRnBoaFlWa01qbzRxQkJzU214c0dEZEtJdXFWRzV2cGlQNWJqX2lMYWltdGJmTVhBcFRCZC1uSFRBbjDSAZgBQVVfeXFMT1E5a3Vic1I4UHozY29FdGlXSG1xWGgtRjRpR2gzamM2SjVyNnk4TUkxeWRDNUU4MFEtNUtZR2ZGVE9HbnU3NXZlb0N0N1AwZDZxMGN1VFB3QW95Wi0xUThnNEM2eEQ3X0JaT1Qxb2tkMjBWazhkcXJkczhqWnBKTkFMY054WmhnQ3U4dUJIaGRwN0VQZ2pYVVo?oc=5",
-      "source": "CBS News",
-      "date": "2025-09-23T07:00:00.000Z",
-      "lat": 33.7701,
-      "lng": -118.1937,
-      "place": "Long Beach"
     }
   ]
 }
