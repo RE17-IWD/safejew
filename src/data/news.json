@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T18:11:20.427Z",
+  "generatedAt": "2026-11-02T22:00:06.692Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -258,6 +258,15 @@
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNY1hyZWFDNzM5bjdXaTBicXlFMlJuNFUydzNDeFhvWFphU1FvY0U5bTJ6TndYbG9NTXA1czY0T0ozVFFKREJkZFJhdkd3U25PVHo2WGRpZFNhMTY0bXhYNFR0eXFKS3BZemkyWXpYZUNJVm1jYnlXSHh0Y2FBYzdyX3J0ekpLck9oSWZLakdkOUVwNGFhQVAwY2lsdjJXZ1E?oc=5",
       "source": "CBS News",
       "date": "2025-12-03T08:00:00.000Z"
+    },
+    {
+      "title": "Vandals invade Wilshire Boulevard temple in Koreatown",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOaGM5MGEyR0dFZ2UzMjhMc1pyVGs5LWpKbzE2V0xtWld2TDlmZmZja29yLXhZUUFscThMa1F4RDltMmF1a1RLRk1MZmljZGtLSHhJMTFodjJfR1R2RjZoc1JsQVBMaGF3NFpWSXVyTzMxcU51cWNTZjFLUmFiR0VFMWl5dw?oc=5",
+      "source": "FOX 11 Los Angeles",
+      "date": "2025-12-03T08:00:00.000Z",
+      "lat": 34.0619,
+      "lng": -118.3011,
+      "place": "Wilshire Boulevard Temple"
     },
     {
       "title": "Vandals invade synagogue in Los Angeles",
