@@ -4,7 +4,11 @@ export const metadata = {
     'How three Los Angeles students built SafeJew, a live map of antisemitic incidents.',
 };
 
-const TEAM = ['Adrian Erlikhman', 'Ryan Erlikhman', 'Yonatan Zarur'];
+const TEAM: { name: string; url?: string }[] = [
+  { name: 'Adrian Erlikhman', url: 'https://adrianerlikhman.is-a.dev/' },
+  { name: 'Ryan Erlikhman' },
+  { name: 'Yonatan Zarur' },
+];
 
 const ROADMAP = [
   ['Mobile Reporting App', 'Fast reporting from your phone, the way most people actually report, with offline queuing.'],
@@ -165,9 +169,17 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-2xl font-bold text-navy-800 mb-8">The Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {TEAM.map((name) => (
+            {TEAM.map(({ name, url }) => (
               <div key={name} className="border-t-2 border-gold-500 pt-4">
-                <h3 className="font-serif text-lg font-semibold text-navy-800">{name}</h3>
+                <h3 className="font-serif text-lg font-semibold text-navy-800">
+                  {url ? (
+                    <a href={url} className="underline underline-offset-4 hover:text-gold-500">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
+                </h3>
                 <p className="font-sans text-xs font-medium uppercase tracking-widest text-gold-500 mt-1">
                   Co-Founder
                 </p>

@@ -103,7 +103,11 @@ export default function Footer() {
             </span>
             <span>Made possible by JFEDLA and the Teen Innovation Grant</span>
           </div>
-          <p>&copy; 2026 SafeJew. Founded by Adrian Erlikhman, Ryan Erlikhman, and Yonatan Zarur.</p>
+          <p>
+            &copy; 2026 SafeJew. Founded by{' '}
+            <a href="https://adrianerlikhman.is-a.dev/">Adrian Erlikhman</a>, Ryan Erlikhman, and
+            Yonatan Zarur.
+          </p>
           <p>
             All data is for informational purposes only. Always contact law enforcement for
             emergencies.

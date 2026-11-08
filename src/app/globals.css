@@ -312,6 +312,7 @@ a.sj-src:hover .ext{ opacity:1; }
 .sj-foot li a{ color:rgba(255,255,255,.62); font-size:14px; } .sj-foot li a:hover{ color:#fff; }
 .sj-foot .bottom{ border-top:1px solid rgba(255,255,255,.12); padding-top:24px; display:flex; flex-direction:column; gap:8px; }
 .sj-foot .bottom p{ font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.6; }
+.sj-foot .bottom p a{ color:inherit; text-decoration:underline; text-underline-offset:2px; } .sj-foot .bottom p a:hover{ color:#fff; }
 .sj-foot .grant{ display:flex; align-items:center; gap:10px; margin-bottom:6px; }
 .sj-foot .grant .mark{ display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:6px; background:#fff; flex:none; }
 .sj-foot .grant .mark img{ width:20px; height:auto; display:block; }
