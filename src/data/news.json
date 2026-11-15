@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T18:35:06.829Z",
+  "generatedAt": "2026-11-15T19:10:32.367Z",
   "queries": [
     "antisemitism \"Los Angeles\" when:90d",
     "antisemitic incident Los Angeles when:180d",
@@ -28,7 +28,7 @@
     {
       "title": "FBI arrests Los Angeles man accused of targeting Chabad preschool: ‘Might bomb JEMS later’",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5HTzFlSU5DSmdQcGZVWWxmamdpNmtuLXVPX2pSRm9pRUhZbWVkMERSTHRsX3hXRllxOUlDenR0a3ozcjNONjllTVBNYUw4MGFfV1ZocUVRNDhnd3ZfaTlKclF3aThGcFU?oc=5",
-      "source": "ynetnews",
+      "source": "Ynetnews",
       "date": "2026-10-17T07:00:00.000Z"
     },
     {
@@ -162,6 +162,12 @@
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNU0hiZEhXdDZTMS1uMkF4VDIzbm1oSVhfYllCT0gzc0RYN3N0Q29ma2xMRmdYNDlQUFV6cnY2SHhKOVhFX0x0b19PcHVpNTFNQzQtMTliMC1naTVCbll5QmJndlZ3VFg5dVBWRk1jcDJTVzNVdzRVdElYYlh4ZEs3MGgwTlBiN2FsUzU2cGZHV2RldU1QYmREVHhQczNGRExwUkZxcEFySXJTV1ptaDViTTBlWkFBT2VtM2dPblB6MVZMQQ?oc=5",
       "source": "ABC 10News San Diego",
       "date": "2026-05-18T07:00:00.000Z"
+    },
+    {
+      "title": "L.A. Jewish institution among targets of foiled terrorist attack, U.S. officials say",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTU1JOUd3LS1UWjBhRXNORnEydjRjZGwya1owM0tXcmxHdmVwZ0xSOHRORHlBNkdJQkRvdUhmeFRNSVBSZXRiTllBb2x3c01Lc2JoSHNvZHRNYkhVdlpoWnk1dnR3cFBYR1hjNHpreFJkVDFvc1VSZUNLblI1NUlQb0hYV1V6Y211aDFQUHQ5LUZoS0g3ay1TTGJEc3NwU285WEpSRFFZRXRXd2tyU29xTGkyRmdkQdIBuwFBVV95cUxONlRMS2hHdVZkMTFEYTRXazNXS2tOV3I5YlVlYV9HU2l1bU9xdEtNcDdzc2kwR2VTMVRxOWQzYkJvTjU0Wm1nRWFqOXFWSHh3cDJmTTFCdlJ0MzBndDl5UGUwaU1URDEtcmwzdmpLT09tSTE4RUxFcnZ4NkZabnUzZnZ5YVJDTFFvWnhxOHh6MG1ZclhCdU9IaUdsVUVQZmk4bUVMakVYMml5aEpBQ3J1RzFqZFYwWHY1VjdZ?oc=5",
+      "source": "KTLA",
+      "date": "2026-05-16T07:00:00.000Z"
     },
     {
       "title": "Attack on Jewish man outside Los Angeles synagogue investigated as hate crime",
